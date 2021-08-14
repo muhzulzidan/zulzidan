@@ -1,0 +1,27 @@
+.about{
+
+    display: flex;
+
+    padding: 2em;
+    padding-top: 20vh;
+
+    font-size: calc(1px + 2em);
+    .left{
+        h1{
+            width: 7em;
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+    }
+    .right{
+            width: 110vw;
+            height: 60vh;
+            position: relative;
+        .img{
+                width: 20em;
+                position: absolute;
+                top: -151px;
+                right: -59px;
+        }
+    }
+}
