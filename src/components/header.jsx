@@ -8,7 +8,7 @@ import Hamburger from 'hamburger-react'
 const Header = (childMenu) => {
 
     // make a state for the menu with false
-    const [isOpen, setIsOpen] = useState(true)
+    const [isOpen, setIsOpen] = useState(false)
     
 
     function toggleMenu() {
