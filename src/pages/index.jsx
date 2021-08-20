@@ -1,5 +1,7 @@
 import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
+import { useMediaQuery } from "react-responsive"
+
 import Layout from "../components/layout"
 
 import Html from "../svg/html.svg"
@@ -8,8 +10,14 @@ import SvgReact from "../svg/rasu.svg"
 import Gatsby from "../svg/gatsby.svg"
 import Sass from "../svg/sass.svg"
 
+// import Link from gatsby
+
+import { Link } from "gatsby"
 
 const IndexPage = () => {
+
+  const isTable = useMediaQuery({ query: '(min-width: 767px)' })
+
   return (
     <Layout>
       <title>zulzidan</title>
@@ -30,14 +38,15 @@ const IndexPage = () => {
               <Gatsby />
             </div>
             <div className="button-container">
-              <button className="contact-button">
+              <Link to="/contacts/" className="contact-button">
                 Contact Me
-              </button>
+              </Link>
               <StaticImage src="../images/shadow.png" className="shadow" />
             </div>
           </div>
         </div>
-        < StaticImage src="../images/me.png" alt="muhzulzidan" className="img" />
+        {!isTable ? < StaticImage src="../images/me.png" alt="muhzulzidan" className="img" /> : <StaticImage src="../images/me-tablet.png" alt="muhzulzidan" className="img imgTablet" /> }
+        
 
       </main>
     </Layout>

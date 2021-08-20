@@ -28,7 +28,7 @@ const About = () => {
                         <br />
                         Have an interesting project? <Link style={{
                             color: "#FCD65E"
-                        }} to="/about">Let's talk.</Link>
+                        }} to="/contacts/">Let's talk.</Link>
                     </p>
                 </div>
                 <div className="right">
