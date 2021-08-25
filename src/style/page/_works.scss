@@ -29,6 +29,7 @@
             display: flex;
             justify-content: space-between;
             .button-next, .button-prev{
+                cursor: pointer;
                 background-color: transparent;
                 border: none;
             }
