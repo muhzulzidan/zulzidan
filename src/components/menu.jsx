@@ -11,22 +11,28 @@ class Menu extends React.Component {
             open: false,
         }
     }
-
+    open() {
+        !this.state.open ? this.setState({ open: true }) : this.setState({ open: false })
+    }
+    close() {
+        this.setState({ open: false })
+    }
     render() {
+    
+        console.log(this.location)
         return (
-            <div
-                // role="button"
-                // tabIndex="0"
-                className={`${styles.menu} ${this.state.open ? `${styles.open}` : ""}`}
+            <div className={`${styles.menu} ${this.state.open ? `${styles.open}` : ""}`}
                 // onClick={() => this.close()}
                 // onKeyDown={() => this.close()}
             >
 
                 <ul className={styles.link}>
-                    <li><Link to="/" >Home</Link></li>
-                    <li><Link to="/about" >About</Link></li>
-                    <li><Link to="/works" >Works</Link></li>
-                    <li><Link to="/blogs" >Blogs</Link></li>
+                    {/* <li> <MenuLink >aa</MenuLink> </li> */}
+                    <li><Link to="/" activeClassName={styles.active} onClick={this.open} >Home</Link></li>
+                    <li><Link partiallyActive={true} to="/about" activeClassName={styles.active} onClick={this.open} >About</Link></li>
+                    <li><Link partiallyActive={true} to="/works" activeClassName={styles.active} onClick={this.open} >Works</Link></li>
+                    <li><Link partiallyActive={true} to="/blogs" activeClassName={styles.active} onClick={this.open} >Blogs</Link></li>
+                    <li><Link partiallyActive={true} to="/contacts" activeClassName={styles.active} onClick={this.open} >Contact</Link></li>
                 </ul>
                 <div className={styles.header}>
                     {/* make a link with h1 */}
@@ -36,13 +42,8 @@ class Menu extends React.Component {
         )
     }
 
-    close() {
-        this.setState({ open: false })
-    }
 
-    open() {
-        !this.state.open ? this.setState({ open: true }) : this.setState({ open: false })
-    }
+  
 }
 
 export default React.forwardRef((props, ref) => {

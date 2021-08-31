@@ -39,7 +39,7 @@ const IndexPage = () => {
             </div>
             <div className="button-container">
               <Link to="/contacts/" className="contact-button">
-                Contact Me
+                Contact
               </Link>
               <StaticImage src="../images/shadow.png" className="shadow" />
             </div>

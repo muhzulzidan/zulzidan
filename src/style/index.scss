@@ -22,6 +22,12 @@ a{
 @import "./variable/bp";
 @import "./variable/contact";
 
+// slick
+$slick-font-path: "./slick/slick-carousel/slick/fonts/";
+$slick-loader-path: "./slick/slick-carousel/slick/";
+@import "./slick/slick-theme";
+@import "./slick/slick";
+
 // components
 
 @import "./layout/layout";
