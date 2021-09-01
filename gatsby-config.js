@@ -4,6 +4,16 @@ module.exports = {
     siteUrl: "https://zulzidan.com"
   },
   plugins: [
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        /*
+         * The full URL of the WordPress site's GraphQL API.
+         * Example : 'https://www.example-site.com/graphql'
+         */
+        url: `https://cockpit.muhzulzidan.my.id/graphql`,
+      },
+    },
     "gatsby-plugin-sass",
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-image",

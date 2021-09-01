@@ -7,10 +7,11 @@ import FB from "../svg/facebook.svg"
 import Twitter from "../svg/twitter.svg"
 import IG from "../svg/instagram.svg"
 
-const ContactsPages = () => {
+
+const ContactsPages = (location) => {
     const isTable = useMediaQuery({ query: '(min-width: 767px)' })
     return (
-        <Layout>
+        <Layout location={location}>
             <div className="ContactsPages">
                 <title>Contacts | zulzidan</title>
                 <h1 style={{display:"none"}} >Contacts</h1>

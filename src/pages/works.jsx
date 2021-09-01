@@ -7,9 +7,9 @@ import WorksCarousel from "../components/Works"
 
 
 
-const WorksPage = () => {
+const WorksPage = (location) => {
     return (
-        <Layout>
+        <Layout location={location}>
             <title>Works | zulzidan</title>
             <div className="worksPages">
                 <h1>Works</h1>

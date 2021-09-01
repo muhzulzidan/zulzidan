@@ -43,6 +43,9 @@ $slick-loader-path: "./slick/slick-carousel/slick/";
 @import "./page/blogs";
 @import "./page/contacts";
 
+// template
+@import "./template/blogPost";
+
 
 html {
     background-color: $white-color;

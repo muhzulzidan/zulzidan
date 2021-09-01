@@ -10,6 +10,7 @@ class Menu extends React.Component {
         this.state = {
             open: false,
         }
+        this.open = this.open.bind(this);
     }
     open() {
         !this.state.open ? this.setState({ open: true }) : this.setState({ open: false })
@@ -19,7 +20,7 @@ class Menu extends React.Component {
     }
     render() {
     
-        console.log(this.location)
+        // console.log(this.location)
         return (
             <div className={`${styles.menu} ${this.state.open ? `${styles.open}` : ""}`}
                 // onClick={() => this.close()}

@@ -2,11 +2,8 @@
 
     display: flex;
 
-    padding: 1em 2em;
+    padding: 1em;
     font-size: calc(1px + 2em);
-    .img{
-        display: none;
-    }
     .left{
         font-size: 90%;
         width: 10em;
@@ -19,13 +16,31 @@
     }
     .right{
             width: 110vw;
-            height: 60vh;
+            height: 80vh;
             position: relative;
         .img{
+                display: none;
                 width: 20em;
                 position: absolute;
-                top: -151px;
+                top: -6vh;
                 right: -59px;
+        }
+    }
+}
+
+@include bp("small"){
+    .about{
+
+        padding-left: 5rem;
+        .left{
+            padding-top: 5rem;
+            width: 100%;
+        }
+        .right{
+            overflow: hidden;
+            .img{
+                display: block;
+            }
         }
     }
 }

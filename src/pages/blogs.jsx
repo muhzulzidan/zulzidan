@@ -1,46 +1,15 @@
 import React from 'react'
 import Layout from '../components/layout'
 import { StaticImage, GatsbyImage, getSrc } from "gatsby-plugin-image"
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 // import search svg from svg
 import Search from '../svg/search.svg'
-const BlogsPages = () => {
-    // make a 5 looping function for post
-    const post = [
-        {
-            title: 'Peletakan batu pertama mesjid alfalah',
-                        content: 'peletakan batu pertama mesjid alfalah adalah sebuah momen bersejarah',
-            date: 'September 20, 2019',
-            image: 'https://muhzulzidan.com/static/8c5734c4facec73bb8421fd396e38d1b/b4193/60f0b7ccaf372agnostik-apakah-menentang-fitrah-bertuhan-manusiaWeb-Site.webp'
-        },
-        {
-            title: 'Peletakan batu pertama mesjid alfalah 2',
-            content: 'peletakan batu pertama mesjid alfalah adalah sebuah momen bersejarah',
-            date: 'September 20, 2019',
-            image: 'https://muhzulzidan.com/static/8c5734c4facec73bb8421fd396e38d1b/b4193/60f0b7ccaf372agnostik-apakah-menentang-fitrah-bertuhan-manusiaWeb-Site.webp'
-        },
-        {
-            title: 'Peletakan batu pertama mesjid alfalah 3',
-            content: 'peletakan batu pertama mesjid alfalah adalah sebuah momen bersejarah',
-            date: 'September 20, 2019',
-            image: 'https://muhzulzidan.com/static/8c5734c4facec73bb8421fd396e38d1b/b4193/60f0b7ccaf372agnostik-apakah-menentang-fitrah-bertuhan-manusiaWeb-Site.webp'
-        },
-        {
-            title: 'Peletakan batu pertama mesjid alfalah 4',
-            content: 'peletakan batu pertama mesjid alfalah adalah sebuah momen bersejarah',
-            date: 'September 20, 2019',
-            image: 'https://muhzulzidan.com/static/8c5734c4facec73bb8421fd396e38d1b/b4193/60f0b7ccaf372agnostik-apakah-menentang-fitrah-bertuhan-manusiaWeb-Site.webp'
-        },
-        {   
-            title: 'Peletakan batu pertama mesjid alfalah 5',
-            content: 'peletakan batu pertama mesjid alfalah adalah sebuah momen bersejarah',
-            date: 'September 20, 2019',
-            image: 'https://muhzulzidan.com/static/8c5734c4facec73bb8421fd396e38d1b/b4193/60f0b7ccaf372agnostik-apakah-menentang-fitrah-bertuhan-manusiaWeb-Site.webp'
-        }
-    ]
+
+
+const BlogsPages = ({ data, location },  ) => {
 
     return (
-        <Layout>
+        <Layout location={location}>
             <div className="blogsPages">
                 <title>blogs | zulzidan</title>
                 <h1>Blogs</h1>
@@ -52,24 +21,24 @@ const BlogsPages = () => {
                 </div>
                 <div className="posts">
                     <br />
-                    {/* mapping post */}
-                    {post.map((item, index) => {
+                    {data.allWpPost.nodes.map( node => {
                         return (
-                            <div className="post" key={index}>
-                                <Link to="/">
+                            <div className="post" key={node.id}>
+                                <Link to={`/${node.slug}`}>
                                     <div className="post-image">
                                         {/* <h2>{item.title}</h2> */}
-                                        <img src={item.image} alt="An image" className="img" />
+                                        {/* <img src={node.featuredImage} alt="An image" className="img" /> */}
+                                        <GatsbyImage image={node.featuredImage.node.localFile.childImageSharp.gatsbyImageData} alt="A kitten" className="img"/>
                                     </div>
                                     <div className="post-content">
-                                        <p className="date">{item.date}</p>
-                                        <h2>{item.title}</h2>
+                                        <p className="date">{node.date}</p>
+                                        <h2>{node.title}</h2>
                                     </div>
                                 </Link>
                             </div>
                         )
                     })}
-                    <button className="loadMore">
+                    <button className="loadMore" style={{display:"none"}}>
                         Load More
                     </button>
                 </div>
@@ -80,3 +49,26 @@ const BlogsPages = () => {
 
 export default BlogsPages
 
+export const pageQuery = graphql`
+  query {
+    allWpPost(sort: { fields: [date] }) {
+      nodes {
+        id
+        title
+        excerpt
+        slug
+        date(formatString: "DD, MMMM YYYY") 
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

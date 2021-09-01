@@ -3,9 +3,9 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from '../components/layout'
 
-const About = () => {
+const About = (location) => {
     return (
-        <Layout>
+        <Layout location={location}>
             <div className="about">
                 <div className="left" >
                     <h1>
