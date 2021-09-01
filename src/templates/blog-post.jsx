@@ -3,11 +3,11 @@ import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import { GatsbyImage } from 'gatsby-plugin-image';
 import Seo from 'gatsby-plugin-wpgraphql-seo';
-export default function BlogPost({ data }) {
+export default function BlogPost({ data, location }) {
     const post = data.allWpPost.nodes[0]
     console.log(post)
     return (
-        <Layout>
+        <Layout location={location}>
             {/* <Seo post={wpPage} /> */}
 
             <div className="blogPost">
