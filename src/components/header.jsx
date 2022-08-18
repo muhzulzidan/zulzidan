@@ -30,6 +30,7 @@ const Header = (childMenu) => {
                     <li><Link to="/about" >About</Link></li>
                     <li><Link to="/works" >Works</Link></li>
                     <li><Link to="/blogs" >Blogs</Link></li>
+                    <li><Link to="/links" >Links</Link></li>
                 </ul>
                 <button>
                     Contacts

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-
+import { StaticImage } from "gatsby-plugin-image";
 import Arrow from "../svg/arrow.svg"
+// import "../images/works/islamtshirt.png"
 
 export default class PreviousNextMethods extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ export default class PreviousNextMethods extends Component {
   previous() {
     this.slider.slickPrev();
   }
-  
+
   render() {
     const settings = {
       dots: true,
@@ -30,22 +31,19 @@ export default class PreviousNextMethods extends Component {
       <div className={className}>
         <Slider ref={c => (this.slider = c)} {...settings}>
           <div key={1}>
-            <h3>1</h3>
+            <a href="https://islamtshirt.com/">
+              <StaticImage src="../images/works/islamtshirt.png" />
+            </a>
           </div>
           <div key={2}>
-            <h3>2</h3>
+            <a href="https://gatsby-directus-starter.netlify.app">
+              <StaticImage src="../images/works/directus.png" />
+            </a>
           </div>
           <div key={3}>
-            <h3>3</h3>
-          </div>
-          <div key={4}>
-            <h3>4</h3>
-          </div>
-          <div key={5}>
-            <h3>5</h3>
-          </div>
-          <div key={6}>
-            <h3>6</h3>
+            <a href="https://bonekurir.netlify.app/">
+              <StaticImage src="../images/works/bonekurir.png" />
+            </a>
           </div>
         </Slider>
         <div className="arrowContrainer">

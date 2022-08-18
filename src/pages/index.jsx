@@ -1,7 +1,7 @@
 import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import { useMediaQuery } from "react-responsive"
-
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 
 import Html from "../svg/html.svg"
@@ -15,7 +15,7 @@ import WorksCarousel from "../components/Works"
 
 import { Link } from "gatsby"
 
-const IndexPage = (location) => {
+const IndexPage = ({ data, location }) => {
 
   const isTable = useMediaQuery({ query: '(min-width: 767px)' })
   const isLaptop = useMediaQuery({ query: '(min-width: 992px)' })
@@ -29,9 +29,9 @@ const IndexPage = (location) => {
           <div className="content">
             <div>
               <h1>
-                my name is <br /> 
+                my name is <br />
                 <span>Muhammad Zulzidan M </span>
-                <br/> an indonesian web developer
+                <br /> Digital Marketer, Web Developer, and a weebs.
               </h1>
               <div className="icons-svg">
                 <Html />
@@ -48,8 +48,8 @@ const IndexPage = (location) => {
               </div>
             </div>
           </div>
-          
-          {isLaptop ? (<StaticImage src="../images/me.png" alt="muhzulzidan" className="img imgLaptop" />) : (!isTable ? < StaticImage src="../images/me.png" alt="muhzulzidan" className="img" /> : <StaticImage src="../images/me-tablet.png" alt="muhzulzidan" className="img imgTablet" /> )
+
+          {isLaptop ? (<StaticImage src="../images/me.png" alt="muhzulzidan" className="img imgLaptop" />) : (!isTable ? < StaticImage src="../images/me.png" alt="muhzulzidan" className="img" /> : <StaticImage src="../images/me-tablet.png" alt="muhzulzidan" className="img imgTablet" />)
           }
         </div>
 
@@ -63,16 +63,34 @@ const IndexPage = (location) => {
           <p>i also love to write to share my knowladge about my own industry.</p>
           <div className="newest">
             <p>Newest Blog Posts :</p>
-            <ul>
-              <li>peletakan batu pertama mesjid alfalah </li>
-              <li>Agnostik, Apakah Menentang Fitrah Bertuhan Manusia? </li>
-              <li>Memaknai Kematian Dari Sudut Pandang Luffy (One Piece) </li>
-            </ul>
+            {data.allWpPost.nodes.map(node => {
+              return (
+                <ul className="post" key={node.id}>
+                  <Link to={`/${node.slug}`}>
+                    <li>{node.title}</li>
+                  </Link>
+                </ul>
+              )
+            })}
           </div>
         </div>
       </main>
     </Layout>
   )
 }
+
+export const pageQuery = graphql`
+  query IndexPage {
+    allWpPost(sort: { fields: [date] }) {
+        nodes {
+          id
+          title
+          excerpt
+          slug
+          date(formatString: "DD, MMMM YYYY") 
+      }
+    }
+  }
+`
 
 export default IndexPage

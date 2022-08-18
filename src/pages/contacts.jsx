@@ -2,10 +2,10 @@ import React from 'react'
 import { useMediaQuery } from "react-responsive"
 import Layout from '../components/layout'
 import MailTo from '../components/MailTo'
-
-import FB from "../svg/facebook.svg"
-import Twitter from "../svg/twitter.svg"
-import IG from "../svg/instagram.svg"
+import SosialMedia from '../components/sosialMedia'
+// import FB from "../svg/facebook.svg"
+// import Twitter from "../svg/twitter.svg"
+// import IG from "../svg/instagram.svg"
 
 
 const ContactsPages = (location) => {
@@ -22,9 +22,7 @@ const ContactsPages = (location) => {
                 <div className="findMe">
                     <h2>Find me on :</h2>
                     <div className="iconContainer">
-                        <IG />
-                        <FB />
-                        <Twitter />
+                        <SosialMedia />
                     </div>
                 </div>
             </div>

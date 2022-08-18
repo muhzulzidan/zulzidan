@@ -7,10 +7,6 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        /*
-         * The full URL of the WordPress site's GraphQL API.
-         * Example : 'https://www.example-site.com/graphql'
-         */
         url: `https://cockpit.muhzulzidan.my.id/graphql`,
       },
     },
@@ -23,6 +19,15 @@ module.exports = {
     //     trackingId: "276780816",
     //   },
     // },
+    {
+		resolve: `gatsby-source-notion-api`,
+		options: {
+      token: `secret_6zX9QHNfNj7z684P9C7Gqt5JqEDFLFRRHH0Q83Cxzi3`,
+      databaseId: `2ed3fcf4dd13409089a7ed229b988c38`,
+			propsToFrontmatter: true,
+			lowerTitleLevel: true,
+		},
+	},
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {

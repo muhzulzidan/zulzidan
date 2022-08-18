@@ -1,10 +1,13 @@
 import React from 'react'
 import { useMediaQuery } from "react-responsive"
 import MailTo from '../components/MailTo'
+import SosialMedia from '../components/sosialMedia'
 
 import FB from "../svg/facebook.svg"
 import Twitter from "../svg/twitter.svg"
 import IG from "../svg/instagram.svg"
+
+
 const Footer = () => {
     const isTable = useMediaQuery({ query: '(min-width: 767px)' })
     return (
@@ -19,9 +22,10 @@ const Footer = () => {
                 <div className="findMe">
                     <h2>Find me on :</h2>
                     <div className="iconContainer">
-                        <IG />
+                        {/* <IG />
                         <FB />
-                        <Twitter />
+                        <Twitter /> */}
+                        <SosialMedia />
                     </div>
                 </div>
             </div>
