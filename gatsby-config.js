@@ -13,6 +13,18 @@ module.exports = {
     "gatsby-plugin-sass",
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-image",
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-Z20EKSD90B", // Google Analytics / GA
+        ],
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: true
+        },
+      },
+    },
     // {
     //   resolve: "gatsby-plugin-google-analytics",
     //   options: {
