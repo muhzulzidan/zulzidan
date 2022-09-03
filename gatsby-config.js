@@ -10,7 +10,13 @@ module.exports = {
         url: `https://cockpit.muhzulzidan.my.id/graphql`,
       },
     },
-    "gatsby-plugin-sass",
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        // Configure SASS to process Tailwind
+        postCssPlugins: [require('tailwindcss')],
+      },
+    },
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-image",
     {
@@ -19,9 +25,16 @@ module.exports = {
         trackingIds: [
           "G-Z20EKSD90B", // Google Analytics / GA
         ],
+        gtagConfig: {
+          anonymize_ip: true,
+          cookie_expires: 0,
+
+        },
         pluginConfig: {
-          // Puts tracking script in the head instead of the body
-          head: true
+          head: true,
+          respectDNT: true,
+          origin: "zulzidan.com",
+
         },
       },
     },
@@ -32,14 +45,14 @@ module.exports = {
     //   },
     // },
     {
-		resolve: `gatsby-source-notion-api`,
-		options: {
-      token: `secret_6zX9QHNfNj7z684P9C7Gqt5JqEDFLFRRHH0Q83Cxzi3`,
-      databaseId: `2ed3fcf4dd13409089a7ed229b988c38`,
-			propsToFrontmatter: true,
-			lowerTitleLevel: true,
-		},
-	},
+      resolve: `gatsby-source-notion-api`,
+      options: {
+        token: `secret_6zX9QHNfNj7z684P9C7Gqt5JqEDFLFRRHH0Q83Cxzi3`,
+        databaseId: `2ed3fcf4dd13409089a7ed229b988c38`,
+        propsToFrontmatter: true,
+        lowerTitleLevel: true,
+      },
+    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {
@@ -71,9 +84,10 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /svg/ 
+          include: /svg/
         }
       }
     },
+    'gatsby-plugin-postcss',
   ],
 };

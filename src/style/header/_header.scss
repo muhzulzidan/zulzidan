@@ -1,4 +1,3 @@
-
 .header {
     z-index: 10;
     position: fixed;
@@ -6,7 +5,8 @@
     width: 100%;
     border-bottom: 1px solid rgb(237, 242, 249);
     backdrop-filter: saturate(180%) blur(20px);
-    .MenuButton{
+
+    .MenuButton {
         background-color: transparent;
         border: none;
         padding-left: 2em;
@@ -14,45 +14,64 @@
         transform: translateY(0px);
         z-index: 12;
     }
-    .menuOpen{
+
+    .menuOpen {
         position: absolute;
         right: 3em;
     }
-    .hamburger-react{
+
+    .hamburger-react {
         z-index: 13;
     }
-    .nav{
+
+    .nav {
         display: none;
     }
 }
 
-@include bp("small"){
+@include bp("small") {
     .header {
-        .MenuButton{
-                display: none;
+        .MenuButton {
+            display: none;
         }
-        .menuOpen{
+
+        .menuOpen {
             position: absolute;
             right: 3em;
         }
-        .hamburger-react{
+
+        .hamburger-react {
             z-index: 13;
         }
-        .nav{
+
+        .nav {
             display: flex;
             padding: 1em;
             justify-content: space-between;
             font-size: 1em;
             font-weight: 700;
             padding-left: 5em;
-            padding-right: 4em;            
-            ul{
+            padding-right: 4em;
+
+            ul {
                 display: flex;
                 align-self: center;
                 justify-content: space-between;
                 width: 20em;
             }
-            button{
+
+
+            .contacts {
+                color: white;
+                border-color: white;
+            }
+
+            .black {
+                color: black;
+                border-color: black;
+            }
+
+            button {
                 border: 0;
                 padding: 1em;
                 border: 1px solid $black-color;

@@ -1,34 +1,55 @@
 .footer {
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     align-items: center;
     background: black;
     color: white;
     border-top-right-radius: 1em;
     border-top-left-radius: 1em;
     margin-top: 4em;
-    .ContactsPages{
-        padding: 2rem;
-        padding-top: 4em;
-        padding-bottom: 2em;
-        p{
+
+    h2 {
+        font-weight: 900;
+        font-size: calc(1px + 2.5rem);
+
+    }
+
+    p {
+        font-size: calc(1px + 1.4rem);
+        margin-top: 3em;
+        color: #FCD65E;
+    }
+
+    input{
+        font-size: calc(1px + 1.4rem);
+    }
+
+    .ContactsPages {
+        // padding: 2rem;
+        p {
             margin-top: 2em;
         }
-        .findMe{
+
+        .findMe {
             margin-top: 1em;
         }
-        a:nth-child(2), a:nth-child(1){
-            path{
+
+        a:nth-child(2),
+        a:nth-child(1) {
+            path {
                 fill: white;
             }
+
             stroke: white;
         }
+
         a:nth-child(3) {
-            svg{
+            svg {
                 fill: white;
             }
         }
     }
+
     .contact {
         font-size: 2em;
         width: 50%;
@@ -44,4 +65,9 @@
         @include contact;
         font-size: 1.5em;
     }
+
+    // .subscribe{
+    //     justify-content: space-around;
+    //     display: flex;
+    // }
 }

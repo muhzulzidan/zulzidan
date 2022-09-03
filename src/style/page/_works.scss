@@ -1,44 +1,126 @@
-.worksPages{
+.worksPages {
 
     display: flex;
     flex-direction: column;
     padding: 1em;
     font-size: calc(1px + 2em);
-    .WorksCarousel{
+
+    .WorksCarousel {
         display: flex;
         flex-direction: column;
+
         .slick-slider {
             margin-top: 1em;
             margin-bottom: 2em;
-            div{
+
+            div {
                 // background-color: orange;
                 // height: 30vh;
-                // border-radius: 1em;
+                // height: 20rem;
+                border-radius: 1em;
+                padding: 0.5rem;
                 display: flex;
                 justify-content: center;
 
                 .slick-slide {
-                    div{
+                    >div {
+                        position: relative;
+                    }
+
+                    div {
                         display: flex !important;
                         align-items: center;
+                        height: 25rem;
+
+                        .hide {
+                            display: none;
+                            z-index: 5;
+                            position: absolute;
+                            top: 42%;
+                            left: 15%;
+                            margin-left: auto;
+                            margin-right: auto;
+                            color: white;
+                        }
+
+                        a {
+                            div {
+                                border: 4px solid black;
+                            }
+
+                            &:hover {
+
+                                div {
+                                    // opacity: .5;
+                                    background-color: black;
+                                    -webkit-filter: brightness(50%);
+                                    -webkit-transition: all .5s ease;
+                                    -moz-transition: all .5s ease;
+                                    -o-transition: all .5s ease;
+                                    -ms-transition: all .5s ease;
+                                    transition: all .5s ease;
+
+                                }
+
+                                .hide {
+                                    display: flex;
+                                    opacity: 1;
+                                    -webkit-transition: all .5s ease;
+                                    -moz-transition: all .5s ease;
+                                    -o-transition: all .5s ease;
+                                    -ms-transition: all .5s ease;
+                                    transition: all .5s ease;
+
+                                }
+
+                            }
+                        }
                     }
                 }
             }
         }
-        .arrowContrainer{
+
+        .arrowContrainer {
             display: flex;
             justify-content: space-between;
-            .button-next, .button-prev{
+
+            .button-next,
+            .button-prev {
                 cursor: pointer;
                 background-color: transparent;
                 border: none;
             }
-            .button-prev{
-                svg{
+
+            .button-prev {
+                svg {
                     transform: rotate(180deg);
                 }
             }
         }
 
+    }
+}
+
+@include bp("small") {
+    .worksPages {
+        padding-left: 5rem;
+
+        h2 {
+            font-size: 3rem;
+        }
+
+
+
+        .WorksCarousel {
+            .slick-slider {
+                margin-bottom: 2rem;
+            }
+
+            .arrowContrainer {
+                padding-left: 3rem;
+                gap: 5rem;
+                justify-content: flex-start;
+            }
+        }
     }
 }
