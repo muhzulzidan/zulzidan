@@ -43,9 +43,13 @@ const IndexPage = ({ data, location }) => {
                 <Gatsby />
               </div>
               <div className="button-container">
-                <Link to="/contacts/" className="contact-button">
+                <a
+                  href="https://api.whatsapp.com/send?phone=6281354789375&text=halo%20saya"
+                  // to="/contacts/"
+                  className="contact-button"
+                >
                   Contact
-                </Link>
+                </a>
                 <StaticImage
                   src="../images/shadow.png"
                   alt="shadow"

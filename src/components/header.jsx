@@ -45,24 +45,48 @@ const Header = (childMenu) => {
         <nav className="nav">
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link partiallyActive={true} activeClassName={"active"} to="/">
+                Home
+              </Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link
+                partiallyActive={true}
+                activeClassName={"active"}
+                to="/about"
+              >
+                About
+              </Link>
             </li>
             <li>
-              <Link to="/works">Works</Link>
+              <Link
+                partiallyActive={true}
+                activeClassName={"active"}
+                to="/works"
+              >
+                Works
+              </Link>
             </li>
             <li>
-              <Link to="/blogs">Blogs</Link>
+              <Link
+                partiallyActive={true}
+                activeClassName={"active"}
+                to="/blogs"
+              >
+                Blogs
+              </Link>
             </li>
             <li>
-              <Link to="/links">Links</Link>
+              <Link
+                partiallyActive={true}
+                activeClassName={"active"}
+                to="/links"
+              >
+                Links
+              </Link>
             </li>
           </ul>
-          <button className={`contacts ${show && "black"}`}>
-            Contacts
-          </button>
+          <button className={`contacts ${show && "black"}`}>Contacts</button>
         </nav>
       </header>
     );
