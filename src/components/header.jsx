@@ -29,7 +29,6 @@ const Header = (childMenu) => {
         setIsOpen(!isOpen);
     }
 
-    // console.log(show)
 
     return (
       <header className="header">
@@ -45,7 +44,10 @@ const Header = (childMenu) => {
         <nav className="nav">
           <ul>
             <li>
-              <Link partiallyActive={true} activeClassName={"active"} to="/">
+              <Link
+                activeClassName={"active"}
+                to="/"
+              >
                 Home
               </Link>
             </li>

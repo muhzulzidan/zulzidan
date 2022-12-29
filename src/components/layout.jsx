@@ -1,108 +1,71 @@
-import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby';
-import { SEOContext } from 'gatsby-plugin-wpgraphql-seo';
-import Header from "./header"
-import Footer from "./footer"
+import React from "react";
+import { GatsbySeo } from "gatsby-plugin-next-seo";
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 
-const Layout = ({children, location}) => {
-    // console.log(location.pathname)
+import Header from "./header";
+import Footer from "./footer";
 
-    // check if the pathname from an array of paths
-    // if it is in the array, then display the footer 
-    // else, don't display the footer
-    const paths = ['/', '/about', '/about/', '/blogs', '/blogs/' , '/works', '/works/' ]
-    // check if the location.location is not empty
-    // const showFooter = paths.includes(location.location.pathname)
-    // if location is empty, then use location.location
-   const showFooter = location.location ? paths.includes(location.location.pathname) : paths.includes(location.pathname)
-    
-    const {
-        wp: { seo },
-    } = useStaticQuery(graphql`
-        query SiteInfoQuery {
-            wp {
-                seo {
-                    contentTypes {
-                        post {
-                            title
-                            schemaType
-                            metaRobotsNoindex
-                            metaDesc
-                        }
-                        page {
-                            metaDesc
-                            metaRobotsNoindex
-                            schemaType
-                            title
-                        }
-                    }
-                    webmaster {
-                        googleVerify
-                        yandexVerify
-                        msVerify
-                        baiduVerify
-                    }
-                    schema {
-                        companyName
-                        personName
-                        companyOrPerson
-                        wordpressSiteName
-                        siteUrl
-                        siteName
-                        inLanguage
-                        logo {
-                            sourceUrl
-                            mediaItemUrl
-                            altText
-                        }
-                    }
-                    social {
-                        facebook {
-                            url
-                            defaultImage {
-                                sourceUrl
-                                mediaItemUrl
-                            }
-                        }
-                        instagram {
-                            url
-                        }
-                        linkedIn {
-                            url
-                        }
-                        mySpace {
-                            url
-                        }
-                        pinterest {
-                            url
-                            metaTag
-                        }
-                        twitter {
-                            username
-                        }
-                        wikipedia {
-                            url
-                        }
-                        youTube {
-                            url
-                        }
-                    }
-                }
-            }
-        }
-    `);
+const Layout = ({ title, pathname, children, location }) => {
+  const paths = [
+    "/",
+    "/about",
+    "/about/",
+    "/blogs",
+    "/blogs/",
+    "/works",
+    "/works/",
+  ];
+  const showFooter = location.location
+    ? paths.includes(location.location.pathname)
+    : paths.includes(location.pathname);
 
-    
-    return (
-         <SEOContext.Provider value={{ global: seo }}>
-            <div className="layout" >
-                <Header />
-                {children}
-                {showFooter && <Footer />}
-            </div>
-        </SEOContext.Provider>
-        
-    )
-}
+  const { title: defaultTitle, siteUrl } = useSiteMetadata();
+  const seo = {
+    title: title || defaultTitle,
+    // description: description || defaultDescription,
+    // image: `${siteUrl}${image}`,
+    url: `${siteUrl}${pathname || ``}`,
+    // twitterUsername,
+  };
+  return (
+    <div className="layout">
+      <GatsbySeo
+        title="Using More of Config"
+        description="This example uses more of the available config options."
+        canonical="https://www.canonical.ie/"
+        openGraph={{
+          url: "https://www.url.ie/a",
+          title: "Open Graph Title",
+          description: "Open Graph Description",
+          images: [
+            {
+              url: "https://www.example.ie/og-image-01.jpg",
+              width: 800,
+              height: 600,
+              alt: "Og Image Alt",
+            },
+            {
+              url: "https://www.example.ie/og-image-02.jpg",
+              width: 900,
+              height: 800,
+              alt: "Og Image Alt Second",
+            },
+            { url: "https://www.example.ie/og-image-03.jpg" },
+            { url: "https://www.example.ie/og-image-04.jpg" },
+          ],
+          site_name: "SiteName",
+        }}
+        twitter={{
+          handle: "@handle",
+          site: "@site",
+          cardType: "summary_large_image",
+        }}
+      />
+      <Header />
+      {children}
+      {showFooter && <Footer />}
+    </div>
+  );
+};
 
-export default Layout
+export default Layout;

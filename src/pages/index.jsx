@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import { useMediaQuery } from "react-responsive";
 import { graphql } from "gatsby";
@@ -20,8 +20,7 @@ const IndexPage = ({ data, location }) => {
 
 
   const isTable = useMediaQuery({ query: "(min-width: 767px)" });
-  const isLaptop = useMediaQuery({ query: "(min-width: 992px)" });
-
+  
   return (
     <Layout location={location}>
       <title>zulzidan</title>
@@ -98,7 +97,13 @@ const IndexPage = ({ data, location }) => {
           </p>
           <div className="newest">
             <p>Newest Blog Posts :</p>
-            {data.allWpPost.nodes.map((node) => {
+            <ul className="post" >
+             <li>
+               <a href="https://muhzulzidan.com/teknologi/">muhzulzidan.com/teknologi</a>
+             </li>
+            </ul>
+            
+            {/* {data.allWpPost.nodes.map((node) => {
               return (
                 <ul className="post" key={node.id}>
                   <Link to={`/${node.slug}`}>
@@ -106,7 +111,7 @@ const IndexPage = ({ data, location }) => {
                   </Link>
                 </ul>
               );
-            })}
+            })} */}
           </div>
         </div>
       </main>
@@ -114,18 +119,18 @@ const IndexPage = ({ data, location }) => {
   );
 };
 
-export const pageQuery = graphql`
-  query IndexPage {
-    allWpPost(sort: { fields: [date] }) {
-      nodes {
-        id
-        title
-        excerpt
-        slug
-        date(formatString: "DD, MMMM YYYY")
-      }
-    }
-  }
-`;
+// export const pageQuery = graphql`
+//   query IndexPage {
+//     allWpPost(sort: { fields: [date] }) {
+//       nodes {
+//         id
+//         title
+//         excerpt
+//         slug
+//         date(formatString: "DD, MMMM YYYY")
+//       }
+//     }
+//   }
+// `;
 
 export default IndexPage;

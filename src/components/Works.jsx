@@ -46,7 +46,7 @@ export default class PreviousNextMethods extends Component {
     let settings;
     if (device) {
       settings = settingsPhone;
-    }else {
+    } else {
       settings = settingTablet;
     }
     // console.log(device);
@@ -55,21 +55,56 @@ export default class PreviousNextMethods extends Component {
       <div className={className}>
         <Slider ref={(c) => (this.slider = c)} {...settings}>
           <div key={1}>
-            <a href="https://islamtshirt.com/">
-              <StaticImage src="../images/works/islamtshirt.png" />
+            <a
+              href="https://islamtshirt.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <StaticImage
+                src="../images/works/islamtshirt.png"
+                alt="islamtshirt"
+              />
               <h3 className="hide">islamtshirt.com</h3>
             </a>
           </div>
-          <div key={2}>
-            <a href="https://gatsby-directus-starter.netlify.app">
-              <StaticImage src="../images/works/directus.png" />
-              <h3 className="hide">directus Starter</h3>
+
+          <div key={3}>
+            <a
+              href="https://bonekurir.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <StaticImage
+                src="../images/works/bonekurir.png"
+                alt="bonekurir"
+              />
+              <h3 className="hide">bonekurir Landing Page</h3>
             </a>
           </div>
-          <div key={3}>
-            <a href="https://bonekurir.netlify.app/">
-              <StaticImage src="../images/works/bonekurir.png" />
-              <h3 className="hide">bonekurir Landing Page</h3>
+          <div key={4}>
+            <a
+              href="https://institutindonesia.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <StaticImage
+                src="../images/works/institutindonesia.png"
+                alt="institut indonesia"
+              />
+              <h3 className="hide">institutindonesia</h3>
+            </a>
+          </div>
+          <div key={2}>
+            <a
+              href="https://gatsby-directus-starter.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <StaticImage
+                src="../images/works/directus.png"
+                alt="directus starter"
+              />
+              <h3 className="hide">directus Starter</h3>
             </a>
           </div>
         </Slider>

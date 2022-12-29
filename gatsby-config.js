@@ -4,12 +4,12 @@ module.exports = {
     siteUrl: "https://zulzidan.com"
   },
   plugins: [
-    {
-      resolve: `gatsby-source-wordpress`,
-      options: {
-        url: `https://cockpit.muhzulzidan.my.id/graphql`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-wordpress`,
+    //   options: {
+    //     url: `https://cockpit.muhzulzidan.my.id/graphql`,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-sass`,
       options: {
@@ -17,6 +17,7 @@ module.exports = {
         postCssPlugins: [require('tailwindcss')],
       },
     },
+    'gatsby-plugin-next-seo',
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-image",
     {
