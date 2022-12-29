@@ -1,5 +1,5 @@
 import React from "react";
-import { GatsbySeo } from "gatsby-plugin-next-seo";
+// import { GatsbySeo } from "gatsby-plugin-next-seo";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 import Header from "./header";
@@ -29,7 +29,7 @@ const Layout = ({ title, pathname, children, location }) => {
   };
   return (
     <div className="layout">
-      <GatsbySeo
+      {/* <GatsbySeo
         title="Using More of Config"
         description="This example uses more of the available config options."
         canonical="https://www.canonical.ie/"
@@ -60,7 +60,7 @@ const Layout = ({ title, pathname, children, location }) => {
           site: "@site",
           cardType: "summary_large_image",
         }}
-      />
+      /> */}
       <Header />
       {children}
       {showFooter && <Footer />}

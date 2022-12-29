@@ -17,7 +17,7 @@ module.exports = {
         postCssPlugins: [require('tailwindcss')],
       },
     },
-    'gatsby-plugin-next-seo',
+    // 'gatsby-plugin-next-seo',
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-image",
     {
