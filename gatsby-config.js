@@ -1,9 +1,22 @@
+
 module.exports = {
   siteMetadata: {
     title: "zulzidan",
-    siteUrl: "https://zulzidan.com"
+    siteUrl: "https://zulzidan.com",
+    description: "Layanan pembuatan website profesional yang disesuaikan dengan kebutuhan Anda. Dapatkan website yang menarik dan fungsional yang mewakili bisnis Anda.",
+    author: "zulzidan",
+    twitterUsername: "@muhzulzidan",
+    image: "static/meCircle.png",
   },
   plugins: [
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `7txs81scyd71`,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: "PbLKQETwvix25xdvs-ocAYv-QxGYDwkVKOf0kvoDPgo",
+      },
+    },
     // {
     //   resolve: `gatsby-source-wordpress`,
     //   options: {
@@ -54,12 +67,12 @@ module.exports = {
         lowerTitleLevel: true,
       },
     },
-    "gatsby-plugin-react-helmet",
+    // "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
+        icon: "static/icon.png",
       },
     },
     "gatsby-transformer-remark",

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from '../components/layout'
-
+import {SEO} from '../components/seo';
 const About = (location) => {
     return (
         <Layout location={location}>
@@ -31,12 +31,20 @@ const About = (location) => {
                         }} to="/contacts/">Let's talk.</Link>
                     </p>
                 </div>
-                <div className="right">
-                    <StaticImage src="../images/meFull.png" alt="zulzdn" className="img" />
-                </div>
+                {/* <div className="right w-1/2 ml-8 relative -mr-4 ">
+                    <StaticImage src="../images/aboutImage.png" alt="zulzdn" className="img absolute top-[10vh]" />
+                </div> */}
             </div>
         </Layout>
     )
 }
 
 export default About
+
+
+
+export function Head({ location }) {
+    return (
+        <SEO title={"zulzidan, jasa pembuatan web, Digital Marketer, Web Developer, and a weebs."} pathname={location.pathname} />
+    )
+}

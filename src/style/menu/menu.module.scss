@@ -22,6 +22,7 @@ body{
   transition: all 0.35s;
 
   .header{
+    position: absolute;
     display: flex;
     padding-top: 4rem;
     padding-right: 2rem;
@@ -38,6 +39,7 @@ body{
     }
   }
   .link{
+    position: absolute;
     display: flex;
     flex-direction: column;
     padding-left: 2rem;

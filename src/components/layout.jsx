@@ -1,7 +1,7 @@
 import React from "react";
 // import { GatsbySeo } from "gatsby-plugin-next-seo";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
-
+import { SEO } from "./seo";
 import Header from "./header";
 import Footer from "./footer";
 
@@ -29,6 +29,8 @@ const Layout = ({ title, pathname, children, location }) => {
   };
   return (
     <div className="layout">
+      {console.log(title)}
+      {/* <SEO title={title} pathname={pathname}  /> */}
       {/* <GatsbySeo
         title="Using More of Config"
         description="This example uses more of the available config options."
@@ -67,5 +69,7 @@ const Layout = ({ title, pathname, children, location }) => {
     </div>
   );
 };
+
+
 
 export default Layout;

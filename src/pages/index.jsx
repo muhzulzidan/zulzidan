@@ -3,7 +3,7 @@ import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import { useMediaQuery } from "react-responsive";
 import { graphql } from "gatsby";
-import Layout from "../components/layout";
+import Layout  from "../components/layout";
 
 import Html from "../svg/html.svg";
 import Css from "../svg/css.svg";
@@ -15,6 +15,7 @@ import WorksCarousel from "../components/Works";
 // import Link from gatsby
 
 import { Link } from "gatsby";
+import { SEO } from "../components/seo";
 
 const IndexPage = ({ data, location }) => {
 
@@ -23,7 +24,7 @@ const IndexPage = ({ data, location }) => {
   
   return (
     <Layout location={location}>
-      <title>zulzidan</title>
+
       <main className="index-page">
         <div className="home">
           <div className="black-div" />
@@ -93,7 +94,7 @@ const IndexPage = ({ data, location }) => {
         <div className="worksPages blogs">
           <h2>Blogs</h2>
           <p>
-            i also love to write to share my knowladge about my own industry.
+            i also love to write & share my knowledge about my tech.
           </p>
           <div className="newest">
             <p>Newest Blog Posts :</p>
@@ -103,15 +104,7 @@ const IndexPage = ({ data, location }) => {
              </li>
             </ul>
             
-            {/* {data.allWpPost.nodes.map((node) => {
-              return (
-                <ul className="post" key={node.id}>
-                  <Link to={`/${node.slug}`}>
-                    <li>{node.title}</li>
-                  </Link>
-                </ul>
-              );
-            })} */}
+
           </div>
         </div>
       </main>
@@ -119,18 +112,13 @@ const IndexPage = ({ data, location }) => {
   );
 };
 
-// export const pageQuery = graphql`
-//   query IndexPage {
-//     allWpPost(sort: { fields: [date] }) {
-//       nodes {
-//         id
-//         title
-//         excerpt
-//         slug
-//         date(formatString: "DD, MMMM YYYY")
-//       }
-//     }
-//   }
-// `;
+
+
 
 export default IndexPage;
+
+export function Head({location}) {
+  return (
+    <SEO title={"zulzidan, jasa pembuatan web"} pathname={location.pathname} description={" beberapa hal yang menggambarkan zulzidan adalah pembuatan web, jasa pembuatan web di Bone, seorang Digital Marketer serta seorang Web Developer, semoga kita bisa membuat sesuatu yang luar biasa bersama."} />
+  )
+}

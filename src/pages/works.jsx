@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/layout'
 import Slider from "react-slick";
-
+import {SEO} from '../components/seo';
 import WorksCarousel from "../components/Works"
 // import WorksCarousel
 
@@ -20,3 +20,10 @@ const WorksPage = (location) => {
 }
 
 export default WorksPage
+
+
+export function Head({ location }) {
+    return (
+        <SEO title={"zulzidan, jasa pembuatan web, Digital Marketer, Web Developer, and a weebs."} pathname={location.pathname} />
+    )
+}

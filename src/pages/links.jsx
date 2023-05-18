@@ -4,6 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import { RWebShare } from "react-web-share";
 import SosialMedia from '../components/sosialMedia'
 import Share from "../svg/share.svg"
+import { SEO } from '../components/seo';
 const Links = ({ data }) => {
     const [show, setShow] = useState(false)
     const controlNavbar = () => {
@@ -81,3 +82,10 @@ export const query = graphql`
 `
 
 export default Links
+
+
+export function Head({ location }) {
+    return (
+        <SEO title={"zulzidan, jasa pembuatan web, Digital Marketer, Web Developer, and a weebs."} pathname={location.pathname} />
+    )
+}
