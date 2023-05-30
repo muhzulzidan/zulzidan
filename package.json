@@ -15,7 +15,9 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.16.5",
     "@fontsource/roboto": "^4.5.8",
+    "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.8",
     "gatsby": "^4.20.0",
     "gatsby-plugin-gatsby-cloud": "^4.20.0",
@@ -42,6 +44,7 @@
     "react-dom": "^18.2.0",
     "react-responsive": "^9.0.0-beta.10",
     "react-slick": "^0.29.0",
+    "react-syntax-highlighter": "^15.5.0",
     "react-web-share": "^1.1.6",
     "sass": "^1.54.4",
     "slick-carousel": "^1.8.1",

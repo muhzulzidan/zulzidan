@@ -1,72 +1,80 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import { BLOCKS } from "@contentful/rich-text-types"
 import Layout from '../components/layout'
+
 const BlogsPage = ({ data, location }) => {
+    const { allContentfulBlog } = data
+    const blogs = allContentfulBlog.nodes
+
+    const options = {
+        renderNode: {
+            [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
+        },
+    }
+
+    const generateExcerpt = (rawContent) => {
+        const content = JSON.parse(rawContent)
+        let plainText = ''
+
+        const extractText = (node) => {
+            if (node.nodeType === 'text') {
+                plainText += node.value.trim() + ' '
+            }
+
+            if (node.content) {
+                node.content.forEach(extractText)
+            }
+        }
+
+        content.content.forEach(extractText)
+
+        plainText = plainText
+            .replace(/\n/g, '') // Remove newlines
+            .replace(/\s+/g, ' ') // Replace multiple whitespaces with a single space
+            .trim()
+
+        const maxLength = 150 // Set the maximum number of characters for the excerpt
+        if (plainText.length <= maxLength) {
+            return plainText
+        }
+        return `${plainText.slice(0, maxLength)}...`
+    }
+
+
     return (
         <Layout location={location}>
-            <section className="pt-10">
-                <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
-                    <a rel="noopener noreferrer" href="#" className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 shadow-lg rounded-lg">
-                        <img src="https://source.unsplash.com/random/480x360" alt="" className="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 " />
-                        <div className="p-6 space-y-2 lg:col-span-5">
-                            <h3 className="text-2xl font-semibold sm:text-4xl group-hover:underline group-focus:underline">{ data.contentfulBlog.title }</h3>
-                            <span className="text-xs ">February 19, 2021</span>
-                            <p>Ei delenit sensibus liberavisse pri. Quod suscipit no nam. Est in graece fuisset, eos affert putent doctus id.</p>
-                        </div>
-                    </a>
-                    <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                        <a rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline shadow-lg">
-                            <img role="presentation" className="object-cover w-full rounded h-44 " src="https://source.unsplash.com/random/480x360?1" />
-                            <div className="p-6 space-y-2">
-                                <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">In usu laoreet repudiare legendos</h3>
-                                <span className="text-xs ">January 21, 2021</span>
-                                <p>Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.</p>
-                            </div>
-                        </a>
-                        <a rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline shadow-lg">
-                            <img role="presentation" className="object-cover w-full rounded h-44 " src="https://source.unsplash.com/random/480x360?2" />
-                            <div className="p-6 space-y-2">
-                                <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">In usu laoreet repudiare legendos</h3>
-                                <span className="text-xs ">January 22, 2021</span>
-                                <p>Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.</p>
-                            </div>
-                        </a>
-                        <a rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline    shadow-lg rounded-lg">
-                            <img role="presentation" className="object-cover w-full rounded h-44 " src="https://source.unsplash.com/random/480x360?3" />
-                            <div className="p-6 space-y-2">
-                                <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">In usu laoreet repudiare legendos</h3>
-                                <span className="text-xs ">January 23, 2021</span>
-                                <p>Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.</p>
-                            </div>
-                        </a>
-                        <a rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline  hidden sm:block   shadow-lg rounded-lg">
-                            <img role="presentation" className="object-cover w-full rounded h-44 " src="https://source.unsplash.com/random/480x360?4" />
-                            <div className="p-6 space-y-2">
-                                <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">In usu laoreet repudiare legendos</h3>
-                                <span className="text-xs ">January 24, 2021</span>
-                                <p>Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.</p>
-                            </div>
-                        </a>
-                        <a rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline  hidden sm:block  shadow-lg rounded-lg">
-                            <img role="presentation" className="object-cover w-full rounded h-44 " src="https://source.unsplash.com/random/480x360?5" />
-                            <div className="p-6 space-y-2">
-                                <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">In usu laoreet repudiare legendos</h3>
-                                <span className="text-xs ">January 25, 2021</span>
-                                <p>Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.</p>
-                            </div>
-                        </a>
-                        <a rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline  hidden sm:block shadow-lg rounded-lg">
-                            <img role="presentation" className="object-cover w-full rounded h-44 " src="https://source.unsplash.com/random/480x360?6" />
-                            <div className="p-6 space-y-2">
-                                <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">In usu laoreet repudiare legendos</h3>
-                                <span className="text-xs ">January 26, 2021</span>
-                                <p>Mei ex aliquid eleifend forensibus, quo ad dicta apeirian neglegentur, ex has tantas percipit perfecto. At per tempor albucius perfecto, ei probatus consulatu patrioque mea, ei vocent delicata indoctum pri.</p>
-                            </div>
-                        </a>
+            <section className="pt-10 lg:px-20 px-12">
+                <div className="container mx-auto space-y-6 sm:space-y-12">
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                        {blogs.map(blog => (
+                            <Link
+                                key={blog.slug}
+                                rel="noopener noreferrer"
+                                href={`/blog/${blog.slug}`}
+                                className="block w-full h-full overflow-hidden bg-white rounded-2xl shadow-lg"
+                            >
+                                <img
+                                    src={blog.featuredMedia.gatsbyImageData.images.fallback.src}
+                                    alt={blog.title}
+                                    className="object-cover w-full h-64 sm:h-48 lg:h-56"
+                                />
+                                <div className="p-6">
+                                    <h3 className="text-xl font-semibold mb-2">
+                                        {blog.title}
+                                    </h3>
+                                    <span className="text-xs text-gray-500">February 19, 2021</span>
+                                    <p className="mt-3 text-sm text-gray-700">{generateExcerpt(blog.content.raw)}</p>
+                                </div>
+                            </Link>
+                        ))}
                     </div>
-                    <div className="flex justify-center">
-                        <button type="button" className="px-6 py-3 text-sm rounded-md hover:underline  ">Load more posts...</button>
-                    </div>
+                    {/* <div className="flex justify-center">
+                        <button type="button" className="px-6 py-3 text-sm rounded-md bg-gray-200 hover:bg-gray-300 focus:bg-gray-300">
+                            Load more posts...
+                        </button>
+                    </div> */}
                 </div>
             </section>
         </Layout>
@@ -75,10 +83,21 @@ const BlogsPage = ({ data, location }) => {
 
 export const query = graphql`
   query BlogPageQuery {
-    contentfulBlog(
-        slug: {eq: "understanding-websites-as-a-developer-a-comprehensive-guide"}
-    ) {
+    allContentfulBlog {
+      nodes {
+        slug
         title
+        content {
+          raw
+        }
+        featuredMedia {
+          gatsbyImageData(
+            layout: CONSTRAINED
+            placeholder: BLURRED
+            formats: [AUTO, WEBP]
+          )
+        }
+      }
     }
   }
 `
