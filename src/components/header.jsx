@@ -35,10 +35,11 @@ const Header = (childMenu) => {
       <Menu ref={(el) => (childMenu = el)} />
       <>
         <button
-          className={`MenuButton ${isOpen ? "menuOpen" : null}`}
+          className={`MenuButton ${isOpen ? "menuOpen" : ""}`}
           onClick={() => toggleMenu()}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
         >
-          <Hamburger toggled={isOpen} />
+          <Hamburger role="button" aria-labelledby="Open menu" toggled={isOpen} />
         </button>
       </>
       <nav className="nav">
@@ -55,7 +56,7 @@ const Header = (childMenu) => {
             <Link
               partiallyActive={true}
               activeClassName={"active"}
-              to="/about"
+              to="/about/"
             >
               About
             </Link>
@@ -64,7 +65,7 @@ const Header = (childMenu) => {
             <Link
               partiallyActive={true}
               activeClassName={"active"}
-              to="/works"
+              to="/works/"
             >
               Works
             </Link>
@@ -73,7 +74,7 @@ const Header = (childMenu) => {
             <Link
               partiallyActive={true}
               activeClassName={"active"}
-              to="/blogs"
+              to="/blogs/"
             >
               Blogs
             </Link>
@@ -82,7 +83,7 @@ const Header = (childMenu) => {
             <Link
               partiallyActive={true}
               activeClassName={"active"}
-              to="/links"
+              to="/links/"
             >
               Links
             </Link>

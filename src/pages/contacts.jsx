@@ -3,9 +3,6 @@ import { useMediaQuery } from "react-responsive"
 import Layout from '../components/layout'
 import MailTo from '../components/MailTo'
 import SosialMedia from '../components/sosialMedia'
-// import FB from "../svg/facebook.svg"
-// import Twitter from "../svg/twitter.svg"
-// import IG from "../svg/instagram.svg"
 
 
 const ContactsPages = (location) => {
