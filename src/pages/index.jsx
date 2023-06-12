@@ -2,22 +2,22 @@ import * as React from "react";
 // import { useState, useEffect } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import { useMediaQuery } from "react-responsive";
-import { graphql } from "gatsby";
-import Layout  from "../components/layout";
+import { Link, graphql } from "gatsby";
+
 
 import Html from "../svg/html.svg";
 import Css from "../svg/css.svg";
 import SvgReact from "../svg/rasu.svg";
 import Gatsby from "../svg/gatsby.svg";
 import Sass from "../svg/sass.svg";
+
 import WorksCarousel from "../components/Works";
-
-// import Link from gatsby
-
-import { Link } from "gatsby";
 import { SEO } from "../components/seo";
+import Layout from "../components/layout";
 
 const IndexPage = ({ data, location }) => {
+  const { nodes: blogPosts } = data.allContentfulBlog;
+  const newestPosts = blogPosts.slice(0, 3); // Change the number to the desired amount of newest posts to display
 
 
   const isTable = useMediaQuery({ query: "(min-width: 767px)" });
@@ -94,24 +94,35 @@ const IndexPage = ({ data, location }) => {
         <div className="worksPages blogs">
           <h2>Blogs</h2>
           <p>
-            i also love to write & share my knowledge about my tech.
+            I also love to write and share my knowledge about tech.
           </p>
-          <div className="newest">
-            <p>Newest Blog Posts :</p>
-            <ul className="post" >
-             <li>
-               <a href="https://muhzulzidan.com/teknologi/">muhzulzidan.com/teknologi</a>
-             </li>
+          <div className="font-bold flex flex-col md:flex-row">
+            <p>Newest Blog Posts:</p>
+            <ul className="flex flex-col md:pl-10 pt-6 text-xl gap-4">
+              {newestPosts.map((post) => (
+                <li key={post.slug} className="flex">
+                  <Link to={`/blog/${post.slug}`} className="hover:text-yellow-600">{post.title}</Link>
+                </li>
+              ))}
             </ul>
-            
-
           </div>
         </div>
+
       </main>
     </Layout>
   );
 };
 
+export const query = graphql`
+  query IndexPageQuery {
+    allContentfulBlog(sort: {createdAt: DESC}) {
+      nodes {
+        slug
+        title
+      }
+    }
+  }
+`;
 
 
 

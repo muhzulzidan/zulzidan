@@ -39,7 +39,7 @@ const Header = (childMenu) => {
           onClick={() => toggleMenu()}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
-          <Hamburger role="button" aria-labelledby="Open menu" toggled={isOpen} />
+          <Hamburger label="Open menu" role="button" toggled={isOpen} />
         </button>
       </>
       <nav className="nav">
