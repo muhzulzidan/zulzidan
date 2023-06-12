@@ -70,11 +70,6 @@ const BlogsPage = ({ data, location }) => {
                             </Link>
                         ))}
                     </div>
-                    {/* <div className="flex justify-center">
-                        <button type="button" className="px-6 py-3 text-sm rounded-md bg-gray-200 hover:bg-gray-300 focus:bg-gray-300">
-                            Load more posts...
-                        </button>
-                    </div> */}
                 </div>
             </section>
         </Layout>
