@@ -9,6 +9,7 @@ module.exports = {
     image: "static/meCircle.png",
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
