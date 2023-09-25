@@ -5,6 +5,10 @@ import { RWebShare } from "react-web-share";
 import SosialMedia from '../components/sosialMedia'
 import Share from "../svg/share.svg"
 import { SEO } from '../components/seo';
+import LogoFull from '../svg/logoFull.svg'
+
+import * as styles from "../style/linksPage.module.scss"
+
 const Links = ({ data }) => {
     const [show, setShow] = useState(false)
     const controlNavbar = () => {
@@ -25,9 +29,12 @@ const Links = ({ data }) => {
             <a href={node.node.properties.Url.value}>{node.node.title}</a>
         </li>
     );
+
+    console.log(styles.linksPage);
+
     return (
-        <div className='linksPage'>
-            <div className={`topBar hidden ${show && 'active'}`}>
+        <div className={styles.linksPage}>
+            <div className={`${styles.topBar}  hidden ${show && 'active'}`}>
                 {/* <Link to='/'>Home`</Link> */}
                 <RWebShare
                     data={{
@@ -37,27 +44,31 @@ const Links = ({ data }) => {
                     }}
                     onClick={() => console.log("shared successfully!")}
                 >
-                    <button className='share' >
-                        <Share/>
+                    <button className={styles.share} >
+                        <Share />
                     </button>
                 </RWebShare>
-                <StaticImage src="../images/meRed.png" alt="@muhzulzidan, zulzidan" className="meCircle" />
+                <StaticImage src="../images/zidan_green.png" alt="@muhzulzidan, zulzidan" className={styles.meCircle} />
 
             </div>
-            <div className='head'>
-                <StaticImage src="../images/meRed.png" alt="@muhzulzidan, zulzidan" className="meCircle" />
+            <div className={styles.head}>
+                <StaticImage src="../images/zidan_green.png" alt="@muhzulzidan, zulzidan" className={`w-24 h-24 rounded-full mb-6`} />
                 <h1>muhzulzidan</h1>
                 <p>Membantu pemilik bisnis untuk masuk ke dunia digital dengan digital marketing</p>
             </div>
-            <div className='linksDiv'>
+            <div className={styles.linksDiv}>
                 <h2>Jasa yang saya tawarkan</h2>
                 {links}
             </div>
-            <div className='sosmed'>
+            <div className={styles.sosmed}>
                 <SosialMedia />
             </div>
-            <div className="logoBottom">
-                <h1><Link to="/">zulzidan.com</Link></h1>
+            <div className={styles.logoBottom}>
+                <h1>
+                    <Link to="/">
+                        <LogoFull />
+                    </Link>
+                </h1>
             </div>
         </div>
     )

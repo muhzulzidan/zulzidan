@@ -1,5 +1,10 @@
 import "typeface-roboto";
-import "./src/style/index.scss";
-
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import "@fontsource/poppins"; 
+import "@fontsource/poppins/400.css"; 
+import "@fontsource/poppins/500.css"; 
+import "@fontsource/poppins/600.css"; 
+import "@fontsource/poppins/700.css"; 
+import "@fontsource/poppins/800.css"; 
+import "@fontsource/poppins/900.css"; 
+import "@fontsource/questrial"; 
+import "./src/style/index.css"

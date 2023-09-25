@@ -9,7 +9,7 @@ body{
   // making sure it is full height
   // height 100vh
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   background: #ffffff;
   z-index: 12;
 
@@ -39,19 +39,18 @@ body{
     }
   }
   .link{
-    padding-left: .8rem;
-    @apply w-full absolute flex flex-col pr-4 pt-12;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2rem;
+    // padding-top: 10rem;
     li{
-      @apply w-full flex font-semibold border-b border-gray-100 border-solid py-3 my-1 ;
-      font-family: 'Poppins';
-      // margin-top: 1.2em;
-      font-size: 1.3rem;
-      a {
-        @apply w-full;
-      }
+      margin-top: 1em;
+      font-weight: 500;
+      font-size: 1.5rem;
     }
     .active{
-        @apply text-amber-500;      
+        color: #FCD65E;      
     }
   }
 

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "gatsby"
+import { Spiral as Hamburger } from 'hamburger-react'
+
 import Menu from './menu'
-import Hamburger from 'hamburger-react'
-
-
+import LogoFull from '../svg/logoFull.svg'
 
 const Header = (childMenu) => {
   const [show, setShow] = useState(false);
@@ -31,25 +31,32 @@ const Header = (childMenu) => {
 
 
   return (
-    <header className="header">
+    <header className="flex sticky items-center justify-between top-0 w-full z-20 border-b border-[#edf2f9] bg-white/70 px-3 py-4 backdrop-blur-sm backdrop-saturate-[180%] ">
+      <Link
+        className='z-20'
+        activeClassName={"active"}
+        to="/"
+      >
+        <LogoFull />
+      </Link>
       <Menu ref={(el) => (childMenu = el)} />
       <>
         <button
-          className={`MenuButton ${isOpen ? "menuOpen" : ""}`}
+          className={` translate-y-0 z-20 ${isOpen ? "menuOpen" : ""}`}
           onClick={() => toggleMenu()}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
-          <Hamburger label="Open menu" role="button" toggled={isOpen} />
+          <Hamburger label="Open menu" role="button" toggled={isOpen} size={24} />
         </button>
       </>
-      <nav className="nav">
-        <ul>
+      <nav className="hidden md:flex">
+        <ul className="flex ">
           <li>
             <Link
               activeClassName={"active"}
               to="/"
             >
-              Home
+              <LogoFull />
             </Link>
           </li>
           <li>

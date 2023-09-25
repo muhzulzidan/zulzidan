@@ -36,10 +36,9 @@ class Menu extends React.Component {
                     <li><Link partiallyActive={true} to="/contacts" activeClassName={styles.active} onClick={this.open} >Contact</Link></li>
                     <li><Link partiallyActive={true} to="/links" activeClassName={styles.active} onClick={this.open} >Links</Link></li>
                 </ul>
-                <div className={styles.header}>
-                    {/* make a link with h1 */}
+                {/* <div className={styles.header}>
                     <h1><Link to="/">Zulzidan</Link></h1>
-                </div>
+                </div> */}
             </div>
         )
     }

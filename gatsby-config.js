@@ -110,6 +110,11 @@ module.exports = {
         }
       }
     },
-    'gatsby-plugin-postcss',
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [require("tailwindcss")],
+      },
+    },
   ],
 };
