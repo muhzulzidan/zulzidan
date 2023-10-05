@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Dialog } from "@headlessui/react";
+import { CalendarFill, PersonFill, Link45deg } from "react-bootstrap-icons";
+
+import Layout from "../components/layout";
 
 export default function WorkTemplate({ data }) {
     const work = data.contentfulZulzidanWorks;
@@ -24,13 +26,24 @@ export default function WorkTemplate({ data }) {
         <Layout>
             <div className="max-w-screen-lg mx-auto p-4 md:p-8">
                 <h1 className="text-4xl font-bold mb-4">{work.title}</h1>
-                <div className="mb-6">
-                    <p className="mb-2 text-gray-600">
-                        <span className="font-semibold">Date:</span> {work.date}
-                    </p>
-                    <p className="mb-2 text-gray-600">
-                        <span className="font-semibold">Client:</span> {work.client}
-                    </p>
+                <div className="mb-6 flex flex-col gap-2">
+                    <div className="flex items-center gap-2 text-gray-600">
+                        <CalendarFill className="text-xl mr-1" />
+                        <span className="font-semibold">Date:</span>
+                        <span>{work.date}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-600">
+                        <PersonFill className="text-xl mr-1" />
+                        <span className="font-semibold">Client:</span>
+                        <span>{work.client}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-600">
+                        <Link45deg className="text-xl mr-1" />
+                        <span className="font-semibold">URL:</span>
+                        <a href={work.url} target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">
+                            {work.url}
+                        </a>
+                    </div>
                 </div>
                 <p className="mb-8 text-gray-700 border-b pb-4">{work.description.description}</p>
 
@@ -74,6 +87,7 @@ export const query = graphql`
       title
       date(formatString: "DD-MM-YYYY")
       client
+      url
       description {
         description
       }

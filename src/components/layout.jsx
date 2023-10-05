@@ -19,8 +19,7 @@ const Layout = ({ title, pathname, children, location }) => {
 
   return (
     <div className="max-w-screen-xl mx-auto">
-      {/* {console.log(showFooter)}
-      {console.log(location)} */}
+
       <Header />
       {children}
       {/* {showFooter && <Footer />} */}

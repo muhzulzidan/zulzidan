@@ -30,7 +30,7 @@ const Links = ({ data }) => {
         </li>
     );
 
-    console.log(styles.linksPage);
+
 
     return (
         <div className={styles.linksPage}>

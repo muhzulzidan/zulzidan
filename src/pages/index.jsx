@@ -13,14 +13,14 @@ import Layout from "../components/layout";
 
 const IndexPage = ({ data, location }) => {
   const { nodes: blogPosts } = data.allContentfulBlog;
-  const works = data.allContentfulZulzidanWorks.edges.slice(0, 3);
+  const works = data.allContentfulZulzidanWorks.edges.slice(0, 4);
 
   const newestPosts = blogPosts.slice(0, 3); // Change the number to the desired amount of newest posts to display
   const isTable = useMediaQuery({ query: "(min-width: 767px)" });
   
   return (
     <Layout location={location}>
-      <main className="index-page  px-3 lg:px-10 pt-12 pb-12 ">
+      <main className="px-3 lg:px-10 py-12 space-y-16">
         <section className="home flex flex-col gap-4 lg:gap-8">
           <h1 className="text-3xl lg:text-5xl w-10/12">
             <span className="font-bold font-heading ">
@@ -44,34 +44,22 @@ const IndexPage = ({ data, location }) => {
           </div>
         </section>
         {/* works */}
-        <section className="flex flex-col gap-12 py-12 pt-24">
-          <div className="flex justify-between font-medium">
-            <h3 className="font-heading ">Selected Works</h3>
-            <Link to="/works/" className="font-heading">Explore Below</Link>
+        <section className="space-y-8">
+          <div className="flex justify-between items-center font-medium">
+            <h3 className="text-2xl font-semibold">Selected Works</h3>
+            <Link to="/works/" className="text-lg hover:text-indigo-600 transition duration-200">Explore Below</Link>
           </div>
-          <div className="flex flex-col gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {works.map(({ node }) => (
-
-            
-              <Link to={`/works/${node.slug}`} key={node.title}>
-               
-               <div className="flex md:flex-row flex-col gap-6">
-                  <div className="md:w-4/12 w-full ">
-                    {/* <ContentfulImage
-                      imageDetails={node.images[0].fields}
-                      alt={node.title}
-                    />            */}
-                    <GatsbyImage image={getImage(node.images[0])} alt={node.title} />
-                  </div>    
-                  <div className="flex flex-col justify-between text-lg w-full">
-                    <h3 className="font-heading font-semibold text-2xl">{node.title}</h3>
-                   <div className="flex gap-4">
-                      <p className="text-gray-800 flex gap-1 items-center text-base"> <Calendar  size={12} /> {node.date}</p>
-                      <p className="text-gray-800 flex gap-1 items-center text-base"> <Person  size={12} /> {node.client}</p>
-                   </div>
-                    <p className="font-body line-clamp-2">{node.description.description}</p>
-                  </div>
-               </div>
+              <Link to={`/works/${node.slug}`} key={node.title} className="group hover:bg-gray-200 p-5 rounded-lg transition ease-in-out duration-200 transform hover:scale-105 shadow-lg">
+                {/* {console.log(node.images)} */}
+                <GatsbyImage image={getImage(node.images[0])} alt={node.title} className="mb-4 rounded-lg shadow-md" />
+                <h3 className="text-2xl font-semibold mb-2 group-hover:text-indigo-600">{node.title}</h3>
+                <div className="flex space-x-4 mb-2">
+                  <p className="text-gray-600 flex items-center"> <Calendar size={16} className="mr-1" /> {node.date}</p>
+                  <p className="text-gray-600 flex items-center"> <Person size={16} className="mr-1" /> {node.client}</p>
+                </div>
+                <p className="text-gray-700 line-clamp-2">{node.description.description}</p>
               </Link>
             ))}
           </div>
@@ -103,7 +91,7 @@ const IndexPage = ({ data, location }) => {
 
                   <Link
                     to={`/blog/${post.slug}`}
-                    className="hover:text-yellow-600 font-normal text-base flex md:flex-row flex-col gap-8 md:gap-4 "
+                    className="hover:text-indigo-600 font-normal text-base flex md:flex-row flex-col gap-8 md:gap-4 "
                   >
                     <GatsbyImage image={getImage(post.featuredMedia)} alt={post.title} />
                     <div className="flex flex-col gap-1 w-10/12">

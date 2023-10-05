@@ -50,19 +50,17 @@ const Header = (childMenu) => {
         </button>
       </>
       <nav className="hidden md:flex justify-between items-center w-full">
-        <ul className="flex justify-center items-center gap-2 font-heading text-lg  font-medium ">
+        <ul className="flex justify-center items-center gap-2 font-heading text-lg font-medium">
           <li className="flex mr-12">
-            <Link
-              activeClassName={"active"}
-              to="/"
-            >
+            <Link activeClassName="text-indigo-600" to="/">
               <LogoFull />
             </Link>
           </li>
           <li>
             <Link
               partiallyActive={true}
-              activeClassName={"active"}
+              activeClassName="text-indigo-600"
+              className="hover:text-indigo-600"
               to="/about/"
             >
               About,
@@ -71,7 +69,8 @@ const Header = (childMenu) => {
           <li>
             <Link
               partiallyActive={true}
-              activeClassName={"active"}
+              activeClassName="text-indigo-600"
+              className="hover:text-indigo-600"
               to="/works/"
             >
               Works,
@@ -80,7 +79,8 @@ const Header = (childMenu) => {
           <li>
             <Link
               partiallyActive={true}
-              activeClassName={"active"}
+              activeClassName="text-indigo-600"
+              className="hover:text-indigo-600"
               to="/blogs/"
             >
               Blogs,
@@ -89,17 +89,20 @@ const Header = (childMenu) => {
           <li>
             <Link
               partiallyActive={true}
-              activeClassName={"active"}
+              activeClassName="text-indigo-600"
+              className="hover:text-indigo-600"
               to="/links/"
             >
               Links,
             </Link>
           </li>
         </ul>
+
+
         <div className="py-4">
           <a
             href="mailto:mail@zulzidan.com"
-            className="border-b  border-solid border-gray-700 font-medium font-heading pb-1 my-4 text-lg"
+            className="border-b  border-solid border-gray-700 font-medium font-heading pb-1 my-4 text-lg hover:text-indigo-600 hover:border-indigo-600"
           >
             mail@zulzidan.com
           </a>

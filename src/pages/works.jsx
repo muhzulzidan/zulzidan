@@ -7,7 +7,7 @@ import ContentfulImage from '../components/ContentfulImage';
 
 const WorksPage = ({ data }) => {
     const works = data.allContentfulZulzidanWorks.edges;
-    console.log(works)
+
     return (
         <Layout>
             <main className="index-page  px-3 lg:px-10 ">
@@ -20,31 +20,22 @@ const WorksPage = ({ data }) => {
                         </h3>
                         <p className='font-heading font-medium text-lg md:text-2xl md:w-8/12'>Have a look at some of the projects I’ve worked on. Clients span a diverse range, from educational platforms to unique e-commerce solutions and introspective spaces like my personal blog</p>
                     </div>
-                    <div className="flex flex-col gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2  gap-10">
                         {works.map(({ node }) => (
-                            <Link to={`/works/${node.slug}`} key={node.title}>
-                                <div className="flex md:flex-row flex-col gap-4" >
-                                    <div className="md:w-4/12 w-full ">
-                                        {/* <ContentfulImage
-                                            imageDetails={node.images[0].fields}
-                                            alt={node.title}
-                                        /> */}
-
-                                        <GatsbyImage image={getImage(node.images[0])} alt={node.title} />
-
+                            <Link to={`/works/${node.slug}`} key={node.title} className="group hover:bg-gray-200 p-5 rounded-lg transition ease-in-out duration-200 transform hover:scale-105 shadow-lg">
+                                <div className="flex flex-col gap-6">
+                                    <GatsbyImage image={getImage(node.images[0])} alt={node.title} className="rounded-lg shadow-md group-hover:opacity-80" />
+                                    <h3 className="font-heading font-semibold text-xl mb-2 group-hover:text-indigo-600">{node.title}</h3>
+                                    <div className="flex space-x-4 mb-2">
+                                        <p className="text-gray-600 flex items-center"> <Calendar size={16} className="mr-1" /> {node.date}</p>
+                                        <p className="text-gray-600 flex items-center"> <Person size={16} className="mr-1" /> {node.client}</p>
                                     </div>
-                                    <div className="flex flex-col justify-between text-lg w-full">
-                                        <h3 className="font-heading font-semibold text-2xl mb-3">{node.title}</h3>
-                                        <div className="flex gap-4">
-                                            <p className="text-gray-800 flex gap-1 items-center text-base"> <Calendar size={12} /> {node.date}</p>
-                                            <p className="text-gray-800 flex gap-1 items-center text-base"> <Person size={12} /> {node.client}</p>
-                                        </div>
-                                        <p className="font-body line-clamp-2">{node.description.description}</p>
-                                    </div>
+                                    <p className="text-gray-700 line-clamp-2">{node.description.description}</p>
                                 </div>
                             </Link>
                         ))}
                     </div>
+
                 </section>
             </main>
         </Layout>
