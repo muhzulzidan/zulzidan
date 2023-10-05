@@ -58,6 +58,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@assemblyscript/loader@npm:^0.10.1":
+  version: 0.10.1
+  resolution: "@assemblyscript/loader@npm:0.10.1"
+  checksum: fd1f57bdf2c55252a48c2d93fbec3c5a9ef4ca40e581e8709dd8ee437613eb47af74c8cdba011a324077eda9605d6f24983f429c2ce18b0b582ddcc5acf75c26
+  languageName: node
+  linkType: hard
+
 "@babel/code-frame@npm:7.12.11":
   version: 7.12.11
   resolution: "@babel/code-frame@npm:7.12.11"
@@ -1601,7 +1608,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contentful/rich-text-react-renderer@npm:^15.17.0, @contentful/rich-text-react-renderer@npm:^15.17.2":
+"@contentful/rich-text-react-renderer@npm:^15.17.0, @contentful/rich-text-react-renderer@npm:^15.18.0":
   version: 15.18.0
   resolution: "@contentful/rich-text-react-renderer@npm:15.18.0"
   dependencies:
@@ -4419,7 +4426,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^10.4.14, autoprefixer@npm:^10.4.15":
+"autoprefixer@npm:^10.4.14, autoprefixer@npm:^10.4.16":
   version: 10.4.16
   resolution: "autoprefixer@npm:10.4.16"
   dependencies:
@@ -4720,7 +4727,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"base64-js@npm:^1.3.1":
+"base64-js@npm:^1.2.0, base64-js@npm:^1.3.1":
   version: 1.5.1
   resolution: "base64-js@npm:1.5.1"
   checksum: 669632eb3745404c2f822a18fc3a0122d2f9a7a13f7fb8b5823ee19d1d2ff9ee5b52c53367176ea4ad093c332fd5ab4bd0ebae5a8e27917a4105a4cfc86b1005
@@ -5089,7 +5096,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"camel-case@npm:^4.1.2":
+"camel-case@npm:^4.1.1, camel-case@npm:^4.1.2":
   version: 4.1.2
   resolution: "camel-case@npm:4.1.2"
   dependencies:
@@ -5359,6 +5366,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clean-css@npm:^4.2.3":
+  version: 4.2.4
+  resolution: "clean-css@npm:4.2.4"
+  dependencies:
+    source-map: ~0.6.0
+  checksum: 045ff6fcf4b5c76a084b24e1633e0c78a13b24080338fc8544565a9751559aa32ff4ee5886d9e52c18a644a6ff119bd8e37bc58e574377c05382a1fb7dbe39f8
+  languageName: node
+  linkType: hard
+
 "clean-css@npm:~5.3.2":
   version: 5.3.2
   resolution: "clean-css@npm:5.3.2"
@@ -5582,7 +5598,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^4.0.0":
+"commander@npm:^4.0.0, commander@npm:^4.1.1":
   version: 4.1.1
   resolution: "commander@npm:4.1.1"
   checksum: d7b9913ff92cae20cb577a4ac6fcc121bd6223319e54a40f51a14740a681ad5c574fd29a57da478a5f234a6fa6c52cbf0b7c641353e03c648b1ae85ba670b977
@@ -7469,6 +7485,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eventemitter-asyncresource@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "eventemitter-asyncresource@npm:1.0.0"
+  checksum: 3cfbbc3490bd429a165bff6336289ff810f7df214796f25000d2097a5a0883eae51542a78674916ff99bbd4c66811911b310df1cb4fc96dfc9546ba9dfc89f8f
+  languageName: node
+  linkType: hard
+
 "eventemitter3@npm:^4.0.4":
   version: 4.0.7
   resolution: "eventemitter3@npm:4.0.7"
@@ -8367,6 +8390,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gatsby-plugin-brotli@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "gatsby-plugin-brotli@npm:2.1.0"
+  dependencies:
+    glob: ^7.2.0
+    mkdirp: ^1.0.4
+    piscina: ^3.1.0
+  checksum: d06ba29f031135df7232043b95b6cee6bdd9f7c91680f9af52c2385c9b2035e65b2a08d3939e08fc484d3ae6178d2c5c783df449d5a66f4fca5fe8665b4b6dd3
+  languageName: node
+  linkType: hard
+
 "gatsby-plugin-catch-links@npm:^5.12.0":
   version: 5.12.0
   resolution: "gatsby-plugin-catch-links@npm:5.12.0"
@@ -8510,6 +8544,16 @@ __metadata:
   peerDependencies:
     gatsby: ^5.0.0-next
   checksum: 6c8459995bde0b33cb8ea8473990d95be968ef37d931eb5e2840cbbd6258dbb57da4e93f9057982c0620b1fa159c131033c792efddafbd801b09c610aa0b6953
+  languageName: node
+  linkType: hard
+
+"gatsby-plugin-minify-html@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "gatsby-plugin-minify-html@npm:1.0.4"
+  dependencies:
+    glob: ^7.1.6
+    html-minifier-terser: ^5.1.1
+  checksum: 0234ec450815a2675483248fca5f399f93cc8ac8e4d085f92a86550efb4fe72bd15c5c80546cb5ba745c47eb3b79f57e65740c6da860f84319831f686b70694a
   languageName: node
   linkType: hard
 
@@ -9000,7 +9044,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby@npm:^5.12.4":
+"gatsby@npm:^5.12.5":
   version: 5.12.5
   resolution: "gatsby@npm:5.12.5"
   dependencies:
@@ -9345,7 +9389,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^7.1.1, glob@npm:^7.1.2, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6, glob@npm:^7.1.7, glob@npm:^7.2.3":
+"glob@npm:^7.1.1, glob@npm:^7.1.2, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6, glob@npm:^7.1.7, glob@npm:^7.2.0, glob@npm:^7.2.3":
   version: 7.2.3
   resolution: "glob@npm:7.2.3"
   dependencies:
@@ -9809,7 +9853,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"he@npm:1.2.0":
+"hdr-histogram-js@npm:^2.0.1":
+  version: 2.0.3
+  resolution: "hdr-histogram-js@npm:2.0.3"
+  dependencies:
+    "@assemblyscript/loader": ^0.10.1
+    base64-js: ^1.2.0
+    pako: ^1.0.3
+  checksum: 7bb252ba3596bed72b90427ffc6f6fa332a460c4810788faa9b9a743f7ac6f1cb42dccd7ae7555740f0a8c0602884944d00d1ccfb746af4976a816772361a6d6
+  languageName: node
+  linkType: hard
+
+"hdr-histogram-percentiles-obj@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "hdr-histogram-percentiles-obj@npm:3.0.0"
+  checksum: ab238edcb38d9b60d23ca53da0ecd9a6b1c8ee9a49e30a6146bd3f8f70f26244652f28b79974157c00504e7ddf3129e0ddb217baf71d32330e3fae0105bf30ed
+  languageName: node
+  linkType: hard
+
+"he@npm:1.2.0, he@npm:^1.2.0":
   version: 1.2.0
   resolution: "he@npm:1.2.0"
   bin:
@@ -9862,6 +9924,23 @@ __metadata:
   version: 2.4.0
   resolution: "html-entities@npm:2.4.0"
   checksum: 25bea32642ce9ebd0eedc4d24381883ecb0335ccb8ac26379a0958b9b16652fdbaa725d70207ce54a51db24103436a698a8e454397d3ba8ad81460224751f1dc
+  languageName: node
+  linkType: hard
+
+"html-minifier-terser@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "html-minifier-terser@npm:5.1.1"
+  dependencies:
+    camel-case: ^4.1.1
+    clean-css: ^4.2.3
+    commander: ^4.1.1
+    he: ^1.2.0
+    param-case: ^3.0.3
+    relateurl: ^0.2.7
+    terser: ^4.6.3
+  bin:
+    html-minifier-terser: cli.js
+  checksum: 75ff3ff886631b9ecb3035acb8e7dd98c599bb4d4618ad6f7e487ee9752987dddcf6848dc3c1ab1d7fc1ad4484337c2ce39c19eac17b0342b4b15e4294c8a904
   languageName: node
   linkType: hard
 
@@ -12289,7 +12368,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mkdirp@npm:^1.0.3":
+"mkdirp@npm:^1.0.3, mkdirp@npm:^1.0.4":
   version: 1.0.4
   resolution: "mkdirp@npm:1.0.4"
   bin:
@@ -12473,6 +12552,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nice-napi@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "nice-napi@npm:1.0.2"
+  dependencies:
+    node-addon-api: ^3.0.0
+    node-gyp: latest
+    node-gyp-build: ^4.2.2
+  conditions: "!os=win32"
+  languageName: node
+  linkType: hard
+
 "nice-try@npm:^1.0.4":
   version: 1.0.5
   resolution: "nice-try@npm:1.0.5"
@@ -12503,6 +12593,15 @@ __metadata:
   dependencies:
     semver: ^7.3.5
   checksum: ff8498dcd4a805ebf0af27162023bb17e56cb973c955d6c411ebce0938b0827e34323ede846b635daff516d5cd2ea8d64f9d99f2d63f61d1d7469415323fa9a6
+  languageName: node
+  linkType: hard
+
+"node-addon-api@npm:^3.0.0":
+  version: 3.2.1
+  resolution: "node-addon-api@npm:3.2.1"
+  dependencies:
+    node-gyp: latest
+  checksum: 2369986bb0881ccd9ef6bacdf39550e07e089a9c8ede1cbc5fc7712d8e2faa4d50da0e487e333d4125f8c7a616c730131d1091676c9d499af1d74560756b4a18
   languageName: node
   linkType: hard
 
@@ -12580,6 +12679,17 @@ __metadata:
     node-gyp-build-optional-packages-optional: optional.js
     node-gyp-build-optional-packages-test: build-test.js
   checksum: bcb4537af15bcb3811914ea0db8f69284ca10db1cc7543a167a4c41ae4b9b5044b133f789fdadad0b7adc6931f6ae7def3c75b0bc7b05836881aae52400163e6
+  languageName: node
+  linkType: hard
+
+"node-gyp-build@npm:^4.2.2":
+  version: 4.6.1
+  resolution: "node-gyp-build@npm:4.6.1"
+  bin:
+    node-gyp-build: bin.js
+    node-gyp-build-optional: optional.js
+    node-gyp-build-test: build-test.js
+  checksum: c3676d337b36803bc7792e35bf7fdcda7cdcb7e289b8f9855a5535702a82498eb976842fefcf487258c58005ca32ce3d537fbed91280b04409161dcd7232a882
   languageName: node
   linkType: hard
 
@@ -13124,7 +13234,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"param-case@npm:^3.0.4":
+"pako@npm:^1.0.3":
+  version: 1.0.11
+  resolution: "pako@npm:1.0.11"
+  checksum: 1be2bfa1f807608c7538afa15d6f25baa523c30ec870a3228a89579e474a4d992f4293859524e46d5d87fd30fa17c5edf34dbef0671251d9749820b488660b16
+  languageName: node
+  linkType: hard
+
+"param-case@npm:^3.0.3, param-case@npm:^3.0.4":
   version: 3.0.4
   resolution: "param-case@npm:3.0.4"
   dependencies:
@@ -13426,6 +13543,21 @@ __metadata:
   version: 4.0.6
   resolution: "pirates@npm:4.0.6"
   checksum: 46a65fefaf19c6f57460388a5af9ab81e3d7fd0e7bc44ca59d753cb5c4d0df97c6c6e583674869762101836d68675f027d60f841c105d72734df9dfca97cbcc6
+  languageName: node
+  linkType: hard
+
+"piscina@npm:^3.1.0":
+  version: 3.2.0
+  resolution: "piscina@npm:3.2.0"
+  dependencies:
+    eventemitter-asyncresource: ^1.0.0
+    hdr-histogram-js: ^2.0.1
+    hdr-histogram-percentiles-obj: ^3.0.0
+    nice-napi: ^1.0.2
+  dependenciesMeta:
+    nice-napi:
+      optional: true
+  checksum: c1980c7d45d85f53265652dd2fc62a2b9e9d2321f5bbb9fc1796edb9c1324bb77c153e823a0d6454c3c35098820efedff584737cc282207480afe478a3b8a166
   languageName: node
   linkType: hard
 
@@ -13931,7 +14063,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.2.15, postcss@npm:^8.2.9, postcss@npm:^8.3.11, postcss@npm:^8.3.5, postcss@npm:^8.4.23, postcss@npm:^8.4.24, postcss@npm:^8.4.30":
+"postcss@npm:^8.2.15, postcss@npm:^8.2.9, postcss@npm:^8.3.11, postcss@npm:^8.3.5, postcss@npm:^8.4.23, postcss@npm:^8.4.24, postcss@npm:^8.4.31":
   version: 8.4.31
   resolution: "postcss@npm:8.4.31"
   dependencies:
@@ -15303,7 +15435,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.67.0":
+"sass@npm:^1.68.0":
   version: 1.68.0
   resolution: "sass@npm:1.68.0"
   dependencies:
@@ -15822,7 +15954,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:~0.5.20":
+"source-map-support@npm:~0.5.12, source-map-support@npm:~0.5.20":
   version: 0.5.21
   resolution: "source-map-support@npm:0.5.21"
   dependencies:
@@ -16475,6 +16607,19 @@ __metadata:
     uglify-js:
       optional: true
   checksum: 41705713d6f9cb83287936b21e27c658891c78c4392159f5148b5623f0e8c48559869779619b058382a4c9758e7820ea034695e57dc7c474b4962b79f553bc5f
+  languageName: node
+  linkType: hard
+
+"terser@npm:^4.6.3":
+  version: 4.8.1
+  resolution: "terser@npm:4.8.1"
+  dependencies:
+    commander: ^2.20.0
+    source-map: ~0.6.1
+    source-map-support: ~0.5.12
+  bin:
+    terser: bin/terser
+  checksum: b342819bf7e82283059aaa3f22bb74deb1862d07573ba5a8947882190ad525fd9b44a15074986be083fd379c58b9a879457a330b66dcdb77b485c44267f9a55a
   languageName: node
   linkType: hard
 
@@ -17894,18 +18039,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "zulzidan@workspace:."
   dependencies:
-    "@contentful/rich-text-react-renderer": ^15.17.2
+    "@contentful/rich-text-react-renderer": ^15.18.0
     "@contentful/rich-text-types": ^16.3.0
     "@fontsource/poppins": ^5.0.8
     "@fontsource/questrial": ^5.0.8
     "@fontsource/roboto": ^5.0.8
     "@headlessui/react": ^1.7.17
     "@tailwindcss/typography": ^0.5.10
-    autoprefixer: ^10.4.15
+    autoprefixer: ^10.4.16
     contentful-resolve-response: ^1.8.1
     framer-motion: ^10.16.4
-    gatsby: ^5.12.4
+    gatsby: ^5.12.5
     gatsby-omni-font-loader: ^2.0.2
+    gatsby-plugin-brotli: ^2.1.0
     gatsby-plugin-gatsby-cloud: ^5.12.1
     gatsby-plugin-google-analytics: ^5.12.0
     gatsby-plugin-google-gtag: ^5.12.0
@@ -17913,6 +18059,7 @@ __metadata:
     gatsby-plugin-mailchimp: ^5.2.2
     gatsby-plugin-manifest: ^5.12.0
     gatsby-plugin-minify: ^0.5.0
+    gatsby-plugin-minify-html: ^1.0.4
     gatsby-plugin-next-seo: ^1.11.0
     gatsby-plugin-perf-budgets: ^0.0.18
     gatsby-plugin-postcss: ^6.12.0
@@ -17933,7 +18080,7 @@ __metadata:
     gatsby-transformer-sharp: ^5.12.0
     hamburger-react: ^2.5.0
     indent.js: ^0.3.5
-    postcss: ^8.4.30
+    postcss: ^8.4.31
     preact: ^10.18.1
     preact-render-to-string: ^6.2.2
     pretty: ^2.0.0
@@ -17950,7 +18097,7 @@ __metadata:
     react-slick: ^0.29.0
     react-syntax-highlighter: ^15.5.0
     react-web-share: ^2.0.2
-    sass: ^1.67.0
+    sass: ^1.68.0
     slick-carousel: ^1.8.1
     svg-react-loader: ^0.4.6
     tailwindcss: ^3.3.3

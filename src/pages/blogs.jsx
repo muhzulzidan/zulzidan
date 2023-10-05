@@ -50,7 +50,7 @@ const BlogsPage = ({ data, location }) => {
                             <Link
                                 key={blog.slug}
                                 rel="noopener noreferrer"
-                                to={`/blog/${blog.slug}`}
+                                to={`/blogs/${blog.slug}`}
                                 className="block w-full h-full overflow-hidden bg-white rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105"
                             >
                                 <div

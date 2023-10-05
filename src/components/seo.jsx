@@ -23,7 +23,10 @@ export const SEO = ({ title, description, pathname, children }) => {
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
       <meta name="twitter:creator" content={seo.twitterUsername} />
-      <link rel="preload" href="https://fonts.google.com/css2?family=Questrial:wght@400&display=swap" as="style" />
+      {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link rel="preload" href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" as="style" /> */}
+
       {children}
     </>
   )

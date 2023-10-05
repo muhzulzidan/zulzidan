@@ -1,13 +1,13 @@
 import * as React from "react";
 
-import { useMediaQuery } from "react-responsive";
+// import { useMediaQuery } from "react-responsive";
 import { Link, graphql } from "gatsby";
 import { GatsbyImage, getImage,  } from "gatsby-plugin-image"
 import { Calendar, Person } from "react-bootstrap-icons"
 
 
 import generateExcerpt from '../utils/generateExcerpt';
-import ContentfulImage from "../components/ContentfulImage"
+// import ContentfulImage from "../components/ContentfulImage"
 import { SEO } from "../components/seo";
 import Layout from "../components/layout";
 
@@ -15,8 +15,7 @@ const IndexPage = ({ data, location }) => {
   const { nodes: blogPosts } = data.allContentfulBlog;
   const works = data.allContentfulZulzidanWorks.edges.slice(0, 4);
 
-  const newestPosts = blogPosts.slice(0, 3); // Change the number to the desired amount of newest posts to display
-  const isTable = useMediaQuery({ query: "(min-width: 767px)" });
+  const newestPosts = blogPosts.slice(0, 3); 
   
   return (
     <Layout location={location}>
@@ -90,7 +89,7 @@ const IndexPage = ({ data, location }) => {
                 <li key={post.slug} className="pt-4">
 
                   <Link
-                    to={`/blog/${post.slug}`}
+                    to={`/blogs/${post.slug}`}
                     className="hover:text-indigo-600 font-normal text-base flex md:flex-row flex-col gap-8 md:gap-4 "
                   >
                     <GatsbyImage image={getImage(post.featuredMedia)} alt={post.title} />

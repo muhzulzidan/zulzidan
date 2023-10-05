@@ -10,13 +10,7 @@ module.exports = {
   },
   plugins: [
     // `gatsby-plugin-preact`,
-    {
-      resolve: `gatsby-plugin-minify`,
-      options: {
-        // removeAttributeQuotes: true
-        // ...
-      }
-    },
+    `gatsby-plugin-minify`,
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-contentful`,
@@ -41,7 +35,8 @@ module.exports = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [
-          "G-Z20EKSD90B", // Google Analytics / GA
+          "G-Z20EKSD90B", 
+          "3991895352",
         ],
         gtagConfig: {
           anonymize_ip: true,
@@ -115,7 +110,7 @@ module.exports = {
         icon: "static/logo.png",
       },
     },
-    // "gatsby-plugin-webpack-bundle-analyser-v2",
+    "gatsby-plugin-webpack-bundle-analyser-v2",
     "gatsby-transformer-remark",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
@@ -150,6 +145,8 @@ module.exports = {
         postCssPlugins: [require("tailwindcss")],
       },
     },
+    'gatsby-plugin-brotli', 
+    'gatsby-plugin-minify-html'
     // {
     //   resolve: `gatsby-plugin-purgecss`,
     //   options: {

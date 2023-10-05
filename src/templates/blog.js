@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
@@ -13,6 +13,8 @@ import generateExcerpt from '../utils/generateExcerpt';
 import Layout from '../components/layout';
 import SEOHead from "../components/head";
 
+const RichTextRenderer = React.lazy(() => import('../components/RichTextRenderer'));
+const CodeBlock = React.lazy(() => import('../components/CodeBlock'));
 
 
 const BlogPagesComponents = ({ data, location }) => {
@@ -110,7 +112,10 @@ const BlogPagesComponents = ({ data, location }) => {
           {image && <GatsbyImage image={image} alt={featuredMedia.title} />}
         </div>
         <h1 className="text-3xl font-bold mb-4">{title}</h1>
-        {content && renderRichText(content, options)}
+        {/* {content && renderRichText(content, options)} */}
+        <Suspense fallback={<div>Loading...</div>}>
+          {content && <RichTextRenderer content={content} options={options} />}
+        </Suspense>
       </div>
     </Layout>
   );
