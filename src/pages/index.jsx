@@ -162,7 +162,11 @@ export const query = graphql`
           title
           slug
           images {
-              gatsbyImageData(width: 2000) 
+              gatsbyImageData(
+                width: 2000
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
               title
           }
         }

@@ -9,22 +9,24 @@ module.exports = {
     image: "static/meCircle.png",
   },
   plugins: [
+    // `gatsby-plugin-preact`,
+    {
+      resolve: `gatsby-plugin-minify`,
+      options: {
+        // removeAttributeQuotes: true
+        // ...
+      }
+    },
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `7txs81scyd71`,
-        // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: "PbLKQETwvix25xdvs-ocAYv-QxGYDwkVKOf0kvoDPgo",
-        downloadLocal: true,
+        // downloadLocal: true,
       },
     },
-    // {
-    //   resolve: `gatsby-source-wordpress`,
-    //   options: {
-    //     url: `https://cockpit.muhzulzidan.my.id/graphql`,
-    //   },
-    // },
+   
     {
       resolve: `gatsby-plugin-sass`,
       options: {
@@ -69,6 +71,30 @@ module.exports = {
         lowerTitleLevel: true,
       },
     },
+
+    // {
+    //   /* Include plugin */
+    //   resolve: "gatsby-omni-font-loader",
+
+    //   /* Plugin options */
+    //   options: {
+
+    //     /* Font loading mode */
+    //     mode: "defer",
+
+    //     /* Preconnect URL-s. This example is for Google Fonts */
+    //     preconnect: ["https://fonts.gstatic.com"],
+
+    //     /* Web fonts. File link should point to font CSS file. */
+    //     web: [{
+    //       /* Exact name of the font as defied in @font-face CSS rule */
+    //       name: "Questrial",
+    //       /* URL to the font CSS file with @font-face definition */
+    //       file: "https://fonts.googleapis.com/css2?family=Questrial&display=swap",
+    //     },
+    //     ],
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
@@ -115,6 +141,21 @@ module.exports = {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [require("tailwindcss")],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true, // Print removed selectors and processed file names
+        develop: true, // Enable while using `gatsby develop`
+        tailwind: true, // Enable tailwindcss support
+        ignore: ['/linksPage.module.scss', '/menu.module.scss' ], // Ignore files/folders
+        // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
+        purgeCSSOptions: {
+          // https://purgecss.com/configuration.html#options
+          // safelist: ['safelist'], // Don't remove this selector
+        },
+        // More options defined here https://purgecss.com/configuration.html#options
       },
     },
   ],

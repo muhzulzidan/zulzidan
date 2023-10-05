@@ -27,7 +27,7 @@ export default function WorkTemplate({ data }) {
 
     return (
         <Layout>
-            <div className="max-w-screen-lg mx-auto p-4 md:p-8">
+            <div className=" p-4 md:p-8">
                 <h1 className="text-4xl font-bold mb-4">{work.title}</h1>
                 <div className="mb-6 flex flex-col gap-2">
                     <div className="flex items-center gap-2 text-gray-600">

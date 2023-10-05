@@ -15,7 +15,6 @@ module.exports = {
             fontFamily: {
                 heading: ['Poppins', ...defaultTheme.fontFamily.sans],
                 body: ['Questrial', ...defaultTheme.fontFamily.sans],
-                sans: ['Roboto', ...defaultTheme.fontFamily.sans]
             },
             colors: {
                 primary: colors.amber,
