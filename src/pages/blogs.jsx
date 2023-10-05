@@ -5,8 +5,10 @@ import { graphql, Link } from 'gatsby'
 import { BLOCKS } from "@contentful/rich-text-types"
 import { Search } from 'react-bootstrap-icons';
 
-
+import SEOHead from "../components/head";
 import Layout from '../components/layout'
+import generateExcerpt from '../utils/generateExcerpt';
+
 const BlogsPage = ({ data, location }) => {
     const { allContentfulBlog } = data
     const blogs = allContentfulBlog.nodes
@@ -20,34 +22,6 @@ const BlogsPage = ({ data, location }) => {
     const filteredBlogs = blogs.filter(blog =>
         blog.title.toLowerCase().includes(searchTerm.toLowerCase())
     )
-
-    const generateExcerpt = (rawContent) => {
-        const content = JSON.parse(rawContent)
-        let plainText = ''
-
-        const extractText = (node) => {
-            if (node.nodeType === 'text') {
-                plainText += node.value.trim() + ' '
-            }
-
-            if (node.content) {
-                node.content.forEach(extractText)
-            }
-        }
-
-        content.content.forEach(extractText)
-
-        plainText = plainText
-            .replace(/\n/g, '') // Remove newlines
-            .replace(/\s+/g, ' ') // Replace multiple whitespaces with a single space
-            .trim()
-
-        const maxLength = 150 // Set the maximum number of characters for the excerpt
-        if (plainText.length <= maxLength) {
-            return plainText
-        }
-        return `${plainText.slice(0, maxLength)}...`
-    }
 
 
     return (
@@ -123,5 +97,16 @@ export const query = graphql`
     }
   }
 `
+
+
+export const Head = () => {
+    return (
+        <SEOHead
+            title="Blog by Muhammad Zulzidan"
+            description="Dive into insightful articles and explore a wide range of topics written by Muhammad Zulzidan."
+        />
+    );
+};
+
 
 export default BlogsPage

@@ -4,6 +4,7 @@ import { Calendar, Person } from "react-bootstrap-icons"
 import { GatsbyImage, getImage, } from "gatsby-plugin-image"
 import Layout from '../components/layout';
 import ContentfulImage from '../components/ContentfulImage';
+import SEOHead from "../components/head";
 
 const WorksPage = ({ data }) => {
     const works = data.allContentfulZulzidanWorks.edges;
@@ -63,5 +64,15 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = () => {
+    return (
+        <SEOHead
+            title="Selected Works by Muhammad Zulzidan"
+            description="A showcase of various web projects and designs from 2019 to 2023 by Muhammad Zulzidan."
+        />
+    );
+};
+
 
 export default WorksPage;

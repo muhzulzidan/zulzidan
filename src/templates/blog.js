@@ -9,36 +9,11 @@ import { motion } from "framer-motion";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
+import generateExcerpt from '../utils/generateExcerpt';
 import Layout from '../components/layout';
 import SEOHead from "../components/head";
 
-const generateExcerpt = (rawContent) => {
-  const content = JSON.parse(rawContent);
-  let plainText = '';
 
-  const extractText = (node) => {
-    if (node.nodeType === 'text') {
-      plainText += node.value.trim() + ' ';
-    }
-
-    if (node.content) {
-      node.content.forEach(extractText);
-    }
-  };
-
-  content.content.forEach(extractText);
-
-  plainText = plainText
-    .replace(/\n/g, '') // Remove newlines
-    .replace(/\s+/g, ' ') // Replace multiple whitespaces with a single space
-    .trim();
-
-  const maxLength = 150; // Set the maximum number of characters for the excerpt
-  if (plainText.length <= maxLength) {
-    return plainText;
-  }
-  return `${plainText.slice(0, maxLength)}...`;
-};
 
 const BlogPagesComponents = ({ data, location }) => {
   const { title, content, featuredMedia } = data.contentfulBlog;

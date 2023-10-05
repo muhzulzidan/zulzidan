@@ -4,7 +4,10 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Dialog } from "@headlessui/react";
 import { CalendarFill, PersonFill, Link45deg } from "react-bootstrap-icons";
 
+import generateExcerpt from '../utils/generateExcerpt';
 import Layout from "../components/layout";
+import SEOHead from "../components/head";
+
 
 export default function WorkTemplate({ data }) {
     const work = data.contentfulZulzidanWorks;
@@ -98,3 +101,9 @@ export const query = graphql`
     }
   }
 `;
+
+
+export const Head = ({ data }) => {
+    const work = data.contentfulZulzidanWorks;
+    return <SEOHead title={work.title} description={work.description.description} image={work.images[0]} />;
+};
