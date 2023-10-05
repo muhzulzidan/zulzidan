@@ -12,7 +12,8 @@
     "start": "gatsby  develop -H 0.0.0.0",
     "build": "gatsby build",
     "serve": "gatsby serve -H 0.0.0.0",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "preload-fonts": "gatsby-preload-fonts"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.17.2",
@@ -37,6 +38,7 @@
     "gatsby-plugin-next-seo": "^1.11.0",
     "gatsby-plugin-postcss": "^6.12.0",
     "gatsby-plugin-preact": "^7.12.0",
+    "gatsby-plugin-preload-fonts": "^4.12.0",
     "gatsby-plugin-purgecss": "^6.2.1",
     "gatsby-plugin-react-svg": "^3.3.0",
     "gatsby-plugin-sass": "^6.12.0",

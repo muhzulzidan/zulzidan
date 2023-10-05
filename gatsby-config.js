@@ -107,9 +107,15 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "static/icon.png",
+        name: "zulzidan",
+        short_name: "zulzidan",
+        start_url: "/",
+        background_color: "#f1f1f1",
+        theme_color: "#000",
+        icon: "static/logo.png",
       },
     },
+    // "gatsby-plugin-webpack-bundle-analyser-v2",
     "gatsby-transformer-remark",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
@@ -137,26 +143,27 @@ module.exports = {
         }
       }
     },
+    `gatsby-plugin-preload-fonts`,
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [require("tailwindcss")],
       },
     },
-    {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        printRejected: true, // Print removed selectors and processed file names
-        develop: true, // Enable while using `gatsby develop`
-        tailwind: true, // Enable tailwindcss support
-        ignore: ['/linksPage.module.scss', '/menu.module.scss' ], // Ignore files/folders
-        // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
-        purgeCSSOptions: {
-          // https://purgecss.com/configuration.html#options
-          // safelist: ['safelist'], // Don't remove this selector
-        },
-        // More options defined here https://purgecss.com/configuration.html#options
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-purgecss`,
+    //   options: {
+    //     printRejected: true, // Print removed selectors and processed file names
+    //     develop: true, // Enable while using `gatsby develop`
+    //     tailwind: true, // Enable tailwindcss support
+    //     ignore: ['/linksPage.module.scss', '/menu.module.scss' ], // Ignore files/folders
+    //     // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
+    //     purgeCSSOptions: {
+    //       // https://purgecss.com/configuration.html#options
+    //       // safelist: ['safelist'], // Don't remove this selector
+    //     },
+    //     // More options defined here https://purgecss.com/configuration.html#options
+    //   },
+    // },
   ],
 };
