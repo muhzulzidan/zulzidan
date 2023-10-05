@@ -20,6 +20,7 @@
     "@fontsource/poppins": "^5.0.8",
     "@fontsource/questrial": "^5.0.8",
     "@fontsource/roboto": "^5.0.8",
+    "@headlessui/react": "^1.7.17",
     "@tailwindcss/typography": "^0.5.10",
     "autoprefixer": "^10.4.15",
     "contentful-resolve-response": "^1.8.1",

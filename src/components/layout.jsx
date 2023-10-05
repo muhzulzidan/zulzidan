@@ -18,12 +18,13 @@ const Layout = ({ title, pathname, children, location }) => {
   const showFooter = paths.includes(location?.location?.pathname) || paths.includes(location?.pathname) || isBlogPage || isBlogPage2;
 
   return (
-    <div className="layout">
+    <div className="max-w-screen-xl mx-auto">
       {/* {console.log(showFooter)}
       {console.log(location)} */}
       <Header />
       {children}
-      {showFooter && <Footer />}
+      {/* {showFooter && <Footer />} */}
+      <Footer />
     </div>
   );
 };

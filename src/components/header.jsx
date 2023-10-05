@@ -31,9 +31,9 @@ const Header = (childMenu) => {
 
 
   return (
-    <header className="flex sticky items-center justify-between top-0 w-full z-20 border-b border-[#edf2f9] bg-white/70 px-3 py-4 backdrop-blur-sm backdrop-saturate-[180%] ">
+    <header className="flex sticky items-center justify-between top-0 w-full z-20 border-b border-[#edf2f9] bg-white/70 px-3 lg:px-10 py-4 backdrop-blur-sm backdrop-saturate-[180%] ">
       <Link
-        className='z-20'
+        className='z-20 md:hidden'
         activeClassName={"active"}
         to="/"
       >
@@ -42,16 +42,16 @@ const Header = (childMenu) => {
       <Menu ref={(el) => (childMenu = el)} />
       <>
         <button
-          className={` translate-y-0 z-20 ${isOpen ? "menuOpen" : ""}`}
+          className={`md:hidden translate-y-0 z-20 ${isOpen ? "menuOpen" : ""}`}
           onClick={() => toggleMenu()}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           <Hamburger label="Open menu" role="button" toggled={isOpen} size={24} />
         </button>
       </>
-      <nav className="hidden md:flex">
-        <ul className="flex ">
-          <li>
+      <nav className="hidden md:flex justify-between items-center w-full">
+        <ul className="flex justify-center items-center gap-2 font-heading text-lg  font-medium ">
+          <li className="flex mr-12">
             <Link
               activeClassName={"active"}
               to="/"
@@ -65,7 +65,7 @@ const Header = (childMenu) => {
               activeClassName={"active"}
               to="/about/"
             >
-              About
+              About,
             </Link>
           </li>
           <li>
@@ -74,7 +74,7 @@ const Header = (childMenu) => {
               activeClassName={"active"}
               to="/works/"
             >
-              Works
+              Works,
             </Link>
           </li>
           <li>
@@ -83,7 +83,7 @@ const Header = (childMenu) => {
               activeClassName={"active"}
               to="/blogs/"
             >
-              Blogs
+              Blogs,
             </Link>
           </li>
           <li>
@@ -92,15 +92,18 @@ const Header = (childMenu) => {
               activeClassName={"active"}
               to="/links/"
             >
-              Links
+              Links,
             </Link>
           </li>
         </ul>
-        <a href="https://api.whatsapp.com/send?phone=6281354789375&text=halo%20saya" className="">
-          <button className={`contacts ${show && "black"}`}>
-            Contacts
-          </button>
-        </a>
+        <div className="py-4">
+          <a
+            href="mailto:mail@zulzidan.com"
+            className="border-b  border-solid border-gray-700 font-medium font-heading pb-1 my-4 text-lg"
+          >
+            mail@zulzidan.com
+          </a>
+        </div>
       </nav>
     </header>
   );

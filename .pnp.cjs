@@ -33,6 +33,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fontsource/poppins", "npm:5.0.8"],\
             ["@fontsource/questrial", "npm:5.0.8"],\
             ["@fontsource/roboto", "npm:5.0.8"],\
+            ["@headlessui/react", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.7.17"],\
             ["@tailwindcss/typography", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:0.5.10"],\
             ["autoprefixer", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:10.4.15"],\
             ["contentful-resolve-response", "npm:1.8.1"],\
@@ -3628,6 +3629,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@hapi/topo", "npm:5.1.0"],\
             ["@hapi/hoek", "npm:9.3.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@headlessui/react", [\
+        ["npm:1.7.17", {\
+          "packageLocation": "./.yarn/cache/@headlessui-react-npm-1.7.17-c3f120aed0-0cdb67747e.zip/node_modules/@headlessui/react/",\
+          "packageDependencies": [\
+            ["@headlessui/react", "npm:1.7.17"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.7.17", {\
+          "packageLocation": "./.yarn/__virtual__/@headlessui-react-virtual-e36eae50ec/0/cache/@headlessui-react-npm-1.7.17-c3f120aed0-0cdb67747e.zip/node_modules/@headlessui/react/",\
+          "packageDependencies": [\
+            ["@headlessui/react", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.7.17"],\
+            ["@types/react", null],\
+            ["@types/react-dom", null],\
+            ["client-only", "npm:0.0.1"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7686,6 +7714,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/cli-width-npm-3.0.0-387b3f68f9-4c94af3769.zip/node_modules/cli-width/",\
           "packageDependencies": [\
             ["cli-width", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["client-only", [\
+        ["npm:0.0.1", {\
+          "packageLocation": "./.yarn/cache/client-only-npm-0.0.1-07d3e9505c-0c16bf660d.zip/node_modules/client-only/",\
+          "packageDependencies": [\
+            ["client-only", "npm:0.0.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -22451,6 +22488,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fontsource/poppins", "npm:5.0.8"],\
             ["@fontsource/questrial", "npm:5.0.8"],\
             ["@fontsource/roboto", "npm:5.0.8"],\
+            ["@headlessui/react", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.7.17"],\
             ["@tailwindcss/typography", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:0.5.10"],\
             ["autoprefixer", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:10.4.15"],\
             ["contentful-resolve-response", "npm:1.8.1"],\
