@@ -8460,6 +8460,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gatsby-plugin-google-tagmanager@npm:^5.12.0":
+  version: 5.12.0
+  resolution: "gatsby-plugin-google-tagmanager@npm:5.12.0"
+  dependencies:
+    "@babel/runtime": ^7.20.13
+    web-vitals: ^1.1.2
+  peerDependencies:
+    gatsby: ^5.0.0-next
+    react: ^18.0.0 || ^0.0.0
+    react-dom: ^18.0.0 || ^0.0.0
+  checksum: 7e555a47bf04679d35f5d2d90d247725eb05cdebe28a1fea4e7977de7c34c1c9763d5df765c5824fbd9643b8614390be5f824c3f444252e26abf1304673a14c6
+  languageName: node
+  linkType: hard
+
 "gatsby-plugin-image@npm:^1.5.0":
   version: 1.15.0
   resolution: "gatsby-plugin-image@npm:1.15.0"
@@ -18055,6 +18069,7 @@ __metadata:
     gatsby-plugin-gatsby-cloud: ^5.12.1
     gatsby-plugin-google-analytics: ^5.12.0
     gatsby-plugin-google-gtag: ^5.12.0
+    gatsby-plugin-google-tagmanager: ^5.12.0
     gatsby-plugin-image: ^3.12.0
     gatsby-plugin-mailchimp: ^5.2.2
     gatsby-plugin-manifest: ^5.12.0
