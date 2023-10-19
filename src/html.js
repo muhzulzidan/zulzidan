@@ -13,6 +13,78 @@ export default function HTML(props) {
         />
         <link
           rel="preload"
+          href="/questrical/questrial-latin-400-normal.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+          key="questrialFont"
+        />
+        <link
+          rel="preload"
+          href="/poppins/poppins-latin-400-normal.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+          key="poppins400NormalFont"
+        />
+        {/* <link
+          rel="preload"
+          href="/poppins/poppins-latin-400-italic.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+          key="poppins400ItalicFont"
+        /> */}
+        {/* <link
+          rel="preload"
+          href="/poppins/poppins-latin-500-normal.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+          key="poppins500NormalFont"
+        /> */}
+        {/* <link
+          rel="preload"
+          href="/poppins/poppins-latin-500-italic.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+          key="poppins500ItalicFont"
+        /> */}
+        {/* <link
+          rel="preload"
+          href="/poppins/poppins-latin-600-normal.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+          key="poppins600NormalFont"
+        /> */}
+        {/* <link
+          rel="preload"
+          href="/poppins/poppins-latin-600-italic.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+          key="poppins600ItalicFont"
+        /> */}
+        <link
+          rel="preload"
+          href="/poppins/poppins-latin-700-normal.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+          key="poppins700NormalFont"
+        />
+        {/* <link
+          rel="preload"
+          href="/poppins/poppins-latin-700-italic.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+          key="poppins700ItalicFont"
+        /> */}
+        {/* <link
+          rel="preload"
           href="/static/questrial-latin-400-normal-40ecd36633f072095ff9454b0b7fdf17.woff2"
           as="font"
           type="font/woff2"
@@ -31,7 +103,7 @@ export default function HTML(props) {
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
-        />
+        /> */}
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>

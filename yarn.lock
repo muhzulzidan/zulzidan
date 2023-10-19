@@ -1701,27 +1701,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/poppins@npm:^5.0.8":
-  version: 5.0.8
-  resolution: "@fontsource/poppins@npm:5.0.8"
-  checksum: 9ac971aa4bad82e5cf4fe32340cdf832f806231ed3f89a23a569f73b9f879c312f63230a0f3ba0c82ff750931c806102d0b925ff87f3379f52045d3ffaeb8806
-  languageName: node
-  linkType: hard
-
-"@fontsource/questrial@npm:^5.0.8":
-  version: 5.0.8
-  resolution: "@fontsource/questrial@npm:5.0.8"
-  checksum: 9b78f68cd8602f27500ae94930e1344b361d28b2f85550188854d70be8014a91ae6a35c55439ae2dc63107ce9b576c0cfc75adb5ccfd1003aa9cbb96086c71dd
-  languageName: node
-  linkType: hard
-
-"@fontsource/roboto@npm:^5.0.8":
-  version: 5.0.8
-  resolution: "@fontsource/roboto@npm:5.0.8"
-  checksum: 8aa9c1557ea9489db0eb47f849094e53b644e9d7f60008c7d514481d00ff132726da67f350b63c76943ace6a49ac4de5983b9f92acb05c55b622b4ab4a2a19c6
-  languageName: node
-  linkType: hard
-
 "@gatsbyjs/parcel-namer-relative-to-cwd@npm:^2.12.0":
   version: 2.12.0
   resolution: "@gatsbyjs/parcel-namer-relative-to-cwd@npm:2.12.0"
@@ -18055,9 +18034,6 @@ __metadata:
   dependencies:
     "@contentful/rich-text-react-renderer": ^15.18.0
     "@contentful/rich-text-types": ^16.3.0
-    "@fontsource/poppins": ^5.0.8
-    "@fontsource/questrial": ^5.0.8
-    "@fontsource/roboto": ^5.0.8
     "@headlessui/react": ^1.7.17
     "@tailwindcss/typography": ^0.5.10
     autoprefixer: ^10.4.16

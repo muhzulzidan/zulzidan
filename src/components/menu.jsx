@@ -22,7 +22,7 @@ class Menu extends React.Component {
     
         // console.log(this.location)
         return (
-            <div className={`${styles.menu} ${this.state.open ? `${styles.open}` : ""}`}
+            <div className={`md:hidden ${styles.menu} ${this.state.open ? `${styles.open}` : ""}`}
                 // onClick={() => this.close()}
                 // onKeyDown={() => this.close()}
             >

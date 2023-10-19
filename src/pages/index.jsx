@@ -1,5 +1,4 @@
-import * as React from "react";
-
+import React, { Suspense } from "react"
 // import { useMediaQuery } from "react-responsive";
 import { Link, graphql } from "gatsby";
 import { GatsbyImage, getImage,  } from "gatsby-plugin-image"
@@ -10,6 +9,12 @@ import generateExcerpt from '../utils/generateExcerpt';
 // import ContentfulImage from "../components/ContentfulImage"
 import { SEO } from "../components/seo";
 import Layout from "../components/layout";
+
+const HomeSection = React.lazy(() => import('../components/home/HomeSection'));
+const WorksSection = React.lazy(() => import('../components/home/WorksSection'));
+const DigitalMarketingSection = React.lazy(() => import('../components/home/DigitalMarketingSection'));
+const BlogsSection = React.lazy(() => import('../components/home/BlogsSection'));
+
 
 const IndexPage = ({ data, location }) => {
   const { nodes: blogPosts } = data.allContentfulBlog;
@@ -43,67 +48,16 @@ const IndexPage = ({ data, location }) => {
           </div>
         </section>
         {/* works */}
-        <section className="space-y-8">
-          <div className="flex justify-between items-center font-medium">
-            <h3 className="text-2xl font-semibold">Selected Works</h3>
-            <Link to="/works/" className="text-lg hover:text-indigo-600 transition duration-200">Explore Below</Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {works.map(({ node }) => (
-              <Link to={`/works/${node.slug}`} key={node.title} className="group hover:bg-gray-200 p-5 rounded-lg transition ease-in-out duration-200 transform hover:scale-105 shadow-lg">
-                {/* {console.log(node.images)} */}
-                <GatsbyImage image={getImage(node.images[0])} alt={node.title} className="mb-4 rounded-lg shadow-md" fadeIn={false} loading="eager" />
-                <h3 className="text-2xl font-semibold mb-2 group-hover:text-indigo-600">{node.title}</h3>
-                <div className="flex space-x-4 mb-2">
-                  <p className="text-gray-600 flex items-center"> <Calendar size={16} className="mr-1" /> {node.date}</p>
-                  <p className="text-gray-600 flex items-center"> <Person size={16} className="mr-1" /> {node.client}</p>
-                </div>
-                <p className="text-gray-700 line-clamp-2">{node.description.description}</p>
-              </Link>
-            ))}
-          </div>
-        </section>
-        
-        <section className="py-32 flex flex-col md:flex-row gap-8 items-start font-heading font-medium leading-relaxed text-2xl">
-          <div className="font-normal hidden md:block w-6/12 text-lg">(001)</div>
-          <div className="flex flex-col gap-8 w-full justify-center  items-center md:pr-24">
-            <p className="">
-              <p className="font-heading font-medium md:hidden">(001)</p>
-              As a dedicated Web Developer and Digital Marketer, I specialize in crafting unique digital experiences and driving business growth. My expertise spans across
-            </p>
-            <p>Whether you are a business looking to enhance your online presence or an agency seeking support, I am here to help you succeed in the digital world.</p>
-          </div>
-        </section>
+        <Suspense fallback={<div className="h-[1690px]">Loading...</div>}>
+          <WorksSection works={works} />
+        </Suspense>
+        <Suspense fallback={<div className="h-[750px]">Loading...</div>}>
+          <DigitalMarketingSection />
+        </Suspense>
         {/* blogs */}
-        <section className="flex flex-col pt-12 gap-4">
-          <h2 className="font-heading text-2xl font-semibold">Blogs</h2>
-          <p className="text-lg">
-            I also love to write and share my knowledge about tech.
-          </p>
-          <div className="flex flex-col md:flex-row ">
-            {/* <h3 className="font-heading text-xl font-semibold">
-              Newest Blog Posts:
-            </h3> */}
-            <ul className="flex flex-col pt-4 tracking-normal gap-4">
-              {newestPosts.map((post) => (
-                <li key={post.slug} className="pt-4">
-
-                  <Link
-                    to={`/blogs/${post.slug}`}
-                    className="hover:text-indigo-600 font-normal text-base flex md:flex-row flex-col gap-8 md:gap-4 "
-                  >
-                    <GatsbyImage image={getImage(post.featuredMedia)} alt={post.title} />
-                    <div className="flex flex-col gap-1 w-10/12">
-                      <h3 className="text-2xl font-semibold">{post.title}</h3>
-                      {/* <h3 className="text-lg font-semibold">{post.date}</h3> */}
-                      <p className="text-lg line-clamp-2">{generateExcerpt(post.content.raw)}</p>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
+        <Suspense fallback={<div className="h-[1270px]">Loading...</div>}>
+          <BlogsSection newestPosts={newestPosts} />
+        </Suspense>
        
         <section className="py-24 pt-32 flex flex-col md:flex-row gap-8 items-start font-heading font-medium leading-relaxed text-2xl">
           <div className="font-normal hidden md:block w-6/12 text-lg">(002)</div>

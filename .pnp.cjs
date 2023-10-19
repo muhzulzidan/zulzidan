@@ -30,9 +30,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@contentful/rich-text-react-renderer", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:15.18.0"],\
             ["@contentful/rich-text-types", "npm:16.3.0"],\
-            ["@fontsource/poppins", "npm:5.0.8"],\
-            ["@fontsource/questrial", "npm:5.0.8"],\
-            ["@fontsource/roboto", "npm:5.0.8"],\
             ["@headlessui/react", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.7.17"],\
             ["@tailwindcss/typography", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:0.5.10"],\
             ["autoprefixer", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:10.4.16"],\
@@ -3054,33 +3051,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@ewoudenberg/difflib", "npm:0.1.0"],\
             ["heap", "npm:0.2.7"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@fontsource/poppins", [\
-        ["npm:5.0.8", {\
-          "packageLocation": "./.yarn/cache/@fontsource-poppins-npm-5.0.8-e0b16fc81e-9ac971aa4b.zip/node_modules/@fontsource/poppins/",\
-          "packageDependencies": [\
-            ["@fontsource/poppins", "npm:5.0.8"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@fontsource/questrial", [\
-        ["npm:5.0.8", {\
-          "packageLocation": "./.yarn/cache/@fontsource-questrial-npm-5.0.8-70d21d4b36-9b78f68cd8.zip/node_modules/@fontsource/questrial/",\
-          "packageDependencies": [\
-            ["@fontsource/questrial", "npm:5.0.8"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@fontsource/roboto", [\
-        ["npm:5.0.8", {\
-          "packageLocation": "./.yarn/cache/@fontsource-roboto-npm-5.0.8-35f6bafae2-8aa9c1557e.zip/node_modules/@fontsource/roboto/",\
-          "packageDependencies": [\
-            ["@fontsource/roboto", "npm:5.0.8"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -23452,9 +23422,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["zulzidan", "workspace:."],\
             ["@contentful/rich-text-react-renderer", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:15.18.0"],\
             ["@contentful/rich-text-types", "npm:16.3.0"],\
-            ["@fontsource/poppins", "npm:5.0.8"],\
-            ["@fontsource/questrial", "npm:5.0.8"],\
-            ["@fontsource/roboto", "npm:5.0.8"],\
             ["@headlessui/react", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.7.17"],\
             ["@tailwindcss/typography", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:0.5.10"],\
             ["autoprefixer", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:10.4.16"],\

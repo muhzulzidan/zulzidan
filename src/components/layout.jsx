@@ -1,6 +1,9 @@
-import React from "react";
-import Header from "./header";
-import Footer from "./footer";
+import React, {Suspense} from "react";
+// import Header from "./header";
+// import Footer from "./footer";
+const Header = React.lazy(() => import('./header'));
+const Footer = React.lazy(() => import('./footer'));
+
 
 const Layout = ({ title, pathname, children, location }) => {
   const paths = [
@@ -19,11 +22,15 @@ const Layout = ({ title, pathname, children, location }) => {
 
   return (
     <div className="max-w-screen-xl mx-auto font-body">
-
-      <Header />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Header />
+      </Suspense>    
       {children}
+      <Suspense fallback={<div>Loading...</div>}>
+        <Footer />
+      </Suspense>    
       {/* {showFooter && <Footer />} */}
-      <Footer />
+     
     </div>
   );
 };
