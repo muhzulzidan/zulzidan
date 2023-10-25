@@ -1,15 +1,25 @@
 import React from 'react';
 import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 import Layout from '../components/layout';
 import { SEO } from '../components/seo';
 
 const About = ({ location }) => {
     return (
         <Layout location={location}>
-            <SEO title={"About Zulzidan - Web Developer & Digital Marketer"} pathname={location.pathname} />
+           
             <div className="about px-4 md:p-12 py-12">
+                
                 <div className="header-section mb-8">
                     <h1 className="text-4xl font-bold mb-4">I build fast websites.</h1>
+                   <div>
+                        <StaticImage
+                            src="../images/zidankavi.jpg"
+                            alt="islamtshirt"
+                            className=" object-cover rounded-lg h-[25rem]"
+                        />
+                        <p className='font-heading text-stone-700 text-xl pb-12 pt-4'>Muhammad Zulzidan M</p>
+                   </div>
                     <p className="text-lg">
                         Diving into the digital world since 2019, I've honed my skills as a Front-End Developer, specializing in modern frameworks and CMSs. From educational platforms to e-commerce, my portfolio speaks volumes of my commitment to web development.
                     </p>
@@ -43,3 +53,14 @@ const About = ({ location }) => {
 }
 
 export default About;
+export function Head({ location }) {
+    return (
+        <SEO
+            title={"zulzidan, jasa pembuatan web"}
+            pathname={location.pathname}
+            description={
+                "zulzidan adalah pembuatan web, jasa pembuatan web di Bone, seorang Digital Marketer serta seorang Web Developer, "
+            }
+        />
+    );
+}

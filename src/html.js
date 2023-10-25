@@ -35,14 +35,14 @@ export default function HTML(props) {
           crossOrigin="anonymous"
           key="poppins400ItalicFont"
         /> */}
-        {/* <link
+        <link
           rel="preload"
           href="/poppins/poppins-latin-500-normal.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
           key="poppins500NormalFont"
-        /> */}
+        />
         {/* <link
           rel="preload"
           href="/poppins/poppins-latin-500-italic.woff2"
@@ -51,14 +51,14 @@ export default function HTML(props) {
           crossOrigin="anonymous"
           key="poppins500ItalicFont"
         /> */}
-        {/* <link
+        <link
           rel="preload"
           href="/poppins/poppins-latin-600-normal.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
           key="poppins600NormalFont"
-        /> */}
+        />
         {/* <link
           rel="preload"
           href="/poppins/poppins-latin-600-italic.woff2"
