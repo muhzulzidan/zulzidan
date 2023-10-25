@@ -57,13 +57,17 @@ const JasaPembuatanWebDIBone = () => {
         <Layout>
             <section className="py-16">
                 <div className="container px-10 md:px-4 mx-auto ">
-                    <h1 className="text-4xl font-semibold text-center mb-6">
-                        Jasa Pembuatan Website di Bone
-                    </h1>
-                    <p className="text-xl text-center mb-10">
-                        Membantu bisnis Anda untuk hadir secara online dengan website berkualitas.
-                    </p>
-
+                    <div className="flex flex-col gap-4 justify-center items-center">
+                        <h1 className="text-4xl font-semibold text-center mb-0">
+                            Jasa Pembuatan Website di Bone
+                        </h1>
+                        <p className="text-xl text-center ">
+                            Membantu bisnis Anda untuk hadir secara online dengan website berkualitas.
+                        </p>
+                        <a href="https://api.whatsapp.com/send?phone=+6281354789375&text=halo,%20saya%20mau%20buat%20website" className="bg-blue-500 flex gap-4 w-fit  items-center justify-center font-heading font-medium text-stone-50 px-4 py-2 rounded-lg  hover:underline">
+                            Hubungi Kami <Whatsapp />
+                        </a>
+                    </div>
                     <div className="flex flex-col gap-32">
                         <div className="space-y-4">
                             <h2 className="text-2xl font-semibold text-white">Apa yang Kami Tawarkan</h2>
@@ -149,7 +153,7 @@ const JasaPembuatanWebDIBone = () => {
                                     number="1"
                                     title="Step 1"
                                     description="Hubungi kami melalui WhatsApp di"
-                                    link="https://wa.me/1234567890"
+                                    link="https://wa.me/6281354789375"
                                 />
                                 <StepItem icon={<ChatSquareDots />} number="2" title="Step 2" description="Konsultasi kebutuhan dan tujuan website Anda." />
                                 <StepItem icon={<Pencil />} number="3" title="Step 3" description="Perencanaan desain dan pembuatan website." />
@@ -197,13 +201,13 @@ const JasaPembuatanWebDIBone = () => {
                             </ol> */}
 
                         </div>
-                        
+
                         <FAQ/>
 
                       
                         <div className="text-center mt-10 flex-col flex justify-center items-center">
                             <h3 className="text-3xl font-heading font-bold py-4">Siap untuk memulai proyek website Anda?</h3>
-                            <a href="/contact" className="bg-blue-500 flex gap-4 w-fit  items-center justify-center font-heading font-medium text-stone-50 px-4 py-2 rounded-lg  hover:underline">
+                            <a href="https://api.whatsapp.com/send?phone=+6281354789375&text=halo,%20saya%20mau%20buat%20website" className="bg-blue-500 flex gap-4 w-fit  items-center justify-center font-heading font-medium text-stone-50 px-4 py-2 rounded-lg  hover:underline">
                                 Hubungi Kami <Whatsapp /> 
                             </a>
                         </div>
