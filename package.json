@@ -25,6 +25,7 @@
     "framer-motion": "^10.16.4",
     "gatsby": "^5.12.5",
     "gatsby-omni-font-loader": "^2.0.2",
+    "gatsby-plugin-advanced-sitemap": "^2.1.0",
     "gatsby-plugin-brotli": "^2.1.0",
     "gatsby-plugin-gatsby-cloud": "^5.12.1",
     "gatsby-plugin-google-analytics": "^5.12.0",

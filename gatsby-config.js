@@ -12,6 +12,7 @@ module.exports = {
     // `gatsby-plugin-preact`,
     `gatsby-plugin-minify`,
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-advanced-sitemap`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
