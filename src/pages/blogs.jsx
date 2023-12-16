@@ -9,6 +9,11 @@ import SEOHead from "../components/head";
 import Layout from '../components/layout'
 import generateExcerpt from '../utils/generateExcerpt';
 
+const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString('en-US', options);
+};
+
 const BlogsPage = ({ data, location }) => {
     const { allContentfulBlog } = data
     const blogs = allContentfulBlog.nodes
@@ -23,6 +28,8 @@ const BlogsPage = ({ data, location }) => {
         blog.title.toLowerCase().includes(searchTerm.toLowerCase())
     )
 
+
+    console.log(filteredBlogs)
 
     return (
         <Layout location={location}>
@@ -64,7 +71,9 @@ const BlogsPage = ({ data, location }) => {
                                     <h3 className="text-xl font-bold mb-2 text-gray-800 hover:text-indigo-600 transition-colors">
                                         {blog.title}
                                     </h3>
-                                    <span className="text-xs text-gray-500">February 19, 2021</span>
+                                    <span className="text-xs text-gray-500">
+                                        {formatDate(blog.date)}
+                                    </span>
                                     <p className="mt-3 text-sm text-gray-700">{generateExcerpt(blog.content.raw)}</p>
                                 </div>
                             </Link>
@@ -83,6 +92,7 @@ export const query = graphql`
       nodes {
         slug
         title
+        date
         content {
           raw
         }

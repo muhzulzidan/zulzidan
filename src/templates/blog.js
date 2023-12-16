@@ -122,8 +122,9 @@ const BlogPagesComponents = ({ data, location }) => {
 };
 
 export const Head = ({ data }) => {
-  const { title, content, featuredMedia } = data.contentfulBlog;
-  return <SEOHead title={title} description={generateExcerpt(content.raw)} image={featuredMedia} />;
+  const { title, content, featuredMedia, slug, date } = data.contentfulBlog;
+  console.log(`date`, date)
+  return <SEOHead title={title} description={generateExcerpt(content.raw)} image={featuredMedia} url={`https://www.zulzidan.com/blogs/${slug}`} publishDate={date} />;
 };
 
 export default BlogPagesComponents;
