@@ -40,10 +40,10 @@ const IndexPage = ({ data, location }) => {
 
           <div className="py-4 lg:pt-10">
             <a
-              href="mailto:mail@zulzidan.com"
+              href="https://api.whatsapp.com/send?phone=6281354789375&text=halo%20zulzidan.com%2C%20saya%20mau%20buat%20website"
               className="border border-solid border-gray-950 font-medium font-heading rounded-full px-6 py-3 my-4 text-lg"
             >
-              mail@zulzidan.com
+              Chat on Whatsapp
             </a>
           </div>
         </section>
@@ -69,10 +69,10 @@ const IndexPage = ({ data, location }) => {
             <p> Let’s start the conversation about your web development and digital marketing needs.
               <div className="pt-12">
                 <a
-                  href="mailto:mail@zulzidan.com"
+                  href="https://api.whatsapp.com/send?phone=6281354789375&text=halo%20zulzidan.com%2C%20saya%20mau%20buat%20website"
                   className="border border-solid border-gray-950 rounded-full px-6 text-lg py-3 my-4"
                 >
-                  mail@zulzidan.com
+                  Chat on Whatsapp
                 </a>
               </div>
             </p>

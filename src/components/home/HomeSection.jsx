@@ -17,10 +17,10 @@ const HomeSection = () => {
 
             <div className="py-4 lg:pt-10">
                 <a
-                    href="mailto:mail@zulzidan.com"
+                    href="https://api.whatsapp.com/send?phone=6281354789375&text=halo%20zulzidan.com%2C%20saya%20mau%20buat%20website"
                     className="border border-solid border-gray-950 font-medium font-heading rounded-full px-6 py-3 my-4 text-lg"
                 >
-                    mail@zulzidan.com
+                    Chat on Whatsapp
                 </a>
             </div>
         </section>

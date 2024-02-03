@@ -29,7 +29,7 @@ const BlogsPage = ({ data, location }) => {
     )
 
 
-    console.log(filteredBlogs)
+    // console.log(filteredBlogs)
 
     return (
         <Layout location={location}>

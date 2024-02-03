@@ -36,6 +36,7 @@ const Header = (childMenu) => {
         className='z-20 md:hidden'
         activeClassName={"active"}
         to="/"
+        aria-label="Home"
       >
         <LogoFull />
       </Link>
@@ -52,7 +53,7 @@ const Header = (childMenu) => {
       <nav className="hidden md:flex justify-between items-center w-full">
         <ul className="flex justify-center items-center gap-2 font-heading text-lg font-medium">
           <li className="flex mr-12">
-            <Link activeClassName="text-indigo-600" to="/">
+            <Link activeClassName="text-indigo-600" to="/" aria-label="Home">
               <LogoFull />
             </Link>
           </li>
@@ -101,10 +102,10 @@ const Header = (childMenu) => {
 
         <div className="py-4">
           <a
-            href="mailto:mail@zulzidan.com"
+            href="https://api.whatsapp.com/send?phone=6281354789375&text=halo%20zulzidan.com%2C%20saya%20mau%20buat%20website"
             className="border-b  border-solid border-gray-700 font-medium font-heading pb-1 my-4 text-lg hover:text-indigo-600 hover:border-indigo-600"
           >
-            mail@zulzidan.com
+            Chat on Whatsapp
           </a>
         </div>
       </nav>

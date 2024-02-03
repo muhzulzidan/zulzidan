@@ -10,6 +10,7 @@ module.exports = {
   },
   plugins: [
     // `gatsby-plugin-preact`,
+    'gatsby-plugin-remove-console',
     `gatsby-plugin-minify`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-advanced-sitemap`,

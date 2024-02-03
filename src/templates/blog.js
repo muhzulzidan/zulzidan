@@ -12,13 +12,15 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import generateExcerpt from '../utils/generateExcerpt';
 import Layout from '../components/layout';
 import SEOHead from "../components/head";
+import ShareButton from '../components/ShareButton';
+import Breadcrumb from '../components/Breadcrumb';
 
 const RichTextRenderer = React.lazy(() => import('../components/RichTextRenderer'));
 const CodeBlock = React.lazy(() => import('../components/CodeBlock'));
 
 
 const BlogPagesComponents = ({ data, location }) => {
-  const { title, content, featuredMedia } = data.contentfulBlog;
+  const { title, content, featuredMedia, date } = data.contentfulBlog;
   const image = getImage(featuredMedia.gatsbyImageData);
   const { references } = content;
   const [isCopied, setIsCopied] = useState({});
@@ -104,14 +106,28 @@ const BlogPagesComponents = ({ data, location }) => {
     }
   };
 
+  const breadcrumbItems = [
 
+    { text: title, link: location.pathname }, // Dynamically set the current page title and link
+  ];
   return (
     <Layout location={location}>
       <div className="px-4 py-8 sm:px-8 md:px-16 lg:px-20 prose prose-h3:text-xl prose-a: max-w-none">
-        <div className='mb-24'>
-          {image && <GatsbyImage image={image} alt={featuredMedia.title} />}
-        </div>
+     
+        <Breadcrumb items={breadcrumbItems} />
         <h1 className="text-3xl font-bold mb-4">{title}</h1>
+        <p className='line-clamp-1 text-stone-600 font-semibold xl:pr-12'>{generateExcerpt(content.raw)}</p>
+    <div className='flex justify-between xl:pr-12 my-4'>
+          <p>Ditulis Oleh zidan Pada {date}</p>
+          <ShareButton />
+  
+    </div>
+      
+        <div className='mb-24'>
+          <Suspense fallback={<div>Loading...</div>}>
+            {image && <GatsbyImage image={image} alt={featuredMedia.title} />}
+          </Suspense>
+        </div>
         {/* {content && renderRichText(content, options)} */}
         <Suspense fallback={<div>Loading...</div>}>
           {content && <RichTextRenderer content={content} options={options} />}
@@ -134,6 +150,7 @@ export const query = graphql`
     contentfulBlog(slug: { eq: $slug }) {
       title
       slug
+      date(formatString: "DD MMM YYYY")
       content {
         raw
         references {
