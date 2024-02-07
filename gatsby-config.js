@@ -1,5 +1,6 @@
 
 module.exports = {
+  trailingSlash: `ignore`,
   siteMetadata: {
     title: "zulzidan",
     siteUrl: "https://zulzidan.com",
