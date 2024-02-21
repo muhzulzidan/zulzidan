@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState } from 'react';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
@@ -21,10 +21,14 @@ const CodeBlock = React.lazy(() => import('../components/CodeBlock'));
 
 const BlogPagesComponents = ({ data, location }) => {
   const { title, content, featuredMedia, date } = data.contentfulBlog;
-  const image = getImage(featuredMedia.gatsbyImageData);
+  // const image = getImage(featuredMedia.gatsbyImageData);
   const { references } = content;
   const [isCopied, setIsCopied] = useState({});
+  const [image, setImage] = useState(null);
 
+  useEffect(() => {
+    setImage(getImage(featuredMedia.gatsbyImageData));
+  }, [featuredMedia]);
 
   const Bold = ({ children }) => <span className="font-bold">{children}</span>;
   const Text = ({ children }) => <p className="">{children}</p>;
@@ -139,7 +143,7 @@ const BlogPagesComponents = ({ data, location }) => {
 
 export const Head = ({ data }) => {
   const { title, content, featuredMedia, slug, date } = data.contentfulBlog;
-  console.log(`date`, date)
+  // console.log(`date`, date)
   return <SEOHead title={title} description={generateExcerpt(content.raw)} image={featuredMedia} url={`https://www.zulzidan.com/blogs/${slug}`} publishDate={date} />;
 };
 
