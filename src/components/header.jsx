@@ -5,7 +5,9 @@ import { Spiral as Hamburger } from 'hamburger-react'
 import Menu from './menu'
 import LogoFull from '../svg/logoFull.svg'
 
-const Header = (childMenu) => {
+const Header = (childMenu, props) => {
+  const { landingPage } = props;
+
   const [show, setShow] = useState(false);
   const controlNavbar = () => {
     if (window.scrollY > 500) {
@@ -57,46 +59,53 @@ const Header = (childMenu) => {
               <LogoFull />
             </Link>
           </li>
-          <li>
-            <Link
-              partiallyActive={true}
-              activeClassName="text-indigo-600"
-              className="hover:text-indigo-600"
-              to="/about/"
-            >
-              About,
-            </Link>
-          </li>
-          <li>
-            <Link
-              partiallyActive={true}
-              activeClassName="text-indigo-600"
-              className="hover:text-indigo-600"
-              to="/works/"
-            >
-              Works,
-            </Link>
-          </li>
-          <li>
-            <Link
-              partiallyActive={true}
-              activeClassName="text-indigo-600"
-              className="hover:text-indigo-600"
-              to="/blogs/"
-            >
-              Blogs,
-            </Link>
-          </li>
-          <li>
-            <Link
-              partiallyActive={true}
-              activeClassName="text-indigo-600"
-              className="hover:text-indigo-600"
-              to="/links/"
-            >
-              Links,
-            </Link>
-          </li>
+          {landingPage ? (
+            <>
+              <li>
+                <Link
+                  partiallyActive={true}
+                  activeClassName="text-indigo-600"
+                  className="hover:text-indigo-600"
+                  to="/about/"
+                >
+                  About,
+                </Link>
+              </li>
+              <li>
+                <Link
+                  partiallyActive={true}
+                  activeClassName="text-indigo-600"
+                  className="hover:text-indigo-600"
+                  to="/works/"
+                >
+                  Works,
+                </Link>
+              </li>
+              <li>
+                <Link
+                  partiallyActive={true}
+                  activeClassName="text-indigo-600"
+                  className="hover:text-indigo-600"
+                  to="/blogs/"
+                >
+                  Blogs,
+                </Link>
+              </li>
+              <li>
+                <Link
+                  partiallyActive={true}
+                  activeClassName="text-indigo-600"
+                  className="hover:text-indigo-600"
+                  to="/links/"
+                >
+                  Links,
+                </Link>
+              </li>
+            </>
+          ) : 
+          
+          null
+          }
         </ul>
 
 
