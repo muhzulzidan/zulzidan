@@ -7,6 +7,7 @@ import LogoFull from '../svg/logoFull.svg'
 
 const Header = (childMenu, props) => {
   const { landingPage } = props;
+  const landingPages = props.landingPage || false;
 
   const [show, setShow] = useState(false);
   const controlNavbar = () => {
@@ -59,7 +60,7 @@ const Header = (childMenu, props) => {
               <LogoFull />
             </Link>
           </li>
-          {landingPage ? (
+          {landingPages ? (
             <>
               <li>
                 <Link
