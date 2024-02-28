@@ -476,7 +476,7 @@ const LandingPage = ({ data }) => {
                     animate={{ opacity: inView5 ? 1 : 0, y: inView5 ? 0 : 50 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <section className="md:p-16 px-4 md:mt-4 my-12 bg-indigo-600 text-white">
+                    <section className="md:p-16 px-4 py-12 md:mt-4 my-12 bg-indigo-600 text-white">
                         <h2 className="text-4xl font-bold mb-8">
                             Mulai Proyek Anda Hari Ini
                         </h2>
