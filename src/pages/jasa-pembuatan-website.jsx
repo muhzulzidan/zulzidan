@@ -54,7 +54,7 @@ const LandingPage = ({ data }) => {
     });
 
 
-    const [ref, inView] = useInView({
+    const [ref, inView] = useInView({ 
         triggerOnce: true, // Change this to false if you want the animation to trigger again whenever it comes into view
         threshold: 0.1, // Percentage of the element that is in view before the callback triggers
     });
@@ -89,9 +89,9 @@ const LandingPage = ({ data }) => {
 
     return (
         <div className="bg-stone-50 ">
-            <Header landingPage={true} />
-            <div className='max-w-screen-xl mx-auto'>
 
+            <div className='max-w-screen-xl mx-auto'>
+                <Header landingPage={true} />
                 <header className="md:p-8 px-4 md:pt-4 py-12 text-start md:py-32 flex flex-col md:flex-row items-center md:gap-8 bg-stone-50">
                     <motion.div
                         initial={{ opacity: 0, y: -50 }}

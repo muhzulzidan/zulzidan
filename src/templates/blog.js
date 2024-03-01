@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { renderRichText } from 'gatsby-source-contentful/rich-text';
+// import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FiCheck, FiCopy } from "react-icons/fi";
@@ -10,12 +10,15 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import generateExcerpt from '../utils/generateExcerpt';
-import Layout from '../components/layout';
+// import Layout from '../components/layout';
 import SEOHead from "../components/head";
-import ShareButton from '../components/ShareButton';
-import Breadcrumb from '../components/Breadcrumb';
+// import ShareButton from '../components/ShareButton';
+// import Breadcrumb from '../components/Breadcrumb';
 
 const RichTextRenderer = React.lazy(() => import('../components/RichTextRenderer'));
+const Layout = React.lazy(() => import('../components/layout'));
+const Breadcrumb = React.lazy(() => import('../components/Breadcrumb'));
+const ShareButton = React.lazy(() => import('../components/ShareButton'));
 const CodeBlock = React.lazy(() => import('../components/CodeBlock'));
 
 
@@ -53,20 +56,12 @@ const BlogPagesComponents = ({ data, location }) => {
         const {code, language} = node.data.target
         const handleCopy = (contentfulId) => {
           setIsCopied((prevIsCopied) => {
-            return {
-              ...prevIsCopied,
-              [contentfulId]: true,
-            };
+            const newIsCopied = { ...prevIsCopied, [contentfulId]: true };
+            setTimeout(() => {
+              newIsCopied[contentfulId] = false;
+            }, 2000);
+            return newIsCopied;
           });
-
-          setTimeout(() => {
-            setIsCopied((prevIsCopied) => {
-              return {
-                ...prevIsCopied,
-                [contentfulId]: false,
-              };
-            });
-          }, 2000);
         };
 
         return (
@@ -115,29 +110,35 @@ const BlogPagesComponents = ({ data, location }) => {
     { text: title, link: location.pathname }, // Dynamically set the current page title and link
   ];
   return (
-    <Layout location={location}>
-      <div className="px-4 py-8 sm:px-8 md:px-16 lg:px-20 prose prose-h3:text-xl prose-a: max-w-none">
-     
-        <Breadcrumb items={breadcrumbItems} />
-        <h1 className="text-3xl font-bold mb-4">{title}</h1>
-        <p className='line-clamp-1 text-stone-600 font-semibold xl:pr-12'>{generateExcerpt(content.raw)}</p>
-    <div className='flex justify-between xl:pr-12 my-4'>
-          <p>Ditulis Oleh zidan Pada {date}</p>
-          <ShareButton />
-  
-    </div>
-      
-        <div className='mb-24'>
+    // <Suspense fallback={<div>Loading...</div>}>
+      <Layout location={location}>
+        <div className="px-4 py-8 sm:px-8 md:px-16 lg:px-20 prose prose-h3:text-xl prose-a: max-w-none">
+       
           <Suspense fallback={<div>Loading...</div>}>
-            {image && <GatsbyImage image={image} alt={featuredMedia.title} />}
+            <Breadcrumb items={breadcrumbItems} />
+          </Suspense>
+          <h1 className="text-3xl font-bold mb-4">{title}</h1>
+          <p className='line-clamp-1 text-stone-600 font-semibold xl:pr-12'>{generateExcerpt(content.raw)}</p>
+      <div className='flex justify-between xl:pr-12 my-4'>
+            <p>Ditulis Oleh zidan Pada {date}</p>
+            <Suspense fallback={<div>Loading...</div>}>
+            <ShareButton />
+            </Suspense>
+    
+      </div>
+        
+          <div className='mb-24'>
+            <Suspense fallback={<div>Loading...</div>}>
+              {image && <GatsbyImage image={image} alt={featuredMedia.title} />}
+            </Suspense>
+          </div>
+          {/* {content && renderRichText(content, options)} */}
+          <Suspense fallback={<div>Loading...</div>}>
+            {content && <RichTextRenderer content={content} options={options} />}
           </Suspense>
         </div>
-        {/* {content && renderRichText(content, options)} */}
-        <Suspense fallback={<div>Loading...</div>}>
-          {content && <RichTextRenderer content={content} options={options} />}
-        </Suspense>
-      </div>
-    </Layout>
+      </Layout>
+    // </Suspense>
   );
 };
 

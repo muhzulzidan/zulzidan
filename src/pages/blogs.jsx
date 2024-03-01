@@ -8,6 +8,7 @@ import { Search } from 'react-bootstrap-icons';
 import SEOHead from "../components/head";
 import Layout from '../components/layout'
 import generateExcerpt from '../utils/generateExcerpt';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -33,7 +34,7 @@ const BlogsPage = ({ data, location }) => {
 
     return (
         <Layout location={location}>
-            <section className="pt-10 lg:px-20 px-12">
+            <section className="pt-10 lg:px-20">
                 <div className="container mx-auto space-y-6 sm:space-y-12">
                     <div className="text-center mb-6">
                         {/* Title and Description */}
@@ -52,29 +53,42 @@ const BlogsPage = ({ data, location }) => {
                             />
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 md:py-0 py-4">
                         {filteredBlogs.map(blog => (
                             <Link
                                 key={blog.slug}
                                 rel="noopener noreferrer"
                                 to={`/blogs/${blog.slug}`}
-                                className="block w-full h-full overflow-hidden bg-white rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105"
+                                className="flex md:block w-full h-full overflow-hidden bg-white rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-105"
                             >
+                                {/* GatsbyImage blog.featuredMedia.gatsbyImageData */}
+
+                            <div className="flex md:hidden w-1/2 py-4 px-4">
+                                {blog.featuredMedia.gatsbyImageData && (
+                                    <GatsbyImage
+                                        image={blog.featuredMedia.gatsbyImageData}
+                                        className="flex object-scale-down aspect-video w-full md:hidden"
+                                        alt={blog.title}
+                                        imgClassName="object-contain w-full h-full"
+                                        style={{  objectFit: 'contain'}}
+                                    />
+                                )}
+                            </div>
                                 <div
                                     style={{
                                         backgroundImage: `url(${blog.featuredMedia.gatsbyImageData.images.fallback.src})`
                                     }}
-                                    className="bg-center bg-cover h-64 sm:h-48 lg:h-56"
+                                    className="bg-center hidden md:block bg-cover h-64 sm:h-48 lg:h-56"
                                     alt={blog.title}
                                 ></div>
-                                <div className="p-6">
-                                    <h3 className="text-xl font-bold mb-2 text-gray-800 hover:text-indigo-600 transition-colors">
+                                <div className="px-4 py-4 md:p-6 w-full">
+                                    <h3 className="text-base md:text-xl font-bold mb-2 text-gray-800 hover:text-indigo-600 transition-colors">
                                         {blog.title}
                                     </h3>
-                                    <span className="text-xs text-gray-500">
+                                    <span className="text-base md:text-xs text-gray-500">
                                         {formatDate(blog.date)}
                                     </span>
-                                    <p className="mt-3 text-sm text-gray-700">{generateExcerpt(blog.content.raw)}</p>
+                                    <p className="mt-3 text-sm hidden md:block text-gray-700">{generateExcerpt(blog.content.raw)}</p>
                                 </div>
                             </Link>
                         ))}

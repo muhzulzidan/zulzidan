@@ -18,7 +18,7 @@ const Footer = () => {
   return (
     <footer className="flex flex-col items-center md:items-start py-12 font-heading font-medium tracking-tight px-4 lg:px-10">
       <section className='w-full gap-2 flex flex-col'>
-        <Link to='/' className='flex justify-center items-center md:justify-start '>
+        <Link to='/' className='flex justify-center items-center md:justify-start' aria-label='Home'>
           <LogoFull className='w-auto h-16 mb-4 ml-4 md:hidden' />
           <h2 className='text-5xl font-heading font-bold w-1/2 hidden md:block'>Muhammad Zulzidan M</h2>
         </Link>

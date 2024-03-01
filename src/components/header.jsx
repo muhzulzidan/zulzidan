@@ -5,9 +5,9 @@ import { Spiral as Hamburger } from 'hamburger-react'
 import Menu from './menu'
 import LogoFull from '../svg/logoFull.svg'
 
-const Header = (childMenu, props) => {
-  const { landingPage } = props;
-  const landingPages = props.landingPage || false;
+const Header = ({ childMenu, landingPage }) => {
+
+  const landingPages = landingPage || false;
 
   const [show, setShow] = useState(false);
   const controlNavbar = () => {
@@ -32,7 +32,8 @@ const Header = (childMenu, props) => {
     setIsOpen(!isOpen);
   }
 
-
+  console.log(landingPage,"landingPage")
+  console.log(landingPages,"landingPages")
   return (
     <header className="flex sticky items-center justify-between top-0 w-full z-20 border-b border-[#edf2f9] bg-white/70 px-3 lg:px-10 py-4 backdrop-blur-sm backdrop-saturate-[180%] ">
       <Link
@@ -60,52 +61,59 @@ const Header = (childMenu, props) => {
               <LogoFull />
             </Link>
           </li>
-          {landingPages ? (
-            <>
-              <li>
-                <Link
-                  partiallyActive={true}
-                  activeClassName="text-indigo-600"
-                  className="hover:text-indigo-600"
-                  to="/about/"
-                >
-                  About,
-                </Link>
-              </li>
-              <li>
-                <Link
-                  partiallyActive={true}
-                  activeClassName="text-indigo-600"
-                  className="hover:text-indigo-600"
-                  to="/works/"
-                >
-                  Works,
-                </Link>
-              </li>
-              <li>
-                <Link
-                  partiallyActive={true}
-                  activeClassName="text-indigo-600"
-                  className="hover:text-indigo-600"
-                  to="/blogs/"
-                >
-                  Blogs,
-                </Link>
-              </li>
-              <li>
-                <Link
-                  partiallyActive={true}
-                  activeClassName="text-indigo-600"
-                  className="hover:text-indigo-600"
-                  to="/links/"
-                >
-                  Links,
-                </Link>
-              </li>
-            </>
-          ) : 
+          {landingPages ? 
           
-          null
+          (
+            <div>
+              
+            </div>
+          )
+          : 
+          
+            (
+              <>
+                <li>
+                  <Link
+                    partiallyActive={true}
+                    activeClassName="text-indigo-600"
+                    className="hover:text-indigo-600"
+                    to="/about/"
+                  >
+                    About,
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    partiallyActive={true}
+                    activeClassName="text-indigo-600"
+                    className="hover:text-indigo-600"
+                    to="/works/"
+                  >
+                    Works,
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    partiallyActive={true}
+                    activeClassName="text-indigo-600"
+                    className="hover:text-indigo-600"
+                    to="/blogs/"
+                  >
+                    Blogs,
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    partiallyActive={true}
+                    activeClassName="text-indigo-600"
+                    className="hover:text-indigo-600"
+                    to="/links/"
+                  >
+                    Links,
+                  </Link>
+                </li>
+              </>
+            )
           }
         </ul>
 

@@ -45,11 +45,12 @@ const Breadcrumb = ({ items } ) => {
                         </svg>
                      
                             <Link
-                        to={"/blogs/"}
+                                to={"/blogs/"}
                                 className="block items-center text-sm font-medium text-stone-700 hover:text-yellow-400 dark:text-stone-400 dark:hover:text-white justify-center"
+                                aria-label="Blogs"
                             >
-                                <ClampLines
-                                className='block'
+                                <ClampLines 
+                                    className='block'
                                     text={"Blogs"}
                                     id={`breadcrumb`}
                                     lines={1}
@@ -71,7 +72,7 @@ const Breadcrumb = ({ items } ) => {
                         >
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                         </svg>
-                        <Link to={item.link} className="block items-center text-sm font-medium text-stone-700 hover:text-yellow-400 dark:text-stone-400 dark:hover:text-white justify-center">
+                        <Link to={item.link} className="block items-center text-sm font-medium text-stone-700 hover:text-yellow-400 dark:text-stone-400 dark:hover:text-white justify-center" title={item.text} aria-label={item.text}>
                             <ClampLines text={item.text} id={`breadcrumb-${index}`} lines={1} ellipsis="..." moreText="" lessText="" />
                         </Link>
                     </li>

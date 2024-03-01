@@ -84,3 +84,20 @@ body {
 h1, h2, h3, h4, h5 {
     @apply font-heading;
 }
+
+    .clamp-lines {
+    @apply flex;
+}
+.clamp-lines__button {
+    @apply hidden;
+}
+
+@layer base {
+    .clamp-lines {
+    @apply flex;
+}
+.clamp-lines__button {
+    @apply hidden;
+}
+}
+
