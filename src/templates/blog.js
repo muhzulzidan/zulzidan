@@ -3,11 +3,12 @@ import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 // import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { FiCheck, FiCopy } from "react-icons/fi";
-import { motion } from "framer-motion";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+// import { CopyToClipboard } from 'react-copy-to-clipboard';
+// import { FiCopy, FiCheck } from "lucide-react";
+// import { FiCheck, FiCopy } from "react-icons/fi";
+// import { motion } from "framer-motion";
+// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+// import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import generateExcerpt from '../utils/generateExcerpt';
 // import Layout from '../components/layout';
@@ -15,19 +16,22 @@ import SEOHead from "../components/head";
 // import ShareButton from '../components/ShareButton';
 // import Breadcrumb from '../components/Breadcrumb';
 
-const RichTextRenderer = React.lazy(() => import('../components/RichTextRenderer'));
+// const RichTextRenderer = React.lazy(() => import('../components/RichTextRenderer'));
+import RichTextRenderer from '../components/RichTextRenderer'
+import { Button } from '../components/ui/button';
 const Layout = React.lazy(() => import('../components/layout'));
 const Breadcrumb = React.lazy(() => import('../components/Breadcrumb'));
 const ShareButton = React.lazy(() => import('../components/ShareButton'));
-const CodeBlock = React.lazy(() => import('../components/CodeBlock'));
+// const CodeBlock = React.lazy(() => import('../components/CodeBlock'));
 
 
-const BlogPagesComponents = ({ data, location }) => {
+const BlogPagesComponents = ({ data, location,  }) => {
   const { title, content, featuredMedia, date } = data.contentfulBlog;
   // const image = getImage(featuredMedia.gatsbyImageData);
   const { references } = content;
   const [isCopied, setIsCopied] = useState({});
   const [image, setImage] = useState(null);
+  const [showImage, setShowImage] = useState(false);
 
   useEffect(() => {
     setImage(getImage(featuredMedia.gatsbyImageData));
@@ -67,30 +71,31 @@ const BlogPagesComponents = ({ data, location }) => {
         return (
          <div className='relative'>
             <div className='absolute right-3 top-0'>
-              <CopyToClipboard text={code.code} onCopy={() => handleCopy(node.data.target.contentful_id)}>
-                <motion.button
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="flex items-center px-2 py-1 mt-2 text-sm text-stone-50 bg-stone-800 rounded-md hover:bg-stone-300 hover:text-stone-900 focus:outline-none focus:ring focus:ring-gray-400"
+              {/* <CopyToClipboard text={code.code} onCopy={() => handleCopy(node.data.target.contentful_id)}> */}
+                <Button
+                  onClick={() => {
+                    navigator.clipboard.writeText(code.code).then(() => {
+                      handleCopy(node.data.target.contentful_id);
+                    });
+                  }}
                 >
                   {isCopied[node.data.target.contentful_id] ? (
                     <>
-                      <FiCheck className="mr-1" />
+                      {/* <FiCheck className="mr-1" /> */}
                       Copied!
                     </>
                   ) : (
                     <>
-                      <FiCopy className="mr-1" />
+                      {/* <FiCopy className="mr-1" /> */}
                       Copy
                     </>
                   )}
-                </motion.button>
-              </CopyToClipboard>
+                </Button>
+              {/* </CopyToClipboard> */}
             </div>
-            <SyntaxHighlighter language={language} style={vscDarkPlus}>
-              {code.code}
-            </SyntaxHighlighter>
+            <div className="p-4 bg-gray-800 text-white rounded-md overflow-auto">
+              <pre className="font-mono text-sm">{code.code}</pre>
+            </div>
           </div>
         )
       },
@@ -106,39 +111,45 @@ const BlogPagesComponents = ({ data, location }) => {
   };
 
   const breadcrumbItems = [
-
-    { text: title, link: location.pathname }, // Dynamically set the current page title and link
+  { text: title, link: location.pathname }, 
   ];
+
+  console.log(content.raw, "content")
   return (
-    // <Suspense fallback={<div>Loading...</div>}>
-      <Layout location={location}>
-        <div className="px-4 py-8 sm:px-8 md:px-16 lg:px-20 prose prose-h3:text-xl prose-a: max-w-none">
-       
+
+    <Layout location={location}>
+      <div className="px-4 py-8 sm:px-8 md:px-16 lg:px-20 break-words font-sans flex flex-col gap-4 ">
+
+        <Suspense fallback={<div>Loading...</div>}>
+          <Breadcrumb items={breadcrumbItems} />
+        </Suspense>
+        <h1 className="text-3xl font-heading font-bold mb-4">{title}</h1>
+        <p className='line-clamp-1 text-stone-600 font-semibold xl:pr-12'>{generateExcerpt(content.raw)}</p>
+
+        <div className='flex justify-between xl:pr-12 my-4'>
+          <p>Ditulis Oleh zidan Pada {date}</p>
           <Suspense fallback={<div>Loading...</div>}>
-            <Breadcrumb items={breadcrumbItems} />
-          </Suspense>
-          <h1 className="text-3xl font-bold mb-4">{title}</h1>
-          <p className='line-clamp-1 text-stone-600 font-semibold xl:pr-12'>{generateExcerpt(content.raw)}</p>
-      <div className='flex justify-between xl:pr-12 my-4'>
-            <p>Ditulis Oleh zidan Pada {date}</p>
-            <Suspense fallback={<div>Loading...</div>}>
             <ShareButton />
-            </Suspense>
-    
-      </div>
-        
-          <div className='mb-24'>
-            <Suspense fallback={<div>Loading...</div>}>
-              {image && <GatsbyImage image={image} alt={featuredMedia.title} />}
-            </Suspense>
-          </div>
-          {/* {content && renderRichText(content, options)} */}
-          <Suspense fallback={<div>Loading...</div>}>
-            {content && <RichTextRenderer content={content} options={options} />}
           </Suspense>
         </div>
-      </Layout>
-    // </Suspense>
+
+        
+        <div className={`mb-4 w-full   justify-center items-center flex${!showImage ? 'md:w-1/2 ' : 'w-full'}`}>
+          {showImage ? null : <Button variant="outline" onClick={() => setShowImage(true)} className="w-full">Show Image</Button>}
+          <Suspense fallback={<div>Loading...</div>}>
+            {showImage && image && <GatsbyImage image={image} alt={featuredMedia.title} />}
+          </Suspense>
+        </div>
+       
+       
+
+        {/* <Suspense fallback={<div>Loading...</div>}> */}
+        {content && <RichTextRenderer content={content} options={options} />}
+       
+        {/* </Suspense> */}
+      </div>
+    </Layout>
+
   );
 };
 
@@ -158,7 +169,7 @@ export const query = graphql`
       date(formatString: "DD MMM YYYY")
       content {
         raw
-        references {
+           references {
            ... on ContentfulAsset {
               gatsbyImageData(
                 layout: CONSTRAINED

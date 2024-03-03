@@ -11,6 +11,7 @@ module.exports = {
   },
   plugins: [
     // `gatsby-plugin-preact`,
+    // 'gatsby-plugin-webpack-bundle-analyzer',
     'gatsby-plugin-remove-console',
     `gatsby-plugin-minify`,
     `gatsby-plugin-sitemap`,
@@ -31,7 +32,7 @@ module.exports = {
         postCssPlugins: [require('tailwindcss')],
       },
     },
-    // 'gatsby-plugin-next-seo',
+
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-image",
     // {
@@ -102,29 +103,6 @@ module.exports = {
       },
     },
 
-    // {
-    //   /* Include plugin */
-    //   resolve: "gatsby-omni-font-loader",
-
-    //   /* Plugin options */
-    //   options: {
-
-    //     /* Font loading mode */
-    //     mode: "defer",
-
-    //     /* Preconnect URL-s. This example is for Google Fonts */
-    //     preconnect: ["https://fonts.gstatic.com"],
-
-    //     /* Web fonts. File link should point to font CSS file. */
-    //     web: [{
-    //       /* Exact name of the font as defied in @font-face CSS rule */
-    //       name: "Questrial",
-    //       /* URL to the font CSS file with @font-face definition */
-    //       file: "https://fonts.googleapis.com/css2?family=Questrial&display=swap",
-    //     },
-    //     ],
-    //   },
-    // },
     {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
@@ -180,30 +158,18 @@ module.exports = {
         postCssPlugins: [require("tailwindcss")],
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-loadable-components-ssr`,
-    //   options: {
-    //     // Whether replaceHydrateFunction should call ReactDOM.hydrate or ReactDOM.render
-    //     // Defaults to ReactDOM.render on develop and ReactDOM.hydrate on build
-    //     useHydrate: true,
-    //   },
-    // },
+
     'gatsby-plugin-brotli', 
-    'gatsby-plugin-minify-html'
-    // {
-    //   resolve: `gatsby-plugin-purgecss`,
-    //   options: {
-    //     printRejected: true, // Print removed selectors and processed file names
-    //     develop: true, // Enable while using `gatsby develop`
-    //     tailwind: true, // Enable tailwindcss support
-    //     ignore: ['/linksPage.module.scss', '/menu.module.scss' ], // Ignore files/folders
-    //     // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
-    //     purgeCSSOptions: {
-    //       // https://purgecss.com/configuration.html#options
-    //       // safelist: ['safelist'], // Don't remove this selector
-    //     },
-    //     // More options defined here https://purgecss.com/configuration.html#options
-    //   },
-    // },
+    'gatsby-plugin-minify-html',
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true, // Print removed selectors and processed file names
+        develop: true, // Enable while using `gatsby develop`
+        tailwind: true, // Enable tailwindcss support
+       
+      },
+    },
+    'gatsby-plugin-no-javascript',
   ],
 };

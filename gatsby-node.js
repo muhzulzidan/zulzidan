@@ -1,4 +1,5 @@
 const path = require("path");
+const { renderRichText } = require('gatsby-source-contentful/rich-text');
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -13,7 +14,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, deletePage, createRedirect } = actions;
+
 
   // For Blogs
   const blogTemplate = path.resolve('./src/templates/blog.js');
@@ -23,6 +25,15 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             slug
+             content {
+              raw
+              references {
+                ... on ContentfulAsset {
+                  contentful_id
+                  gatsbyImageData
+                }
+              }
+            }
           }
         }
       }
@@ -35,12 +46,21 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   blogResult.data.allContentfulBlog.edges.forEach((edge) => {
+    const path = `/blogs/${edge.node.slug}/`;
+
     createPage({
       component: blogTemplate,
-      path: `/blogs/${edge.node.slug}`,
+      path,
       context: {
         slug: edge.node.slug,
       },
+    });
+
+    createRedirect({
+      fromPath: `/blogs/${edge.node.slug}`,
+      toPath: path,
+      isPermanent: true,
+      redirectInBrowser: true,
     });
   });
 
@@ -65,12 +85,23 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   worksResult.data.allContentfulZulzidanWorks.edges.forEach(({ node }) => {
+    const path = `/works/${node.slug}/`;
+
     createPage({
-      path: `/works/${node.slug}`,
+      path,
       component: workTemplate,
       context: {
         slug: node.slug,
       },
     });
+
+    createRedirect({
+      fromPath: `/works/${node.slug}`,
+      toPath: path,
+      isPermanent: true,
+      redirectInBrowser: true,
+    });
   });
+
+  
 };

@@ -30,11 +30,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@contentful/rich-text-react-renderer", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:15.19.4"],\
             ["@contentful/rich-text-types", "npm:16.3.4"],\
-            ["@fortawesome/fontawesome-svg-core", "npm:6.5.1"],\
-            ["@fortawesome/free-brands-svg-icons", "npm:6.5.1"],\
-            ["@fortawesome/free-regular-svg-icons", "npm:6.5.1"],\
-            ["@fortawesome/free-solid-svg-icons", "npm:6.5.1"],\
-            ["@fortawesome/react-fontawesome", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:0.2.0"],\
             ["@headlessui/react", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.7.18"],\
             ["@radix-ui/react-dropdown-menu", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:2.0.6"],\
             ["@radix-ui/react-slot", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.0.2"],\
@@ -59,6 +54,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["gatsby-plugin-minify", "npm:0.5.0"],\
             ["gatsby-plugin-minify-html", "npm:1.0.4"],\
             ["gatsby-plugin-next-seo", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.11.0"],\
+            ["gatsby-plugin-no-javascript", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:2.0.5"],\
             ["gatsby-plugin-perf-budgets", "npm:0.0.18"],\
             ["gatsby-plugin-postcss", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:6.13.1"],\
             ["gatsby-plugin-preact", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:7.13.1"],\
@@ -70,6 +66,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["gatsby-plugin-sharp", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:5.13.1"],\
             ["gatsby-plugin-sitemap", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:6.13.1"],\
             ["gatsby-plugin-webpack-bundle-analyser-v2", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.1.32"],\
+            ["gatsby-plugin-webpack-bundle-analyzer", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.0.5"],\
             ["gatsby-plugin-wpgraphql-seo", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.4.2"],\
             ["gatsby-source-contentful", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:8.13.1"],\
             ["gatsby-source-filesystem", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:5.13.1"],\
@@ -93,7 +90,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-copy-to-clipboard", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:5.1.0"],\
             ["react-dom", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:18.2.0"],\
             ["react-helmet", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:6.1.0"],\
-            ["react-icons", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:5.0.1"],\
             ["react-intersection-observer", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:9.8.1"],\
             ["react-responsive", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:9.0.2"],\
             ["react-slick", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:0.30.2"],\
@@ -3155,82 +3151,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@floating-ui-utils-npm-0.2.1-5ad70234fc-9ed4380653.zip/node_modules/@floating-ui/utils/",\
           "packageDependencies": [\
             ["@floating-ui/utils", "npm:0.2.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@fortawesome/fontawesome-common-types", [\
-        ["npm:6.5.1", {\
-          "packageLocation": "./.yarn/unplugged/@fortawesome-fontawesome-common-types-npm-6.5.1-1efaf0654d/node_modules/@fortawesome/fontawesome-common-types/",\
-          "packageDependencies": [\
-            ["@fortawesome/fontawesome-common-types", "npm:6.5.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@fortawesome/fontawesome-svg-core", [\
-        ["npm:6.5.1", {\
-          "packageLocation": "./.yarn/unplugged/@fortawesome-fontawesome-svg-core-npm-6.5.1-8a58ea1915/node_modules/@fortawesome/fontawesome-svg-core/",\
-          "packageDependencies": [\
-            ["@fortawesome/fontawesome-svg-core", "npm:6.5.1"],\
-            ["@fortawesome/fontawesome-common-types", "npm:6.5.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@fortawesome/free-brands-svg-icons", [\
-        ["npm:6.5.1", {\
-          "packageLocation": "./.yarn/unplugged/@fortawesome-free-brands-svg-icons-npm-6.5.1-4909283c6b/node_modules/@fortawesome/free-brands-svg-icons/",\
-          "packageDependencies": [\
-            ["@fortawesome/free-brands-svg-icons", "npm:6.5.1"],\
-            ["@fortawesome/fontawesome-common-types", "npm:6.5.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@fortawesome/free-regular-svg-icons", [\
-        ["npm:6.5.1", {\
-          "packageLocation": "./.yarn/unplugged/@fortawesome-free-regular-svg-icons-npm-6.5.1-9331a4ef57/node_modules/@fortawesome/free-regular-svg-icons/",\
-          "packageDependencies": [\
-            ["@fortawesome/free-regular-svg-icons", "npm:6.5.1"],\
-            ["@fortawesome/fontawesome-common-types", "npm:6.5.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@fortawesome/free-solid-svg-icons", [\
-        ["npm:6.5.1", {\
-          "packageLocation": "./.yarn/unplugged/@fortawesome-free-solid-svg-icons-npm-6.5.1-f35995a54f/node_modules/@fortawesome/free-solid-svg-icons/",\
-          "packageDependencies": [\
-            ["@fortawesome/free-solid-svg-icons", "npm:6.5.1"],\
-            ["@fortawesome/fontawesome-common-types", "npm:6.5.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@fortawesome/react-fontawesome", [\
-        ["npm:0.2.0", {\
-          "packageLocation": "./.yarn/cache/@fortawesome-react-fontawesome-npm-0.2.0-a36215138f-f652a0c217.zip/node_modules/@fortawesome/react-fontawesome/",\
-          "packageDependencies": [\
-            ["@fortawesome/react-fontawesome", "npm:0.2.0"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:0.2.0", {\
-          "packageLocation": "./.yarn/__virtual__/@fortawesome-react-fontawesome-virtual-b011e926d9/0/cache/@fortawesome-react-fontawesome-npm-0.2.0-a36215138f-f652a0c217.zip/node_modules/@fortawesome/react-fontawesome/",\
-          "packageDependencies": [\
-            ["@fortawesome/react-fontawesome", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:0.2.0"],\
-            ["@fortawesome/fontawesome-svg-core", "npm:6.5.1"],\
-            ["@types/fortawesome__fontawesome-svg-core", null],\
-            ["@types/react", null],\
-            ["prop-types", "npm:15.8.1"],\
-            ["react", "npm:18.2.0"]\
-          ],\
-          "packagePeers": [\
-            "@fortawesome/fontawesome-svg-core",\
-            "@types/fortawesome__fontawesome-svg-core",\
-            "@types/react",\
-            "react"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -13078,6 +12998,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["gatsby-plugin-no-javascript", [\
+        ["npm:2.0.5", {\
+          "packageLocation": "./.yarn/cache/gatsby-plugin-no-javascript-npm-2.0.5-37586e8d7e-1bd03f2bcb.zip/node_modules/gatsby-plugin-no-javascript/",\
+          "packageDependencies": [\
+            ["gatsby-plugin-no-javascript", "npm:2.0.5"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:2.0.5", {\
+          "packageLocation": "./.yarn/__virtual__/gatsby-plugin-no-javascript-virtual-1fc138b69d/0/cache/gatsby-plugin-no-javascript-npm-2.0.5-37586e8d7e-1bd03f2bcb.zip/node_modules/gatsby-plugin-no-javascript/",\
+          "packageDependencies": [\
+            ["gatsby-plugin-no-javascript", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:2.0.5"],\
+            ["@types/gatsby", null],\
+            ["gatsby", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:5.13.3"]\
+          ],\
+          "packagePeers": [\
+            "@types/gatsby",\
+            "gatsby"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["gatsby-plugin-page-creator", [\
         ["npm:5.13.1", {\
           "packageLocation": "./.yarn/cache/gatsby-plugin-page-creator-npm-5.13.1-454a1bd9c6-05b06a4396.zip/node_modules/gatsby-plugin-page-creator/",\
@@ -13505,6 +13447,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/gatsby", null],\
             ["gatsby", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:5.13.3"],\
             ["webpack-bundle-analyzer", "npm:4.10.1"]\
+          ],\
+          "packagePeers": [\
+            "@types/gatsby",\
+            "gatsby"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["gatsby-plugin-webpack-bundle-analyzer", [\
+        ["npm:1.0.5", {\
+          "packageLocation": "./.yarn/cache/gatsby-plugin-webpack-bundle-analyzer-npm-1.0.5-06d082c3f4-fcd79e5240.zip/node_modules/gatsby-plugin-webpack-bundle-analyzer/",\
+          "packageDependencies": [\
+            ["gatsby-plugin-webpack-bundle-analyzer", "npm:1.0.5"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.0.5", {\
+          "packageLocation": "./.yarn/__virtual__/gatsby-plugin-webpack-bundle-analyzer-virtual-6bc7dcc126/0/cache/gatsby-plugin-webpack-bundle-analyzer-npm-1.0.5-06d082c3f4-fcd79e5240.zip/node_modules/gatsby-plugin-webpack-bundle-analyzer/",\
+          "packageDependencies": [\
+            ["gatsby-plugin-webpack-bundle-analyzer", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.0.5"],\
+            ["@types/gatsby", null],\
+            ["gatsby", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:5.13.3"],\
+            ["webpack-bundle-analyzer", "npm:3.9.0"]\
           ],\
           "packagePeers": [\
             "@types/gatsby",\
@@ -20562,28 +20527,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["react-icons", [\
-        ["npm:5.0.1", {\
-          "packageLocation": "./.yarn/cache/react-icons-npm-5.0.1-5e01385cf2-e5df9c5e3b.zip/node_modules/react-icons/",\
-          "packageDependencies": [\
-            ["react-icons", "npm:5.0.1"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:5.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/react-icons-virtual-4e45d7ef73/0/cache/react-icons-npm-5.0.1-5e01385cf2-e5df9c5e3b.zip/node_modules/react-icons/",\
-          "packageDependencies": [\
-            ["react-icons", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:5.0.1"],\
-            ["@types/react", null],\
-            ["react", "npm:18.2.0"]\
-          ],\
-          "packagePeers": [\
-            "@types/react",\
-            "react"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["react-intersection-observer", [\
         ["npm:9.8.1", {\
           "packageLocation": "./.yarn/cache/react-intersection-observer-npm-9.8.1-185e9745d2-0aec6f3fb5.zip/node_modules/react-intersection-observer/",\
@@ -24188,6 +24131,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["webpack-bundle-analyzer", [\
+        ["npm:3.9.0", {\
+          "packageLocation": "./.yarn/cache/webpack-bundle-analyzer-npm-3.9.0-49ea30ebb4-7fb83afb13.zip/node_modules/webpack-bundle-analyzer/",\
+          "packageDependencies": [\
+            ["webpack-bundle-analyzer", "npm:3.9.0"],\
+            ["acorn", "npm:7.4.1"],\
+            ["acorn-walk", "npm:7.2.0"],\
+            ["bfj", "npm:6.1.2"],\
+            ["chalk", "npm:2.4.2"],\
+            ["commander", "npm:2.20.3"],\
+            ["ejs", "npm:2.7.4"],\
+            ["express", "npm:4.18.2"],\
+            ["filesize", "npm:3.6.1"],\
+            ["gzip-size", "npm:5.1.1"],\
+            ["lodash", "npm:4.17.21"],\
+            ["mkdirp", "npm:0.5.6"],\
+            ["opener", "npm:1.5.2"],\
+            ["ws", "virtual:31d53bb687c5a0bb920baaefa7a6359082266f2f8a11498a5e99e9f229116d672e3b6577ede033afd026de21f95334680f5a23048824856aac88523199b0580f#npm:6.2.2"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:4.10.1", {\
           "packageLocation": "./.yarn/cache/webpack-bundle-analyzer-npm-4.10.1-57768ac46c-77f48f10a4.zip/node_modules/webpack-bundle-analyzer/",\
           "packageDependencies": [\
@@ -24789,11 +24752,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["zulzidan", "workspace:."],\
             ["@contentful/rich-text-react-renderer", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:15.19.4"],\
             ["@contentful/rich-text-types", "npm:16.3.4"],\
-            ["@fortawesome/fontawesome-svg-core", "npm:6.5.1"],\
-            ["@fortawesome/free-brands-svg-icons", "npm:6.5.1"],\
-            ["@fortawesome/free-regular-svg-icons", "npm:6.5.1"],\
-            ["@fortawesome/free-solid-svg-icons", "npm:6.5.1"],\
-            ["@fortawesome/react-fontawesome", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:0.2.0"],\
             ["@headlessui/react", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.7.18"],\
             ["@radix-ui/react-dropdown-menu", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:2.0.6"],\
             ["@radix-ui/react-slot", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.0.2"],\
@@ -24818,6 +24776,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["gatsby-plugin-minify", "npm:0.5.0"],\
             ["gatsby-plugin-minify-html", "npm:1.0.4"],\
             ["gatsby-plugin-next-seo", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.11.0"],\
+            ["gatsby-plugin-no-javascript", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:2.0.5"],\
             ["gatsby-plugin-perf-budgets", "npm:0.0.18"],\
             ["gatsby-plugin-postcss", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:6.13.1"],\
             ["gatsby-plugin-preact", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:7.13.1"],\
@@ -24829,6 +24788,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["gatsby-plugin-sharp", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:5.13.1"],\
             ["gatsby-plugin-sitemap", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:6.13.1"],\
             ["gatsby-plugin-webpack-bundle-analyser-v2", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.1.32"],\
+            ["gatsby-plugin-webpack-bundle-analyzer", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.0.5"],\
             ["gatsby-plugin-wpgraphql-seo", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.4.2"],\
             ["gatsby-source-contentful", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:8.13.1"],\
             ["gatsby-source-filesystem", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:5.13.1"],\
@@ -24852,7 +24812,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-copy-to-clipboard", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:5.1.0"],\
             ["react-dom", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:18.2.0"],\
             ["react-helmet", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:6.1.0"],\
-            ["react-icons", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:5.0.1"],\
             ["react-intersection-observer", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:9.8.1"],\
             ["react-responsive", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:9.0.2"],\
             ["react-slick", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:0.30.2"],\

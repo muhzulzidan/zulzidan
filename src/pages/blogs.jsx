@@ -63,7 +63,7 @@ const BlogsPage = ({ data, location }) => {
                             >
                                 {/* GatsbyImage blog.featuredMedia.gatsbyImageData */}
 
-                            <div className="flex md:hidden w-1/2 py-4 px-4">
+                            {/* <div className="flex md:hidden w-1/2 py-4 px-4">
                                 {blog.featuredMedia.gatsbyImageData && (
                                     <GatsbyImage
                                         image={blog.featuredMedia.gatsbyImageData}
@@ -73,7 +73,7 @@ const BlogsPage = ({ data, location }) => {
                                         style={{  objectFit: 'contain'}}
                                     />
                                 )}
-                            </div>
+                            </div> */}
                                 <div
                                     style={{
                                         backgroundImage: `url(${blog.featuredMedia.gatsbyImageData.images.fallback.src})`

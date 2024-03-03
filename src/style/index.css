@@ -85,6 +85,8 @@ h1, h2, h3, h4, h5 {
     @apply font-heading;
 }
 
+/* purgecss ignore */
+
     .clamp-lines {
     @apply flex;
 }
@@ -94,10 +96,10 @@ h1, h2, h3, h4, h5 {
 
 @layer base {
     .clamp-lines {
-    @apply flex;
-}
-.clamp-lines__button {
-    @apply hidden;
-}
+      @apply flex;
+  }
+  .clamp-lines__button {
+      @apply hidden;
+  }
 }
 
