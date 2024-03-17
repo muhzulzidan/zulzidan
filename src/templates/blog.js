@@ -114,7 +114,7 @@ const BlogPagesComponents = ({ data, location,  }) => {
   { text: title, link: location.pathname }, 
   ];
 
-  console.log(content.raw, "content")
+  // console.log(content.raw, "content")
   return (
 
     <Layout location={location}>
@@ -142,10 +142,12 @@ const BlogPagesComponents = ({ data, location,  }) => {
         </div>
        
        
-
-        {/* <Suspense fallback={<div>Loading...</div>}> */}
-        {content && <RichTextRenderer content={content} options={options} />}
-       
+  <div className='prose max-w-none'>
+    
+            {/* <Suspense fallback={<div>Loading...</div>}> */}
+            {content && <RichTextRenderer content={content} options={options} />}
+          
+  </div>
         {/* </Suspense> */}
       </div>
     </Layout>
