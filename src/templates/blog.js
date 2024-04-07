@@ -3,18 +3,25 @@ import { graphql } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 // import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
+import slugify from 'slugify'
 // import { CopyToClipboard } from 'react-copy-to-clipboard';
 // import { FiCopy, FiCheck } from "lucide-react";
 // import { FiCheck, FiCopy } from "react-icons/fi";
 // import { motion } from "framer-motion";
 // import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 // import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
-
+import generateTableOfContents from '../components/table-of-contents';
 import generateExcerpt from '../utils/generateExcerpt';
 // import Layout from '../components/layout';
 import SEOHead from "../components/head";
 // import ShareButton from '../components/ShareButton';
 // import Breadcrumb from '../components/Breadcrumb';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 // const RichTextRenderer = React.lazy(() => import('../components/RichTextRenderer'));
 import RichTextRenderer from '../components/RichTextRenderer'
@@ -25,7 +32,7 @@ const ShareButton = React.lazy(() => import('../components/ShareButton'));
 // const CodeBlock = React.lazy(() => import('../components/CodeBlock'));
 
 
-const BlogPagesComponents = ({ data, location,  }) => {
+const BlogPagesComponents = ({ data, location, }) => {
   const { title, content, featuredMedia, date } = data.contentfulBlog;
   // const image = getImage(featuredMedia.gatsbyImageData);
   const { references } = content;
@@ -36,6 +43,9 @@ const BlogPagesComponents = ({ data, location,  }) => {
   useEffect(() => {
     setImage(getImage(featuredMedia.gatsbyImageData));
   }, [featuredMedia]);
+
+  // Initialize an empty array to store the headings
+  let tableOfContents = [];
 
   const Bold = ({ children }) => <span className="font-bold">{children}</span>;
   const Text = ({ children }) => <p className="">{children}</p>;
@@ -56,8 +66,20 @@ const BlogPagesComponents = ({ data, location,  }) => {
       [BLOCKS.PARAGRAPH]: (node, children) => {
         return <Text>{children}</Text>;
       },
+      [BLOCKS.HEADING_2]: (node, children) => {
+        // Add the heading to the table of contents
+        const headingText = node.content[0].value.trim().replace(/[-\s]+$/, '');
+        tableOfContents.push(headingText);
+
+        // Convert the heading text into a slug
+        const slug = headingText.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+
+        console.log(slug, "slug heading");
+
+        return <h2 id={slug}>{children}</h2>;
+      },
       [BLOCKS.EMBEDDED_ENTRY]: (node, index) => {
-        const {code, language} = node.data.target
+        const { code, language } = node.data.target
         const handleCopy = (contentfulId) => {
           setIsCopied((prevIsCopied) => {
             const newIsCopied = { ...prevIsCopied, [contentfulId]: true };
@@ -69,28 +91,28 @@ const BlogPagesComponents = ({ data, location,  }) => {
         };
 
         return (
-         <div className='relative'>
+          <div className='relative'>
             <div className='absolute right-3 top-0'>
               {/* <CopyToClipboard text={code.code} onCopy={() => handleCopy(node.data.target.contentful_id)}> */}
-                <Button
-                  onClick={() => {
-                    navigator.clipboard.writeText(code.code).then(() => {
-                      handleCopy(node.data.target.contentful_id);
-                    });
-                  }}
-                >
-                  {isCopied[node.data.target.contentful_id] ? (
-                    <>
-                      {/* <FiCheck className="mr-1" /> */}
-                      Copied!
-                    </>
-                  ) : (
-                    <>
-                      {/* <FiCopy className="mr-1" /> */}
-                      Copy
-                    </>
-                  )}
-                </Button>
+              <Button
+                onClick={() => {
+                  navigator.clipboard.writeText(code.code).then(() => {
+                    handleCopy(node.data.target.contentful_id);
+                  });
+                }}
+              >
+                {isCopied[node.data.target.contentful_id] ? (
+                  <>
+                    {/* <FiCheck className="mr-1" /> */}
+                    Copied!
+                  </>
+                ) : (
+                  <>
+                    {/* <FiCopy className="mr-1" /> */}
+                    Copy
+                  </>
+                )}
+              </Button>
               {/* </CopyToClipboard> */}
             </div>
             <div className="p-4 bg-gray-800 text-white rounded-md overflow-auto">
@@ -102,7 +124,7 @@ const BlogPagesComponents = ({ data, location,  }) => {
       [BLOCKS.EMBEDDED_ASSET]: node => {
         return (
           <>
-            <GatsbyImage image={getImage(node.data.target.gatsbyImageData)} alt={node.data.target.title} />           
+            <GatsbyImage image={getImage(node.data.target.gatsbyImageData)} alt={node.data.target.title} />
           </>
         );
       },
@@ -111,10 +133,33 @@ const BlogPagesComponents = ({ data, location,  }) => {
   };
 
   const breadcrumbItems = [
-  { text: title, link: location.pathname }, 
+    { text: title, link: location.pathname },
   ];
 
-  // console.log(content.raw, "content")
+  // console.log(tableOfContents, "content")
+
+  function getPlainTextFromHeader(contentNode) {
+    return contentNode.reduce((acc, current) => {
+      return acc + current.value
+    }, '')
+  }
+
+  function getHeadersFromRichText(richText) {
+    const headers = (content) => content.nodeType === BLOCKS.HEADING_2
+
+    return richText.content.filter(headers).map((heading) => {
+      const plainText = getPlainTextFromHeader(heading.content)
+
+      return {
+        text: plainText,
+        href: `#${slugify(plainText)}`,
+      }
+    })
+  }
+  // console.log(renderRichText(content), "contentasdasd")
+  console.log(generateTableOfContents(content.raw), "contentasdasd")
+
+
   return (
 
     <Layout location={location}>
@@ -133,22 +178,49 @@ const BlogPagesComponents = ({ data, location,  }) => {
           </Suspense>
         </div>
 
-        
+
         <div className={`mb-4 w-full   justify-center items-center flex${!showImage ? 'md:w-1/2 ' : 'w-full'}`}>
           {showImage ? null : <Button variant="outline" onClick={() => setShowImage(true)} className="w-full">Show Image</Button>}
           <Suspense fallback={<div>Loading...</div>}>
             {showImage && image && <GatsbyImage image={image} alt={featuredMedia.title} />}
           </Suspense>
         </div>
+
+
        
-       
-  <div className='prose max-w-none'>
-    
-            {/* <Suspense fallback={<div>Loading...</div>}> */}
-            {content && <RichTextRenderer content={content} options={options} />}
+
+
+        <div className='prose max-w-none'>
+          <Accordion type="single" collapsible>
+            <AccordionItem value="item-1" >
+              <AccordionTrigger>
+                <span className='m-0 font-bold'> Table of Contents</span>
+              </AccordionTrigger>
+              <AccordionContent>
+                <ul className='list-none'>
+                  {generateTableOfContents(content.raw).map((item, i) => {
+                    // Convert the item text into a slug
+                    const slug = item.trim().replace(/[-\s]+$/, '').toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+
+
+
+                    const href = `#${slug}`;
+
+                    return (
+                      <li key={i} >
+                        <a href={href} className='no-underline hover:text-indigo-600' >{item}</a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
           
-  </div>
-        {/* </Suspense> */}
+          {content && <RichTextRenderer content={content} options={options} />}
+
+        </div>
+       
       </div>
     </Layout>
 

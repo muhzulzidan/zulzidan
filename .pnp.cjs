@@ -97,6 +97,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-web-share", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:2.0.2"],\
             ["sass", "npm:1.71.1"],\
             ["slick-carousel", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.8.1"],\
+            ["slugify", "npm:1.6.6"],\
             ["svg-react-loader", "npm:0.4.6"],\
             ["tailwind-merge", "npm:2.2.1"],\
             ["tailwindcss", "npm:3.4.1"],\
@@ -24819,6 +24820,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-web-share", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:2.0.2"],\
             ["sass", "npm:1.71.1"],\
             ["slick-carousel", "virtual:0e81fd9c140ff63ae6a754a57477a20e1e855fbb312a4bf9b5ccce057affbaf6cdd90ddd083156d8d48b86262a659a93c925e9e0becaca91f3d6e872630b3207#npm:1.8.1"],\
+            ["slugify", "npm:1.6.6"],\
             ["svg-react-loader", "npm:0.4.6"],\
             ["tailwind-merge", "npm:2.2.1"],\
             ["tailwindcss", "npm:3.4.1"],\
