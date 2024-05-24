@@ -33,7 +33,7 @@ const Links = ({ data }) => {
 
 
     return (
-        <div className={styles.linksPage}>
+        <div className={`max-w-3xl mx-auto ${styles.linksPage}`}>
             <div className={`${styles.topBar}  hidden ${show && 'active'}`}>
                 {/* <Link to='/'>Home`</Link> */}
                 <RWebShare

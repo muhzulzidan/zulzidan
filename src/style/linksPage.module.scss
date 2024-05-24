@@ -1,5 +1,5 @@
 //linksPage.module.scss
-
+/* purgecss start ignore */
 .linksPage {
     display: flex;
     flex-direction: column;
@@ -234,3 +234,5 @@
         margin-right: auto;
     }
 }
+
+/* purgecss end ignore */

@@ -1,5 +1,5 @@
 
-import "./src/style/index.css";
+import "./src/style/index.scss";
 // import "@fontsource/questrial/latin-400.css";
 // import "@fontsource/poppins/latin-400.css";
 // import "@fontsource/poppins/latin-500.css";
