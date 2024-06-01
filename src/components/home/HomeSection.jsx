@@ -18,9 +18,9 @@ const HomeSection = () => {
             <div className="py-4 lg:pt-10">
                 <a
                     href="https://api.whatsapp.com/send?phone=6281354789375&text=halo%20zulzidan.com%2C%20saya%20mau%20buat%20website"
-                    className="border border-solid border-gray-950 font-medium font-heading rounded-full px-6 py-3 my-4 text-lg"
+                    className="border border-solid border-gray-950 font-medium font-heading rounded-full px-6 py-3 my-4 text-lg cursor-pointer hover:bg-black"
                 >
-                    Chat on Whatsapp
+                    Chat on Whatsapp 
                 </a>
             </div>
         </section>

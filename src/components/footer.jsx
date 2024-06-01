@@ -31,7 +31,7 @@ const Footer = () => {
             <a href="https://www.linkedin.com/in/muhzulzidan/" className='hover:text-indigo-600'>
               Linkedin
             </a>
-            <a href="https://www.youtube.com/@muhzulzidan5137" className='hover:text-indigo-600'>
+            <a href="https://www.youtube.com/@muhzulzidan" className='hover:text-indigo-600'>
               Youtube
             </a>
           </section>
