@@ -15,7 +15,12 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, deletePage, createRedirect } = actions;
-
+  
+ createRedirect({
+    fromPath: `/mpi/`,
+    toPath: `https://forms.gle/TKLcGV7b9LqDuq3B6`,
+    statusCode: 200,
+  })
 
   // For Blogs
   const blogTemplate = path.resolve('./src/templates/blog.js');
