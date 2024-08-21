@@ -164,10 +164,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
+        ignore: [
+          'linksPage.module.scss',
+        ],
         printRejected: true, // Print removed selectors and processed file names
         develop: true, // Enable while using `gatsby develop`
         tailwind: true, // Enable tailwindcss support
-       
       },
     },
     'gatsby-plugin-no-javascript',
