@@ -1,10 +1,5 @@
 import React, { useState, } from "react";
-
 import { graphql, Link } from 'gatsby'
-// import { renderRichText } from 'gatsby-source-contentful/rich-text'
-import { BLOCKS } from "@contentful/rich-text-types"
-import { Search } from 'react-bootstrap-icons';
-
 import SEOHead from "../components/head";
 import Layout from '../components/layout'
 import generateExcerpt from '../utils/generateExcerpt';
@@ -44,18 +39,6 @@ const ServicesPage = ({ location }) => {
                         {/* Title and Description */}
                         <h2 className="font-heading font-bold text-3xl mb-2">Services</h2>
                         <p className="font-body text-gray-700  text-lg">Explore our latest services below.</p>
-
-                        {/* Search Box */}
-                        {/* <div className="mt-6 relative max-w-md mx-auto">
-                            <Search className="absolute top-3 left-3 text-gray-500" />
-                            <input
-                                type="text"
-                                placeholder="Search blogs..."
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                                className="p-2 pl-10 w-full border rounded-md"
-                            />
-                        </div> */}
                     </div>
                     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 md:py-0 py-4">
                         {services.map(service => (
@@ -88,7 +71,7 @@ const ServicesPage = ({ location }) => {
 export const Head = () => {
     return (
         <SEOHead
-            title="Blog by Muhammad Zulzidan"
+            title="Services by Muhammad Zulzidan"
             description="Dive into insightful articles and explore a wide range of topics written by Muhammad Zulzidan."
         />
     );

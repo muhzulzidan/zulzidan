@@ -1,5 +1,3 @@
-/** @type {import('tailwindcss').Config} */
-const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require('tailwindcss/colors')
 
 module.exports = {
@@ -26,10 +24,7 @@ module.exports = {
       },
     },
     extend: {
-      fontFamily: {
-        heading: ['Poppins', ...defaultTheme.fontFamily.sans],
-        body: ['Questrial', ...defaultTheme.fontFamily.sans],
-      },
+
       colors: {
         primary: colors.amber,
         gray: colors.neutral,

@@ -9,7 +9,7 @@ const ContactsPages = (location) => {
     const isTable = useMediaQuery({ query: '(min-width: 767px)' })
     return (
         <Layout location={location}>
-            <div className="ContactsPages">
+            <div className="ContactsPages ">
                 <title>Contacts | zulzidan</title>
                 <h1 style={{display:"none"}} >Contacts</h1>
                 <h2>Let us Collaborate</h2>

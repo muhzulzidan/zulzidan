@@ -24,11 +24,16 @@ const Links = ({ data }) => {
             window.removeEventListener('scroll', controlNavbar)
         }
     }, [])
-    const links = data.allNotion.edges.map((node) =>
-        <li key={node.node.id}>
-            <a href={node.node.properties.Url.value}>{node.node.title}</a>
-        </li>
-    );
+    const links = data.allNotion.edges
+        .sort((a, b) => a.node.properties.order.value - b.node.properties.order.value)
+        .map((node) => {
+            console.log(node, "node");
+            return (
+                <li key={node.node.id}>
+                    <a href={node.node.properties.Url.value}>{node.node.title}</a>
+                </li>
+            );
+        });
 
 
 
@@ -83,6 +88,9 @@ export const query = graphql`
                 title
                 properties {
                     Url {
+                        value
+                    }
+                    order {
                         value
                     }
                 }

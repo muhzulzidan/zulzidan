@@ -1,9 +1,0 @@
-.layout{
-    padding-top: 20vh;
-}
-
-@include bp("small"){
-    .layout{
-        padding-top: 10vh;
-    }
-}
