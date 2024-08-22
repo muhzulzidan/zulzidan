@@ -3,12 +3,13 @@ import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import Layout from '../components/layout';
 import { SEO } from '../components/seo';
+import zidan from "../images/zidankavi.jpg";
 
 const About = ({ location }) => {
     return (
         <Layout location={location}>
-           
-            <div className="about px-4 md:p-12 py-12">
+           <div className=''></div>
+            <div className="about px-4 md:p-12 py-12 ">
                 
                 <div className="header-section mb-8">
                     <h1 className="text-4xl font-bold mb-4">I build fast websites.</h1>

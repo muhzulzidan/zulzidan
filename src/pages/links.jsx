@@ -6,7 +6,7 @@ import SosialMedia from '../components/sosialMedia'
 import Share from "../svg/share.svg"
 import { SEO } from '../components/seo';
 import LogoFull from '../svg/logoFull.svg'
-
+import "../images/zidan_green.png";
 import * as styles from "../style/linksPage.module.scss"
 
 const Links = ({ data }) => {

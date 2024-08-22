@@ -1,15 +1,21 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require('tailwindcss/colors')
 const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require('tailwindcss/colors')
 
 module.exports = {
+  darkMode: ["class"],
   darkMode: ["class"],
   content: [
     './pages/**/*.{js,jsx}',
     './components/**/*.{js,jsx}',
     './app/**/*.{js,jsx}',
     './src/**/*.{js,jsx}',
+    './pages/**/*.{js,jsx}',
+    './components/**/*.{js,jsx}',
+    './app/**/*.{js,jsx}',
+    './src/**/*.{js,jsx}',
   ],
+  prefix: "",
   prefix: "",
   theme: {
     container: {
@@ -20,14 +26,14 @@ module.exports = {
       },
     },
     extend: {
-        fontFamily: {
-            heading: ['Poppins', ...defaultTheme.fontFamily.sans],
-            body: ['Questrial', ...defaultTheme.fontFamily.sans],
-        },
-        colors: {
-            primary: colors.amber,
-            gray: colors.neutral,
-        },
+      fontFamily: {
+        heading: ['Poppins', ...defaultTheme.fontFamily.sans],
+        body: ['Questrial', ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        primary: colors.amber,
+        gray: colors.neutral,
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -44,5 +50,5 @@ module.exports = {
       },
     },
   },
-    plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography'),],
+  plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography'),],
 }

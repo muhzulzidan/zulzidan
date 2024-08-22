@@ -112,6 +112,16 @@ const Header = ({ childMenu, landingPage }) => {
                     Links,
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    partiallyActive={true}
+                    activeClassName="text-indigo-600"
+                    className="hover:text-indigo-600"
+                    to="/services/"
+                  >
+                    Services,
+                  </Link>
+                </li>
               </>
             )
           }

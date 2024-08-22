@@ -24,7 +24,7 @@ const IndexPage = ({ data, location }) => {
   
   return (
     <Layout location={location}>
-      <main className="px-3 lg:px-10 py-12 space-y-16">
+      <main className="px-3 lg:px-10 py-12 space-y-16 ">
         <section className="home flex flex-col gap-4 lg:gap-8">
           <h1 className="text-3xl lg:text-5xl w-10/12">
             <span className="font-bold font-heading ">
