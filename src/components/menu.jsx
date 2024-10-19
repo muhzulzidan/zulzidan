@@ -22,7 +22,7 @@ class Menu extends React.Component {
     
         // console.log(this.location)
         return (
-            <div className={`md:hidden ${styles.menu} ${this.state.open ? `${styles.open}` : ""}`}
+            <div className={`md:hidden font-sans ${styles.menu} ${this.state.open ? `${styles.open}` : ""}`}
                 // onClick={() => this.close()}
                 // onKeyDown={() => this.close()}
             >
@@ -35,6 +35,9 @@ class Menu extends React.Component {
                     <li><Link partiallyActive={true} to="/blogs" activeClassName={styles.active} onClick={this.open} >Blogs</Link></li>
                     {/* <li><Link partiallyActive={true} to="/contacts" activeClassName={styles.active} onClick={this.open} >Contact</Link></li> */}
                     <li><Link partiallyActive={true} to="/links" activeClassName={styles.active} onClick={this.open} >Links</Link></li>
+                    <li><Link partiallyActive={true} to="/services" activeClassName={styles.active} onClick={this.open} >Services</Link></li>
+                    <li><Link partiallyActive={true} to="/audit-website" activeClassName={styles.active} onClick={this.open} >Audit</Link></li>
+
                 </ul>
                 {/* <div className={styles.header}>
                     <h1><Link to="/">Zulzidan</Link></h1>

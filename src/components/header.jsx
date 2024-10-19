@@ -32,8 +32,8 @@ const Header = ({ childMenu, landingPage }) => {
     setIsOpen(!isOpen);
   }
 
-  console.log(landingPage,"landingPage")
-  console.log(landingPages,"landingPages")
+  // console.log(landingPage,"landingPage")
+  // console.log(landingPages,"landingPages")
   return (
     <header className="flex sticky items-center justify-between top-0 w-full z-20 border-b border-[#edf2f9] bg-white/70 px-3 lg:px-10 py-4 backdrop-blur-sm backdrop-saturate-[180%] ">
       <Link

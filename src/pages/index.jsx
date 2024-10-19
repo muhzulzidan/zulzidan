@@ -28,7 +28,7 @@ const IndexPage = ({ data, location }) => {
         <section className="home flex flex-col gap-4 lg:gap-8">
           <h1 className="text-3xl lg:text-5xl w-10/12">
             <span className="font-bold font-heading ">
-              Hi 👋, i am Zulzidan
+              Hi 👋, i am Zulzidan 
             </span>
             <br />
             Web developer & Digital Marketer

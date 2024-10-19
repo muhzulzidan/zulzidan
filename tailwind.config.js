@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors')
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   darkMode: ["class"],
@@ -24,7 +25,10 @@ module.exports = {
       },
     },
     extend: {
-
+      fontFamily: {
+        heading: ['Poppins', ...defaultTheme.fontFamily.sans],
+        body: ['Questrial', ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         primary: colors.amber,
         gray: colors.neutral,
