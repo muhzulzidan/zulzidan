@@ -132,6 +132,16 @@ const Header = ({ childMenu, landingPage }) => {
                     Audit,
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    partiallyActive={true}
+                    activeClassName="text-indigo-600"
+                    className="hover:text-indigo-600"
+                    to="/acodaily/"
+                  >
+                    Aco Daily,
+                  </Link>
+                </li>
               </>
             )
           }
