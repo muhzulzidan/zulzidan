@@ -56,7 +56,12 @@ const BrandNewWeb = ({ location }) => {
 
     return (
         <>
-            <div className="bg-gradient-to-br from-[#f9faff] via-[#e6f0ff] to-[#f0f4ff] min-h-screen text-[#222] font-sans px-2 py-8">
+            <div
+                className="min-h-screen text-[#222] font-sans px-2 py-8"
+                style={{
+                    background: 'linear-gradient(135deg, #f9faff 0%, #e6f0ff 50%, #f0f4ff 100%)'
+                }}
+            >
                 <header className="max-w-xl mx-auto p-4 flex flex-col items-center">
                     <div className="py-10">
                         <LogoFull className="w-32 h-12 mx-auto" />
@@ -69,7 +74,10 @@ const BrandNewWeb = ({ location }) => {
                     </p>
                     <a
                         href="#lead-form"
-                        className="cta bg-gradient-to-r from-[#0B3D91] to-[#06327A] text-white px-7 py-3 rounded-lg mt-7 shadow-lg hover:scale-105 transition-transform duration-200 text-center font-bold tracking-wide text-lg"
+                        className="cta text-white px-7 py-3 rounded-lg mt-7 shadow-lg hover:scale-105 transition-transform duration-200 text-center font-bold tracking-wide text-lg"
+                        style={{
+                            background: 'linear-gradient(90deg, #0B3D91 0%, #06327A 100%)'
+                        }}
                         onClick={handleCtaClick}
                     >
                         Claim Your Free Speed Audit
@@ -126,7 +134,10 @@ const BrandNewWeb = ({ location }) => {
                         <textarea name="current_site" rows={3} placeholder="Current site URL or brief description (optional)" className="p-3 text-base rounded border-2 border-[#0B3D91]/30 focus:border-[#0B3D91] outline-none" />
                         <button
                             type="submit"
-                            className={`bg-gradient-to-r from-[#0B3D91] to-[#06327A] text-white p-3 rounded-lg mt-2 font-bold shadow hover:scale-105 transition-transform duration-200 ${loading ? 'opacity-60 cursor-not-allowed' : ''}`}
+                            className={`text-white p-3 rounded-lg mt-2 font-bold shadow hover:scale-105 transition-transform duration-200 ${loading ? 'opacity-60 cursor-not-allowed' : ''}`}
+                            style={{
+                                background: 'linear-gradient(90deg, #0B3D91 0%, #06327A 100%)'
+                            }}
                             disabled={loading}
                         >
                             {loading ? 'Submitting...' : 'Start My Brand New Web'}
