@@ -30,9 +30,11 @@ const BrandNewWeb = ({ location }) => {
             name: form.name.value,
             email: form.email.value,
             phone: form.phone.value,
-            website: form.current_site.value,
+            current_site: form.current_site.value, 
         };
         try {
+            // console.log(data,"data")
+            // const response = await fetch('http://localhost:3000/lead', {
             const response = await fetch('https://api-form-eta.vercel.app/lead', {
                 method: 'POST',
                 headers: {
