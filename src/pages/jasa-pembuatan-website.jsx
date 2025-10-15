@@ -273,17 +273,23 @@ const LandingPage = ({ data }) => {
                     transition={{ duration: 0.5 }}
                 >
                     <section className="md:p-16 px-4 py-16 bg-stone-50">
-                        <h2 className="text-4xl font-bold text-gray-900 mb-8">
+                        <h2 className="text-4xl font-bold text-gray-900 mb-4">
                             Harga & Paket
                         </h2>
-                        <div className="grid grid-cols-1 gap-8">
+                        <p className="text-gray-600 mb-8">
+                            Semua harga dalam Rupiah (IDR). Tersedia opsi pembayaran bertahap untuk kemudahan Anda.
+                        </p>
+                        
+                        {/* Paket Utama */}
+                        <div className="grid grid-cols-1 gap-8 mb-12">
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 {/* Paket Basic */}
-                                <div className="flex flex-col gap-1 border rounded-lg p-8">
-                                    <h3 className="font-medium text-lg">Paket Basic</h3>
-                                    <p className="font-bold text-lg pt-2">Rp 1.800.000</p>
+                                <div className="flex flex-col gap-1 border rounded-lg p-8 bg-white">
+                                    <h3 className="font-medium text-xl">Paket Basic</h3>
+                                    <p className="font-bold text-2xl pt-2 text-indigo-700">Mulai dari IDR 2.500.000</p>
+                                    <p className="text-xs text-gray-500 mb-2">Estimasi: 5-7 hari kerja</p>
                                     <p className="text-sm mt-2 mb-4">
-                                        Solusi ideal untuk Anda yang membutuhkan landing page profesional dengan desain responsif untuk berbagai perangkat.
+                                        Solusi ideal untuk landing page profesional yang cepat dan responsif.
                                     </p>
                                     <ul className="list-none grid grid-cols-1 gap-2 py-2">
                                         <li className='flex gap-2 justify-center items-center'>
@@ -292,99 +298,214 @@ const LandingPage = ({ data }) => {
                                         </li>
                                         <li className='flex gap-2 justify-center items-center'>
                                             <CheckCircleFill className="text-green-500 w-1/12" />
-                                            <span className='w-11/12'>Desain mobile-friendly dan desktop-friendly</span>
+                                            <span className='w-11/12'>Desain mobile & desktop friendly</span>
                                         </li>
                                         <li className='flex gap-2 justify-center items-center'>
                                             <CheckCircleFill className="text-green-500 w-1/12" />
-                                            <span className='w-11/12'>Integrasi formulir kontak sederhana</span>
+                                            <span className='w-11/12'>1 form kontak terintegrasi</span>
                                         </li>
                                         <li className='flex gap-2 justify-center items-center'>
                                             <CheckCircleFill className="text-green-500 w-1/12" />
-                                            <span className='w-11/12'>Kustomisasi warna dan font sesuai brand Anda</span>
+                                            <span className='w-11/12'>1 ronde revisi mayor</span>
                                         </li>
                                         <li className='flex gap-2 justify-center items-center'>
                                             <CheckCircleFill className="text-green-500 w-1/12" />
-                                            <span className='w-11/12'>Dukungan teknis dan perbaikan minor selama 1 bulan</span>
+                                            <span className='w-11/12'>Kustomisasi warna & font brand</span>
                                         </li>
                                     </ul>
                                     <p className="text-xs text-gray-500 mt-4">Cocok untuk: Bisnis baru, promosi event, pengenalan produk.</p>
                                 </div>
+
                                 {/* Paket Standard */}
-                                <div className="border border-indigo-700 rounded-lg -mt-10 p-8 flex flex-col gap-1 pt-16 relative bg-white shadow-lg">
+                                <div className="border-2 border-indigo-700 rounded-lg -mt-10 p-8 flex flex-col gap-1 pt-16 relative bg-white shadow-lg">
                                     <div className="absolute -top-0 -left-0 w-full bg-indigo-700 text-white px-8 py-2 rounded-t-lg">
                                         <span className="text-sm font-bold">Best Seller</span>
                                     </div>
-                                    <h3 className="font-medium text-lg">Paket Standard</h3>
-                                    <p className="font-bold text-lg pt-2">Rp 3.500.000</p>
+                                    <h3 className="font-medium text-xl">Paket Standard</h3>
+                                    <p className="font-bold text-2xl pt-2 text-indigo-700">IDR 5.000.000 - 6.500.000</p>
+                                    <p className="text-xs text-gray-500 mb-2">Estimasi: 10-14 hari kerja</p>
                                     <p className="text-sm mt-2 mb-4">
-                                        Bangun kepercayaan bisnis Anda dengan website company profile yang elegan, SEO-friendly, dan siap tampil di mesin pencari.
+                                        Website company profile profesional dengan SEO dasar dan fitur lengkap (≤5 halaman).
                                     </p>
                                     <ul className="list-none grid grid-cols-1 gap-2 py-2">
                                         <li className='flex gap-2 justify-center items-center'>
                                             <CheckCircleFill className="text-green-500 w-1/12" />
-                                            <span className='w-11/12'>5 halaman website company profile profesional</span>
+                                            <span className='w-11/12'>Hingga 5 halaman custom</span>
                                         </li>
                                         <li className='flex gap-2 justify-center items-center'>
                                             <CheckCircleFill className="text-green-500 w-1/12" />
-                                            <span className='w-11/12'>Desain estetis, responsif, dan disesuaikan dengan identitas brand</span>
+                                            <span className='w-11/12'>Desain custom sesuai brand</span>
                                         </li>
                                         <li className='flex gap-2 justify-center items-center'>
                                             <CheckCircleFill className="text-green-500 w-1/12" />
-                                            <span className='w-11/12'>Optimisasi dasar SEO untuk visibilitas di Google</span>
+                                            <span className='w-11/12'>SEO dasar (meta tags, sitemap)</span>
                                         </li>
                                         <li className='flex gap-2 justify-center items-center'>
                                             <CheckCircleFill className="text-green-500 w-1/12" />
-                                            <span className='w-11/12'>Formulir kontak dan formulir pendaftaran sederhana</span>
+                                            <span className='w-11/12'>Form kontak & pendaftaran</span>
                                         </li>
                                         <li className='flex gap-2 justify-center items-center'>
                                             <CheckCircleFill className="text-green-500 w-1/12" />
-                                            <span className='w-11/12'>Galeri foto atau portofolio produk yang menarik</span>
+                                            <span className='w-11/12'>Galeri foto/portofolio produk</span>
                                         </li>
                                         <li className='flex gap-2 justify-center items-center'>
                                             <CheckCircleFill className="text-green-500 w-1/12" />
-                                            <span className='w-11/12'>Dukungan teknis dan perbaikan minor selama 2 bulan</span>
+                                            <span className='w-11/12'>2 ronde revisi mayor</span>
                                         </li>
                                     </ul>
-                                    <p className="text-xs text-gray-500 mt-4">Cocok untuk: Perusahaan, jasa profesional, UMKM yang ingin naik kelas.</p>
+                                    <p className="text-xs text-gray-500 mt-4">Cocok untuk: Perusahaan, jasa profesional, UMKM naik kelas.</p>
                                 </div>
+
                                 {/* Paket Premium */}
-                                <div className="flex flex-col gap-1 border rounded-lg p-8">
-                                    <h3 className="font-medium text-lg">Paket Premium</h3>
-                                    <p className="font-bold text-lg pt-2">Rp 7.500.000</p>
+                                <div className="flex flex-col gap-1 border rounded-lg p-8 bg-white">
+                                    <h3 className="font-medium text-xl">Paket Premium</h3>
+                                    <p className="font-bold text-2xl pt-2 text-indigo-700">IDR 12.000.000 - 15.000.000</p>
+                                    <p className="text-xs text-gray-500 mb-2">Estimasi: 3-4 minggu</p>
                                     <p className="text-sm mt-2 mb-4">
-                                        Layanan eksklusif untuk Anda yang ingin bertransformasi total: migrasi website, optimisasi SEO mendalam, dan sistem keamanan website canggih.
+                                        Transformasi digital lengkap: migrasi, SEO teknis, keamanan maksimal, dan maintenance 3 bulan.
                                     </p>
                                     <ul className="list-none grid grid-cols-1 gap-2 py-2">
                                         <li className='flex gap-2 justify-center items-center'>
                                             <CheckCircleFill className="text-green-500 w-1/12" />
-                                            <span className='w-11/12'>Migrasi penuh dari WordPress ke Next.js untuk performa maksimal</span>
+                                            <span className='w-11/12'>Migrasi WordPress → Next.js</span>
                                         </li>
                                         <li className='flex gap-2 justify-center items-center'>
                                             <CheckCircleFill className="text-green-500 w-1/12" />
-                                            <span className='w-11/12'>Pembuatan landing page dengan strategi konversi tinggi</span>
+                                            <span className='w-11/12'>SEO teknis (schema, Core Web Vitals)</span>
                                         </li>
                                         <li className='flex gap-2 justify-center items-center'>
                                             <CheckCircleFill className="text-green-500 w-1/12" />
-                                            <span className='w-11/12'>Konsultasi SEO lanjutan + analisis kompetitor mendalam</span>
+                                            <span className='w-11/12'>Analytics & pelacakan lanjutan</span>
                                         </li>
                                         <li className='flex gap-2 justify-center items-center'>
                                             <CheckCircleFill className="text-green-500 w-1/12" />
-                                            <span className='w-11/12'>Implementasi SEO teknis untuk peningkatan peringkat signifikan</span>
+                                            <span className='w-11/12'>Hardening keamanan website</span>
                                         </li>
                                         <li className='flex gap-2 justify-center items-center'>
                                             <CheckCircleFill className="text-green-500 w-1/12" />
-                                            <span className='w-11/12'>Integrasi formulir lanjutan dan pelacakan data pengguna</span>
+                                            <span className='w-11/12'>3 bulan maintenance gratis</span>
                                         </li>
                                         <li className='flex gap-2 justify-center items-center'>
                                             <CheckCircleFill className="text-green-500 w-1/12" />
-                                            <span className='w-11/12'>Fitur keamanan tambahan untuk melindungi website dari ancaman</span>
-                                        </li>
-                                        <li className='flex gap-2 justify-center items-center'>
-                                            <CheckCircleFill className="text-green-500 w-1/12" />
-                                            <span className='w-11/12'>Dukungan teknis, maintenance, dan update selama 3 bulan</span>
+                                            <span className='w-11/12'>3 ronde revisi mayor</span>
                                         </li>
                                     </ul>
-                                    <p className="text-xs text-gray-500 mt-4">Cocok untuk: Bisnis yang ingin skalabilitas lebih tinggi, website lama yang ingin upgrade ke teknologi modern.</p>
+                                    <p className="text-xs text-gray-500 mt-4">Cocok untuk: Bisnis scaling up, website upgrade teknologi modern.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Add-ons */}
+                        <div className="mb-12">
+                            <h3 className="text-2xl font-bold text-gray-900 mb-4">Layanan Tambahan (Add-ons)</h3>
+                            <p className="text-gray-600 mb-6">Tingkatkan website Anda dengan fitur tambahan sesuai kebutuhan bisnis.</p>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                <div className="border rounded-lg p-6 bg-white">
+                                    <h4 className="font-semibold text-lg mb-2">Payment Gateway</h4>
+                                    <p className="text-indigo-700 font-bold mb-2">IDR 2.500.000 - 4.000.000</p>
+                                    <p className="text-sm text-gray-600">Integrasi Xendit/Midtrans untuk terima pembayaran online.</p>
+                                </div>
+                                <div className="border rounded-lg p-6 bg-white">
+                                    <h4 className="font-semibold text-lg mb-2">CMS & Panel Konten</h4>
+                                    <p className="text-indigo-700 font-bold mb-2">IDR 3.000.000 - 6.000.000</p>
+                                    <p className="text-sm text-gray-600">Contentful/Strapi untuk kelola konten sendiri dengan mudah.</p>
+                                </div>
+                                <div className="border rounded-lg p-6 bg-white">
+                                    <h4 className="font-semibold text-lg mb-2">Blog + Analytics</h4>
+                                    <p className="text-indigo-700 font-bold mb-2">IDR 1.000.000 - 2.500.000</p>
+                                    <p className="text-sm text-gray-600">Blog dengan GA4, Search Console, dan schema markup.</p>
+                                </div>
+                                <div className="border rounded-lg p-6 bg-white">
+                                    <h4 className="font-semibold text-lg mb-2">Multi-bahasa</h4>
+                                    <p className="text-indigo-700 font-bold mb-2">IDR 1.500.000 - 3.000.000</p>
+                                    <p className="text-sm text-gray-600">Website dalam 2+ bahasa untuk jangkauan lebih luas.</p>
+                                </div>
+                                <div className="border rounded-lg p-6 bg-white">
+                                    <h4 className="font-semibold text-lg mb-2">E-commerce</h4>
+                                    <p className="text-indigo-700 font-bold mb-2">IDR 7.000.000 - 15.000.000</p>
+                                    <p className="text-sm text-gray-600">Toko online lengkap (≤20 produk, non-custom).</p>
+                                </div>
+                                <div className="border rounded-lg p-6 bg-white">
+                                    <h4 className="font-semibold text-lg mb-2">Copywriting</h4>
+                                    <p className="text-indigo-700 font-bold mb-2">IDR 1.500.000 - 3.000.000</p>
+                                    <p className="text-sm text-gray-600">Penulisan konten profesional untuk ≤5 halaman.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Maintenance */}
+                        <div className="mb-8">
+                            <h3 className="text-2xl font-bold text-gray-900 mb-4">Paket Maintenance (Bulanan)</h3>
+                            <p className="text-gray-600 mb-6">Jaga website tetap optimal dengan layanan perawatan rutin.</p>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div className="border rounded-lg p-6 bg-white">
+                                    <h4 className="font-semibold text-lg mb-2">Basic</h4>
+                                    <p className="text-indigo-700 font-bold text-xl mb-3">IDR 300.000 - 600.000/bulan</p>
+                                    <ul className="text-sm text-gray-600 space-y-1">
+                                        <li>• Backup rutin</li>
+                                        <li>• Security patch</li>
+                                        <li>• Uptime monitoring</li>
+                                        <li>• Minor bug fixes</li>
+                                    </ul>
+                                </div>
+                                <div className="border rounded-lg p-6 bg-white">
+                                    <h4 className="font-semibold text-lg mb-2">Standard</h4>
+                                    <p className="text-indigo-700 font-bold text-xl mb-3">IDR 600.000 - 1.200.000/bulan</p>
+                                    <ul className="text-sm text-gray-600 space-y-1">
+                                        <li>• Semua fitur Basic</li>
+                                        <li>• Update konten ringan</li>
+                                        <li>• Performance monitoring</li>
+                                        <li>• Laporan bulanan</li>
+                                    </ul>
+                                </div>
+                                <div className="border rounded-lg p-6 bg-white">
+                                    <h4 className="font-semibold text-lg mb-2">Premium</h4>
+                                    <p className="text-indigo-700 font-bold text-xl mb-3">IDR 1.500.000 - 3.000.000/bulan</p>
+                                    <ul className="text-sm text-gray-600 space-y-1">
+                                        <li>• Semua fitur Standard</li>
+                                        <li>• Priority support 24/7</li>
+                                        <li>• SEO monitoring</li>
+                                        <li>• Feature updates</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Terms & Kebijakan */}
+                        <div className="bg-gray-100 rounded-lg p-6 border">
+                            <h3 className="text-xl font-bold text-gray-900 mb-4">Syarat & Ketentuan Pembayaran</h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-700">
+                                <div>
+                                    <h4 className="font-semibold mb-2">Skema Pembayaran</h4>
+                                    <ul className="space-y-1">
+                                        <li>• DP 50% untuk lock slot proyek</li>
+                                        <li>• 40% saat staging selesai (review)</li>
+                                        <li>• 10% saat website live/serah terima</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 className="font-semibold mb-2">Revisi & Out-of-Scope</h4>
+                                    <ul className="space-y-1">
+                                        <li>• Batas revisi sesuai paket terpilih</li>
+                                        <li>• Revisi tambahan: IDR 200.000 - 300.000/jam</li>
+                                        <li>• Perubahan scope mayor dikenakan biaya tambahan</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 className="font-semibold mb-2">Kebijakan Pengembalian Dana</h4>
+                                    <ul className="space-y-1">
+                                        <li>• DP dapat dikembalikan jika proyek dibatalkan sebelum development dimulai (potong biaya admin 10%)</li>
+                                        <li>• Tidak ada refund setelah staging selesai</li>
+                                        <li>• Untuk kasus force majeure, akan didiskusikan case-by-case</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 className="font-semibold mb-2">Catatan Penting</h4>
+                                    <ul className="space-y-1">
+                                        <li>• Harga dapat berubah sesuai kompleksitas proyek</li>
+                                        <li>• Timeline dapat menyesuaikan berdasarkan ketersediaan materi dari klien</li>
+                                        <li>• Konsultasi gratis untuk estimasi lebih detail</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

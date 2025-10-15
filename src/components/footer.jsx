@@ -23,8 +23,8 @@ const Footer = () => {
           <h2 className='text-5xl font-heading font-bold w-1/2 hidden md:block'>Muhammad Zulzidan M</h2>
         </Link>
 
-        <section className='flex flex-col md:flex-row items-center justify-between w-full px-3 md:px-0'>
-          <section className='flex gap-4 items-center py-4'>
+        <section className='flex flex-col md:flex-row items-center justify-between w-full px-3 md:px-0 gap-4'>
+          <section className='flex gap-4 items-center py-4 flex-wrap justify-center'>
             <a href="https://www.instagram.com/muhzulzidan/" className='hover:text-indigo-600'>
               Instagram
             </a>
@@ -34,6 +34,9 @@ const Footer = () => {
             <a href="https://www.youtube.com/@muhzulzidan" className='hover:text-indigo-600'>
               Youtube
             </a>
+            <Link to="/refund-policy" className='hover:text-indigo-600'>
+              Refund Policy
+            </Link>
           </section>
           <section>
             <button onClick={scrollToTop} className='flex gap-1 tracking-tight items-center justify-center hover:text-indigo-600'>
