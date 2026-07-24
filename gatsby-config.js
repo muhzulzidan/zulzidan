@@ -83,7 +83,13 @@ module.exports = {
         icon: "static/logo.png",
       },
     },
-    "gatsby-plugin-webpack-bundle-analyser-v2",
+    {
+      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+      options: {
+        disable: process.env.ANALYZE !== "true",
+        analyzerPort: "auto",
+      },
+    },
     "gatsby-transformer-remark",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",

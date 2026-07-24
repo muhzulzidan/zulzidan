@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="md:col-span-6">
             <Link
               to="/"
-              className="font-serif text-4xl tracking-[-0.04em] hover:text-[#f3a388]"
+              className="inline-flex min-h-11 items-center font-serif text-4xl tracking-[-0.04em] hover:text-[#f3a388] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e78b6c]"
             >
               Zulzidan
             </Link>
@@ -25,11 +25,11 @@ const Footer = () => {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#e78b6c]">
               Explore
             </p>
-            <ul className="mt-5 space-y-3">
-              <li><Link to="/works/" className="hover:text-[#f3a388]">Work</Link></li>
-              <li><Link to="/#services" className="hover:text-[#f3a388]">Services</Link></li>
-              <li><Link to="/about/" className="hover:text-[#f3a388]">About</Link></li>
-              <li><Link to="/audit-website/" className="hover:text-[#f3a388]">Free website audit</Link></li>
+            <ul className="mt-4">
+              <li><Link to="/works/" className="-ml-1 inline-flex min-h-11 items-center px-1 hover:text-[#f3a388] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e78b6c]">Work</Link></li>
+              <li><Link to="/#services" className="-ml-1 inline-flex min-h-11 items-center px-1 hover:text-[#f3a388] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e78b6c]">Services</Link></li>
+              <li><Link to="/about/" className="-ml-1 inline-flex min-h-11 items-center px-1 hover:text-[#f3a388] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e78b6c]">About</Link></li>
+              <li><Link to="/audit-website/" className="-ml-1 inline-flex min-h-11 items-center px-1 hover:text-[#f3a388] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e78b6c]">Free website audit</Link></li>
             </ul>
           </nav>
 
@@ -37,11 +37,11 @@ const Footer = () => {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#e78b6c]">
               Connect
             </p>
-            <ul className="mt-5 space-y-3">
-              <li><a href="mailto:mail@zulzidan.com" className="hover:text-[#f3a388]">Email</a></li>
-              <li><a href="https://www.linkedin.com/in/muhzulzidan/" className="hover:text-[#f3a388]">LinkedIn</a></li>
-              <li><a href="https://www.instagram.com/muhzulzidan/" className="hover:text-[#f3a388]">Instagram</a></li>
-              <li><Link to="/jasa-pembuatan-website/" className="hover:text-[#f3a388]">Bahasa Indonesia</Link></li>
+            <ul className="mt-4">
+              <li><a href="mailto:mail@zulzidan.com" className="-ml-1 inline-flex min-h-11 items-center px-1 hover:text-[#f3a388] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e78b6c]">Email</a></li>
+              <li><a href="https://www.linkedin.com/in/muhzulzidan/" className="-ml-1 inline-flex min-h-11 items-center px-1 hover:text-[#f3a388] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e78b6c]">LinkedIn</a></li>
+              <li><a href="https://www.instagram.com/muhzulzidan/" className="-ml-1 inline-flex min-h-11 items-center px-1 hover:text-[#f3a388] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e78b6c]">Instagram</a></li>
+              <li><Link to="/jasa-pembuatan-website/" className="-ml-1 inline-flex min-h-11 items-center px-1 hover:text-[#f3a388] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e78b6c]">Bahasa Indonesia</Link></li>
             </ul>
           </div>
         </div>
@@ -49,13 +49,16 @@ const Footer = () => {
         <div className="mt-14 flex flex-col gap-4 border-t border-[#f4efe7]/15 pt-6 text-sm text-[#a9aaa3] sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} Muhammad Zulzidan M.</p>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
-            <Link to="/refund-policy/" className="hover:text-[#f4efe7]">
+            <Link
+              to="/refund-policy/"
+              className="inline-flex min-h-11 items-center border-0 bg-transparent p-0 hover:text-[#f4efe7] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e78b6c]"
+            >
               Refund and support policy
             </Link>
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="hover:text-[#f4efe7] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e78b6c]"
+              className="inline-flex min-h-11 items-center border-0 bg-transparent p-0 hover:text-[#f4efe7] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e78b6c]"
             >
               Back to top ↑
             </button>

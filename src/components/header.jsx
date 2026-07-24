@@ -54,7 +54,7 @@ const Header = () => {
                 <Link
                   partiallyActive
                   activeClassName="text-[#8f3827]"
-                  className="border-b border-transparent py-3 font-heading text-[0.95rem] font-medium tracking-[0.01em] transition-colors duration-200 hover:border-[#c74b2f] hover:text-[#8f3827] focus:outline-none focus-visible:border-[#c74b2f] focus-visible:text-[#8f3827]"
+                  className="border-b border-transparent px-1 py-3 font-heading text-[0.95rem] font-medium tracking-[0.01em] transition-colors duration-200 hover:border-[#c74b2f] hover:text-[#8f3827] focus:outline-none focus-visible:border-[#c74b2f] focus-visible:text-[#8f3827]"
                   to={to}
                 >
                   {label}
@@ -66,7 +66,7 @@ const Header = () => {
           <Link
             partiallyActive
             to="/audit-website/"
-            className="rounded-full bg-[#c74b2f] px-5 py-3 font-heading text-sm font-semibold tracking-[0.01em] text-[#f4efe7] transition-colors duration-200 hover:bg-[#18201c] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c74b2f] focus-visible:ring-offset-4 focus-visible:ring-offset-[#f4efe7]"
+            className="rounded-full bg-[#b6432c] px-5 py-3 font-heading text-sm font-semibold tracking-[0.01em] text-[#f4efe7] transition-colors duration-200 hover:bg-[#18201c] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c74b2f] focus-visible:ring-offset-4 focus-visible:ring-offset-[#f4efe7]"
           >
             Get a free audit
           </Link>
