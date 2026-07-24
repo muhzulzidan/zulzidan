@@ -1,56 +1,69 @@
-import React from 'react'
-import { useMediaQuery } from "react-responsive"
-// import MailTo from '../components/MailTo'
-// import SosialMedia from '../components/sosialMedia'
-// import NewsletterForm from '../components/NewsletterForm'
+import React from "react";
+import { Link } from "gatsby";
 
-import { ArrowUp } from 'react-bootstrap-icons';
-
-import { Link } from "gatsby"
-import LogoFull from '../svg/logoFull.svg'
 const Footer = () => {
-  const isTable = useMediaQuery({ query: '(min-width: 767px)' })
+  const year = new Date().getFullYear();
 
-  // Function to scroll to the top
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
   return (
-    <footer className="flex flex-col items-center md:items-start py-12 font-heading font-medium tracking-tight px-4 lg:px-10">
-      <section className='w-full gap-2 flex flex-col'>
-        <Link to='/' className='flex justify-center items-center md:justify-start' aria-label='Home'>
-          <LogoFull className='w-auto h-16 mb-4 ml-4 md:hidden' />
-          <h2 className='text-5xl font-heading font-bold w-1/2 hidden md:block'>Muhammad Zulzidan M</h2>
-        </Link>
-
-        <section className='flex flex-col md:flex-row items-center justify-between w-full px-3 md:px-0 gap-4'>
-          <section className='flex gap-4 items-center py-4 flex-wrap justify-center'>
-            <a href="https://www.instagram.com/muhzulzidan/" className='hover:text-indigo-600'>
-              Instagram
-            </a>
-            <a href="https://www.linkedin.com/in/muhzulzidan/" className='hover:text-indigo-600'>
-              Linkedin
-            </a>
-            <a href="https://www.youtube.com/@muhzulzidan" className='hover:text-indigo-600'>
-              Youtube
-            </a>
-            <Link to="/refund-policy" className='hover:text-indigo-600'>
-              Refund Policy
+    <footer className="border-t border-[#f4efe7]/15 bg-[#18201c] px-5 py-14 text-[#f4efe7] sm:px-8 lg:px-10">
+      <div className="mx-auto max-w-screen-xl">
+        <div className="grid gap-12 md:grid-cols-12">
+          <div className="md:col-span-6">
+            <Link
+              to="/"
+              className="font-serif text-4xl tracking-[-0.04em] hover:text-[#f3a388]"
+            >
+              Zulzidan
             </Link>
-          </section>
-          <section>
-            <button onClick={scrollToTop} className='flex gap-1 tracking-tight items-center justify-center hover:text-indigo-600'>
-              Back to the Top <ArrowUp />
+            <p className="mt-4 max-w-md leading-relaxed text-[#cfc8bd]">
+              Clearer, more credible websites for service businesses ready to
+              turn attention into better enquiries.
+            </p>
+          </div>
+
+          <nav className="md:col-span-3" aria-label="Footer">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#e78b6c]">
+              Explore
+            </p>
+            <ul className="mt-5 space-y-3">
+              <li><Link to="/works/" className="hover:text-[#f3a388]">Work</Link></li>
+              <li><Link to="/#services" className="hover:text-[#f3a388]">Services</Link></li>
+              <li><Link to="/about/" className="hover:text-[#f3a388]">About</Link></li>
+              <li><Link to="/audit-website/" className="hover:text-[#f3a388]">Free website audit</Link></li>
+            </ul>
+          </nav>
+
+          <div className="md:col-span-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#e78b6c]">
+              Connect
+            </p>
+            <ul className="mt-5 space-y-3">
+              <li><a href="mailto:mail@zulzidan.com" className="hover:text-[#f3a388]">Email</a></li>
+              <li><a href="https://www.linkedin.com/in/muhzulzidan/" className="hover:text-[#f3a388]">LinkedIn</a></li>
+              <li><a href="https://www.instagram.com/muhzulzidan/" className="hover:text-[#f3a388]">Instagram</a></li>
+              <li><Link to="/jasa-pembuatan-website/" className="hover:text-[#f3a388]">Bahasa Indonesia</Link></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-14 flex flex-col gap-4 border-t border-[#f4efe7]/15 pt-6 text-sm text-[#a9aaa3] sm:flex-row sm:items-center sm:justify-between">
+          <p>© {year} Muhammad Zulzidan M.</p>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            <Link to="/refund-policy/" className="hover:text-[#f4efe7]">
+              Refund and support policy
+            </Link>
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="hover:text-[#f4efe7] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e78b6c]"
+            >
+              Back to top ↑
             </button>
-          </section>
-          <section>
-            <h1 className='font-heading font-medium '>Copyright©Zulzidan</h1>
-          </section>
-        </section>
-      </section>
+          </div>
+        </div>
+      </div>
     </footer>
-
   );
-}
+};
 
-export default Footer
+export default Footer;

@@ -1,165 +1,115 @@
-import React, { useState, useEffect } from "react";
+import React, { useCallback, useRef, useState } from "react"
 import { Link } from "gatsby"
-import { Spiral as Hamburger } from 'hamburger-react'
 
-import Menu from './menu'
-import LogoFull from '../svg/logoFull.svg'
+import Menu from "./menu"
+import LogoFull from "../svg/logoFull.svg"
 
-const Header = ({ childMenu, landingPage }) => {
+const navigation = [
+  { label: "Work", to: "/works/" },
+  { label: "Services", to: "/#services" },
+  { label: "About", to: "/about/" },
+]
 
-  const landingPages = landingPage || false;
-
-  const [show, setShow] = useState(false);
-  const controlNavbar = () => {
-    if (window.scrollY > 500) {
-      setShow(true);
-    } else {
-      setShow(false);
-    }
-  };
-  useEffect(() => {
-    window.addEventListener("scroll", controlNavbar);
-    return () => {
-      window.removeEventListener("scroll", controlNavbar);
-    };
-  }, []);
-  // make a state for the menu with false
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const menuButtonRef = useRef(null)
 
+  const closeMenu = useCallback(({ restoreFocus = false } = {}) => {
+    setIsOpen(false)
 
-  function toggleMenu() {
-    childMenu.open();
-    setIsOpen(!isOpen);
+    if (restoreFocus && typeof window !== "undefined") {
+      window.requestAnimationFrame(() => menuButtonRef.current?.focus())
+    }
+  }, [])
+
+  const toggleMenu = () => {
+    if (isOpen) {
+      closeMenu({ restoreFocus: true })
+      return
+    }
+
+    setIsOpen(true)
   }
 
-  // console.log(landingPage,"landingPage")
-  // console.log(landingPages,"landingPages")
   return (
-    <header className="flex sticky items-center justify-between top-0 w-full z-20 border-b border-[#edf2f9] bg-white/70 px-3 lg:px-10 py-4 backdrop-blur-sm backdrop-saturate-[180%] ">
-      <Link
-        className='z-20 md:hidden'
-        activeClassName={"active"}
-        to="/"
-        aria-label="Home"
-      >
-        <LogoFull />
-      </Link>
-      <Menu ref={(el) => (childMenu = el)} />
-      <>
-        <button
-          className={`md:hidden translate-y-0 z-20 ${isOpen ? "menuOpen" : ""}`}
-          onClick={() => toggleMenu()}
-          aria-label={isOpen ? "Close menu" : "Open menu"}
+    <header className="sticky top-0 z-50 w-full border-b border-[#18201c]/15 bg-[#f4efe7] text-[#18201c]">
+      <div className="mx-auto flex min-h-[4.5rem] w-full max-w-[90rem] items-center justify-between px-4 sm:px-6 lg:px-10">
+        <Link
+          className="relative z-50 flex min-h-11 shrink-0 items-center rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c74b2f] focus-visible:ring-offset-4 focus-visible:ring-offset-[#f4efe7] [&_path]:fill-[#18201c]"
+          activeClassName="active"
+          to="/"
+          aria-label="Zulzidan home"
+          onClick={() => closeMenu()}
         >
-          <Hamburger label="Open menu" role="button" toggled={isOpen} size={24} />
-        </button>
-      </>
-      <nav className="hidden md:flex justify-between items-center w-full">
-        <ul className="flex justify-center items-center gap-2 font-heading text-lg font-medium">
-          <li className="flex mr-12">
-            <Link activeClassName="text-indigo-600" to="/" aria-label="Home">
-              <LogoFull />
-            </Link>
-          </li>
-          {landingPages ? 
-          
-          (
-            <div>
-              
-            </div>
-          )
-          : 
-          
-            (
-              <>
-                <li>
-                  <Link
-                    partiallyActive={true}
-                    activeClassName="text-indigo-600"
-                    className="hover:text-indigo-600"
-                    to="/about/"
-                  >
-                    About,
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    partiallyActive={true}
-                    activeClassName="text-indigo-600"
-                    className="hover:text-indigo-600"
-                    to="/works/"
-                  >
-                    Works,
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    partiallyActive={true}
-                    activeClassName="text-indigo-600"
-                    className="hover:text-indigo-600"
-                    to="/blogs/"
-                  >
-                    Blogs,
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    partiallyActive={true}
-                    activeClassName="text-indigo-600"
-                    className="hover:text-indigo-600"
-                    to="/links/"
-                  >
-                    Links,
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    partiallyActive={true}
-                    activeClassName="text-indigo-600"
-                    className="hover:text-indigo-600"
-                    to="/services/"
-                  >
-                    Services,
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    partiallyActive={true}
-                    activeClassName="text-indigo-600"
-                    className="hover:text-indigo-600"
-                    to="/audit-website/"
-                  >
-                    Audit,
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    partiallyActive={true}
-                    activeClassName="text-indigo-600"
-                    className="hover:text-indigo-600"
-                    to="/acodaily/"
-                  >
-                    Aco Daily,
-                  </Link>
-                </li>
-              </>
-            )
-          }
-        </ul>
+          <LogoFull />
+        </Link>
 
+        <nav
+          className="hidden items-center gap-9 md:flex"
+          aria-label="Primary navigation"
+        >
+          <ul className="flex items-center gap-7">
+            {navigation.map(({ label, to }) => (
+              <li key={to}>
+                <Link
+                  partiallyActive
+                  activeClassName="text-[#8f3827]"
+                  className="border-b border-transparent py-3 font-heading text-[0.95rem] font-medium tracking-[0.01em] transition-colors duration-200 hover:border-[#c74b2f] hover:text-[#8f3827] focus:outline-none focus-visible:border-[#c74b2f] focus-visible:text-[#8f3827]"
+                  to={to}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-        <div className="py-4">
-          <a
-            href="https://api.whatsapp.com/send?phone=6281354789375&text=halo%20zulzidan.com%2C%20saya%20mau%20buat%20website"
-            className="border-b  border-solid border-gray-700 font-medium font-heading pb-1 my-4 text-lg hover:text-indigo-600 hover:border-indigo-600"
+          <Link
+            partiallyActive
+            to="/audit-website/"
+            className="rounded-full bg-[#c74b2f] px-5 py-3 font-heading text-sm font-semibold tracking-[0.01em] text-[#f4efe7] transition-colors duration-200 hover:bg-[#18201c] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c74b2f] focus-visible:ring-offset-4 focus-visible:ring-offset-[#f4efe7]"
           >
-            Chat on Whatsapp
-          </a>
-        </div>
-      </nav>
-    </header>
-  );
+            Get a free audit
+          </Link>
+        </nav>
 
+        <button
+          ref={menuButtonRef}
+          id="mobile-navigation-trigger"
+          type="button"
+          className="relative z-50 grid h-11 w-11 place-items-center rounded-full border border-[#18201c]/25 text-[#18201c] transition-colors duration-200 hover:border-[#c74b2f] hover:text-[#8f3827] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c74b2f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f4efe7] md:hidden"
+          onClick={toggleMenu}
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-controls="mobile-navigation"
+          aria-expanded={isOpen}
+        >
+          <svg
+            aria-hidden="true"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+          >
+            {isOpen ? (
+              <>
+                <path d="M5 5l14 14" />
+                <path d="M19 5L5 19" />
+              </>
+            ) : (
+              <>
+                <path d="M4 7h16" />
+                <path d="M4 12h16" />
+                <path d="M4 17h16" />
+              </>
+            )}
+          </svg>
+        </button>
+
+        <Menu isOpen={isOpen} onClose={closeMenu} />
+      </div>
+    </header>
+  )
 }
 
 export default Header

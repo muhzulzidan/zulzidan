@@ -92,13 +92,13 @@ const BrandNewWeb = ({ location }) => {
                     <ul className="pl-0 mb-4 text-base space-y-3 list-disc list-outside prose">
                         <li>Slow sites kill conversions. 1s‑load pages convert up to <span className="font-bold text-[#0B3D91]">5×</span> more; 10s‑load pages lose traffic fast.</li>
                         <li>WordPress plugins often cause janky performance and inconsistent Core Web Vitals.</li>
-                        <li>Next.js delivers pre‑built pages via CDN, minimal JavaScript, and blazing load times—only the essentials get bundled.</li>
+                        <li>Next.js delivers pre‑built pages via CDN, minimal JavaScript, and blazing load times. Only the essentials get bundled.</li>
                     </ul>
                 </section>
 
                 <section className="guarantee max-w-xl mx-auto p-4 bg-[#0b3d911a] border-l-4 border-[#0B3D91] my-6 rounded-lg">
                     <h2 className="text-xl font-bold mb-2 text-[#0B3D91] leading-snug">Our Guarantee</h2>
-                    <p className="text-base">Your site will load <span className="font-bold text-[#06327A]">at least 40% faster</span> (or under <span className="font-bold">2.5s LCP</span> on mobile). If not, your next hosting month is <span className="font-bold text-green-700">free</span>—or get 50% off the build fee.</p>
+                    <p className="text-base">Your site will load <span className="font-bold text-[#06327A]">at least 40% faster</span> (or under <span className="font-bold">2.5s LCP</span> on mobile). If not, your next hosting month is <span className="font-bold text-green-700">free</span>, or you get 50% off the build fee.</p>
                     <p className="mt-2 text-sm text-[#222]">Measured with Lighthouse, before and after. No loopholes. No tricks. <span className="font-semibold text-[#0B3D91]">Just results.</span></p>
                 </section>
 
@@ -117,7 +117,7 @@ const BrandNewWeb = ({ location }) => {
                         “We went from a 4.2s LCP on WordPress to 1.1s. Page speed doubled our leads after launch.”
                     </blockquote>
                     <blockquote className="border-l-4 border-[#0B3D91] pl-4 italic text-[#555] my-2 bg-white/60 rounded">
-                        “Upgrading to Next.js felt like swinging into a new web identity—lightweight, powerful, and maintenance‑free.”
+                        “Upgrading to Next.js felt like swinging into a new web identity: lightweight, powerful, and maintenance‑free.”
                     </blockquote>
                 </section>
 
@@ -146,7 +146,7 @@ const BrandNewWeb = ({ location }) => {
                         </button>
                         {success && <div className="text-green-700 text-xs mt-1">Thank you! We'll be in touch soon.</div>}
                         {error && <div className="text-red-600 text-xs mt-1">{error}</div>}
-                        <div className="privacy text-xs text-[#06327A] mt-1">We respect your privacy—no marketing spam, ever.</div>
+                        <div className="privacy text-xs text-[#06327A] mt-1">We respect your privacy. No marketing spam, ever.</div>
                     </form>
                 </section>
 
@@ -166,7 +166,7 @@ export function Head({ location }) {
         <SEO
             title="Are You Ready for a Brand New Web?"
             pathname={location.pathname}
-            description="Just like Spider‑Man swings into a new chapter, we migrate your WordPress site to a Next.js setup—40% faster or your month is free."
+            description="Just like Spider‑Man swings into a new chapter, we migrate your WordPress site to a Next.js setup that is 40% faster, or your month is free."
         />
     );
 }

@@ -42,7 +42,7 @@ const Merdeka80Page = () => {
             (extra.bisnis || "") +
             "\nKebutuhan: " +
             (extra.kebutuhan || "") +
-            "\n— dikirim dari /merdeka80" +
+            "\nDikirim dari /merdeka80" +
             utmStr;
 
         const url = new URL(`https://wa.me/${WA_NUMBER}`);
@@ -123,15 +123,15 @@ const Merdeka80Page = () => {
                 <div className="grid md:grid-cols-3 gap-4">
                     <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
                         <h3 className="text-lg font-semibold">⚡ Cepat &amp; Responsif</h3>
-                        <p className="text-slate-600">Nyaman di HP &amp; desktop—biar pengunjung nggak kabur.</p>
+                        <p className="text-slate-600">Nyaman di HP &amp; desktop, biar pengunjung nggak kabur.</p>
                     </div>
                     <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
                         <h3 className="text-lg font-semibold">🎯 Fokus Aksi</h3>
-                        <p className="text-slate-600">Copy singkat, CTA jelas, struktur rapi—siap konversi.</p>
+                        <p className="text-slate-600">Copy singkat, CTA jelas, dan struktur rapi yang siap konversi.</p>
                     </div>
                     <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
                         <h3 className="text-lg font-semibold">🇮🇩 Tema Merah-Putih</h3>
-                        <p className="text-slate-600">Nuansa HUT RI yang elegan—promo Agustus terasa spesial.</p>
+                        <p className="text-slate-600">Nuansa HUT RI yang elegan membuat promo Agustus terasa spesial.</p>
                     </div>
                 </div>
             </section>
@@ -178,7 +178,7 @@ const Merdeka80Page = () => {
                     </div>
                 </div>
                 <p className="mt-3 text-sm text-slate-500">
-                    Butuh lihat lebih banyak? Sertakan link di form—aku kirimkan studi kasusnya.
+                    Butuh lihat lebih banyak? Sertakan link di form. Aku kirimkan studi kasusnya.
                 </p>
             </section>
 
@@ -277,7 +277,7 @@ const Merdeka80Page = () => {
 
             <footer className="border-t">
                 <div className="max-w-6xl mx-auto px-4 py-8 text-center text-slate-500">
-                    © {new Date().getFullYear()} <a href="https://zulzidan.com/" className="hover:text-red-500">zulzidan.com</a> — Landing Page Merdeka
+                    © {new Date().getFullYear()} <a href="https://zulzidan.com/" className="hover:text-red-500">zulzidan.com</a> | Landing Page Merdeka
                 </div>
             </footer>
         </main>
@@ -289,10 +289,10 @@ export default Merdeka80Page;
 // SEO + Meta Pixel in <Head> (Gatsby)
 export const Head = () => (
     <>
-        <title>Merdeka Online — Diskon 80% HUT RI ke-80 | Landing Page</title>
+        <title>Merdeka Online | Diskon 80% HUT RI ke-80 | Landing Page</title>
         <meta
             name="description"
-            content="Landing page satu halaman, merah-putih, cepat & responsif. Dari Rp3.000.000 jadi Rp600.000 — hanya selama Agustus."
+            content="Landing page satu halaman, merah-putih, cepat & responsif. Dari Rp3.000.000 jadi Rp600.000, hanya selama Agustus."
         />
         <meta property="og:title" content="Merdeka Online! Diskon 80% HUT RI ke-80" />
         <meta

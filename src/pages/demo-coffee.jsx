@@ -3,7 +3,7 @@ import {StaticImage} from "gatsby-plugin-image"
 const WA_NUMBER = "62812XXXXXXX"; // ganti nomor WA kamu (tanpa +)
 
 const feats = [
-    { title: "Cepat & responsif", desc: "Nyaman di HP—langsung paham dalam 3 detik." },
+    { title: "Cepat & responsif", desc: "Nyaman di HP, langsung paham dalam 3 detik." },
     { title: "1 pesan, 1 tombol", desc: "Tanpa distraksi, fokus ke aksi utama." },
     { title: "Siap buat iklan", desc: "Headline jelas, CTA tegas, konversi lebih gampang." },
 ];
@@ -22,7 +22,7 @@ export default function DemoCoffee() {
                             Demo oleh Zul Zidan
                         </span>
                         <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold leading-tight">
-                            CoffeeFest Merdeka — Landing Page Demo
+                            CoffeeFest Merdeka | Landing Page Demo
                         </h1>
                         <p className="mt-3 text-slate-600">
                             Satu halaman promo event: headline jelas, 3 manfaat, dan tombol WhatsApp.
@@ -38,7 +38,7 @@ export default function DemoCoffee() {
                                 Lihat manfaat
                             </a>
                         </div>
-                        <p className="mt-2 text-xs text-slate-500">*Ini demo—bukan proyek klien.</p>
+                        <p className="mt-2 text-xs text-slate-500">*Ini demo, bukan proyek klien.</p>
                     </div>
 
                     <div className="order-first md:order-last">
@@ -96,7 +96,7 @@ export default function DemoCoffee() {
 
 export const Head = () => (
     <>
-        <title>Demo CoffeeFest Merdeka — Zul Zidan</title>
-        <meta name="description" content="Demo landing page satu halaman untuk promo event—cepat, fokus aksi, dan siap iklan." />
+        <title>Demo CoffeeFest Merdeka | Zul Zidan</title>
+        <meta name="description" content="Demo landing page satu halaman untuk promo event yang cepat, fokus aksi, dan siap iklan." />
     </>
 );

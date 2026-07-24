@@ -5,12 +5,12 @@ import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from './ui/button';
-import { Facebook, Link, Linkedin, Share, Twitter } from 'lucide-react';
+import { Link, Share } from 'lucide-react';
+import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 
 const ShareButton = () => {
     const handleCopyLink = () => {
@@ -45,9 +45,9 @@ const ShareButton = () => {
                 {/* <DropdownMenuLabel>Share Options</DropdownMenuLabel> */}
                 <DropdownMenuSeparator />
                 <DropdownMenuItem className='flex gap-2' onClick={handleCopyLink}> <Link size={15} /> Copy link</DropdownMenuItem>
-                <DropdownMenuItem className='flex gap-2' onClick={handleShareTwitter}><Twitter size={15} /> Share on Twitter</DropdownMenuItem>
-                <DropdownMenuItem className='flex gap-2' onClick={handleShareFacebook}><Facebook size={15} /> Share on Facebook</DropdownMenuItem>
-                <DropdownMenuItem className='flex gap-2' onClick={handleShareLinkedIn}><Linkedin size={15}/> Share on LinkedIn</DropdownMenuItem>
+                <DropdownMenuItem className='flex gap-2' onClick={handleShareTwitter}><FaTwitter size={15} /> Share on Twitter</DropdownMenuItem>
+                <DropdownMenuItem className='flex gap-2' onClick={handleShareFacebook}><FaFacebookF size={15} /> Share on Facebook</DropdownMenuItem>
+                <DropdownMenuItem className='flex gap-2' onClick={handleShareLinkedIn}><FaLinkedinIn size={15}/> Share on LinkedIn</DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
     );
