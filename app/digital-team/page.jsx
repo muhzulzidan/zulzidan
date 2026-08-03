@@ -23,7 +23,7 @@ import {
   Zap,
 } from "lucide-react";
 
-import founderImage from "@/images/aboutImage.png";
+import founderImage from "@/images/generated/muhammad-zulzidan-founder-portrait-v2.png";
 import brandLogo from "@/images/logoFull.png";
 import { pageMetadata } from "@/lib/site";
 

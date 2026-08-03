@@ -2,9 +2,9 @@ export const SITE_URL = "https://zulzidan.com";
 
 export const SITE = {
   name: "Zulzidan",
-  title: "zulzidan, jasa pembuatan web",
+  title: "Zulzidan — Conversion-focused websites for service businesses",
   description:
-    "Layanan pembuatan website profesional yang disesuaikan dengan kebutuhan Anda. Dapatkan website yang menarik dan fungsional yang mewakili bisnis Anda.",
+    "I help service businesses turn unclear or outdated websites into credible sales assets with clearer messaging, stronger mobile UX, and an easier path to enquiry.",
   url: SITE_URL,
   image: "/meCircle.png",
   twitter: "@muhzulzidan",
@@ -39,13 +39,14 @@ export function createMetadata({ title, description = SITE.description, path = "
 
 export const pageMetadata = {
   home: createMetadata({
-    title: SITE.title,
+    title: "Conversion-focused websites for service businesses",
     description:
-      "Beberapa hal yang menggambarkan Zulzidan adalah pembuatan web, jasa pembuatan web di Bone, Digital Marketer, dan Web Developer.",
+      "I help service businesses turn unclear or outdated websites into credible sales assets with clearer messaging, stronger mobile UX, and an easier path to enquiry.",
   }),
   about: createMetadata({
-    title: "About Muhammad Zulzidan",
-    description: "Web developer and digital marketer based in Bone, Indonesia.",
+    title: "About Muhammad Zulzidan — Independent Web Specialist",
+    description:
+      "Meet Muhammad Zulzidan, an independent web specialist helping service businesses turn complex work into clear websites, useful systems, and stronger paths to enquiry.",
     path: "/about/",
   }),
   blogs: createMetadata({
@@ -54,13 +55,15 @@ export const pageMetadata = {
     path: "/blogs/",
   }),
   works: createMetadata({
-    title: "Selected Works by Muhammad Zulzidan",
-    description: "A showcase of web projects and designs by Muhammad Zulzidan.",
+    title: "Case Studies and Selected Work",
+    description:
+      "Selected website and digital-system work across service businesses, logistics, nonprofits, and consumer brands.",
     path: "/works/",
   }),
   services: createMetadata({
-    title: "Services by Muhammad Zulzidan",
-    description: "Website development and digital marketing services for growing businesses.",
+    title: "Website and Digital Team Services",
+    description:
+      "Conversion-focused websites and ongoing digital-team support for organizations that need clearer systems and steady execution.",
     path: "/services/",
   }),
   digitalTeam: createMetadata({
@@ -69,10 +72,10 @@ export const pageMetadata = {
       "A coordinated remote team for web development, automation, content, CMS, and digital operations—for one predictable monthly fee.",
     path: "/digital-team/",
   }),
-  contacts: createMetadata({ title: "Contacts | Zulzidan", path: "/contacts/" }),
-  links: createMetadata({ title: "Muhammad Zulzidan — Links", path: "/links/" }),
+  contacts: createMetadata({ title: "Contact Muhammad Zulzidan", path: "/contacts/" }),
+  links: createMetadata({ title: "Links and Contact", path: "/links/" }),
   auditWebsite: createMetadata({
-    title: "Audit Website - Zulzidan",
+    title: "Free Website Audit",
     description: "Audit website gratis untuk kecepatan, SEO, UX, dan keamanan.",
     path: "/audit-website/",
   }),
@@ -82,7 +85,7 @@ export const pageMetadata = {
     path: "/brand-new-web/",
   }),
   demoCoffee: createMetadata({
-    title: "Demo CoffeeFest Merdeka — Zulzidan",
+    title: "CoffeeFest Merdeka Landing Page Demo",
     description: "Demo landing page satu halaman untuk promo event.",
     path: "/demo-coffee/",
   }),
@@ -91,16 +94,16 @@ export const pageMetadata = {
     path: "/jasa-pembuatan-website/",
   }),
   jasaBone: createMetadata({
-    title: "Jasa Pembuatan Website di Bone - Zulzidan",
+    title: "Jasa Pembuatan Website di Bone",
     description: "Jasa pembuatan website di Bone dengan desain kustom dan optimisasi SEO.",
     path: "/jasa-pembuatan-website-di-bone/",
   }),
   merdeka80: createMetadata({
-    title: "Promo Landing Page Merdeka 80% — Zulzidan",
+    title: "Promo Landing Page Merdeka 80%",
     path: "/merdeka80/",
   }),
   refundPolicy: createMetadata({
-    title: "Kebijakan Pengembalian Dana - Zulzidan",
+    title: "Kebijakan Pengembalian Dana",
     description: "Kebijakan pengembalian dana untuk layanan Zulzidan.",
     path: "/refund-policy/",
   }),

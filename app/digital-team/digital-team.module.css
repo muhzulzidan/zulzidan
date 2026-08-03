@@ -1,20 +1,23 @@
 .page {
-  --paper: #f4f4ef;
-  --paper-deep: #e9e8e0;
-  --ink: #111113;
-  --muted: #66665f;
-  --line: #d8d7cf;
-  --surface: #ffffff;
-  --indigo: #4f46e5;
-  --indigo-dark: #1e1b4b;
-  --indigo-deep: #12102f;
-  --lime: #d7ff64;
-  --amber: #f5a524;
+  --paper: #f4efe7;
+  --paper-deep: #e7dfd3;
+  --ink: #18201c;
+  --muted: #4f5a54;
+  --line: #cec4b7;
+  --surface: #fffaf2;
+  --indigo: #c74b2f;
+  --indigo-dark: #26362e;
+  --indigo-deep: #18201c;
+  --lime: #edc9ae;
+  --amber: #b6432c;
   min-height: 100vh;
-  overflow-x: clip;
   color: var(--ink);
   background: var(--paper);
   font-family: "Questrial", sans-serif;
+}
+
+.page main {
+  overflow-x: clip;
 }
 
 .page *,
@@ -25,7 +28,10 @@
 
 .page h1,
 .page h2,
-.page h3,
+.page h3 {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
 .page strong,
 .page .primaryButton,
 .page .secondaryButton,
@@ -53,8 +59,8 @@
   position: sticky;
   z-index: 50;
   top: 0;
-  border-bottom: 1px solid rgba(17, 17, 19, 0.1);
-  background: rgba(244, 244, 239, 0.9);
+  border-bottom: 1px solid rgba(24, 32, 28, 0.1);
+  background: rgba(244, 239, 231, 0.92);
   backdrop-filter: blur(18px);
 }
 
@@ -162,7 +168,7 @@
   left: -100px;
   width: 240px;
   height: 240px;
-  border: 1px solid rgba(79, 70, 229, 0.2);
+  border: 1px solid rgba(199, 75, 47, 0.2);
   border-radius: 50%;
 }
 
@@ -196,7 +202,7 @@
   height: 8px;
   border-radius: 50%;
   background: var(--indigo);
-  box-shadow: 0 0 0 5px rgba(79, 70, 229, 0.1);
+  box-shadow: 0 0 0 5px rgba(199, 75, 47, 0.1);
   animation: statusPulse 2.8s ease-in-out infinite;
 }
 
@@ -204,7 +210,7 @@
   max-width: 710px;
   margin: 0;
   font-size: clamp(52px, 6.4vw, 88px);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 0.98;
   letter-spacing: -0.058em;
 }
@@ -298,7 +304,7 @@
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background: rgba(79, 70, 229, 0.18);
+  background: rgba(199, 75, 47, 0.16);
   filter: blur(55px);
 }
 
@@ -306,10 +312,10 @@
   position: relative;
   overflow: hidden;
   padding: 25px;
-  border: 1px solid rgba(17, 17, 19, 0.15);
+  border: 1px solid rgba(24, 32, 28, 0.15);
   border-radius: 24px;
   background: #fbfbf8;
-  box-shadow: 0 32px 80px rgba(30, 27, 75, 0.14), 0 2px 0 rgba(255, 255, 255, 0.8) inset;
+  box-shadow: 0 32px 80px rgba(38, 54, 46, 0.14), 0 2px 0 rgba(255, 255, 255, 0.8) inset;
   transform: rotate(1.2deg);
 }
 
@@ -441,8 +447,8 @@
 }
 
 .taskCardActive {
-  border-color: rgba(79, 70, 229, 0.24);
-  background: #f5f3ff;
+  border-color: rgba(199, 75, 47, 0.24);
+  background: #fbebe2;
 }
 
 .taskIcon {
@@ -453,7 +459,7 @@
   flex-shrink: 0;
   border-radius: 10px;
   color: var(--indigo);
-  background: #eeecff;
+  background: #f7ddd0;
 }
 
 .taskCard > div:nth-child(2) {
@@ -488,8 +494,8 @@
 }
 
 .progressPill {
-  color: #4338ca;
-  background: #e4e0ff;
+  color: #8f3827;
+  background: #f2d1c2;
 }
 
 .queuePill {
@@ -562,7 +568,7 @@
   background: var(--ink);
   font-size: 11px;
   line-height: 1.35;
-  box-shadow: 0 12px 30px rgba(17, 17, 19, 0.18);
+  box-shadow: 0 12px 30px rgba(24, 32, 28, 0.18);
   animation: noteFloat 4.5s ease-in-out infinite;
 }
 
@@ -1659,8 +1665,8 @@
 }
 
 @keyframes statusPulse {
-  0%, 100% { box-shadow: 0 0 0 5px rgba(79, 70, 229, 0.1); }
-  50% { box-shadow: 0 0 0 9px rgba(79, 70, 229, 0); }
+  0%, 100% { box-shadow: 0 0 0 5px rgba(199, 75, 47, 0.1); }
+  50% { box-shadow: 0 0 0 9px rgba(199, 75, 47, 0); }
 }
 
 @keyframes noteFloat {
@@ -2010,8 +2016,8 @@
     border: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 16px;
     color: white;
-    background: rgba(18, 16, 47, 0.96);
-    box-shadow: 0 14px 45px rgba(17, 17, 19, 0.28);
+    background: rgba(24, 32, 28, 0.96);
+    box-shadow: 0 14px 45px rgba(24, 32, 28, 0.28);
     backdrop-filter: blur(16px);
   }
 

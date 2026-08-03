@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link } from "@/lib/gatsby-compat";
 
 import Layout from "../components/layout";
 import { SEO as Seo } from "../components/seo";

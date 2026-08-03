@@ -4,8 +4,8 @@ export default function manifest() {
     short_name: "Zulzidan",
     start_url: "/",
     display: "standalone",
-    background_color: "#f1f1f1",
-    theme_color: "#000000",
+    background_color: "#f4efe7",
+    theme_color: "#f4efe7",
     icons: [{ src: "/icon.png", sizes: "512x512", type: "image/png" }],
   };
 }
