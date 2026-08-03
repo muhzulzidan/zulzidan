@@ -1,4 +1,5 @@
 const generateExcerpt = (rawContent) => {
+    if (!rawContent) return '';
     const content = JSON.parse(rawContent);
     let plainText = '';
 

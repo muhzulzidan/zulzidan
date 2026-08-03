@@ -1,18 +1,16 @@
 import React from 'react'
-import { GatsbyImage } from "gatsby-plugin-image";
-import { useContentfulImage } from "gatsby-source-contentful/hooks";
+import { GatsbyImage } from "./legacy-image";
 
 const ContentfulImage = ({ imageDetails, alt }) => {
 
-    const optimizedImage = useContentfulImage({
-        image: {
-            url: imageDetails.file.en_US.url,
-            width: imageDetails.file.en_US.details.image.width,
-            height: imageDetails.file.en_US.details.image.height,
-        },
-    });
+    const file = imageDetails?.file?.en_US || imageDetails?.file || {};
+    const image = {
+        url: file.url?.startsWith('//') ? `https:${file.url}` : file.url,
+        width: file.details?.image?.width,
+        height: file.details?.image?.height,
+    };
 
-    return <GatsbyImage image={optimizedImage} alt={alt} quality={100} />;
+    return <GatsbyImage image={image} alt={alt} quality={100} />;
 }
 
 

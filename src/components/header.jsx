@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "gatsby"
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "@/lib/gatsby-compat"
 import { Spiral as Hamburger } from 'hamburger-react'
 
 import Menu from './menu'
@@ -25,10 +25,11 @@ const Header = ({ childMenu, landingPage }) => {
   }, []);
   // make a state for the menu with false
   const [isOpen, setIsOpen] = useState(false)
+  const menuRef = useRef(null)
 
 
   function toggleMenu() {
-    childMenu.open();
+    menuRef.current?.open();
     setIsOpen(!isOpen);
   }
 
@@ -44,7 +45,7 @@ const Header = ({ childMenu, landingPage }) => {
       >
         <LogoFull />
       </Link>
-      <Menu ref={(el) => (childMenu = el)} />
+      <Menu ref={menuRef} />
       <>
         <button
           className={`md:hidden translate-y-0 z-20 ${isOpen ? "menuOpen" : ""}`}

@@ -6,7 +6,7 @@ import { useMediaQuery } from "react-responsive"
 
 import { ArrowUp } from 'react-bootstrap-icons';
 
-import { Link } from "gatsby"
+import { Link } from "@/lib/gatsby-compat"
 import LogoFull from '../svg/logoFull.svg'
 const Footer = () => {
   const isTable = useMediaQuery({ query: '(min-width: 767px)' })

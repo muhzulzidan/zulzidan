@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { Link } from '@/lib/gatsby-compat';
+import { GatsbyImage, getImage } from '../legacy-image';
 import { Calendar, Person } from 'react-bootstrap-icons';
 
 const WorksSection = ({ works }) => (

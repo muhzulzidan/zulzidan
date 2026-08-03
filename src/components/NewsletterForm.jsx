@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useRef, useState } from "react";
-import addToMailchimp from "gatsby-plugin-mailchimp";
 
 const NewsletterForm = ({ title = "Subscribe to the newsletter" }) => {
   const inputEl = useRef(null);
@@ -13,8 +12,13 @@ const NewsletterForm = ({ title = "Subscribe to the newsletter" }) => {
     const email = inputEl.current.value;
 
     try {
-      const result = await addToMailchimp(email);
-      if (result.result === "success") {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const result = await response.json();
+      if (response.ok) {
         setError(false);
         setSubscribed(true);
         setMessage("Successfully subscribed! 🎉");

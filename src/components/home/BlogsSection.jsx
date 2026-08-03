@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link, graphql } from "gatsby";
-import { GatsbyImage, getImage, } from "gatsby-plugin-image"
+import { Link, graphql } from "@/lib/gatsby-compat";
+import { GatsbyImage, getImage, } from "../legacy-image"
 import { Calendar, Person } from "react-bootstrap-icons"
 import generateExcerpt from '../../utils/generateExcerpt';
 
@@ -20,7 +20,7 @@ const BlogsSection = ({ newestPosts }) => (
                             <GatsbyImage image={getImage(post.featuredMedia)} alt={post.title} />
                             <div className="flex flex-col gap-1 w-10/12">
                                 <h3 className="text-2xl font-semibold">{post.title}</h3>
-                                <p className="text-lg line-clamp-2">{generateExcerpt(post.content.raw)}</p>
+                                <p className="text-lg line-clamp-2">{post.excerpt || generateExcerpt(post.content.raw)}</p>
                             </div>
                         </Link>
                     </li>

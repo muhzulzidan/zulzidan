@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { Dialog } from "@headlessui/react";
+import { graphql } from "@/lib/gatsby-compat";
+import { GatsbyImage, getImage } from "@/components/legacy-image";
+import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import { CalendarFill, PersonFill, Link45deg } from "react-bootstrap-icons";
 
 import generateExcerpt from '../utils/generateExcerpt';
@@ -69,13 +69,15 @@ export default function WorkTemplate({ data }) {
                         open={isModalOpen}
                         onClose={closeModal}
                     >
+                        <DialogBackdrop className="fixed inset-0 bg-black/30" />
                         <div className="flex items-center justify-center min-h-screen">
-                            <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
-                            <GatsbyImage
-                                image={currentImage}
-                                alt="Zoomed Preview"
-                                className="z-20 max-w-3xl max-h-screen"
-                            />
+                            <DialogPanel className="relative z-20 max-w-3xl">
+                                <GatsbyImage
+                                    image={currentImage}
+                                    alt="Zoomed Preview"
+                                    className="max-h-screen"
+                                />
+                            </DialogPanel>
                         </div>
                     </Dialog>
                 )}

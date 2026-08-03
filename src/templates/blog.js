@@ -1,6 +1,6 @@
-import React, { lazy, Suspense, useState, useEffect } from 'react';
-import { graphql } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import React, { lazy, Suspense, useState } from 'react';
+import { graphql } from '@/lib/gatsby-compat';
+import { GatsbyImage, getImage } from '@/components/legacy-image';
 // import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 import slugify from 'slugify'
@@ -37,12 +37,8 @@ const BlogPagesComponents = ({ data, location, }) => {
   // const image = getImage(featuredMedia.gatsbyImageData);
   const { references } = content;
   const [isCopied, setIsCopied] = useState({});
-  const [image, setImage] = useState(null);
+  const image = getImage(featuredMedia.gatsbyImageData);
   const [showImage, setShowImage] = useState(false);
-
-  useEffect(() => {
-    setImage(getImage(featuredMedia.gatsbyImageData));
-  }, [featuredMedia]);
 
   // Initialize an empty array to store the headings
   let tableOfContents = [];
@@ -73,8 +69,6 @@ const BlogPagesComponents = ({ data, location, }) => {
 
         // Convert the heading text into a slug
         const slug = headingText.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-
-        console.log(slug, "slug heading");
 
         return <h2 id={slug}>{children}</h2>;
       },
@@ -157,9 +151,6 @@ const BlogPagesComponents = ({ data, location, }) => {
     })
   }
   // console.log(renderRichText(content), "contentasdasd")
-  console.log(generateTableOfContents(content.raw), "contentasdasd")
-
-
   return (
 
     <Layout location={location}>

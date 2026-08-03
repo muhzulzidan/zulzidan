@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import ClampLines from 'react-clamp-lines';
+import { Link } from '@/lib/gatsby-compat';
 
 
 const Breadcrumb = ({ items } ) => {
@@ -21,14 +20,7 @@ const Breadcrumb = ({ items } ) => {
                     </svg>
                     <div className="inline-block">
                         <div className='inline-flex items-center text-sm font-medium text-stone-700'>
-                            <ClampLines
-                                text="Home"
-                                id="breadcrumb-home"
-                                lines={1}
-                                ellipsis="..."
-                                moreText=""
-                                lessText=""
-                            />
+                            <span className="line-clamp-1">Home</span>
                         </div>
                     </div>
                 </li>
@@ -49,15 +41,7 @@ const Breadcrumb = ({ items } ) => {
                                 className="block items-center text-sm font-medium text-stone-700 hover:text-yellow-400 dark:text-stone-400 dark:hover:text-white justify-center"
                                 aria-label="Blogs"
                             >
-                                <ClampLines 
-                                    className='block'
-                                    text={"Blogs"}
-                                    id={`breadcrumb`}
-                                    lines={1}
-                                    ellipsis="..."
-                                    moreText=""
-                                    lessText=""
-                                />
+                                <span className="line-clamp-1">Blogs</span>
                             </Link>
                        
                     </li>
@@ -73,7 +57,7 @@ const Breadcrumb = ({ items } ) => {
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                         </svg>
                         <Link to={item.link} className="block items-center text-sm font-medium text-stone-700 hover:text-yellow-400 dark:text-stone-400 dark:hover:text-white justify-center" title={item.text} aria-label={item.text}>
-                            <ClampLines text={item.text} id={`breadcrumb-${index}`} lines={1} ellipsis="..." moreText="" lessText="" />
+                            <span className="line-clamp-1">{item.text}</span>
                         </Link>
                     </li>
                 ))}

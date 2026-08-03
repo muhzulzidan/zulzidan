@@ -1,6 +1,6 @@
 import React, { useImperativeHandle, useRef } from "react"
 
-import { Link } from "gatsby"
+import { Link } from "@/lib/gatsby-compat"
 
 import * as styles from "../style/menu/menu.module.scss"
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import { StaticImage } from "gatsby-plugin-image";
+import { StaticImage } from "./legacy-image";
 import Arrow from "../svg/arrow.svg";
 // import "../images/works/islamtshirt.png"
 // import MediaQuery from "react-responsive"
