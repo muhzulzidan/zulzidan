@@ -108,7 +108,7 @@ const LandingPage = ({ data }) => {
                             Transformasi Bisnis Anda dengan Website Cepat, Aman, dan Mudah Ditemukan
                         </h1>
                         <p className="text-lg md:text-xl text-gray-700 mb-6 md:w-10/12">
-                            Bingung mulai dari mana? Kami bantu buatkan website bisnis Anda — cepat, aman, dan mudah ditemukan di Google.
+                            Bingung mulai dari mana? Kami bantu buatkan website bisnis Anda yang cepat, aman, dan mudah ditemukan di Google.
                         </p>
                         <ul className="mb-6 flex flex-col items-center md:items-start gap-2 text-base text-gray-800">
                             <li className="flex items-center gap-2"><CheckCircleFill className="text-green-500" />Website profesional & responsif</li>
