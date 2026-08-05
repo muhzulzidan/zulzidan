@@ -7,12 +7,8 @@ import { SEO as Seo } from '../components/seo';
 const initialFormData = {
     name: '',
     email: '',
-    phone: '',
     website: '',
-    websitePurpose: '',
-    mainConcern: '',
-    auditType: '',
-    interestedServices: []
+    mainConcern: ''
 };
 
 const AuditWebsite = ({ location }) => {
@@ -34,13 +30,19 @@ const AuditWebsite = ({ location }) => {
         setStatus({ type: 'idle', message: '' });
 
         try {
-            const response = await fetch('https://api-form-eta.vercel.app/audit', {
+            const response = await fetch('/api/audit/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(formData),
             });
+            const result = await response.json().catch(() => ({}));
+
+            if (!response.ok && result.message) {
+                setStatus({ type: 'error', message: result.message });
+                return;
+            }
 
             if (response.ok) {
                 setStatus({
@@ -156,6 +158,8 @@ const AuditWebsite = ({ location }) => {
                                             id="email"
                                             name="email"
                                             autoComplete="email"
+                                            pattern="[^@ ]+@[^@ ]+\.[^@ ]+"
+                                            title="Enter a complete email address, for example name@example.com."
                                             value={formData.email}
                                             onChange={handleChange}
                                             disabled={loading}
