@@ -1,0 +1,5 @@
+test_id,date_started,date_ended,campaign,ad_set,ad_name,market,audience,asset_code,hook,offer,objective,destination,budget,spend,impressions,reach,frequency,video_plays_3s,clicks,conversations,qualified_conversations,paid_sprints,revenue,cost_per_qualified_conversation,cost_per_paid_sprint,status,decision,next_action,notes
+T001,,,SS-META-001_PROSPECTING_WHATSAPP,,,AU-OR-CHOSEN-MARKET,,SS-V01,Different freelancer,$500 Starter Sprint,Leads,WhatsApp,,,,,,,,,,,,,BACKLOG,,,
+T002,,,SS-META-001_PROSPECTING_WHATSAPP,,,AU-OR-CHOSEN-MARKET,,SS-V02,Nobody owns it,$500 Starter Sprint,Leads,WhatsApp,,,,,,,,,,,,,BACKLOG,,,
+T003,,,SS-META-001_PROSPECTING_WHATSAPP,,,AU-OR-CHOSEN-MARKET,,SS-S01,Five focused days,$500 Starter Sprint,Leads,WhatsApp,,,,,,,,,,,,,BACKLOG,,,
+

@@ -31,3 +31,7 @@ which stores requests in the configured Postgres database.
 The administrator can sign in at `/admin/login/` and view all submissions at `/admin/audits/`.
 
 Variables without the `NEXT_PUBLIC_` prefix are server-only. Never commit `.env.local` or expose server credentials to client-side code.
+
+## Marketing campaign workspaces
+
+- [Starter Sprint Meta campaign](./marketing/starter-sprint-meta/README.md) — strategy, creative production, launch readiness, measurement, and performance trackers for Instagram and Facebook.

@@ -1481,7 +1481,7 @@
   align-items: flex-end;
   justify-content: center;
   overflow: hidden;
-  background: #94999d;
+  background: #5d1918;
 }
 
 .founderImage {
@@ -2026,8 +2026,9 @@
   }
 
   .founderImage {
-    width: 300px;
-    object-fit: contain;
+    width: 100%;
+    object-fit: cover;
+    object-position: center 34%;
   }
 
   .founderCopy {
@@ -2179,7 +2180,7 @@
   }
 
   .founderImage {
-    width: 260px;
+    width: 100%;
   }
 }
 

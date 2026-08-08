@@ -23,7 +23,6 @@ import {
   Zap,
 } from "lucide-react";
 
-import founderImage from "@/images/generated/muhammad-zulzidan-founder-portrait-v2.png";
 import brandLogo from "@/images/logoFull.png";
 import { pageMetadata } from "@/lib/site";
 
@@ -32,6 +31,7 @@ import styles from "./digital-team.module.css";
 export const metadata = pageMetadata.digitalTeam;
 
 const whatsappNumber = "6281354789375";
+const founderImage = "/zulzidan/web/muhammad-zulzidan-founder-home.webp";
 const whatsappLink = (message) =>
   `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
 
@@ -605,6 +605,8 @@ export default function DigitalTeamPage() {
               src={founderImage}
               alt="Muhammad Zulzidan, founder of Zulzidan"
               className={styles.founderImage}
+              width={1600}
+              height={2000}
               sizes="(max-width: 760px) 300px, 330px"
             />
           </div>

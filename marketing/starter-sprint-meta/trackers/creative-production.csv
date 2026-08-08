@@ -1,0 +1,8 @@
+asset_code,concept,format,ratios,owner,status,due_date,source_link,draft_link,final_link,permission_check,claims_check,notes
+SS-V01,Founder one priority,Video,"9:16|4:5",,READY,,,,,PENDING,PENDING,Record three hook takes
+SS-V02,The backlog,Video,"9:16|4:5",,READY,,,,,PENDING,PENDING,Use only non-confidential task-board content
+SS-V03,TASFRL proof,Video,"9:16|4:5",,BLOCKED,,,,,PENDING,PENDING,Blocked until client asset permission and claims review
+SS-V04,International objection,Video,"9:16|4:5",,READY,,,,,PENDING,PENDING,Capture real communication workflow
+SS-S01,Starter Sprint offer card,Static,"9:16|4:5|1:1",,READY,,,,,PENDING,PENDING,Keep price and scope prominent
+SS-S02,Founder proof card,Static,"9:16|4:5|1:1",,READY,,/zulzidan/web/muhammad-zulzidan-founder-smiling.webp,,,APPROVED,PENDING,Authentic smiling portrait selected; ad design still required
+SS-C01,Too many vendors carousel,Carousel,"4:5|1:1",,READY,,,,,PENDING,PENDING,Five cards

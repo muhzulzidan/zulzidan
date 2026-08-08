@@ -5,12 +5,12 @@ import EditorialFooter from "@/components/editorial/EditorialFooter";
 import EditorialHeader from "@/components/editorial/EditorialHeader";
 import { getWork } from "@/lib/contentful";
 import { createMetadata, SITE_URL } from "@/lib/site";
-import founderPortrait from "@/images/generated/muhammad-zulzidan-founder-portrait-v2.png";
 
 import styles from "./about.module.css";
 
 const TASFRL_SLUG =
   "texas-agriforestry-small-farmers-ranchers-and-landowners-tasfrl";
+const founderPortrait = "/zulzidan/web/muhammad-zulzidan-founder-smiling.webp";
 
 const approach = [
   {
@@ -58,7 +58,7 @@ export const metadata = {
     title,
     description,
     path: "/about/",
-    image: founderPortrait.src,
+    image: founderPortrait,
   }),
   title: { absolute: title },
 };
@@ -73,7 +73,7 @@ export default async function AboutPage() {
     "@type": "Person",
     name: "Muhammad Zulzidan M",
     url: `${SITE_URL}/about/`,
-    image: new URL(founderPortrait.src, SITE_URL).toString(),
+    image: new URL(founderPortrait, SITE_URL).toString(),
     jobTitle: "Independent web specialist",
     sameAs: [
       "https://www.linkedin.com/in/muhzulzidan/",
