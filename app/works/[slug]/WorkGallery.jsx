@@ -16,13 +16,13 @@ export default function WorkGallery({ images, client }) {
         aria-labelledby="project-gallery-heading"
       >
         <div className="mx-auto max-w-screen-xl px-5 py-20 sm:px-8 md:py-28 lg:px-10">
-          <div className="grid gap-8 md:grid-cols-12 md:items-end">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8f3827] md:col-span-3">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8f3827]">
               Project evidence
             </p>
             <h2
               id="project-gallery-heading"
-              className="font-serif text-[clamp(2.7rem,5vw,5rem)] leading-[0.95] tracking-[-0.04em] md:col-span-8"
+              className="mt-5 max-w-5xl font-serif text-[clamp(2.7rem,5vw,5rem)] leading-[0.95] tracking-[-0.04em]"
             >
               A closer look at the work.
             </h2>

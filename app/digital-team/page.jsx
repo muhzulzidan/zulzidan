@@ -609,12 +609,25 @@ export default function DigitalTeamPage() {
             />
           </div>
           <div className={styles.founderCopy}>
-            <p className={styles.eyebrow}>A team with an accountable lead</p>
-            <h2>Built for long-term trust, led by Zulzidan.</h2>
+            <p className={styles.eyebrow}>(08) Meet the founder</p>
+            <h2>A team relationship with a directly accountable lead.</h2>
             <p>
-              You won&apos;t be passed between anonymous freelancers. I stay close to the strategy, coordinate the team, and make sure the work keeps serving the bigger goal.
+              I&apos;m Muhammad Zulzidan. Since 2019, I&apos;ve helped businesses and organizations turn complex digital work into clear websites, useful systems, and steady improvements. I stay close to the strategy, coordinate the team, and make sure the work keeps serving the bigger goal.
             </p>
+            <div className={styles.founderSignals} aria-label="Founder experience highlights">
+              <span>Working in digital since 2019</span>
+              <span>International client experience</span>
+              <span>Based in Indonesia, working globally</span>
+            </div>
             <p className={styles.founderName}>Muhammad Zulzidan <span>Founder &amp; digital lead</span></p>
+            <div className={styles.founderActions}>
+              <Link className={styles.founderPrimaryLink} href="/about/">
+                Learn more about me <ArrowRight aria-hidden="true" size={17} />
+              </Link>
+              <Link className={styles.founderSecondaryLink} href="/works/">
+                View selected work
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -622,7 +635,7 @@ export default function DigitalTeamPage() {
       <section className={styles.finalCta}>
         <div className={styles.finalOrb} aria-hidden="true" />
         <div className={styles.shell}>
-          <p className={styles.eyebrow}>(08) Your next priority starts here</p>
+          <p className={styles.eyebrow}>(09) Your next priority starts here</p>
           <h2>Stop coordinating vendors.<br />Start moving one list forward.</h2>
           <p>Tell us what is stuck. We&apos;ll recommend the right level of support and outline the first priorities we would tackle.</p>
           <div className={styles.finalActions}>
@@ -644,7 +657,11 @@ export default function DigitalTeamPage() {
           </div>
           <div className={styles.footerLinks}>
             <Link href="/">Home</Link>
+            <Link href="/about/">About</Link>
             <Link href="/works/">Work</Link>
+            <Link href="/blogs/">Blog</Link>
+            <Link href="/services/">Services</Link>
+            <Link href="/audit-website/">Free audit</Link>
             <Link href="/refund-policy/">Refund policy</Link>
             <a href={fitCallLink} target="_blank" rel="noreferrer">WhatsApp</a>
           </div>

@@ -134,6 +134,11 @@ function projectDate(date = "") {
   return `${match[2]}-${monthNumbers[match[1]]}-${match[3]}`;
 }
 
+function externalUrl(url = "") {
+  if (!url) return "";
+  return /^https?:\/\//i.test(url) ? url : `https://${url}`;
+}
+
 export async function generateStaticParams() {
   const works = await getWorks().catch(() => []);
   return works.map(({ slug }) => ({ slug }));
@@ -227,7 +232,7 @@ function ProjectHero({ work, isTasfrl }) {
                 </dt>
                 <dd className="mt-2">
                   <a
-                    href={work.url}
+                    href={externalUrl(work.url)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex min-h-11 items-center py-2 font-semibold underline decoration-[#c74b2f] underline-offset-4"
@@ -266,11 +271,11 @@ function TasfrlCaseStudy({ paragraphs }) {
       </section>
 
       <section className="mx-auto max-w-screen-xl px-5 py-24 sm:px-8 md:py-32 lg:px-10">
-        <div className="grid gap-8 md:grid-cols-12">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8f3827] md:col-span-3">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8f3827]">
             What the platform supports
           </p>
-          <h2 className="font-serif text-[clamp(2.8rem,5vw,5.3rem)] leading-[0.95] tracking-[-0.04em] md:col-span-8">
+          <h2 className="mt-5 max-w-5xl font-serif text-[clamp(2.8rem,5vw,5.3rem)] leading-[0.95] tracking-[-0.04em]">
             One connected platform across public service and internal
             operations.
           </h2>
@@ -302,7 +307,7 @@ function TasfrlCaseStudy({ paragraphs }) {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8f3827]">
               My contribution
             </p>
-            <h2 className="mt-5 font-serif text-[clamp(2.8rem,5vw,4.8rem)] leading-[0.95] tracking-[-0.04em]">
+            <h2 className="mt-5 max-w-md font-serif text-[clamp(2.6rem,3.5vw,3.8rem)] leading-[0.98] tracking-[-0.04em]">
               One accountable partner across product, engineering, and growth.
             </h2>
           </div>
