@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 export default async function AdminLoginPage() {
-  if (await getAdminSession()) redirect("/admin/audits/");
+  if (await getAdminSession()) redirect("/admin/inquiries/");
 
   const configured = isAdminAuthConfigured();
   const defaultEmail = process.env.ADMIN_EMAIL || "";

@@ -26,6 +26,7 @@ import {
 import brandLogo from "@/images/logoFull.png";
 import { pageMetadata } from "@/lib/site";
 
+import MotionRoot from "./MotionRoot";
 import styles from "./digital-team.module.css";
 
 export const metadata = pageMetadata.digitalTeam;
@@ -39,9 +40,7 @@ const fitCallLink = whatsappLink(
   "Hi Zulzidan, I'd like to discuss having a dedicated digital team for my organization."
 );
 
-const sprintLink = whatsappLink(
-  "Hi Zulzidan, I'd like to start with the $500 Starter Sprint."
-);
+const fitCheckLink = "/start/";
 
 const capabilities = [
   {
@@ -94,10 +93,8 @@ const plans = [
       "Monthly strategy and roadmap planning",
       "Greater dedicated team capacity",
     ],
-    cta: "Discuss on WhatsApp",
-    href: whatsappLink(
-      "Hi Zulzidan, I'd like to discuss the $2,000/month Digital Department plan."
-    ),
+    cta: "Check if we're a fit",
+    href: "/start/?plan=digital-department",
   },
   {
     name: "Growth Team",
@@ -117,10 +114,8 @@ const plans = [
       "Light workflow improvements",
       "Weekly updates and monthly planning",
     ],
-    cta: "Discuss on WhatsApp",
-    href: whatsappLink(
-      "Hi Zulzidan, I'd like to discuss the $1,000/month Growth Team plan."
-    ),
+    cta: "Check if we're a fit",
+    href: "/start/?plan=growth-team",
   },
   {
     name: "Starter Sprint",
@@ -137,8 +132,8 @@ const plans = [
       "Website, CMS, or small workflow work",
       "Handoff and next-step recommendations",
     ],
-    cta: "Book on WhatsApp",
-    href: sprintLink,
+    cta: "Request a Starter Sprint",
+    href: "/start/?plan=starter-sprint",
   },
 ];
 
@@ -176,17 +171,35 @@ const faqs = [
 ];
 
 function PrimaryLink({ href, children, className = "" }) {
-  return (
-    <a className={`${styles.primaryButton} ${className}`} href={href} target="_blank" rel="noreferrer">
+  const external = href.startsWith("http");
+  const content = (
+    <>
       <span>{children}</span>
-      <ArrowUpRight aria-hidden="true" size={18} strokeWidth={2.2} />
+      {external ? (
+        <ArrowUpRight aria-hidden="true" size={18} strokeWidth={2.2} />
+      ) : (
+        <ArrowRight aria-hidden="true" size={18} strokeWidth={2.2} />
+      )}
+    </>
+  );
+
+  return external ? (
+    <a className={`${styles.primaryButton} ${className}`} href={href} target="_blank" rel="noreferrer">
+      {content}
     </a>
+  ) : (
+    <Link className={`${styles.primaryButton} ${className}`} href={href}>
+      {content}
+    </Link>
   );
 }
 
 function SectionIntro({ eyebrow, title, copy, invert = false }) {
   return (
-    <div className={`${styles.sectionIntro} ${invert ? styles.sectionIntroInvert : ""}`}>
+    <div
+      className={`${styles.sectionIntro} ${invert ? styles.sectionIntroInvert : ""}`}
+      data-reveal="rise"
+    >
       <p className={styles.eyebrow}>{eyebrow}</p>
       <h2>{title}</h2>
       {copy ? <p className={styles.sectionCopy}>{copy}</p> : null}
@@ -218,7 +231,7 @@ export default function DigitalTeamPage() {
   };
 
   return (
-    <div className={styles.page}>
+    <MotionRoot className={styles.page}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -236,10 +249,10 @@ export default function DigitalTeamPage() {
             <a href="#partnership">Why us</a>
             <a href="#plans">Plans</a>
           </nav>
-          <a className={styles.headerCta} href={fitCallLink} target="_blank" rel="noreferrer">
-            WhatsApp
-            <ArrowUpRight aria-hidden="true" size={16} />
-          </a>
+          <Link className={styles.headerCta} href={fitCheckLink}>
+            Check fit
+            <ArrowRight aria-hidden="true" size={16} />
+          </Link>
         </div>
       </header>
 
@@ -247,31 +260,36 @@ export default function DigitalTeamPage() {
       <section className={styles.hero}>
         <div className={`${styles.shell} ${styles.heroGrid}`}>
           <div className={styles.heroCopy}>
-            <p className={styles.heroEyebrow}>
+            <p className={styles.heroEyebrow} data-reveal="rise" style={{ "--motion-order": 0 }}>
               <span className={styles.statusDot} aria-hidden="true" />
               Your fractional digital team
             </p>
-            <h1>
+            <h1 data-reveal="rise" style={{ "--motion-order": 1 }}>
               Your digital department.
               <span>Without the full-time overhead.</span>
             </h1>
-            <p className={styles.heroLead}>
+            <p className={styles.heroLead} data-reveal="rise" style={{ "--motion-order": 2 }}>
               A coordinated team for web development, automation, content, and digital operations—moving your priority work forward for one predictable fee.
             </p>
-            <div className={styles.heroActions}>
-              <PrimaryLink href={fitCallLink}>Chat with us on WhatsApp</PrimaryLink>
+            <div className={styles.heroActions} data-reveal="rise" style={{ "--motion-order": 3 }}>
+              <PrimaryLink href={fitCheckLink}>Check if we&apos;re a fit</PrimaryLink>
               <a className={styles.secondaryButton} href="#plans">
                 See the plans
                 <ArrowRight aria-hidden="true" size={17} />
               </a>
             </div>
-            <p className={styles.reassurance}>
+            <p className={styles.reassurance} data-reveal="rise" style={{ "--motion-order": 4 }}>
               <CheckCircle2 aria-hidden="true" size={16} />
               No hourly invoices. One point of contact. Clear weekly priorities.
             </p>
           </div>
 
-          <div className={styles.workboardWrap} aria-label="Example digital team priority board">
+          <div
+            className={styles.workboardWrap}
+            aria-label="Example digital team priority board"
+            data-reveal="scale"
+            style={{ "--motion-order": 2 }}
+          >
             <div className={styles.workboardGlow} aria-hidden="true" />
             <div className={styles.workboard}>
               <div className={styles.boardHeader}>
@@ -337,7 +355,7 @@ export default function DigitalTeamPage() {
         </div>
       </section>
 
-      <section className={styles.audienceStrip} aria-label="Who this service is for">
+      <section className={styles.audienceStrip} aria-label="Who this service is for" data-reveal="fade">
         <div className={styles.shell}>
           <p>Built for teams with more ideas than digital capacity</p>
           <div>
@@ -357,7 +375,7 @@ export default function DigitalTeamPage() {
             copy="When every update, campaign, bug, and workflow needs a different freelancer or agency, progress slows before the work even begins."
           />
 
-          <div className={styles.comparison}>
+          <div className={styles.comparison} data-reveal="scale">
             <div className={styles.comparisonColumn}>
               <div className={styles.comparisonHeading}>
                 <X aria-hidden="true" size={18} />
@@ -402,8 +420,13 @@ export default function DigitalTeamPage() {
           </div>
 
           <div className={styles.capabilityGrid}>
-            {capabilities.map(({ icon: Icon, number, title, text, tags }) => (
-              <article className={styles.capabilityCard} key={title}>
+            {capabilities.map(({ icon: Icon, number, title, text, tags }, index) => (
+              <article
+                className={styles.capabilityCard}
+                data-reveal="fade"
+                key={title}
+                style={{ "--motion-order": index }}
+              >
                 <div className={styles.capabilityTop}>
                   <span>{number}</span>
                   <Icon aria-hidden="true" size={25} strokeWidth={1.8} />
@@ -421,7 +444,7 @@ export default function DigitalTeamPage() {
 
       <section className={styles.proofSection}>
         <div className={`${styles.shell} ${styles.proofGrid}`}>
-          <div className={styles.proofCopy}>
+          <div className={styles.proofCopy} data-reveal="rise">
             <p className={styles.eyebrow}>(03) Partnership in practice</p>
             <p className={styles.proofKicker}>TASFRL</p>
             <h2>Embedded in the organization—not waiting outside it.</h2>
@@ -439,7 +462,7 @@ export default function DigitalTeamPage() {
             </Link>
           </div>
 
-          <div className={styles.proofWorkstreams}>
+          <div className={styles.proofWorkstreams} data-reveal="scale" style={{ "--motion-order": 1 }}>
             <p className={styles.workstreamLabel}>ONE TEAM ACROSS THE WORK</p>
             <div className={styles.workstreamGrid}>
               <div><Globe2 aria-hidden="true" /><span>Web & CMS</span></div>
@@ -465,19 +488,19 @@ export default function DigitalTeamPage() {
           />
 
           <div className={styles.processGrid}>
-            <article>
+            <article data-reveal="fade" style={{ "--motion-order": 0 }}>
               <span>01</span>
               <div className={styles.processIcon}><MessageCircle aria-hidden="true" size={22} /></div>
               <h3>Start with a fit conversation</h3>
               <p>We discuss your goals, current stack, backlog, and where work keeps getting stuck.</p>
             </article>
-            <article>
+            <article data-reveal="fade" style={{ "--motion-order": 1 }}>
               <span>02</span>
               <div className={styles.processIcon}><Layers3 aria-hidden="true" size={22} /></div>
               <h3>Set the first priorities</h3>
               <p>We turn the most valuable requests into one clear, manageable roadmap.</p>
             </article>
-            <article>
+            <article data-reveal="fade" style={{ "--motion-order": 2 }}>
               <span>03</span>
               <div className={styles.processIcon}><Zap aria-hidden="true" size={22} /></div>
               <h3>Ship, review, improve</h3>
@@ -503,8 +526,13 @@ export default function DigitalTeamPage() {
           </div>
 
           <div className={styles.planGrid}>
-            {plans.map((plan) => (
-              <article className={`${styles.planCard} ${plan.featured ? styles.planCardFeatured : ""}`} key={plan.name}>
+            {plans.map((plan, index) => (
+              <article
+                className={`${styles.planCard} ${plan.featured ? styles.planCardFeatured : ""}`}
+                data-reveal="fade"
+                key={plan.name}
+                style={{ "--motion-order": index }}
+              >
                 <div className={styles.planTop}>
                   <span className={styles.planLabel}>{plan.label}</span>
                   {plan.featured ? <span className={styles.recommended}>Best partnership</span> : null}
@@ -525,15 +553,15 @@ export default function DigitalTeamPage() {
                   ))}
                 </ul>
                 <p className={styles.bestFor}>{plan.bestFor}</p>
-                <a className={styles.planCta} href={plan.href} target="_blank" rel="noreferrer">
+                <Link className={styles.planCta} href={plan.href}>
                   {plan.cta}
-                  <ArrowUpRight aria-hidden="true" size={17} />
-                </a>
+                  <ArrowRight aria-hidden="true" size={17} />
+                </Link>
               </article>
             ))}
           </div>
 
-          <div className={styles.capacityNote}>
+          <div className={styles.capacityNote} data-reveal="rise">
             <Settings2 aria-hidden="true" size={20} />
             <p>
               <strong>How capacity works:</strong> Growth moves one active workstream at a time; Digital Department moves two. Add as many requests as you need to the shared queue, then prioritize them with us. Complex initiatives are split into visible milestones.
@@ -549,7 +577,7 @@ export default function DigitalTeamPage() {
             title="For organizations that value continuity over quick handoffs."
           />
           <div className={styles.fitLists}>
-            <div>
+            <div data-reveal="fade" style={{ "--motion-order": 0 }}>
               <p className={styles.fitLabel}><CheckCircle2 aria-hidden="true" size={18} /> A strong fit if you…</p>
               <ul>
                 <li>Have recurring digital work, not just one isolated task</li>
@@ -558,7 +586,7 @@ export default function DigitalTeamPage() {
                 <li>Want steady progress without building in-house</li>
               </ul>
             </div>
-            <div>
+            <div data-reveal="fade" style={{ "--motion-order": 1 }}>
               <p className={`${styles.fitLabel} ${styles.fitLabelMuted}`}><X aria-hidden="true" size={18} /> Probably not a fit if you need…</p>
               <ul>
                 <li>Unlimited same-day requests</li>
@@ -579,12 +607,12 @@ export default function DigitalTeamPage() {
               title="Straight answers to sensible questions."
               copy="A good partnership starts with clear expectations."
             />
-            <div className={styles.faqPrompt}>
+            <div className={styles.faqPrompt} data-reveal="rise" style={{ "--motion-order": 1 }}>
               <Bot aria-hidden="true" size={22} />
               <p>Still unsure which plan fits?<br /><a href={fitCallLink} target="_blank" rel="noreferrer">Ask us directly.</a></p>
             </div>
           </div>
-          <div className={styles.faqList}>
+          <div className={styles.faqList} data-reveal="rise" style={{ "--motion-order": 1 }}>
             {faqs.map((faq, index) => (
               <details key={faq.question} open={index === 0}>
                 <summary>
@@ -599,7 +627,7 @@ export default function DigitalTeamPage() {
       </section>
 
       <section className={styles.founderSection}>
-        <div className={`${styles.shell} ${styles.founderCard}`}>
+        <div className={`${styles.shell} ${styles.founderCard}`} data-reveal="scale">
           <div className={styles.founderImageWrap}>
             <Image
               src={founderImage}
@@ -636,14 +664,14 @@ export default function DigitalTeamPage() {
 
       <section className={styles.finalCta}>
         <div className={styles.finalOrb} aria-hidden="true" />
-        <div className={styles.shell}>
+        <div className={styles.shell} data-reveal="rise">
           <p className={styles.eyebrow}>(09) Your next priority starts here</p>
           <h2>Stop coordinating vendors.<br />Start moving one list forward.</h2>
           <p>Tell us what is stuck. We&apos;ll recommend the right level of support and outline the first priorities we would tackle.</p>
           <div className={styles.finalActions}>
-            <PrimaryLink href={fitCallLink} className={styles.finalPrimary}>Chat with us on WhatsApp</PrimaryLink>
-            <a href={sprintLink} target="_blank" rel="noreferrer" className={styles.finalSecondary}>
-              Ask about the $500 Sprint <ArrowUpRight aria-hidden="true" size={17} />
+            <PrimaryLink href={fitCheckLink} className={styles.finalPrimary}>Request a 15-minute fit call</PrimaryLink>
+            <a href={fitCallLink} target="_blank" rel="noreferrer" className={styles.finalSecondary}>
+              Ask a quick question on WhatsApp <ArrowUpRight aria-hidden="true" size={17} />
             </a>
           </div>
           <span className={styles.noPressure}>No hard sell. If we aren&apos;t the right fit, we&apos;ll tell you.</span>
@@ -676,10 +704,10 @@ export default function DigitalTeamPage() {
           <span>Starter Sprint</span>
           <strong>$500 USD</strong>
         </div>
-        <a href={fitCallLink} target="_blank" rel="noreferrer">
-          WhatsApp <ArrowUpRight aria-hidden="true" size={16} />
-        </a>
+        <Link href="/start/?plan=starter-sprint">
+          Check fit <ArrowRight aria-hidden="true" size={16} />
+        </Link>
       </div>
-    </div>
+    </MotionRoot>
   );
 }

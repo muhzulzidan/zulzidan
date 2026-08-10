@@ -32,7 +32,7 @@ export function LoginForm({ defaultEmail }) {
         return;
       }
 
-      router.replace("/admin/audits/");
+      router.replace("/admin/inquiries/");
       router.refresh();
     } catch {
       setError("Unable to reach the login service.");

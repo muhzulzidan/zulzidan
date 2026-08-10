@@ -72,6 +72,11 @@ export const pageMetadata = {
       "A coordinated remote team for web development, automation, content, CMS, and digital operations—for one predictable monthly fee.",
     path: "/digital-team/",
   }),
+  start: createMetadata({
+    title: "Check if We’re a Fit",
+    description: "Share your first digital priority and request a focused 15-minute fit call with Zulzidan.",
+    path: "/start/",
+  }),
   contacts: createMetadata({ title: "Contact Muhammad Zulzidan", path: "/contacts/" }),
   links: createMetadata({ title: "Links and Contact", path: "/links/" }),
   auditWebsite: createMetadata({

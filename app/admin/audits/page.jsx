@@ -70,7 +70,13 @@ export default async function AuditRequestsAdminPage() {
             </p>
           </div>
 
-          <div className="flex items-center gap-4 text-sm font-semibold">
+          <nav className="flex flex-wrap items-center gap-4 text-sm font-semibold" aria-label="Admin navigation">
+            <Link className="pb-1 underline-offset-4 hover:underline" href="/admin/inquiries/">
+              Project enquiries
+            </Link>
+            <Link className="border-b-2 border-[#9e3925] pb-1" href="/admin/audits/">
+              Website audits
+            </Link>
             <Link className="underline underline-offset-4" href="/">
               View website
             </Link>
@@ -82,7 +88,7 @@ export default async function AuditRequestsAdminPage() {
                 Sign out
               </button>
             </form>
-          </div>
+          </nav>
         </header>
 
         <section className="grid gap-4 py-7 sm:grid-cols-3" aria-label="Audit request summary">

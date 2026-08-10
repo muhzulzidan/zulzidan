@@ -50,6 +50,35 @@
   outline-offset: 4px;
 }
 
+/* Reveal effects are enabled only after hydration, keeping content available
+   when JavaScript is disabled or reduced motion is requested. */
+.page[data-motion-ready="true"] [data-reveal] {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.page[data-motion-ready="true"] [data-reveal="rise"] {
+  transform: translate3d(0, 24px, 0);
+}
+
+.page[data-motion-ready="true"] [data-reveal="scale"] {
+  transform: translate3d(0, 18px, 0) scale(0.975);
+}
+
+.page[data-motion-ready="true"] [data-reveal][data-visible="true"] {
+  animation: revealFade 680ms cubic-bezier(0.22, 1, 0.36, 1)
+    calc(var(--motion-order, 0) * 75ms) both;
+  will-change: auto;
+}
+
+.page[data-motion-ready="true"] [data-reveal="rise"][data-visible="true"] {
+  animation-name: revealRise;
+}
+
+.page[data-motion-ready="true"] [data-reveal="scale"][data-visible="true"] {
+  animation-name: revealScale;
+}
+
 .shell {
   width: min(1220px, calc(100% - 80px));
   margin-inline: auto;
@@ -59,9 +88,13 @@
   position: sticky;
   z-index: 50;
   top: 0;
+  isolation: isolate;
   border-bottom: 1px solid rgba(24, 32, 28, 0.1);
   background: rgba(244, 239, 231, 0.92);
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .siteHeader .shell {
@@ -262,6 +295,30 @@
   border-color: var(--indigo);
   background: var(--indigo);
   transform: translateY(-2px);
+}
+
+.primaryButton svg,
+.secondaryButton svg,
+.headerCta svg,
+.textLink svg,
+.proofLink svg,
+.planCta svg,
+.founderPrimaryLink svg,
+.finalSecondary svg,
+.mobileBar a svg {
+  transition: transform 180ms ease;
+}
+
+.primaryButton:hover svg,
+.secondaryButton:hover svg,
+.headerCta:hover svg,
+.textLink:hover svg,
+.proofLink:hover svg,
+.planCta:hover svg,
+.founderPrimaryLink:hover svg,
+.finalSecondary:hover svg,
+.mobileBar a:hover svg {
+  transform: translateX(3px);
 }
 
 .secondaryButton {
@@ -1016,6 +1073,13 @@
   border: 1px solid var(--line);
   border-radius: 18px;
   background: #fbfbf8;
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+}
+
+.processGrid article:hover {
+  border-color: #b8ada0;
+  box-shadow: 0 18px 38px rgba(38, 54, 46, 0.08);
+  transform: translateY(-4px);
 }
 
 .processGrid article > span {
@@ -1108,6 +1172,17 @@
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 22px;
   background: #1a1a1d;
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+.planCard:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.planCardFeatured:hover {
+  border-color: var(--lime);
 }
 
 .planCardFeatured {
@@ -1734,6 +1809,33 @@
   50% { transform: translateY(-7px) rotate(-1deg); }
 }
 
+@keyframes revealFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes revealRise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes revealScale {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0) scale(0.975);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
 @media (max-width: 1100px) {
   .shell {
     width: min(100% - 56px, 1220px);
@@ -2192,5 +2294,10 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .page [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

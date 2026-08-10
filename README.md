@@ -15,6 +15,12 @@ Before accepting website audit requests, create the database table:
 npm run db:migrate:audit
 ```
 
+Before accepting Digital Team fit-call requests, create its table:
+
+```bash
+npm run db:migrate:inquiries
+```
+
 ## Environment variables
 
 - `DATABASE_URL` and the related `PG*`, `POSTGRES_*`, and `DB_*` variables configure Neon/Postgres access.
@@ -23,12 +29,13 @@ npm run db:migrate:audit
 - `NOTION_API_TOKEN` and `NOTION_DATABASE_ID` provide the links page.
 - `MAILCHIMP_ENDPOINT` enables newsletter subscriptions.
 - `NEXT_PUBLIC_GA_ID` and `NEXT_PUBLIC_META_PIXEL_ID` configure analytics.
+- `NEXT_PUBLIC_BOOKING_URL` optionally sends qualified leads directly to your public scheduling page after intake. When omitted, the confirmation promises a booking link by email.
 - `ADMIN_EMAIL`, `ADMIN_PASSWORD`, and `ADMIN_SESSION_SECRET` protect the audit admin page with a signed, HTTP-only session cookie.
 
 The free website audit form submits to the local `/api/audit` Next.js route,
 which stores requests in the configured Postgres database.
 
-The administrator can sign in at `/admin/login/` and view all submissions at `/admin/audits/`.
+The administrator can sign in at `/admin/login/` and view project enquiries at `/admin/inquiries/` or website audits at `/admin/audits/`.
 
 Variables without the `NEXT_PUBLIC_` prefix are server-only. Never commit `.env.local` or expose server credentials to client-side code.
 

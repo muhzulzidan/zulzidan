@@ -13,6 +13,7 @@
     "start": "next start",
     "lint": "eslint .",
     "db:migrate:audit": "node --env-file-if-exists=.env.local scripts/migrate-audit.mjs",
+    "db:migrate:inquiries": "node --env-file-if-exists=.env.local scripts/migrate-project-inquiries.mjs",
     "clean": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\""
   },
   "dependencies": {
