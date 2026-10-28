@@ -6,13 +6,18 @@ export const SITE = {
   description:
     "I help service businesses turn unclear or outdated websites into credible sales assets with clearer messaging, stronger mobile UX, and an easier path to enquiry.",
   url: SITE_URL,
-  image: "/meCircle.png",
+  image: "/social/zulzidan-digital-team-v1.png",
+  imageAlt: "Zulzidan — Your digital department. Without the overhead. Websites, automation, content and ongoing support.",
   twitter: "@muhzulzidan",
 };
 
 export function createMetadata({ title, description = SITE.description, path = "/", image = SITE.image, noIndex = false }) {
   const canonical = new URL(path, SITE_URL).toString();
   const imageUrl = new URL(image || SITE.image, SITE_URL).toString();
+  const isDefaultImage = imageUrl === new URL(SITE.image, SITE_URL).toString();
+  const socialImage = isDefaultImage
+    ? { url: imageUrl, width: 1200, height: 630, type: "image/png", alt: SITE.imageAlt }
+    : { url: imageUrl };
 
   return {
     title,
@@ -24,7 +29,7 @@ export function createMetadata({ title, description = SITE.description, path = "
       description,
       url: canonical,
       siteName: SITE.name,
-      images: [{ url: imageUrl }],
+      images: [socialImage],
       type: "website",
     },
     twitter: {
@@ -32,7 +37,7 @@ export function createMetadata({ title, description = SITE.description, path = "
       title,
       description,
       creator: SITE.twitter,
-      images: [imageUrl],
+      images: [socialImage],
     },
   };
 }

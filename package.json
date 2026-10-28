@@ -12,6 +12,7 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint .",
+    "generate:social-card": "node scripts/generate-social-card.mjs",
     "db:migrate:audit": "node --env-file-if-exists=.env.local scripts/migrate-audit.mjs",
     "db:migrate:inquiries": "node --env-file-if-exists=.env.local scripts/migrate-project-inquiries.mjs",
     "clean": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\""
