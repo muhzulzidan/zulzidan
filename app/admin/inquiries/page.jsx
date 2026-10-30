@@ -87,6 +87,7 @@ export default async function ProjectInquiriesAdminPage() {
           </div>
 
           <nav className="flex flex-wrap items-center gap-4 text-sm font-semibold" aria-label="Admin navigation">
+            <Link className="pb-1 underline-offset-4 hover:underline" href="/admin/waitlist/">Free website applications</Link>
             <Link className="border-b-2 border-[#9e3925] pb-1" href="/admin/inquiries/">
               Project enquiries
             </Link>

@@ -1,5 +1,6 @@
 node_modules/
 .next/
+.vercel/
 out/
 .cache/
 .DS_Store

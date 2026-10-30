@@ -32,7 +32,7 @@ export function LoginForm({ defaultEmail }) {
         return;
       }
 
-      router.replace("/admin/inquiries/");
+      router.replace("/admin/waitlist/");
       router.refresh();
     } catch {
       setError("Unable to reach the login service.");

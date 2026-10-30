@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 export default async function AdminLoginPage() {
-  if (await getAdminSession()) redirect("/admin/inquiries/");
+  if (await getAdminSession()) redirect("/admin/waitlist/");
 
   const configured = isAdminAuthConfigured();
   const defaultEmail = process.env.ADMIN_EMAIL || "";
@@ -25,7 +25,7 @@ export default async function AdminLoginPage() {
           Sign in
         </h1>
         <p className="mt-3 text-sm leading-6 text-[#596159]">
-          Access website audit submissions and customer enquiries.
+          Review free website applications, project enquiries, and website audits.
         </p>
 
         {configured ? (

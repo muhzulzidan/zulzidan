@@ -71,6 +71,7 @@ export default async function AuditRequestsAdminPage() {
           </div>
 
           <nav className="flex flex-wrap items-center gap-4 text-sm font-semibold" aria-label="Admin navigation">
+            <Link className="pb-1 underline-offset-4 hover:underline" href="/admin/waitlist/">Free website applications</Link>
             <Link className="pb-1 underline-offset-4 hover:underline" href="/admin/inquiries/">
               Project enquiries
             </Link>

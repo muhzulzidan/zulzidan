@@ -1,0 +1,7 @@
+tmp/
+docs/
+marketing/
+examples/
+.env*
+!.env.example
+*.zip

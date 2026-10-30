@@ -1,14 +1,15 @@
 import { createMetadata } from "@/lib/site";
 
-import DigitalTeamPage from "./digital-team/page";
+import WaitlistPage from "./free-website/waitlist-page";
 
 export const metadata = createMetadata({
-  title: "Your Dedicated Digital Team",
+  title: "Free Website Program for Service Businesses",
   description:
-    "A coordinated remote team for web development, automation, content, CMS, and digital operations—for one predictable monthly fee.",
+    "Apply for a free, professionally built one-page website by Zulzidan. For service businesses ready for a clearer online presence. Selected applications, no build fee.",
   path: "/",
+  image: "/social/zulzidan-free-website-v1.png",
 });
 
 export default function HomePage() {
-  return <DigitalTeamPage />;
+  return <WaitlistPage />;
 }

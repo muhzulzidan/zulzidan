@@ -8,8 +8,8 @@ export const metadata = {
   title: { default: SITE.title, template: "%s | Zulzidan" },
   description: SITE.description,
   applicationName: SITE.name,
-  authors: [{ name: "Muhammad Zulzidan" }],
-  creator: "Muhammad Zulzidan",
+  authors: [{ name: "Zulzidan" }],
+  creator: "Zulzidan",
   manifest: "/manifest.webmanifest",
   icons: { icon: "/icon.png", apple: "/icon.png" },
 };

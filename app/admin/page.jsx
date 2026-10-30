@@ -9,5 +9,5 @@ export const metadata = {
 
 export default async function AdminPage() {
   const session = await getAdminSession();
-  redirect(session ? "/admin/inquiries/" : "/admin/login/");
+  redirect(session ? "/admin/waitlist/" : "/admin/login/");
 }
