@@ -185,11 +185,17 @@ const FAQS = [
   },
 ];
 
+const openExternalUrl = (url) => {
+  if (typeof window === "undefined" || !url) return;
+  const w = window.open(url, "_blank", "noopener,noreferrer");
+  if (!w) window.location.href = url;
+};
+
 const JasaPembuatanWebDIBone = () => {
   return (
     <div
       style={{ backgroundColor: "#FDFBF7", color: "#181512" }}
-      className="min-h-screen overflow-x-hidden pb-28"
+      className="min-h-screen"
     >
       <Header landingPage={true} />
 
@@ -228,16 +234,15 @@ const JasaPembuatanWebDIBone = () => {
             </p>
 
             <div className="flex flex-wrap gap-4 pt-2">
-              <a
-                href={WA_MAIN}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
+                onClick={() => openExternalUrl(WA_MAIN)}
                 style={{ backgroundColor: "#16A34A", color: "#FFFFFF" }}
-                className="inline-flex items-center gap-3 hover:opacity-95 font-extrabold text-base sm:text-lg px-7 py-4 rounded-xl shadow-lg transition"
+                className="inline-flex items-center gap-3 hover:opacity-95 font-extrabold text-base sm:text-lg px-7 py-4 rounded-xl shadow-lg transition cursor-pointer"
               >
                 <Whatsapp size={22} />
                 <span>Pesan via WhatsApp: 0813-5478-9375</span>
-              </a>
+              </button>
               <a
                 href="#contoh-demo"
                 style={{
@@ -268,7 +273,7 @@ const JasaPembuatanWebDIBone = () => {
               </div>
               <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
                 <PhoneFill className="shrink-0" />
-                <span>Langsung Nyambung ke WA</span>
+                <span>WA: 0813-5478-9375</span>
               </div>
             </div>
           </div>
@@ -348,16 +353,15 @@ const JasaPembuatanWebDIBone = () => {
                 </li>
               </ul>
 
-              <a
-                href={WA_MAIN}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
+                onClick={() => openExternalUrl(WA_MAIN)}
                 style={{ backgroundColor: "#22C55E", color: "#052610" }}
-                className="mt-7 w-full inline-flex items-center justify-center gap-2 hover:opacity-95 font-extrabold text-base py-4 px-6 rounded-xl transition shadow-md"
+                className="mt-7 w-full inline-flex items-center justify-center gap-2 hover:opacity-95 font-extrabold text-base py-4 px-6 rounded-xl transition shadow-md cursor-pointer"
               >
                 <Whatsapp size={20} />
-                <span>Pesan Website Rp 1 Juta via WA</span>
-              </a>
+                <span>Pesan Website Rp 1 Juta (WA: 0813-5478-9375)</span>
+              </button>
             </div>
           </div>
         </div>
@@ -391,16 +395,15 @@ const JasaPembuatanWebDIBone = () => {
               </p>
             </div>
 
-            <a
-              href={WA_MAIN}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={() => openExternalUrl(WA_MAIN)}
               style={{ backgroundColor: "#16A34A", color: "#FFFFFF" }}
-              className="shrink-0 inline-flex items-center gap-2.5 font-extrabold text-sm sm:text-base px-6 py-4 rounded-xl shadow-md hover:opacity-95 transition"
+              className="shrink-0 inline-flex items-center gap-2.5 font-extrabold text-sm sm:text-base px-6 py-4 rounded-xl shadow-md hover:opacity-95 transition cursor-pointer"
             >
               <Whatsapp size={20} />
               <span>Minta Contoh Demo Usaha Saya (Rp 1 Juta)</span>
-            </a>
+            </button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
@@ -453,29 +456,27 @@ const JasaPembuatanWebDIBone = () => {
 
                 {/* DUAL ACTION BUTTONS INSIDE EVERY DEMO CARD */}
                 <div className="px-6 pb-6 space-y-2.5">
-                  <a
-                    href={makeDemoWaLink(demo.title)}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    type="button"
+                    onClick={() => openExternalUrl(makeDemoWaLink(demo.title))}
                     style={{ backgroundColor: "#16A34A", color: "#FFFFFF" }}
-                    className="w-full inline-flex items-center justify-center gap-2 hover:opacity-95 font-extrabold text-sm py-3.5 px-4 rounded-xl transition shadow-sm"
+                    className="w-full inline-flex items-center justify-center gap-2 hover:opacity-95 font-extrabold text-sm py-3.5 px-4 rounded-xl transition shadow-sm cursor-pointer"
                   >
                     <Whatsapp size={17} />
                     <span>Pesan Model Ini (Rp 1 Juta)</span>
-                  </a>
-                  <a
-                    href={demo.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => openExternalUrl(demo.url)}
                     style={{
                       backgroundColor: "#181512",
                       color: "#FFFFFF",
                     }}
-                    className="w-full inline-flex items-center justify-center gap-2 hover:opacity-90 font-bold text-sm py-3 px-4 rounded-xl transition"
+                    className="w-full inline-flex items-center justify-center gap-2 hover:opacity-90 font-bold text-sm py-3 px-4 rounded-xl transition cursor-pointer"
                   >
                     <span>Lihat Contoh Live</span>
                     <BoxArrowUpRight size={14} />
-                  </a>
+                  </button>
                 </div>
               </div>
             ))}
@@ -501,16 +502,15 @@ const JasaPembuatanWebDIBone = () => {
                 lihat preview tampilannya dulu!
               </p>
             </div>
-            <a
-              href={WA_MAIN}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={() => openExternalUrl(WA_MAIN)}
               style={{ backgroundColor: "#22C55E", color: "#052610" }}
-              className="shrink-0 inline-flex items-center gap-3 font-extrabold text-base sm:text-lg px-7 py-4 rounded-xl shadow-lg hover:opacity-95 transition"
+              className="shrink-0 inline-flex items-center gap-3 font-extrabold text-base sm:text-lg px-7 py-4 rounded-xl shadow-lg hover:opacity-95 transition cursor-pointer"
             >
               <Whatsapp size={22} />
               <span>Chat WA: 0813-5478-9375</span>
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -564,16 +564,15 @@ const JasaPembuatanWebDIBone = () => {
         </div>
 
         <div className="mt-10 text-center">
-          <a
-            href={WA_MAIN}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => openExternalUrl(WA_MAIN)}
             style={{ backgroundColor: "#16A34A", color: "#FFFFFF" }}
-            className="inline-flex items-center gap-3 font-extrabold text-base sm:text-lg px-8 py-4 rounded-xl shadow-lg hover:opacity-95 transition"
+            className="inline-flex items-center gap-3 font-extrabold text-base sm:text-lg px-8 py-4 rounded-xl shadow-lg hover:opacity-95 transition cursor-pointer"
           >
             <Whatsapp size={22} />
-            <span>Pesan Paket Website Rp 1 Juta Sekarang</span>
-          </a>
+            <span>Pesan Paket Website Rp 1 Juta (WA: 0813-5478-9375)</span>
+          </button>
         </div>
       </section>
 
@@ -609,34 +608,32 @@ const JasaPembuatanWebDIBone = () => {
             </div>
 
             <div className="flex flex-wrap gap-3 shrink-0">
-              <a
-                href={GOOGLE_REVIEW_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
+                onClick={() => openExternalUrl(GOOGLE_REVIEW_URL)}
                 style={{
                   backgroundColor: "#FFFFFF",
                   color: "#181512",
                   borderColor: "#D5CBB4",
                 }}
-                className="inline-flex items-center gap-2 border font-bold text-sm px-4 py-3 rounded-xl shadow-sm transition"
+                className="inline-flex items-center gap-2 border font-bold text-sm px-4 py-3 rounded-xl shadow-sm transition cursor-pointer"
               >
                 <span>Cek Google Review Asli</span>
                 <BoxArrowUpRight size={13} />
-              </a>
-              <a
-                href={FIVERR_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              </button>
+              <button
+                type="button"
+                onClick={() => openExternalUrl(FIVERR_URL)}
                 style={{
                   backgroundColor: "#FFFFFF",
                   color: "#181512",
                   borderColor: "#D5CBB4",
                 }}
-                className="inline-flex items-center gap-2 border font-bold text-sm px-4 py-3 rounded-xl shadow-sm transition"
+                className="inline-flex items-center gap-2 border font-bold text-sm px-4 py-3 rounded-xl shadow-sm transition cursor-pointer"
               >
                 <span>Cek Profil Fiverr</span>
                 <BoxArrowUpRight size={13} />
-              </a>
+              </button>
             </div>
           </div>
 
@@ -735,28 +732,30 @@ const JasaPembuatanWebDIBone = () => {
                 minta dibuatkan contoh konsepnya dulu.
               </p>
             </div>
-            <a
-              href={WA_MAIN}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={() => openExternalUrl(WA_MAIN)}
               style={{ backgroundColor: "#22C55E", color: "#052610" }}
-              className="shrink-0 inline-flex items-center gap-3 font-extrabold text-base sm:text-lg px-7 py-4 rounded-xl transition"
+              className="shrink-0 inline-flex items-center gap-3 font-extrabold text-base sm:text-lg px-7 py-4 rounded-xl transition cursor-pointer"
             >
               <Whatsapp size={22} />
               <span>Chat 0813-5478-9375</span>
-            </a>
+            </button>
           </div>
         </div>
       </section>
 
-      {/* STICKY BOTTOM WHATSAPP CTA BAR (VISIBLE ON BOTH MOBILE & DESKTOP SO CTA IS ALWAYS ON SCREEN) */}
+      {/* STICKY BOTTOM WHATSAPP CTA BAR (USES sticky + <button> SO SAFARI EXTENSIONS NEVER HIDE IT) */}
       <div
         style={{
+          position: "sticky",
+          bottom: 0,
+          zIndex: 40,
           backgroundColor: "rgba(24, 21, 18, 0.96)",
           color: "#FFFFFF",
           borderColor: "rgba(255,255,255,0.15)",
         }}
-        className="fixed bottom-0 inset-x-0 z-50 backdrop-blur-md border-t px-4 py-3 shadow-2xl"
+        className="backdrop-blur-md border-t px-4 py-3 shadow-2xl"
       >
         <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
           <div>
@@ -772,20 +771,19 @@ const JasaPembuatanWebDIBone = () => {
                 style={{ color: "#D1D5DB" }}
                 className="text-xs sm:text-sm font-normal"
               >
-                · Sekali Bayar · Tanpa Biaya Bulanan
+                · WA: 0813-5478-9375
               </span>
             </div>
           </div>
-          <a
-            href={WA_MAIN}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => openExternalUrl(WA_MAIN)}
             style={{ backgroundColor: "#22C55E", color: "#052610" }}
-            className="inline-flex items-center gap-2 font-extrabold text-sm sm:text-base px-5 py-3 rounded-xl shrink-0 shadow-md hover:opacity-95 transition"
+            className="inline-flex items-center gap-2 font-extrabold text-sm sm:text-base px-5 py-3 rounded-xl shrink-0 shadow-md hover:opacity-95 transition cursor-pointer"
           >
             <Whatsapp size={19} />
             <span>Pesan via WhatsApp (0813-5478-9375)</span>
-          </a>
+          </button>
         </div>
       </div>
 
