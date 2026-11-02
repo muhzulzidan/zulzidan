@@ -406,6 +406,68 @@ const JasaPembuatanWebDIBone = () => {
             </button>
           </div>
 
+          {/* FLAGSHIP IMMERSIVE SHOWCASE (AWWWARDS EDITION) */}
+          <div
+            style={{
+              backgroundColor: "#140E0A",
+              borderColor: "#D49B57",
+              color: "#F6EFE6",
+            }}
+            className="mb-10 rounded-3xl border-2 overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-12"
+          >
+            <div className="lg:col-span-7 relative bg-black min-h-[260px]">
+              <img
+                src="/demos/demo-kala-senja.jpg"
+                alt="KALA SENJA — Specialty Roastery & Sanctuary Immersive Demo"
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div className="lg:col-span-5 p-6 sm:p-8 flex flex-col justify-between">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest mb-3" style={{ backgroundColor: "rgba(212, 155, 87, 0.18)", color: "#F0BC79", border: "1px solid rgba(212, 155, 87, 0.45)" }}>
+                  <span>★ FLAGSHIP IMMERSIVE DEMO · AWWWARDS EDITION</span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-extrabold">
+                  KALA SENJA® — Specialty Roastery &amp; Sanctuary
+                </h3>
+                <p style={{ color: "#C7B8A6" }} className="mt-2 text-sm leading-relaxed">
+                  Contoh website kelas dunia dengan latar <strong>WebGL Real-Time Shader</strong>, mode pencahayaan <em>Pagi / Senja / Malam</em>, <strong>Sensory Flavor Radar</strong> interaktif, ambient soundscape 432Hz, dan denah reservasi meja langsung ke WhatsApp.
+                </p>
+                <ul style={{ color: "#E5D7C6" }} className="mt-4 space-y-1.5 text-xs sm:text-sm">
+                  <li className="flex items-center gap-2">
+                    <CheckCircleFill style={{ color: "#22C55E" }} className="shrink-0" />
+                    <span>Real-time WebGL + 3D Tilt Card + Generative Audio</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircleFill style={{ color: "#22C55E" }} className="shrink-0" />
+                    <span>Interactive Radar Lab + Denah Meja Omakase ke WhatsApp</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="mt-6 space-y-2.5">
+                <button
+                  type="button"
+                  onClick={() => openExternalUrl("https://kala-senja-atelier.vercel.app/")}
+                  style={{ backgroundColor: "#DCA15D", color: "#140D07" }}
+                  className="w-full inline-flex items-center justify-center gap-2 font-extrabold text-sm py-3.5 px-5 rounded-xl shadow-lg hover:opacity-95 transition cursor-pointer"
+                >
+                  <span>Buka Immersive Demo (KALA SENJA®)</span>
+                  <BoxArrowUpRight size={15} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => openExternalUrl(makeDemoWaLink("KALA SENJA® Immersive Edition"))}
+                  style={{ backgroundColor: "#16A34A", color: "#FFFFFF" }}
+                  className="w-full inline-flex items-center justify-center gap-2 font-extrabold text-sm py-3 px-5 rounded-xl hover:opacity-95 transition cursor-pointer"
+                >
+                  <Whatsapp size={16} />
+                  <span>Pesan Website Gaya Ini via WhatsApp</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
             {LIVE_DEMOS.map((demo) => (
               <div
