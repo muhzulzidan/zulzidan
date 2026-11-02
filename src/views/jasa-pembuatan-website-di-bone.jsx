@@ -1,9 +1,16 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { SEO } from "../components/seo";
+import Testimoni1 from "../images/testimoni/testimoni-1.png";
+import Testimoni5 from "../images/testimoni/testimoni-5.png";
+import Testimoni6 from "../images/testimoni/testimoni-6.png";
+import Testimoni7 from "../images/testimoni/testimoni-7.png";
+import Testimoni8 from "../images/testimoni/testimoni-8.png";
+import Testimoni9 from "../images/testimoni/testimoni-9.png";
 import {
   CheckCircleFill,
   Whatsapp,
@@ -12,6 +19,7 @@ import {
   LightningChargeFill,
   PhoneFill,
   ShieldCheck,
+  StarFill,
 } from "react-bootstrap-icons";
 
 const WA_STARTER =
@@ -20,6 +28,10 @@ const WA_BISNIS =
   "https://api.whatsapp.com/send?phone=6281354789375&text=Halo%20Kak%20Zulzidan%2C%20saya%20ingin%20konsultasi%20Paket%20Website%20Bisnis%20Multi-Halaman%20(Rp%202%2C5%20Juta).";
 const WA_CUSTOM =
   "https://api.whatsapp.com/send?phone=6281354789375&text=Halo%20Kak%20Zulzidan%2C%20saya%20ingin%20konsultasi%20pembuatan%20Website%20Custom%20%2F%20Sistem%20Perusahaan.";
+
+const GOOGLE_REVIEW_URL =
+  "https://www.google.com/search?q=jasa+pembuatan+website+bone#mpd=~10332837043445202168/customers/reviews";
+const FIVERR_URL = "https://www.fiverr.com/muhzulzidan?public_mode=true";
 
 const LIVE_DEMOS = [
   {
@@ -114,6 +126,48 @@ const PACKAGES = [
   },
 ];
 
+const TESTIMONIALS = [
+  {
+    img: Testimoni8,
+    name: "valvrave beginner",
+    source: "Google Review · Bone",
+    quote:
+      "Sangat direkomendasikan, harganya sesuai kualitas jasanya. Selain itu, proses pengerjaannya juga cepat serta beberapa kelebihan lainnya yang tersedia.",
+  },
+  {
+    img: Testimoni6,
+    name: "Alief Batasha",
+    source: "Google Review · Bone",
+    quote:
+      "Kalau butuh Web developer, kamu bisa pake jasa dari Kak Zidan ini.. keren lohh",
+  },
+  {
+    img: Testimoni7,
+    name: "A. Muh. Alif Afdal",
+    source: "Google Review · Bone",
+    quote: "Top, sudah berpengalaman 👌",
+  },
+  {
+    img: Testimoni9,
+    name: "Rifqi",
+    source: "Google Review · Bone",
+    quote: "Pelayanan dan kualitasnya sesuai dengan yang diharapkan",
+  },
+  {
+    img: Testimoni5,
+    name: "Mahathir",
+    source: "Google Review · Bone",
+    quote: "Jasa pembuatan web mantap dan responsive",
+  },
+  {
+    img: Testimoni1,
+    name: "alexblattner (Repeat Client)",
+    source: "Fiverr International",
+    quote:
+      "The seller did amazing work. Well organized, respects coding principles, everything is how it should be.",
+  },
+];
+
 const FAQS = [
   {
     q: "Apakah benar Paket Starter Rp 1 Juta hanya sekali bayar tanpa biaya bulanan?",
@@ -135,13 +189,13 @@ const FAQS = [
 
 const JasaPembuatanWebDIBone = () => {
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#181512] overflow-x-hidden">
+    <div className="min-h-screen bg-[#FDFBF7] text-[#181512] overflow-x-hidden pb-24 md:pb-0">
       <Header landingPage={true} />
 
       {/* HERO SECTION */}
       <section className="pt-12 pb-16 md:pt-20 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         <div className="inline-flex items-center gap-2 bg-[#181512] text-[#FDFBF7] text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-2 rounded-full mb-6">
-          <GeoAltFill className="text-amber-400" />
+          <GeoAltFill className="text-amber-400 shrink-0" />
           <span>Jasa Pembuatan Website Bone & UMKM Indonesia · Zulzidan</span>
         </div>
 
@@ -359,16 +413,16 @@ const JasaPembuatanWebDIBone = () => {
                   {pkg.badge}
                 </span>
                 <h3 className="text-2xl font-extrabold mt-4">{pkg.name}</h3>
-                <div className="mt-3 flex items-baseline gap-3">
+                <div className="mt-3 flex flex-wrap items-baseline gap-3">
                   <span
-                    className={`text-4xl font-black ${
+                    className={`text-4xl font-black whitespace-nowrap ${
                       pkg.highlight ? "text-green-400" : "text-[#181512]"
                     }`}
                   >
                     {pkg.price}
                   </span>
                   {pkg.strike && (
-                    <span className="text-sm line-through opacity-60">
+                    <span className="text-sm line-through opacity-60 whitespace-nowrap">
                       {pkg.strike}
                     </span>
                   )}
@@ -426,6 +480,90 @@ const JasaPembuatanWebDIBone = () => {
         </div>
       </section>
 
+      {/* REAL GOOGLE REVIEWS & FIVERR TESTIMONIALS */}
+      <section className="py-16 bg-[#F5EFE2] border-t border-[#E2D9C5] px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+            <div>
+              <div className="inline-flex items-center gap-1.5 bg-amber-400/25 text-[#8C3515] text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
+                <StarFill className="text-amber-500" />
+                <span> RATING 5.0 DI GOOGLE REVIEW BONE & FIVERR</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#181512]">
+                Apa Kata Klien yang Sudah Bekerja Sama
+              </h2>
+              <p className="text-[#4A433B] mt-2 text-base sm:text-lg max-w-2xl">
+                Bukti tangkapan layar ulasan asli di profil Google Bisnis{" "}
+                <strong>Jasa Pembuatan Website Bone</strong> dan platform
+                internasional Fiverr.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-3 shrink-0">
+              <a
+                href={GOOGLE_REVIEW_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white hover:bg-[#FDFBF7] text-[#181512] border border-[#D5CBB4] font-bold text-sm px-4 py-3 rounded-xl shadow-sm transition"
+              >
+                <span>Cek Google Review Asli</span>
+                <BoxArrowUpRight size={13} />
+              </a>
+              <a
+                href={FIVERR_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white hover:bg-[#FDFBF7] text-[#181512] border border-[#D5CBB4] font-bold text-sm px-4 py-3 rounded-xl shadow-sm transition"
+              >
+                <span>Cek Profil Fiverr</span>
+                <BoxArrowUpRight size={13} />
+              </a>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {TESTIMONIALS.map((t, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl border border-[#E2D9C5] p-5 shadow-sm flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <div>
+                      <div className="font-extrabold text-[#181512] text-base">
+                        {t.name}
+                      </div>
+                      <div className="text-xs font-semibold text-[#635A50]">
+                        {t.source}
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-0.5 text-amber-400">
+                      <StarFill size={14} />
+                      <StarFill size={14} />
+                      <StarFill size={14} />
+                      <StarFill size={14} />
+                      <StarFill size={14} />
+                    </div>
+                  </div>
+                  <p className="text-sm text-[#3B342C] leading-relaxed italic mb-4">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                </div>
+
+                <div className="rounded-xl overflow-hidden border border-[#EAE2D0] bg-[#1F1F1F] p-2">
+                  <Image
+                    src={t.img}
+                    alt={`Testimoni ${t.name}`}
+                    className="w-full h-auto object-contain rounded-lg"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ SECTION */}
       <section className="py-16 bg-white border-t border-[#E2D9C5] px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
@@ -471,6 +609,30 @@ const JasaPembuatanWebDIBone = () => {
           </div>
         </div>
       </section>
+
+      {/* STICKY MOBILE BOTTOM WHATSAPP BAR (FITTS'S LAW) */}
+      <div className="md:hidden fixed bottom-0 inset-x-0 z-50 bg-[#181512]/95 backdrop-blur-md border-t border-white/15 px-4 py-3 flex items-center justify-between gap-3 shadow-2xl">
+        <div>
+          <div className="text-[11px] font-bold uppercase tracking-wider text-amber-300">
+            Paket Website UMKM
+          </div>
+          <div className="text-base font-black text-white leading-tight">
+            Rp 1 Juta{" "}
+            <span className="text-xs font-normal text-gray-300">
+              · Terima Beres
+            </span>
+          </div>
+        </div>
+        <a
+          href={WA_STARTER}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 bg-[#22C55E] text-[#052610] font-extrabold text-sm px-4 py-3 rounded-xl shrink-0 shadow-md"
+        >
+          <Whatsapp size={18} />
+          <span>Chat WA Sekarang</span>
+        </a>
+      </div>
 
       <Footer />
     </div>
