@@ -22,12 +22,13 @@ import {
   StarFill,
 } from "react-bootstrap-icons";
 
-const WA_STARTER =
-  "https://api.whatsapp.com/send?phone=6281354789375&text=Halo%20Kak%20Zulzidan%2C%20saya%20tertarik%20Paket%20Starter%20Website%20UMKM%20Rp%201%20Juta.%20Boleh%20lihat%20contoh%20konsep%20untuk%20usaha%20saya%3F";
-const WA_BISNIS =
-  "https://api.whatsapp.com/send?phone=6281354789375&text=Halo%20Kak%20Zulzidan%2C%20saya%20ingin%20konsultasi%20Paket%20Website%20Bisnis%20Multi-Halaman%20(Rp%202%2C5%20Juta).";
-const WA_CUSTOM =
-  "https://api.whatsapp.com/send?phone=6281354789375&text=Halo%20Kak%20Zulzidan%2C%20saya%20ingin%20konsultasi%20pembuatan%20Website%20Custom%20%2F%20Sistem%20Perusahaan.";
+const WA_MAIN =
+  "https://api.whatsapp.com/send?phone=6281354789375&text=Halo%20Kak%20Zulzidan%2C%20saya%20tertarik%20bikin%20Website%20Usaha%20Rp%201%20Juta.%20Boleh%20lihat%20contoh%20konsep%20untuk%20usaha%20saya%3F";
+
+const makeDemoWaLink = (demoTitle) =>
+  `https://api.whatsapp.com/send?phone=6281354789375&text=${encodeURIComponent(
+    `Halo Kak Zulzidan, saya tertarik bikin Website Usaha Rp 1 Juta dengan tampilan seperti contoh "${demoTitle}". Boleh konsultasi untuk usaha saya?`
+  )}`;
 
 const GOOGLE_REVIEW_URL =
   "https://www.google.com/search?q=jasa+pembuatan+website+bone#mpd=~10332837043445202168/customers/reviews";
@@ -40,7 +41,7 @@ const LIVE_DEMOS = [
     image: "/demos/swastia-v3-desktop.jpg",
     url: "https://swastia-catering-preview.vercel.app/",
     points: [
-      "Tema cerah & hangat dengan 4 tab pilihan paket (Lite, Reguler, Family, Nasi Box)",
+      "Tema cerah & hangat dengan pilihan paket (Lite, Reguler, Family, Nasi Box)",
       "Kalkulator & form susun pesanan langsung terhubung ke WhatsApp Admin",
     ],
   },
@@ -50,109 +51,76 @@ const LIVE_DEMOS = [
     image: "/demos/demo-ratu-interior.jpg",
     url: "https://ratu-interior-concept.vercel.app/",
     points: [
-      "Desain arsitektur elegan (Dark & Gold Editorial) untuk kontraktor & custom furniture",
-      "Galeri portofolio ruang & alur konsultasi survei lokasi via WhatsApp",
+      "Desain arsitektur elegan (Dark & Gold Editorial) untuk kontraktor & mebel",
+      "Galeri portofolio proyek & tombol konsultasi survei lokasi via WhatsApp",
     ],
   },
   {
     title: "MAMU · PT Tigalapan Sukses",
-    category: "Fashion · Konveksi & Grosir B2B",
+    category: "Fashion · Konveksi & Toko Retail",
     image: "/demos/demo-tigalapan.jpg",
     url: "https://tigalapan-sukses-preview.vercel.app/",
     points: [
-      "Katalog retail & B2B grosir (10 cabang Sulawesi & Kaltim) + panduan ukuran",
-      "Dilengkapi fitur simulasi mockup sablon kustom & cek stok cabang",
+      "Katalog produk retail & grosir lengkap dengan panduan ukuran (size chart)",
+      "Dilengkapi simulasi sablon kustom & informasi cabang toko",
     ],
   },
   {
     title: "Amazing Insight",
-    category: "Konsultan · Kelas & Layanan Bisnis",
+    category: "Jasa · Konsultan & Lembaga Kursus",
     image: "/demos/demo-zoominar.jpg",
     url: "https://amazing-insight-zoominar.vercel.app/",
     points: [
-      "Gaya visual modern (Swiss Grid) untuk lembaga pelatihan, agensi & konsultan",
-      "Struktur layanan jelas (Meta Ads, Content, CRM, Training) + pendaftaran kelas",
+      "Gaya visual modern & bersih untuk lembaga pelatihan, agensi, atau klinik",
+      "Rincian program/layanan jelas + tombol pendaftaran langsung ke WA",
     ],
   },
   {
     title: "Yang Terdekat Production",
-    category: "Studio Kreatif · Foto & Videografi",
+    category: "Studio Kreatif · Foto & Wedding",
     image: "/demos/demo-ceritaapip.jpg",
     url: "https://ceritaapip.vercel.app/",
     points: [
-      "Tampilan sinematik kontras tinggi dengan pemutar video showreel langsung",
-      "Cocok untuk vendor dokumentasi, wedding, maupun production house",
+      "Tampilan sinematik kontras tinggi untuk memamerkan hasil foto & video",
+      "Cocok untuk vendor dokumentasi, studio foto, maupun event organizer",
     ],
   },
   {
     title: "Ponpes Villa Tahfizh Himmatul Quran",
-    category: "Lembaga Pendidikan · Pesantren & Yayasan",
+    category: "Sekolah · Pesantren & Yayasan",
     image: "/demos/demo-vthq.jpg",
     url: "https://www.vthq.or.id/",
     points: [
-      "Portal resmi lembaga di Malino dengan info pendaftaran santri & program akademik",
-      "Dilengkapi halaman artikel, dokumentasi kegiatan, dan profil pimpinan",
+      "Website profil lembaga resmi dengan informasi pendaftaran & program",
+      "Dilengkapi halaman dokumentasi kegiatan dan kontak pengurus",
     ],
   },
 ];
 
-const PACKAGES = [
+const INCLUDED_FEATURES = [
   {
-    badge: "PALING LARIS UNTUK UMKM",
-    name: "Paket Starter UMKM",
-    price: "Rp 1 Juta",
-    strike: "Rp 2.500.000",
-    period: "Sekali Bayar · Tanpa Biaya Bulanan",
-    highlight: true,
-    description:
-      "Cocok untuk usaha katering, kuliner, klinik, toko, kontraktor, dan jasa lokal yang butuh 1 halaman katalog resmi siap pakai.",
-    features: [
-      "1 Halaman Lengkap (Profil Usaha, Katalog Paket/Harga & Galeri Foto)",
-      "Tombol Pesan Otomatis langsung terhubung ke WhatsApp Admin",
-      "Desain modern, cepat, dan rapi di HP maupun Laptop",
-      "Gratis subdomain (.vercel.app / .my.id) atau bantu sambung domain Anda",
-      "Proses cepat 2–4 hari kerja — bisa lihat contoh demo dulu",
-    ],
-    ctaText: "Pesan Paket Rp 1 Juta via WA",
-    ctaHref: WA_STARTER,
+    title: "Halaman Katalog & Daftar Harga Rapi",
+    desc: "Pelanggan bisa langsung melihat pilihan paket, menu, atau layanan Anda tanpa harus tanya harga satu-satu di chat.",
   },
   {
-    badge: "UNTUK BISNIS BERKEMBANG",
-    name: "Paket Bisnis Lengkap",
-    price: "Rp 2,5 Juta",
-    strike: "Rp 4.000.000",
-    period: "Sekali Bayar · Termasuk Domain .com Tahun Pertama",
-    highlight: false,
-    description:
-      "Cocok untuk perusahaan lokal, B2B/wholesale, interior, wedding organizer, atau lembaga yang butuh beberapa halaman terpisah.",
-    features: [
-      "Hingga 4–5 Halaman (Beranda, Tentang, Layanan/Katalog, Portofolio, Kontak)",
-      "Gratis Domain .com / .id selama 1 tahun pertama",
-      "Optimasi SEO dasar & penataan link Google Maps / WhatsApp",
-      "Formulir pemesanan atau kalkulator estimasi paket kustom",
-      "Panduan update konten & garansi revisi sampai rapi",
-    ],
-    ctaText: "Konsultasi Paket Bisnis",
-    ctaHref: WA_BISNIS,
+    title: "Tombol Order Otomatis ke WhatsApp",
+    desc: "Setiap paket/produk dilengkapi tombol pesan yang langsung mengirim format chat rapi ke nomor WhatsApp Admin Anda.",
   },
   {
-    badge: "KORPORAT & SISTEM KHUSUS",
-    name: "Paket Custom & Web App",
-    price: "Mulai Rp 5 Juta",
-    strike: null,
-    period: "Sesuai Kebutuhan Fitur & Integrasi",
-    highlight: false,
-    description:
-      "Untuk organisasi, instansi, startup, atau bisnis yang membutuhkan CMS mandiri, dashboard admin, database, atau alur kerja khusus.",
-    features: [
-      "Arsitektur Next.js / Full-Stack kustom sesuai proses bisnis",
-      "Dashboard Admin / CMS untuk kelola artikel, produk, atau anggota",
-      "Integrasi database, email bisnis, atau API pihak ketiga",
-      "Optimasi performa tinggi, keamanan, dan dukungan teknis lanjutan",
-      "Diskusi langsung (online atau tatap muka di Watampone, Bone)",
-    ],
-    ctaText: "Diskusikan Kebutuhan Custom",
-    ctaHref: WA_CUSTOM,
+    title: "Desain Menyesuaikan Karakter Usaha",
+    desc: "Bukan template kaku—warna, font, dan tata letak disesuaikan dengan identitas usaha Anda (kuliner, jasa, kontraktor, klinik, toko).",
+  },
+  {
+    title: "Rapi & Cepat di HP maupun Laptop",
+    desc: "Ringan saat dibuka dari link bio Instagram, TikTok, Facebook, maupun titik Google Maps usaha Anda.",
+  },
+  {
+    title: "Sekali Bayar · Tanpa Biaya Bulanan",
+    desc: "Sudah termasuk hosting cepat & subdomain gratis (.vercel.app / .my.id) atau bantuan menyambungkan ke domain .com milik Anda.",
+  },
+  {
+    title: "Terima Beres dalam 2–4 Hari Kerja",
+    desc: "Anda cukup kirim foto produk & daftar harga lewat WhatsApp. Penyusunan kalimat dan kerapian desain saya bereskan.",
   },
 ];
 
@@ -200,127 +168,179 @@ const TESTIMONIALS = [
 
 const FAQS = [
   {
-    q: "Apakah benar Paket Starter Rp 1 Juta hanya sekali bayar tanpa biaya bulanan?",
-    a: "Ya, benar. Untuk Paket Starter UMKM Rp 1 Juta menggunakan hosting modern (Vercel) dengan subdomain gratis atau domain .my.id, tidak ada biaya sewa server bulanan. Jika Anda ingin memakai domain .com milik sendiri, Anda cukup memperpanjang domain sekitar Rp180rb–Rp220rb per tahun di tahun berikutnya.",
+    q: "Apakah benar harganya cuma Rp 1 Juta sekali bayar tanpa biaya bulanan?",
+    a: "Ya, benar. Harga Rp 1.000.000 adalah sekali bayar (tidak ada tagihan bulanan). Website sudah langsung online menggunakan server modern dan subdomain gratis, atau bisa disambungkan ke domain .com milik usaha Anda.",
   },
   {
-    q: "Apakah saya bisa melihat contoh tampilan website untuk usaha saya dulu?",
-    a: "Bisa. Kirimkan saja nama usaha, link Instagram/Google Maps, serta daftar menu atau layanan Anda ke WhatsApp 0813-5478-9375. Saya bisa buatkan gambaran pratinjau (preview) awalnya terlebih dahulu.",
+    q: "Apakah saya bisa lihat contoh tampilan (preview) untuk usaha saya dulu?",
+    a: "Bisa. Chat saja ke WhatsApp 0813-5478-9375 dan kirimkan nama usaha atau link Instagram Anda. Saya buatkan gambaran pratinjau tampilannya terlebih dahulu.",
   },
   {
-    q: "Apa saja yang perlu saya siapkan untuk mulai?",
-    a: "Cukup kirimkan foto-foto produk/layanan yang sudah ada, daftar paket/harga, alamat usaha, dan nomor WhatsApp admin. Susunan kalimat dan kerapian halaman saya bantu bereskan.",
+    q: "Apa saja yang perlu saya kirimkan untuk mulai?",
+    a: "Cukup kirimkan foto-foto produk/layanan yang sudah ada, daftar paket beserta harganya, alamat usaha, dan nomor WhatsApp Admin.",
   },
   {
-    q: "Apakah bisa konsultasi langsung di Bone?",
-    a: "Sangat bisa. Saya berdomisili di Kabupaten Bone (dan juga melayani klien di seluruh Indonesia secara online). Kita bisa diskusi via WhatsApp maupun ketemu langsung di area Watampone.",
+    q: "Apakah bisa ketemu langsung untuk diskusi di Bone?",
+    a: "Sangat bisa. Saya berdomisili di Kabupaten Bone (dan juga melayani pemesanan online dari seluruh Indonesia). Kita bisa ngobrol via WhatsApp atau ketemu langsung di area Watampone.",
   },
 ];
 
 const JasaPembuatanWebDIBone = () => {
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#181512] overflow-x-hidden pb-24 md:pb-0">
+    <div
+      style={{ backgroundColor: "#FDFBF7", color: "#181512" }}
+      className="min-h-screen overflow-x-hidden pb-28"
+    >
       <Header landingPage={true} />
 
       {/* HERO SECTION */}
-      <section className="pt-12 pb-16 md:pt-20 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <div className="inline-flex items-center gap-2 bg-[#181512] text-[#FDFBF7] text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-2 rounded-full mb-6">
+      <section className="pt-10 pb-16 md:pt-16 md:pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div
+          style={{ backgroundColor: "#181512", color: "#FDFBF7" }}
+          className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-2 rounded-full mb-6"
+        >
           <GeoAltFill className="text-amber-400 shrink-0" />
-          <span>Jasa Pembuatan Website Bone & UMKM Indonesia · Zulzidan</span>
+          <span>Jasa Pembuatan Website UMKM & Bisnis · Zulzidan</span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 space-y-6">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08] text-[#181512]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08]">
               Bikin Website Usaha{" "}
-              <span className="text-[#B84A24] italic">Terima Beres</span> Mulai{" "}
-              <span className="underline decoration-amber-400 decoration-4 underline-offset-4">
+              <span style={{ color: "#B84A24" }} className="italic">
+                Terima Beres
+              </span>{" "}
+              Cuma{" "}
+              <span className="underline decoration-amber-400 decoration-4 underline-offset-4 whitespace-nowrap">
                 Rp 1 Juta
               </span>
               .
             </h1>
 
-            <p className="text-lg sm:text-xl text-[#4A433B] leading-relaxed max-w-2xl">
-              Biarkan pelanggan melihat daftar paket, katalog harga, dan galeri
-              produk Anda dengan rapi di 1 link resmi sebelum klik tombol pesan
-              ke WhatsApp Admin. Cocok untuk usaha katering, klinik, kontraktor,
-              toko, dan UMKM di Bone maupun seluruh Indonesia.
+            <p
+              style={{ color: "#4A433B" }}
+              className="text-lg sm:text-xl leading-relaxed max-w-2xl"
+            >
+              Tampilkan daftar paket, katalog harga, dan galeri produk Anda
+              dengan rapi di 1 link resmi yang langsung terhubung ke WhatsApp
+              Admin. Sekali bayar, tanpa biaya bulanan, dan bisa lihat contoh
+              demonya dulu.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-2">
               <a
-                href={WA_STARTER}
+                href={WA_MAIN}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-[#16A34A] hover:bg-[#15803D] text-white font-bold text-base sm:text-lg px-7 py-4 rounded-xl shadow-lg transition"
+                style={{ backgroundColor: "#16A34A", color: "#FFFFFF" }}
+                className="inline-flex items-center gap-3 hover:opacity-95 font-extrabold text-base sm:text-lg px-7 py-4 rounded-xl shadow-lg transition"
               >
                 <Whatsapp size={22} />
-                <span>Chat WhatsApp: 0813-5478-9375</span>
+                <span>Pesan via WhatsApp: 0813-5478-9375</span>
               </a>
               <a
                 href="#contoh-demo"
-                className="inline-flex items-center gap-2 bg-white hover:bg-[#F5EFE2] text-[#181512] border-2 border-[#E2D9C5] font-bold text-base sm:text-lg px-6 py-4 rounded-xl transition"
+                style={{
+                  backgroundColor: "#FFFFFF",
+                  color: "#181512",
+                  borderColor: "#D6CBB5",
+                }}
+                className="inline-flex items-center gap-2 border-2 font-bold text-base sm:text-lg px-6 py-4 rounded-xl transition"
               >
-                <span>Lihat Contoh Demo Live</span>
+                <span>Lihat 6 Contoh Demo Live ↓</span>
               </a>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 text-sm font-semibold text-[#3B342C]">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 text-sm font-semibold">
               <div className="flex items-center gap-2">
-                <LightningChargeFill className="text-[#B84A24] shrink-0" />
+                <LightningChargeFill
+                  style={{ color: "#B84A24" }}
+                  className="shrink-0"
+                />
                 <span>Selesai 2–4 Hari Kerja</span>
               </div>
               <div className="flex items-center gap-2">
-                <ShieldCheck className="text-[#16A34A] shrink-0" />
+                <ShieldCheck
+                  style={{ color: "#16A34A" }}
+                  className="shrink-0"
+                />
                 <span>Sekali Bayar (Tanpa Bulanan)</span>
               </div>
               <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
-                <PhoneFill className="text-[#181512] shrink-0" />
+                <PhoneFill className="shrink-0" />
                 <span>Langsung Nyambung ke WA</span>
               </div>
             </div>
           </div>
 
-          {/* RIGHT PRICE HIGHLIGHT CARD */}
+          {/* RIGHT SINGLE-OFFER CARD */}
           <div className="lg:col-span-5">
             <div
-              style={{ backgroundColor: "#181512", color: "#FFFFFF" }}
-              className="bg-[#181512] text-white rounded-3xl p-7 sm:p-8 shadow-2xl border-2 border-[#332C25]"
+              style={{
+                backgroundColor: "#181512",
+                color: "#FFFFFF",
+                borderColor: "#332C25",
+              }}
+              className="rounded-3xl p-7 sm:p-8 shadow-2xl border-2"
             >
-              <div className="inline-block bg-amber-400/20 text-amber-300 text-xs font-extrabold uppercase tracking-widest px-3 py-1 rounded-full">
-                PROMO PAKET STARTER UMKM
+              <div
+                style={{
+                  backgroundColor: "rgba(251, 191, 36, 0.18)",
+                  color: "#FCD34D",
+                }}
+                className="inline-block text-xs font-extrabold uppercase tracking-widest px-3 py-1 rounded-full"
+              >
+                PAKET WEBSITE UMKM TERIMA BERES
               </div>
               <div className="mt-4 flex flex-wrap items-baseline gap-3">
-                <span className="text-4xl sm:text-5xl font-black text-green-400 whitespace-nowrap">
+                <span
+                  style={{ color: "#4ADE80" }}
+                  className="text-4xl sm:text-5xl font-black whitespace-nowrap"
+                >
                   Rp 1 Juta
                 </span>
-                <span className="text-base text-gray-400 line-through whitespace-nowrap">
+                <span
+                  style={{ color: "#9CA3AF" }}
+                  className="text-base line-through whitespace-nowrap"
+                >
                   Normal Rp 2.500.000
                 </span>
               </div>
-              <p className="text-sm text-gray-300 mt-1 font-medium">
-                Sekali bayar · Terima beres · Bisa lihat contoh konsepnya dulu
+              <p style={{ color: "#D1D5DB" }} className="text-sm mt-1 font-medium">
+                Sekali bayar · Tanpa biaya bulanan · Bisa lihat preview dulu
               </p>
 
-              <hr className="border-white/15 my-6" />
+              <hr
+                style={{ borderColor: "rgba(255,255,255,0.15)" }}
+                className="my-6"
+              />
 
-              <ul className="space-y-3 text-sm sm:text-base text-gray-100">
+              <ul className="space-y-3 text-sm sm:text-base">
                 <li className="flex items-start gap-3">
-                  <CheckCircleFill className="text-green-400 mt-1 shrink-0" />
+                  <CheckCircleFill
+                    style={{ color: "#4ADE80" }}
+                    className="mt-1 shrink-0"
+                  />
                   <span>
-                    <strong>1 Halaman Lengkap:</strong> Profil Usaha, Katalog
-                    Paket & Harga, Galeri Foto, Alamat/Maps
+                    <strong>Halaman Katalog Lengkap:</strong> Profil Usaha,
+                    Daftar Paket & Harga, Galeri Foto, Lokasi/Maps
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircleFill className="text-green-400 mt-1 shrink-0" />
+                  <CheckCircleFill
+                    style={{ color: "#4ADE80" }}
+                    className="mt-1 shrink-0"
+                  />
                   <span>
                     <strong>Tombol Order WhatsApp:</strong> Pelanggan tinggal
-                    pilih paket & kirim format chat otomatis
+                    pilih paket & kirim format pesanan otomatis
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircleFill className="text-green-400 mt-1 shrink-0" />
+                  <CheckCircleFill
+                    style={{ color: "#4ADE80" }}
+                    className="mt-1 shrink-0"
+                  />
                   <span>
                     <strong>Rapi di HP & Laptop:</strong> Siap dipasang di bio
                     Instagram, TikTok & Google Maps
@@ -329,47 +349,75 @@ const JasaPembuatanWebDIBone = () => {
               </ul>
 
               <a
-                href={WA_STARTER}
+                href={WA_MAIN}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-7 w-full inline-flex items-center justify-center gap-2 bg-[#22C55E] hover:bg-[#16A34A] text-[#052610] font-extrabold text-base py-4 px-6 rounded-xl transition"
+                style={{ backgroundColor: "#22C55E", color: "#052610" }}
+                className="mt-7 w-full inline-flex items-center justify-center gap-2 hover:opacity-95 font-extrabold text-base py-4 px-6 rounded-xl transition shadow-md"
               >
                 <Whatsapp size={20} />
-                <span>Tanya / Minta Contoh Demo via WA</span>
+                <span>Pesan Website Rp 1 Juta via WA</span>
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* LIVE DEMO SHOWCASE */}
+      {/* LIVE DEMO SHOWCASE (#contoh-demo) WITH DIRECT WHATSAPP CTAs */}
       <section
         id="contoh-demo"
-        className="py-16 bg-[#F5EFE2] border-y border-[#E2D9C5] px-4 sm:px-6 lg:px-8"
+        style={{ backgroundColor: "#F5EFE2", borderColor: "#E2D9C5" }}
+        className="py-16 border-y px-4 sm:px-6 lg:px-8"
       >
         <div className="max-w-6xl mx-auto">
-          <div className="max-w-3xl mb-10">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#B84A24]">
-              CONTOH HASIL KERJA LIVE (6 INDUSTRI BERBEDA)
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#181512] mt-2">
-              Desain Menyesuaikan Karakter Bisnis Anda — Klik untuk Coba Live
-            </h2>
-            <p className="text-[#4A433B] mt-2 text-base sm:text-lg">
-              Setiap jenis usaha membutuhkan nuansa desain yang berbeda. Kuliner
-              tampil hangat & menggugah selera, interior tampil elegan, hingga
-              konveksi dan lembaga pendidikan yang rapi & terpercaya.
-            </p>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+            <div className="max-w-2xl">
+              <span
+                style={{ color: "#B84A24" }}
+                className="text-xs font-extrabold uppercase tracking-widest"
+              >
+                CONTOH HASIL KERJA LIVE (6 INDUSTRI BERBEDA)
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold mt-2">
+                Pilih Gaya Desain yang Cocok untuk Usaha Anda
+              </h2>
+              <p
+                style={{ color: "#4A433B" }}
+                className="mt-2 text-base sm:text-lg"
+              >
+                Klik <strong>Lihat Contoh Live</strong> untuk mencoba langsung
+                websitenya, atau klik tombol hijau <strong>Pesan Model Ini</strong>{" "}
+                untuk dibuatkan versi usaha Anda seharga <strong>Rp 1 Juta</strong>.
+              </p>
+            </div>
+
+            <a
+              href={WA_MAIN}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ backgroundColor: "#16A34A", color: "#FFFFFF" }}
+              className="shrink-0 inline-flex items-center gap-2.5 font-extrabold text-sm sm:text-base px-6 py-4 rounded-xl shadow-md hover:opacity-95 transition"
+            >
+              <Whatsapp size={20} />
+              <span>Minta Contoh Demo Usaha Saya (Rp 1 Juta)</span>
+            </a>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
             {LIVE_DEMOS.map((demo) => (
               <div
                 key={demo.title}
-                className="bg-white rounded-2xl border border-[#E2D9C5] overflow-hidden shadow-md flex flex-col justify-between"
+                style={{ backgroundColor: "#FFFFFF", borderColor: "#E2D9C5" }}
+                className="rounded-2xl border overflow-hidden shadow-md flex flex-col justify-between"
               >
                 <div>
-                  <div className="aspect-[16/10] bg-[#EAE2D0] overflow-hidden border-b border-[#E2D9C5]">
+                  <div
+                    style={{
+                      backgroundColor: "#EAE2D0",
+                      borderColor: "#E2D9C5",
+                    }}
+                    className="aspect-[16/10] overflow-hidden border-b"
+                  >
                     <img
                       src={demo.image}
                       alt={demo.title}
@@ -377,161 +425,183 @@ const JasaPembuatanWebDIBone = () => {
                     />
                   </div>
                   <div className="p-6">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#B84A24]">
+                    <span
+                      style={{ color: "#B84A24" }}
+                      className="text-xs font-bold uppercase tracking-wider"
+                    >
                       {demo.category}
                     </span>
-                    <h3 className="text-xl font-extrabold text-[#181512] mt-1">
+                    <h3 className="text-xl font-extrabold mt-1">
                       {demo.title}
                     </h3>
-                    <ul className="mt-4 space-y-2 text-sm text-[#4A433B]">
+                    <ul
+                      style={{ color: "#4A433B" }}
+                      className="mt-4 space-y-2 text-sm"
+                    >
                       {demo.points.map((pt, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <CheckCircleFill className="text-[#16A34A] mt-1 shrink-0" />
+                          <CheckCircleFill
+                            style={{ color: "#16A34A" }}
+                            className="mt-1 shrink-0"
+                          />
                           <span>{pt}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
-                <div className="px-6 pb-6">
+
+                {/* DUAL ACTION BUTTONS INSIDE EVERY DEMO CARD */}
+                <div className="px-6 pb-6 space-y-2.5">
+                  <a
+                    href={makeDemoWaLink(demo.title)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ backgroundColor: "#16A34A", color: "#FFFFFF" }}
+                    className="w-full inline-flex items-center justify-center gap-2 hover:opacity-95 font-extrabold text-sm py-3.5 px-4 rounded-xl transition shadow-sm"
+                  >
+                    <Whatsapp size={17} />
+                    <span>Pesan Model Ini (Rp 1 Juta)</span>
+                  </a>
                   <a
                     href={demo.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ backgroundColor: "#181512", color: "#FFFFFF" }}
-                    className="w-full inline-flex items-center justify-center gap-2 hover:opacity-90 font-bold text-sm py-3.5 px-4 rounded-xl transition shadow-sm"
+                    style={{
+                      backgroundColor: "#181512",
+                      color: "#FFFFFF",
+                    }}
+                    className="w-full inline-flex items-center justify-center gap-2 hover:opacity-90 font-bold text-sm py-3 px-4 rounded-xl transition"
                   >
-                    <span>Buka Demo Live</span>
+                    <span>Lihat Contoh Live</span>
                     <BoxArrowUpRight size={14} />
                   </a>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* CTA BANNER RIGHT INSIDE #contoh-demo */}
+          <div
+            style={{ backgroundColor: "#181512", color: "#FFFFFF" }}
+            className="mt-12 rounded-3xl p-7 sm:p-9 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl"
+          >
+            <div>
+              <div
+                style={{ color: "#FCD34D" }}
+                className="text-xs font-extrabold uppercase tracking-widest mb-1"
+              >
+                PAKET WEBSITE UMKM · SEKALI BAYAR RP 1.000.000
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold">
+                Mau dibuatkan tampilan seperti contoh di atas untuk usaha Anda?
+              </h3>
+              <p style={{ color: "#D1D5DB" }} className="mt-1 text-sm sm:text-base">
+                Kirimkan nama usaha & daftar layanan Anda ke WhatsApp — bisa
+                lihat preview tampilannya dulu!
+              </p>
+            </div>
+            <a
+              href={WA_MAIN}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ backgroundColor: "#22C55E", color: "#052610" }}
+              className="shrink-0 inline-flex items-center gap-3 font-extrabold text-base sm:text-lg px-7 py-4 rounded-xl shadow-lg hover:opacity-95 transition"
+            >
+              <Whatsapp size={22} />
+              <span>Chat WA: 0813-5478-9375</span>
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* PRICING TIERS */}
+      {/* SINGLE OFFER DETAILS: APA SAJA YANG DIDAPAT DENGAN RP 1 JUTA */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#B84A24]">
-            PILIHAN PAKET TRANSPARAN
+          <span
+            style={{ color: "#B84A24" }}
+            className="text-xs font-extrabold uppercase tracking-widest"
+          >
+            SATU HARGA TRANSPARAN · TERIMA BERES
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#181512] mt-2">
-            Sesuaikan dengan Skala Usaha Anda
+          <h2 className="text-3xl sm:text-4xl font-extrabold mt-2">
+            Semua yang Anda Dapatkan dengan Rp 1 Juta
           </h2>
-          <p className="text-[#4A433B] mt-3 text-base sm:text-lg">
-            Mulai dari landing page katalog UMKM Rp 1 Juta hingga website
-            perusahaan multi-halaman dan sistem kustom.
+          <p
+            style={{ color: "#4A433B" }}
+            className="mt-3 text-base sm:text-lg"
+          >
+            Tidak ada biaya bulanan tersembunyi. Cukup sekali bayar{" "}
+            <strong>Rp 1.000.000</strong>, website usaha Anda langsung online dan
+            siap menerima pesanan via WhatsApp.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-7 items-stretch">
-          {PACKAGES.map((pkg) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {INCLUDED_FEATURES.map((item, idx) => (
             <div
-              key={pkg.name}
-              className={`rounded-3xl p-7 sm:p-8 flex flex-col justify-between border-2 ${
-                pkg.highlight
-                  ? "bg-[#181512] text-white border-[#181512] shadow-2xl"
-                  : "bg-white text-[#181512] border-[#E2D9C5] shadow-sm"
-              }`}
+              key={idx}
+              style={{ backgroundColor: "#FFFFFF", borderColor: "#E2D9C5" }}
+              className="rounded-2xl border p-6 shadow-sm flex flex-col justify-between"
             >
               <div>
-                <span
-                  className={`inline-block text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full ${
-                    pkg.highlight
-                      ? "bg-amber-400/20 text-amber-300"
-                      : "bg-[#F5EFE2] text-[#B84A24]"
-                  }`}
+                <div
+                  style={{ backgroundColor: "#DCFCE7", color: "#15803D" }}
+                  className="w-10 h-10 rounded-xl flex items-center justify-center font-black text-lg mb-4"
                 >
-                  {pkg.badge}
-                </span>
-                <h3 className="text-2xl font-extrabold mt-4">{pkg.name}</h3>
-                <div className="mt-3 flex flex-wrap items-baseline gap-3">
-                  <span
-                    className={`text-4xl font-black whitespace-nowrap ${
-                      pkg.highlight ? "text-green-400" : "text-[#181512]"
-                    }`}
-                  >
-                    {pkg.price}
-                  </span>
-                  {pkg.strike && (
-                    <span className="text-sm line-through opacity-60 whitespace-nowrap">
-                      {pkg.strike}
-                    </span>
-                  )}
+                  ✓
                 </div>
+                <h3 className="text-lg font-extrabold">{item.title}</h3>
                 <p
-                  className={`text-xs font-semibold mt-1 ${
-                    pkg.highlight ? "text-gray-300" : "text-[#635A50]"
-                  }`}
+                  style={{ color: "#4A433B" }}
+                  className="text-sm mt-2 leading-relaxed"
                 >
-                  {pkg.period}
+                  {item.desc}
                 </p>
-                <p
-                  className={`text-sm mt-4 leading-relaxed ${
-                    pkg.highlight ? "text-gray-200" : "text-[#4A433B]"
-                  }`}
-                >
-                  {pkg.description}
-                </p>
-
-                <hr
-                  className={`my-6 ${
-                    pkg.highlight ? "border-white/15" : "border-[#E6DEC8]"
-                  }`}
-                />
-
-                <ul className="space-y-3 text-sm">
-                  {pkg.features.map((f, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <CheckCircleFill
-                        className={`mt-1 shrink-0 ${
-                          pkg.highlight ? "text-green-400" : "text-[#16A34A]"
-                        }`}
-                      />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
-
-              <a
-                href={pkg.ctaHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={
-                  pkg.highlight
-                    ? { backgroundColor: "#22C55E", color: "#052610" }
-                    : { backgroundColor: "#181512", color: "#FFFFFF" }
-                }
-                className={`mt-8 w-full inline-flex items-center justify-center gap-2 font-extrabold text-sm sm:text-base py-4 px-5 rounded-xl transition ${
-                  pkg.highlight
-                    ? "bg-[#22C55E] hover:bg-[#16A34A] text-[#052610]"
-                    : "bg-[#181512] hover:bg-[#332C25] text-white"
-                }`}
-              >
-                <Whatsapp size={18} />
-                <span>{pkg.ctaText}</span>
-              </a>
             </div>
           ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <a
+            href={WA_MAIN}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ backgroundColor: "#16A34A", color: "#FFFFFF" }}
+            className="inline-flex items-center gap-3 font-extrabold text-base sm:text-lg px-8 py-4 rounded-xl shadow-lg hover:opacity-95 transition"
+          >
+            <Whatsapp size={22} />
+            <span>Pesan Paket Website Rp 1 Juta Sekarang</span>
+          </a>
         </div>
       </section>
 
       {/* REAL GOOGLE REVIEWS & FIVERR TESTIMONIALS */}
-      <section className="py-16 bg-[#F5EFE2] border-t border-[#E2D9C5] px-4 sm:px-6 lg:px-8">
+      <section
+        style={{ backgroundColor: "#F5EFE2", borderColor: "#E2D9C5" }}
+        className="py-16 border-t px-4 sm:px-6 lg:px-8"
+      >
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
             <div>
-              <div className="inline-flex items-center gap-1.5 bg-amber-400/25 text-[#8C3515] text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
+              <div
+                style={{
+                  backgroundColor: "rgba(251, 191, 36, 0.25)",
+                  color: "#8C3515",
+                }}
+                className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full mb-3"
+              >
                 <StarFill className="text-amber-500" />
                 <span> RATING 5.0 DI GOOGLE REVIEW BONE & FIVERR</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#181512]">
+              <h2 className="text-3xl sm:text-4xl font-extrabold">
                 Apa Kata Klien yang Sudah Bekerja Sama
               </h2>
-              <p className="text-[#4A433B] mt-2 text-base sm:text-lg max-w-2xl">
+              <p
+                style={{ color: "#4A433B" }}
+                className="mt-2 text-base sm:text-lg max-w-2xl"
+              >
                 Bukti tangkapan layar ulasan asli di profil Google Bisnis{" "}
                 <strong>Jasa Pembuatan Website Bone</strong> dan platform
                 internasional Fiverr.
@@ -543,7 +613,12 @@ const JasaPembuatanWebDIBone = () => {
                 href={GOOGLE_REVIEW_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white hover:bg-[#FDFBF7] text-[#181512] border border-[#D5CBB4] font-bold text-sm px-4 py-3 rounded-xl shadow-sm transition"
+                style={{
+                  backgroundColor: "#FFFFFF",
+                  color: "#181512",
+                  borderColor: "#D5CBB4",
+                }}
+                className="inline-flex items-center gap-2 border font-bold text-sm px-4 py-3 rounded-xl shadow-sm transition"
               >
                 <span>Cek Google Review Asli</span>
                 <BoxArrowUpRight size={13} />
@@ -552,7 +627,12 @@ const JasaPembuatanWebDIBone = () => {
                 href={FIVERR_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white hover:bg-[#FDFBF7] text-[#181512] border border-[#D5CBB4] font-bold text-sm px-4 py-3 rounded-xl shadow-sm transition"
+                style={{
+                  backgroundColor: "#FFFFFF",
+                  color: "#181512",
+                  borderColor: "#D5CBB4",
+                }}
+                className="inline-flex items-center gap-2 border font-bold text-sm px-4 py-3 rounded-xl shadow-sm transition"
               >
                 <span>Cek Profil Fiverr</span>
                 <BoxArrowUpRight size={13} />
@@ -564,15 +644,17 @@ const JasaPembuatanWebDIBone = () => {
             {TESTIMONIALS.map((t, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl border border-[#E2D9C5] p-5 shadow-sm flex flex-col justify-between"
+                style={{ backgroundColor: "#FFFFFF", borderColor: "#E2D9C5" }}
+                className="rounded-2xl border p-5 shadow-sm flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <div>
-                      <div className="font-extrabold text-[#181512] text-base">
-                        {t.name}
-                      </div>
-                      <div className="text-xs font-semibold text-[#635A50]">
+                      <div className="font-extrabold text-base">{t.name}</div>
+                      <div
+                        style={{ color: "#635A50" }}
+                        className="text-xs font-semibold"
+                      >
                         {t.source}
                       </div>
                     </div>
@@ -584,12 +666,18 @@ const JasaPembuatanWebDIBone = () => {
                       <StarFill size={14} />
                     </div>
                   </div>
-                  <p className="text-sm text-[#3B342C] leading-relaxed italic mb-4">
+                  <p
+                    style={{ color: "#3B342C" }}
+                    className="text-sm leading-relaxed italic mb-4"
+                  >
                     &ldquo;{t.quote}&rdquo;
                   </p>
                 </div>
 
-                <div className="rounded-xl overflow-hidden border border-[#EAE2D0] bg-[#1F1F1F] p-2">
+                <div
+                  style={{ backgroundColor: "#1F1F1F", borderColor: "#EAE2D0" }}
+                  className="rounded-xl overflow-hidden border p-2"
+                >
                   <Image
                     src={t.img}
                     alt={`Testimoni ${t.name}`}
@@ -604,21 +692,26 @@ const JasaPembuatanWebDIBone = () => {
       </section>
 
       {/* FAQ SECTION */}
-      <section className="py-16 bg-white border-t border-[#E2D9C5] px-4 sm:px-6 lg:px-8">
+      <section
+        style={{ backgroundColor: "#FFFFFF", borderColor: "#E2D9C5" }}
+        className="py-16 border-t px-4 sm:px-6 lg:px-8"
+      >
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#181512] text-center mb-10">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-10">
             Pertanyaan yang Sering Ditanyakan (FAQ)
           </h2>
           <div className="space-y-4">
             {FAQS.map((item, i) => (
               <div
                 key={i}
-                className="bg-[#FDFBF7] border border-[#E2D9C5] rounded-2xl p-6"
+                style={{ backgroundColor: "#FDFBF7", borderColor: "#E2D9C5" }}
+                className="border rounded-2xl p-6"
               >
-                <h3 className="text-lg font-extrabold text-[#181512]">
-                  {item.q}
-                </h3>
-                <p className="text-sm sm:text-base text-[#4A433B] mt-2 leading-relaxed">
+                <h3 className="text-lg font-extrabold">{item.q}</h3>
+                <p
+                  style={{ color: "#4A433B" }}
+                  className="text-sm sm:text-base mt-2 leading-relaxed"
+                >
                   {item.a}
                 </p>
               </div>
@@ -626,21 +719,28 @@ const JasaPembuatanWebDIBone = () => {
           </div>
 
           {/* BOTTOM CTA BOX */}
-          <div className="mt-12 bg-[#181512] text-white rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div
+            style={{ backgroundColor: "#181512", color: "#FFFFFF" }}
+            className="mt-12 rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6"
+          >
             <div>
               <h3 className="text-2xl sm:text-3xl font-extrabold">
-                Mau lihat contoh tampilan untuk usaha Anda?
+                Siap punya website usaha rapi cuma Rp 1 Juta?
               </h3>
-              <p className="text-gray-300 mt-2 text-sm sm:text-base">
-                Chat langsung dengan Zulzidan di WhatsApp 0813-5478-9375 —
-                konsultasi gratis tanpa komitmen.
+              <p
+                style={{ color: "#D1D5DB" }}
+                className="mt-2 text-sm sm:text-base"
+              >
+                Chat langsung dengan Zulzidan di WhatsApp 0813-5478-9375 — bisa
+                minta dibuatkan contoh konsepnya dulu.
               </p>
             </div>
             <a
-              href={WA_STARTER}
+              href={WA_MAIN}
               target="_blank"
               rel="noopener noreferrer"
-              className="shrink-0 inline-flex items-center gap-3 bg-[#22C55E] hover:bg-[#16A34A] text-[#052610] font-extrabold text-base sm:text-lg px-7 py-4 rounded-xl transition"
+              style={{ backgroundColor: "#22C55E", color: "#052610" }}
+              className="shrink-0 inline-flex items-center gap-3 font-extrabold text-base sm:text-lg px-7 py-4 rounded-xl transition"
             >
               <Whatsapp size={22} />
               <span>Chat 0813-5478-9375</span>
@@ -649,28 +749,44 @@ const JasaPembuatanWebDIBone = () => {
         </div>
       </section>
 
-      {/* STICKY MOBILE BOTTOM WHATSAPP BAR (FITTS'S LAW) */}
-      <div className="md:hidden fixed bottom-0 inset-x-0 z-50 bg-[#181512]/95 backdrop-blur-md border-t border-white/15 px-4 py-3 flex items-center justify-between gap-3 shadow-2xl">
-        <div>
-          <div className="text-[11px] font-bold uppercase tracking-wider text-amber-300">
-            Paket Website UMKM
+      {/* STICKY BOTTOM WHATSAPP CTA BAR (VISIBLE ON BOTH MOBILE & DESKTOP SO CTA IS ALWAYS ON SCREEN) */}
+      <div
+        style={{
+          backgroundColor: "rgba(24, 21, 18, 0.96)",
+          color: "#FFFFFF",
+          borderColor: "rgba(255,255,255,0.15)",
+        }}
+        className="fixed bottom-0 inset-x-0 z-50 backdrop-blur-md border-t px-4 py-3 shadow-2xl"
+      >
+        <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
+          <div>
+            <div
+              style={{ color: "#FCD34D" }}
+              className="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider"
+            >
+              PROMO WEBSITE UMKM TERIMA BERES
+            </div>
+            <div className="text-base sm:text-lg font-black leading-tight">
+              Cuma Rp 1 Juta{" "}
+              <span
+                style={{ color: "#D1D5DB" }}
+                className="text-xs sm:text-sm font-normal"
+              >
+                · Sekali Bayar · Tanpa Biaya Bulanan
+              </span>
+            </div>
           </div>
-          <div className="text-base font-black text-white leading-tight">
-            Rp 1 Juta{" "}
-            <span className="text-xs font-normal text-gray-300">
-              · Terima Beres
-            </span>
-          </div>
+          <a
+            href={WA_MAIN}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ backgroundColor: "#22C55E", color: "#052610" }}
+            className="inline-flex items-center gap-2 font-extrabold text-sm sm:text-base px-5 py-3 rounded-xl shrink-0 shadow-md hover:opacity-95 transition"
+          >
+            <Whatsapp size={19} />
+            <span>Pesan via WhatsApp (0813-5478-9375)</span>
+          </a>
         </div>
-        <a
-          href={WA_STARTER}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-[#22C55E] text-[#052610] font-extrabold text-sm px-4 py-3 rounded-xl shrink-0 shadow-md"
-        >
-          <Whatsapp size={18} />
-          <span>Chat WA Sekarang</span>
-        </a>
       </div>
 
       <Footer />
@@ -683,10 +799,10 @@ export default JasaPembuatanWebDIBone;
 export function Head({ location }) {
   return (
     <SEO
-      title={"Jasa Pembuatan Website di Bone & UMKM — Mulai Rp 1 Juta"}
+      title={"Jasa Pembuatan Website UMKM Terima Beres Rp 1 Juta | Zulzidan"}
       pathname={location?.pathname || "/jasa-pembuatan-website-di-bone"}
       description={
-        "Jasa pembuatan website UMKM & bisnis di Bone oleh Zulzidan. Paket Starter UMKM terima beres mulai Rp 1 Juta (sekali bayar, katalog rapi & langsung terhubung ke WhatsApp 0813-5478-9375)."
+        "Jasa pembuatan website UMKM & bisnis terima beres cuma Rp 1 Juta (sekali bayar, tanpa biaya bulanan, langsung terhubung ke WhatsApp 0813-5478-9375)."
       }
     />
   );
