@@ -1,233 +1,492 @@
+"use client";
+
 import React from "react";
-import { Link } from "@/lib/gatsby-compat";
-import { ChatSquareDots, Brush, Cursor, GeoAlt, Shop, Person, Building, ListCheck, Pencil, BarChart, FileEarmarkText, Check, Whatsapp } from 'react-bootstrap-icons';
+import Header from "../components/header";
+import Footer from "../components/footer";
+import { SEO } from "../components/seo";
+import {
+  CheckCircleFill,
+  Whatsapp,
+  BoxArrowUpRight,
+  GeoAltFill,
+  LightningChargeFill,
+  PhoneFill,
+  ShieldCheck,
+} from "react-bootstrap-icons";
 
+const WA_STARTER =
+  "https://api.whatsapp.com/send?phone=6281354789375&text=Halo%20Kak%20Zulzidan%2C%20saya%20tertarik%20Paket%20Starter%20Website%20UMKM%20Rp%201%20Juta.%20Boleh%20lihat%20contoh%20konsep%20untuk%20usaha%20saya%3F";
+const WA_BISNIS =
+  "https://api.whatsapp.com/send?phone=6281354789375&text=Halo%20Kak%20Zulzidan%2C%20saya%20ingin%20konsultasi%20Paket%20Website%20Bisnis%20Multi-Halaman%20(Rp%202%2C5%20Juta).";
+const WA_CUSTOM =
+  "https://api.whatsapp.com/send?phone=6281354789375&text=Halo%20Kak%20Zulzidan%2C%20saya%20ingin%20konsultasi%20pembuatan%20Website%20Custom%20%2F%20Sistem%20Perusahaan.";
 
-import Layout from "../components/layout";
-import FAQ from "../components/faq";
-import { SEO } from '../components/seo';
+const LIVE_DEMOS = [
+  {
+    title: "Swastia Catering",
+    category: "Katering Harian & Nasi Box",
+    image: "/demos/swastia-v3-desktop.jpg",
+    url: "https://swastia-catering-preview.vercel.app/",
+    points: [
+      "Katalog interaktif 4 kategori paket (Lite, Reguler, Family, Nasi Box)",
+      "Kalkulator & form susun pesanan langsung ke WhatsApp Admin",
+    ],
+  },
+  {
+    title: "Wijaya Kusuma Catering",
+    category: "Tumpeng, Nasi Kotak & Hampers",
+    image: "/demos/wijaya-v3-desktop.jpg",
+    url: "https://wijaya-kusuma-catering-preview.vercel.app/",
+    points: [
+      "8 kategori menu lengkap dengan rincian harga per porsi",
+      "Tampilan cerah & ramah HP untuk bio Instagram & Google Maps",
+    ],
+  },
+  {
+    title: "Catering Semarang HQ",
+    category: "Layanan Kuliner & Hantaran Kota",
+    image: "/demos/semarang-v3-desktop.jpg",
+    url: "https://catering-semarang-hq-preview.vercel.app/",
+    points: [
+      "Halaman profil terpadu untuk katering harian, acara, dan oleh-oleh",
+      "Alur konsultasi cepat sekali klik menuju nomor WhatsApp resmi",
+    ],
+  },
+];
 
+const PACKAGES = [
+  {
+    badge: "PALING LARIS UNTUK UMKM",
+    name: "Paket Starter UMKM",
+    price: "Rp 1 Juta",
+    strike: "Rp 2.500.000",
+    period: "Sekali Bayar · Tanpa Biaya Bulanan",
+    highlight: true,
+    description:
+      "Cocok untuk usaha katering, kuliner, klinik, toko, kontraktor, dan jasa lokal yang butuh 1 halaman katalog resmi siap pakai.",
+    features: [
+      "1 Halaman Lengkap (Profil Usaha, Katalog Paket/Harga & Galeri Foto)",
+      "Tombol Pesan Otomatis langsung terhubung ke WhatsApp Admin",
+      "Desain modern, cepat, dan rapi di HP maupun Laptop",
+      "Gratis subdomain (.vercel.app / .my.id) atau bantu sambung domain Anda",
+      "Proses cepat 2–4 hari kerja — bisa lihat contoh demo dulu",
+    ],
+    ctaText: "Pesan Paket Rp 1 Juta via WA",
+    ctaHref: WA_STARTER,
+  },
+  {
+    badge: "UNTUK BISNIS BERKEMBANG",
+    name: "Paket Bisnis Lengkap",
+    price: "Rp 2,5 Juta",
+    strike: "Rp 4.000.000",
+    period: "Sekali Bayar · Termasuk Domain .com Tahun Pertama",
+    highlight: false,
+    description:
+      "Cocok untuk perusahaan lokal, B2B/wholesale, interior, wedding organizer, atau lembaga yang butuh beberapa halaman terpisah.",
+    features: [
+      "Hingga 4–5 Halaman (Beranda, Tentang, Layanan/Katalog, Portofolio, Kontak)",
+      "Gratis Domain .com / .id selama 1 tahun pertama",
+      "Optimasi SEO dasar & penataan link Google Maps / WhatsApp",
+      "Formulir pemesanan atau kalkulator estimasi paket kustom",
+      "Panduan update konten & garansi revisi sampai rapi",
+    ],
+    ctaText: "Konsultasi Paket Bisnis",
+    ctaHref: WA_BISNIS,
+  },
+  {
+    badge: "KORPORAT & SISTEM KHUSUS",
+    name: "Paket Custom & Web App",
+    price: "Mulai Rp 5 Juta",
+    strike: null,
+    period: "Sesuai Kebutuhan Fitur & Integrasi",
+    highlight: false,
+    description:
+      "Untuk organisasi, instansi, startup, atau bisnis yang membutuhkan CMS mandiri, dashboard admin, database, atau alur kerja khusus.",
+    features: [
+      "Arsitektur Next.js / Full-Stack kustom sesuai proses bisnis",
+      "Dashboard Admin / CMS untuk kelola artikel, produk, atau anggota",
+      "Integrasi database, email bisnis, atau API pihak ketiga",
+      "Optimasi performa tinggi, keamanan, dan dukungan teknis lanjutan",
+      "Diskusi langsung (online atau tatap muka di Watampone, Bone)",
+    ],
+    ctaText: "Diskusikan Kebutuhan Custom",
+    ctaHref: WA_CUSTOM,
+  },
+];
 
-const FeatureCard = ({ icon, title, description }) => (
-    <div className="p-4 rounded-lg shadow-lg bg-white text-center flex justify-center  flex-col items-center">
-        {icon}
-        <h3 className="text-xl font-semibold mt-4 mb-2">{title}</h3>
-        <p className="text-gray-600">{description}</p>
-    </div>
-);
-
-
-
-const WebsiteTypeCard = ({ image, title, description }) => (
-    <div className=" flex gap-4 p-6 rounded-lg shadow-lg bg-white">
-        {/* <img src={image} alt={title} className="w-16 h-16 mx-auto mb-4" /> */}
-      <div className="flex flex-col">
-            <h3 className="text-xl font-semibold mb-2">{title}</h3>
-            <p className="text-gray-600">{description}</p>
-      </div>
-    </div>
-);
-
-const BusinessTypeCard = ({ icon, title, description }) => (
-    <div className="p-6 rounded-lg  bg-white ">
-        {icon}
-        <h3 className="text-xl font-semibold mt-4 mb-2">{title}</h3>
-        <p className="text-gray-600">{description}</p>
-    </div>
-);
-
-const StepItem = ({ number, title, description, link, icon }) => {
-    return (
-        <li className="flex relative -left-6 items-start gap-4">
-            <span className="bg-blue-500 p-4 rounded-full text-stone-50">{icon}</span>
-           <div className="flex flex-col gap-1">
-                <h3 className="font-medium leading-tight">{title}</h3>
-                <p className="text-sm">
-                    {description} {link && <a href={link}>{link}</a>}
-                </p>
-           </div>
-        </li>
-    );
-};
-
+const FAQS = [
+  {
+    q: "Apakah benar Paket Starter Rp 1 Juta hanya sekali bayar tanpa biaya bulanan?",
+    a: "Ya, benar. Untuk Paket Starter UMKM Rp 1 Juta menggunakan hosting modern (Vercel) dengan subdomain gratis atau domain .my.id, tidak ada biaya sewa server bulanan. Jika Anda ingin memakai domain .com milik sendiri, Anda cukup memperpanjang domain sekitar Rp180rb–Rp220rb per tahun di tahun berikutnya.",
+  },
+  {
+    q: "Apakah saya bisa melihat contoh tampilan website untuk usaha saya dulu?",
+    a: "Bisa. Kirimkan saja nama usaha, link Instagram/Google Maps, serta daftar menu atau layanan Anda ke WhatsApp 0813-5478-9375. Saya bisa buatkan gambaran pratinjau (preview) awalnya terlebih dahulu.",
+  },
+  {
+    q: "Apa saja yang perlu saya siapkan untuk mulai?",
+    a: "Cukup kirimkan foto-foto produk/layanan yang sudah ada, daftar paket/harga, alamat usaha, dan nomor WhatsApp admin. Susunan kalimat dan kerapian halaman saya bantu bereskan.",
+  },
+  {
+    q: "Apakah bisa konsultasi langsung di Bone?",
+    a: "Sangat bisa. Saya berdomisili di Kabupaten Bone (dan juga melayani klien di seluruh Indonesia secara online). Kita bisa diskusi via WhatsApp maupun ketemu langsung di area Watampone.",
+  },
+];
 
 const JasaPembuatanWebDIBone = () => {
-    
-    return (
-        <Layout>
-            <section className="py-16">
-                <div className="container px-10 md:px-4 mx-auto ">
-                    <div className="flex flex-col gap-4 justify-center items-center">
-                        <h1 className="text-4xl font-semibold text-center mb-0">
-                            Jasa Pembuatan Website di Bone
-                        </h1>
-                        <p className="text-xl text-center ">
-                            Membantu bisnis Anda untuk hadir secara online dengan website berkualitas.
-                        </p>
-                        <a href="https://api.whatsapp.com/send?phone=+6281354789375&text=halo,%20saya%20mau%20buat%20website" className="bg-blue-500 flex gap-4 w-fit  items-center justify-center font-heading font-medium text-stone-50 px-4 py-2 rounded-lg  hover:underline">
-                            Hubungi Kami <Whatsapp />
-                        </a>
-                    </div>
-                    <div className="flex flex-col gap-32">
-                        <div className="space-y-4">
-                            <h2 className="text-2xl font-semibold text-white">Apa yang Kami Tawarkan</h2>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <FeatureCard
-                                    icon={<ChatSquareDots size={36} className="text-blue-500" />}
-                                    title="Jasa Pembuatan Website Profesional"
-                                    description="Website profesional dan responsif."
-                                />
-                                <FeatureCard
-                                    icon={<Brush size={36} className="text-blue-500" />}
-                                    title="Desain Kustom"
-                                    description="Desain kustom sesuai kebutuhan bisnis Anda."
-                                />
-                                <FeatureCard
-                                    icon={<BarChart size={36} className="text-blue-500" />}
-                                    title="Optimisasi SEO"
-                                    description="Optimisasi SEO untuk peringkat lebih baik di mesin pencari."
-                                />
-                                <FeatureCard
-                                    icon={<Cursor size={36} className="text-blue-500" />}
-                                    title="Integrasi Media Sosial"
-                                    description="Integrasi media sosial dan fitur interaktif."
-                                />
-                            </div>
-                        </div>
+  return (
+    <div className="min-h-screen bg-[#FDFBF7] text-[#181512]">
+      <Header />
 
-                        <div className="space-y-4">
-                            <h2 className="text-2xl font-semibold">Jenis Website yang Tersedia</h2>
-                            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                                <WebsiteTypeCard
-                                    image="/image-url-1.jpg"
-                                    title="Website Perusahaan dan Portofolio"
-                                    description="Website perusahaan dan portofolio untuk menampilkan produk dan layanan Anda."
-                                />
-                                <WebsiteTypeCard
-                                    image="/image-url-2.jpg"
-                                    title="Toko Online (E-commerce)"
-                                    description="Toko online untuk menjual produk secara efisien dan meningkatkan penjualan."
-                                />
-                                <WebsiteTypeCard
-                                    image="/image-url-3.jpg"
-                                    title="Blog dan Portal Berita"
-                                    description="Buat blog atau portal berita untuk berbagi informasi dan menjangkau audiens lebih luas."
-                                />
-                                <WebsiteTypeCard
-                                    image="/image-url-4.jpg"
-                                    title="Landing Page Promosi Produk"
-                                    description="Landing page promosi produk untuk memasarkan produk secara efektif."
-                                />
-                            </div>
-                        </div>
+      {/* HERO SECTION */}
+      <section className="pt-12 pb-16 md:pt-20 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div className="inline-flex items-center gap-2 bg-[#181512] text-[#FDFBF7] text-xs sm:text-sm font-bold uppercase tracking-wider px-4 py-2 rounded-full mb-6">
+          <GeoAltFill className="text-amber-400" />
+          <span>Jasa Pembuatan Website Bone & UMKM Indonesia · Zulzidan</span>
+        </div>
 
-                        <div className="space-y-4">
-                            <h2 className="text-2xl font-semibold text-stone-950">Cocok untuk Bisnis Apa Saja</h2>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
-                                <BusinessTypeCard
-                                    icon={<GeoAlt size={36} className="text-blue-500" />}
-                                    title="Bisnis Lokal di Bone"
-                                    description="Cocok untuk bisnis lokal yang ingin meningkatkan kehadiran online di Bone."
-                                />
-                                <BusinessTypeCard
-                                    icon={<Building size={36} className="text-blue-500" />}
-                                    title="Startup dan Perusahaan Skala Besar"
-                                    description="Kami mendukung startup dan perusahaan skala besar untuk tumbuh dan berkembang."
-                                />
-                                <BusinessTypeCard
-                                    icon={<ListCheck size={36} className="text-blue-500" />}
-                                    title="Penyedia Jasa, Toko, dan Industri Lainnya"
-                                    description="Layanan pembuatan website kami sesuai untuk berbagai jenis bisnis, termasuk penyedia jasa, toko, dan industri lainnya."
-                                />
-                            </div>
-                        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-7 space-y-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08] text-[#181512]">
+              Bikin Website Usaha{" "}
+              <span className="text-[#B84A24] italic">Terima Beres</span> Mulai{" "}
+              <span className="underline decoration-amber-400 decoration-4 underline-offset-4">
+                Rp 1 Juta
+              </span>
+              .
+            </h1>
 
-                        <div className="flex flex-col gap-4 relative">
-                            <h2 className="text-2xl font-semibold">Bagaimana Cara Kita Bekerja Sama</h2>
-                            <p>
-                                Proses kerjasama dengan kami adalah sebagai berikut:
-                            </p>
-                            <ol className="flex flex-col gap-4 mb-24 ml-6 border-l-2 border-stone-950 h-[20em] md:border-0 md:grid md:grid-cols-3 md:py-4 md:h-full md:mb-0">
-                                <StepItem
-                                    icon={<Check />}
-                                    number="1"
-                                    title="Step 1"
-                                    description="Hubungi kami melalui WhatsApp di"
-                                    link="https://wa.me/6281354789375"
-                                />
-                                <StepItem icon={<ChatSquareDots />} number="2" title="Step 2" description="Konsultasi kebutuhan dan tujuan website Anda." />
-                                <StepItem icon={<Pencil />} number="3" title="Step 3" description="Perencanaan desain dan pembuatan website." />
-                                <StepItem icon={<BarChart />} number="4" title="Step 4" description="Optimisasi SEO untuk visibilitas online yang lebih baik." />
-                                <StepItem icon={<FileEarmarkText />} number="5" title="Step 5" description="Pengujian dan pelatihan pengguna (jika diperlukan)." />
-                            </ol>
+            <p className="text-lg sm:text-xl text-[#4A433B] leading-relaxed max-w-2xl">
+              Biarkan pelanggan melihat daftar paket, katalog harga, dan galeri
+              produk Anda dengan rapi di 1 link resmi sebelum klik tombol pesan
+              ke WhatsApp Admin. Cocok untuk usaha katering, klinik, kontraktor,
+              toko, dan UMKM di Bone maupun seluruh Indonesia.
+            </p>
 
-                            {/* <ol class="relative text-gray-500 border-l border-gray-200 dark:border-gray-700 dark:text-gray-400">
-                                <li class="mb-10 ml-6">
-                                    <span class="absolute flex items-center justify-center w-8 h-8 bg-green-200 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900">
-                                        <svg class="w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
-                                        </svg>
-                                    </span>
-                                    <h3 class="font-medium leading-tight">Personal Info</h3>
-                                    <p class="text-sm">Step details here</p>
-                                </li>
-                                <li class="mb-10 ml-6">
-                                    <span class="absolute flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-gray-700">
-                                        <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                                            <path d="M18 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z" />
-                                        </svg>
-                                    </span>
-                                    <h3 class="font-medium leading-tight">Account Info</h3>
-                                    <p class="text-sm">Step details here</p>
-                                </li>
-                                <li class="mb-10 ml-6">
-                                    <span class="absolute flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-gray-700">
-                                        <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                                            <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z" />
-                                        </svg>
-                                    </span>
-                                    <h3 class="font-medium leading-tight">Review</h3>
-                                    <p class="text-sm">Step details here</p>
-                                </li>
-                                <li class="ml-6">
-                                    <span class="absolute flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full -left-4 ring-4 ring-white dark:ring-gray-900 dark:bg-gray-700">
-                                        <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                                            <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM7 2h4v3H7V2Zm5.7 8.289-3.975 3.857a1 1 0 0 1-1.393 0L5.3 12.182a1.002 1.002 0 1 1 1.4-1.436l1.328 1.289 3.28-3.181a1 1 0 1 1 1.392 1.435Z" />
-                                        </svg>
-                                    </span>
-                                    <h3 class="font-medium leading-tight">Confirmation</h3>
-                                    <p class="text-sm">Step details here</p>
-                                </li>
-                            </ol> */}
+            <div className="flex flex-wrap gap-4 pt-2">
+              <a
+                href={WA_STARTER}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-[#16A34A] hover:bg-[#15803D] text-white font-bold text-base sm:text-lg px-7 py-4 rounded-xl shadow-lg transition"
+              >
+                <Whatsapp size={22} />
+                <span>Chat WhatsApp: 0813-5478-9375</span>
+              </a>
+              <a
+                href="#contoh-demo"
+                className="inline-flex items-center gap-2 bg-white hover:bg-[#F5EFE2] text-[#181512] border-2 border-[#E2D9C5] font-bold text-base sm:text-lg px-6 py-4 rounded-xl transition"
+              >
+                <span>Lihat Contoh Demo Live</span>
+              </a>
+            </div>
 
-                        </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 text-sm font-semibold text-[#3B342C]">
+              <div className="flex items-center gap-2">
+                <LightningChargeFill className="text-[#B84A24] shrink-0" />
+                <span>Selesai 2–4 Hari Kerja</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="text-[#16A34A] shrink-0" />
+                <span>Sekali Bayar (Tanpa Bulanan)</span>
+              </div>
+              <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
+                <PhoneFill className="text-[#181512] shrink-0" />
+                <span>Langsung Nyambung ke WA</span>
+              </div>
+            </div>
+          </div>
 
-                        <FAQ/>
+          {/* RIGHT PRICE HIGHLIGHT CARD */}
+          <div className="lg:col-span-5">
+            <div className="bg-[#181512] text-white rounded-3xl p-7 sm:p-8 shadow-2xl border-2 border-[#332C25]">
+              <div className="inline-block bg-amber-400/20 text-amber-300 text-xs font-extrabold uppercase tracking-widest px-3 py-1 rounded-full">
+                PROMO PAKET STARTER UMKM
+              </div>
+              <div className="mt-4 flex items-baseline gap-3">
+                <span className="text-4xl sm:text-5xl font-black text-green-400">
+                  Rp 1.000.000
+                </span>
+                <span className="text-base text-gray-400 line-through">
+                  Rp 2.500.000
+                </span>
+              </div>
+              <p className="text-sm text-gray-300 mt-1 font-medium">
+                Sekali bayar · Terima beres · Bisa lihat contoh konsepnya dulu
+              </p>
 
-                      
-                        <div className="text-center mt-10 flex-col flex justify-center items-center">
-                            <h3 className="text-3xl font-heading font-bold py-4">Siap untuk memulai proyek website Anda?</h3>
-                            <a href="https://api.whatsapp.com/send?phone=+6281354789375&text=halo,%20saya%20mau%20buat%20website" className="bg-blue-500 flex gap-4 w-fit  items-center justify-center font-heading font-medium text-stone-50 px-4 py-2 rounded-lg  hover:underline">
-                                Hubungi Kami <Whatsapp /> 
-                            </a>
-                        </div>
-                    </div>
+              <hr className="border-white/15 my-6" />
+
+              <ul className="space-y-3 text-sm sm:text-base text-gray-100">
+                <li className="flex items-start gap-3">
+                  <CheckCircleFill className="text-green-400 mt-1 shrink-0" />
+                  <span>
+                    <strong>1 Halaman Lengkap:</strong> Profil Usaha, Katalog
+                    Paket & Harga, Galeri Foto, Alamat/Maps
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircleFill className="text-green-400 mt-1 shrink-0" />
+                  <span>
+                    <strong>Tombol Order WhatsApp:</strong> Pelanggan tinggal
+                    pilih paket & kirim format chat otomatis
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircleFill className="text-green-400 mt-1 shrink-0" />
+                  <span>
+                    <strong>Rapi di HP & Laptop:</strong> Siap dipasang di bio
+                    Instagram, TikTok & Google Maps
+                  </span>
+                </li>
+              </ul>
+
+              <a
+                href={WA_STARTER}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-7 w-full inline-flex items-center justify-center gap-2 bg-[#22C55E] hover:bg-[#16A34A] text-[#052610] font-extrabold text-base py-4 px-6 rounded-xl transition"
+              >
+                <Whatsapp size={20} />
+                <span>Tanya / Minta Contoh Demo via WA</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* LIVE DEMO SHOWCASE */}
+      <section
+        id="contoh-demo"
+        className="py-16 bg-[#F5EFE2] border-y border-[#E2D9C5] px-4 sm:px-6 lg:px-8"
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-3xl mb-10">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#B84A24]">
+              CONTOH HASIL KERJA LIVE
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#181512] mt-2">
+              Klik & Coba Langsung Contoh Website Katalog UMKM
+            </h2>
+            <p className="text-[#4A433B] mt-2 text-base sm:text-lg">
+              Bukan sekadar gambar—Anda bisa membuka contoh website di bawah ini
+              untuk merasakan langsung tampilan katalog harga dan tombol
+              pemesanan WhatsApp-nya.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+            {LIVE_DEMOS.map((demo) => (
+              <div
+                key={demo.title}
+                className="bg-white rounded-2xl border border-[#E2D9C5] overflow-hidden shadow-md flex flex-col justify-between"
+              >
+                <div>
+                  <div className="aspect-[16/10] bg-[#EAE2D0] overflow-hidden border-b border-[#E2D9C5]">
+                    <img
+                      src={demo.image}
+                      alt={demo.title}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#B84A24]">
+                      {demo.category}
+                    </span>
+                    <h3 className="text-xl font-extrabold text-[#181512] mt-1">
+                      {demo.title}
+                    </h3>
+                    <ul className="mt-4 space-y-2 text-sm text-[#4A433B]">
+                      {demo.points.map((pt, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <CheckCircleFill className="text-[#16A34A] mt-1 shrink-0" />
+                          <span>{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-            </section>
-        </Layout>
-    );
+                <div className="px-6 pb-6">
+                  <a
+                    href={demo.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-[#181512] hover:bg-[#332C25] text-white font-bold text-sm py-3 px-4 rounded-xl transition"
+                  >
+                    <span>Buka Demo Live</span>
+                    <BoxArrowUpRight size={14} />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING TIERS */}
+      <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#B84A24]">
+            PILIHAN PAKET TRANSPARAN
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#181512] mt-2">
+            Sesuaikan dengan Skala Usaha Anda
+          </h2>
+          <p className="text-[#4A433B] mt-3 text-base sm:text-lg">
+            Mulai dari landing page katalog UMKM Rp 1 Juta hingga website
+            perusahaan multi-halaman dan sistem kustom.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-7 items-stretch">
+          {PACKAGES.map((pkg) => (
+            <div
+              key={pkg.name}
+              className={`rounded-3xl p-7 sm:p-8 flex flex-col justify-between border-2 ${
+                pkg.highlight
+                  ? "bg-[#181512] text-white border-[#181512] shadow-2xl"
+                  : "bg-white text-[#181512] border-[#E2D9C5] shadow-sm"
+              }`}
+            >
+              <div>
+                <span
+                  className={`inline-block text-xs font-extrabold uppercase tracking-wider px-3 py-1 rounded-full ${
+                    pkg.highlight
+                      ? "bg-amber-400/20 text-amber-300"
+                      : "bg-[#F5EFE2] text-[#B84A24]"
+                  }`}
+                >
+                  {pkg.badge}
+                </span>
+                <h3 className="text-2xl font-extrabold mt-4">{pkg.name}</h3>
+                <div className="mt-3 flex items-baseline gap-3">
+                  <span
+                    className={`text-4xl font-black ${
+                      pkg.highlight ? "text-green-400" : "text-[#181512]"
+                    }`}
+                  >
+                    {pkg.price}
+                  </span>
+                  {pkg.strike && (
+                    <span className="text-sm line-through opacity-60">
+                      {pkg.strike}
+                    </span>
+                  )}
+                </div>
+                <p
+                  className={`text-xs font-semibold mt-1 ${
+                    pkg.highlight ? "text-gray-300" : "text-[#635A50]"
+                  }`}
+                >
+                  {pkg.period}
+                </p>
+                <p
+                  className={`text-sm mt-4 leading-relaxed ${
+                    pkg.highlight ? "text-gray-200" : "text-[#4A433B]"
+                  }`}
+                >
+                  {pkg.description}
+                </p>
+
+                <hr
+                  className={`my-6 ${
+                    pkg.highlight ? "border-white/15" : "border-[#E6DEC8]"
+                  }`}
+                />
+
+                <ul className="space-y-3 text-sm">
+                  {pkg.features.map((f, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <CheckCircleFill
+                        className={`mt-1 shrink-0 ${
+                          pkg.highlight ? "text-green-400" : "text-[#16A34A]"
+                        }`}
+                      />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <a
+                href={pkg.ctaHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`mt-8 w-full inline-flex items-center justify-center gap-2 font-extrabold text-sm sm:text-base py-4 px-5 rounded-xl transition ${
+                  pkg.highlight
+                    ? "bg-[#22C55E] hover:bg-[#16A34A] text-[#052610]"
+                    : "bg-[#181512] hover:bg-[#332C25] text-white"
+                }`}
+              >
+                <Whatsapp size={18} />
+                <span>{pkg.ctaText}</span>
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ SECTION */}
+      <section className="py-16 bg-white border-t border-[#E2D9C5] px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#181512] text-center mb-10">
+            Pertanyaan yang Sering Ditanyakan (FAQ)
+          </h2>
+          <div className="space-y-4">
+            {FAQS.map((item, i) => (
+              <div
+                key={i}
+                className="bg-[#FDFBF7] border border-[#E2D9C5] rounded-2xl p-6"
+              >
+                <h3 className="text-lg font-extrabold text-[#181512]">
+                  {item.q}
+                </h3>
+                <p className="text-sm sm:text-base text-[#4A433B] mt-2 leading-relaxed">
+                  {item.a}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* BOTTOM CTA BOX */}
+          <div className="mt-12 bg-[#181512] text-white rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold">
+                Mau lihat contoh tampilan untuk usaha Anda?
+              </h3>
+              <p className="text-gray-300 mt-2 text-sm sm:text-base">
+                Chat langsung dengan Zulzidan di WhatsApp 0813-5478-9375 —
+                konsultasi gratis tanpa komitmen.
+              </p>
+            </div>
+            <a
+              href={WA_STARTER}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 inline-flex items-center gap-3 bg-[#22C55E] hover:bg-[#16A34A] text-[#052610] font-extrabold text-base sm:text-lg px-7 py-4 rounded-xl transition"
+            >
+              <Whatsapp size={22} />
+              <span>Chat 0813-5478-9375</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
 };
 
 export default JasaPembuatanWebDIBone;
 
 export function Head({ location }) {
-    return (
-        <SEO
-            title={"Jasa Pembuatan Website di Bone"}
-            pathname={location.pathname}
-            description={
-                "Zulzidan adalah penyedia jasa pembuatan website di Bone, dengan fokus pada desain kustom, optimisasi SEO, dan banyak fitur lainnya untuk meningkatkan kehadiran bisnis Anda secara online."
-            }
-        />
-    );
+  return (
+    <SEO
+      title={"Jasa Pembuatan Website di Bone & UMKM — Mulai Rp 1 Juta"}
+      pathname={location?.pathname || "/jasa-pembuatan-website-di-bone"}
+      description={
+        "Jasa pembuatan website UMKM & bisnis di Bone oleh Zulzidan. Paket Starter UMKM terima beres mulai Rp 1 Juta (sekali bayar, katalog rapi & langsung terhubung ke WhatsApp 0813-5478-9375)."
+      }
+    />
+  );
 }
