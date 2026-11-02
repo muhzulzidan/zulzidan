@@ -135,8 +135,8 @@ const FAQS = [
 
 const JasaPembuatanWebDIBone = () => {
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#181512]">
-      <Header />
+    <div className="min-h-screen bg-[#FDFBF7] text-[#181512] overflow-x-hidden">
+      <Header landingPage={true} />
 
       {/* HERO SECTION */}
       <section className="pt-12 pb-16 md:pt-20 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
@@ -203,12 +203,12 @@ const JasaPembuatanWebDIBone = () => {
               <div className="inline-block bg-amber-400/20 text-amber-300 text-xs font-extrabold uppercase tracking-widest px-3 py-1 rounded-full">
                 PROMO PAKET STARTER UMKM
               </div>
-              <div className="mt-4 flex items-baseline gap-3">
-                <span className="text-4xl sm:text-5xl font-black text-green-400">
-                  Rp 1.000.000
+              <div className="mt-4 flex flex-wrap items-baseline gap-3">
+                <span className="text-4xl sm:text-5xl font-black text-green-400 whitespace-nowrap">
+                  Rp 1 Juta
                 </span>
-                <span className="text-base text-gray-400 line-through">
-                  Rp 2.500.000
+                <span className="text-base text-gray-400 line-through whitespace-nowrap">
+                  Normal Rp 2.500.000
                 </span>
               </div>
               <p className="text-sm text-gray-300 mt-1 font-medium">
