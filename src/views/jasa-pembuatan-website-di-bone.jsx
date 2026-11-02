@@ -36,32 +36,62 @@ const FIVERR_URL = "https://www.fiverr.com/muhzulzidan?public_mode=true";
 const LIVE_DEMOS = [
   {
     title: "Swastia Catering",
-    category: "Katering Harian & Nasi Box",
+    category: "Kuliner · Katering & Nasi Box",
     image: "/demos/swastia-v3-desktop.jpg",
     url: "https://swastia-catering-preview.vercel.app/",
     points: [
-      "Katalog interaktif 4 kategori paket (Lite, Reguler, Family, Nasi Box)",
-      "Kalkulator & form susun pesanan langsung ke WhatsApp Admin",
+      "Tema cerah & hangat dengan 4 tab pilihan paket (Lite, Reguler, Family, Nasi Box)",
+      "Kalkulator & form susun pesanan langsung terhubung ke WhatsApp Admin",
     ],
   },
   {
-    title: "Wijaya Kusuma Catering",
-    category: "Tumpeng, Nasi Kotak & Hampers",
-    image: "/demos/wijaya-v3-desktop.jpg",
-    url: "https://wijaya-kusuma-catering-preview.vercel.app/",
+    title: "Ratu Interior (Gowa – Makassar)",
+    category: "Interior · Eksterior & Kontraktor",
+    image: "/demos/demo-ratu-interior.jpg",
+    url: "https://ratu-interior-concept.vercel.app/",
     points: [
-      "8 kategori menu lengkap dengan rincian harga per porsi",
-      "Tampilan cerah & ramah HP untuk bio Instagram & Google Maps",
+      "Desain arsitektur elegan (Dark & Gold Editorial) untuk kontraktor & custom furniture",
+      "Galeri portofolio ruang & alur konsultasi survei lokasi via WhatsApp",
     ],
   },
   {
-    title: "Catering Semarang HQ",
-    category: "Layanan Kuliner & Hantaran Kota",
-    image: "/demos/semarang-v3-desktop.jpg",
-    url: "https://catering-semarang-hq-preview.vercel.app/",
+    title: "MAMU · PT Tigalapan Sukses",
+    category: "Fashion · Konveksi & Grosir B2B",
+    image: "/demos/demo-tigalapan.jpg",
+    url: "https://tigalapan-sukses-preview.vercel.app/",
     points: [
-      "Halaman profil terpadu untuk katering harian, acara, dan oleh-oleh",
-      "Alur konsultasi cepat sekali klik menuju nomor WhatsApp resmi",
+      "Katalog retail & B2B grosir (10 cabang Sulawesi & Kaltim) + panduan ukuran",
+      "Dilengkapi fitur simulasi mockup sablon kustom & cek stok cabang",
+    ],
+  },
+  {
+    title: "Amazing Insight",
+    category: "Konsultan · Kelas & Layanan Bisnis",
+    image: "/demos/demo-zoominar.jpg",
+    url: "https://amazing-insight-zoominar.vercel.app/",
+    points: [
+      "Gaya visual modern (Swiss Grid) untuk lembaga pelatihan, agensi & konsultan",
+      "Struktur layanan jelas (Meta Ads, Content, CRM, Training) + pendaftaran kelas",
+    ],
+  },
+  {
+    title: "Yang Terdekat Production",
+    category: "Studio Kreatif · Foto & Videografi",
+    image: "/demos/demo-ceritaapip.jpg",
+    url: "https://ceritaapip.vercel.app/",
+    points: [
+      "Tampilan sinematik kontras tinggi dengan pemutar video showreel langsung",
+      "Cocok untuk vendor dokumentasi, wedding, maupun production house",
+    ],
+  },
+  {
+    title: "Ponpes Villa Tahfizh Himmatul Quran",
+    category: "Lembaga Pendidikan · Pesantren & Yayasan",
+    image: "/demos/demo-vthq.jpg",
+    url: "https://www.vthq.or.id/",
+    points: [
+      "Portal resmi lembaga di Malino dengan info pendaftaran santri & program akademik",
+      "Dilengkapi halaman artikel, dokumentasi kegiatan, dan profil pimpinan",
     ],
   },
 ];
@@ -253,7 +283,10 @@ const JasaPembuatanWebDIBone = () => {
 
           {/* RIGHT PRICE HIGHLIGHT CARD */}
           <div className="lg:col-span-5">
-            <div className="bg-[#181512] text-white rounded-3xl p-7 sm:p-8 shadow-2xl border-2 border-[#332C25]">
+            <div
+              style={{ backgroundColor: "#181512", color: "#FFFFFF" }}
+              className="bg-[#181512] text-white rounded-3xl p-7 sm:p-8 shadow-2xl border-2 border-[#332C25]"
+            >
               <div className="inline-block bg-amber-400/20 text-amber-300 text-xs font-extrabold uppercase tracking-widest px-3 py-1 rounded-full">
                 PROMO PAKET STARTER UMKM
               </div>
@@ -317,19 +350,19 @@ const JasaPembuatanWebDIBone = () => {
         <div className="max-w-6xl mx-auto">
           <div className="max-w-3xl mb-10">
             <span className="text-xs font-extrabold uppercase tracking-widest text-[#B84A24]">
-              CONTOH HASIL KERJA LIVE
+              CONTOH HASIL KERJA LIVE (6 INDUSTRI BERBEDA)
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#181512] mt-2">
-              Klik & Coba Langsung Contoh Website Katalog UMKM
+              Desain Menyesuaikan Karakter Bisnis Anda — Klik untuk Coba Live
             </h2>
             <p className="text-[#4A433B] mt-2 text-base sm:text-lg">
-              Bukan sekadar gambar—Anda bisa membuka contoh website di bawah ini
-              untuk merasakan langsung tampilan katalog harga dan tombol
-              pemesanan WhatsApp-nya.
+              Setiap jenis usaha membutuhkan nuansa desain yang berbeda. Kuliner
+              tampil hangat & menggugah selera, interior tampil elegan, hingga
+              konveksi dan lembaga pendidikan yang rapi & terpercaya.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
             {LIVE_DEMOS.map((demo) => (
               <div
                 key={demo.title}
@@ -365,7 +398,8 @@ const JasaPembuatanWebDIBone = () => {
                     href={demo.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-[#181512] hover:bg-[#332C25] text-white font-bold text-sm py-3 px-4 rounded-xl transition"
+                    style={{ backgroundColor: "#181512", color: "#FFFFFF" }}
+                    className="w-full inline-flex items-center justify-center gap-2 hover:opacity-90 font-bold text-sm py-3.5 px-4 rounded-xl transition shadow-sm"
                   >
                     <span>Buka Demo Live</span>
                     <BoxArrowUpRight size={14} />
@@ -466,6 +500,11 @@ const JasaPembuatanWebDIBone = () => {
                 href={pkg.ctaHref}
                 target="_blank"
                 rel="noopener noreferrer"
+                style={
+                  pkg.highlight
+                    ? { backgroundColor: "#22C55E", color: "#052610" }
+                    : { backgroundColor: "#181512", color: "#FFFFFF" }
+                }
                 className={`mt-8 w-full inline-flex items-center justify-center gap-2 font-extrabold text-sm sm:text-base py-4 px-5 rounded-xl transition ${
                   pkg.highlight
                     ? "bg-[#22C55E] hover:bg-[#16A34A] text-[#052610]"
