@@ -22,7 +22,7 @@ export default function WaitlistPage() {
         <nav aria-label="Main navigation">
           <a href="#the-work">The work</a><a href="#how-it-works">How it works</a><a href="#questions">Questions</a>
         </nav>
-        <a className={styles.headerCta} href="#apply">Join the waitlist <ArrowUpRight size={16} aria-hidden="true" /></a>
+        <a className={styles.headerCta} href="#apply">Request a starter website <ArrowUpRight size={16} aria-hidden="true" /></a>
       </header>
 
       <main id="main">
@@ -31,7 +31,7 @@ export default function WaitlistPage() {
             <p className={styles.eyebrow}><span /> The free website program</p>
             <h1 id="hero-title">Your next website.<br /><em>Built for free.</em></h1>
             <p className={styles.lead}>You do good work. Let’s give it a proper home online. I build focused, professional websites for selected service businesses—without a build fee.</p>
-            <a className={styles.button} href="#apply">Apply for a free website <ArrowUpRight size={20} aria-hidden="true" /></a>
+            <a className={styles.button} href="#apply">Request a free starter website <ArrowUpRight size={20} aria-hidden="true" /></a>
             <p className={styles.heroNote}>One page. Your brand. A clear next step for your customers.</p>
           </div>
           <aside className={styles.offer} aria-label="Offer at a glance">
@@ -80,7 +80,7 @@ export default function WaitlistPage() {
         </section>
 
         <section className={styles.application} id="apply" aria-labelledby="apply-title">
-          <div className={styles.applicationIntro}><p className={styles.eyebrow}>04 / Make an introduction</p><h2 id="apply-title">Let’s put your<br /><em>business out there.</em></h2><p>Tell me a little about your business and the website you have in mind. I read the applications myself.</p><div className={styles.applicationNote}><strong>A waitlist, with a clear promise.</strong><p>Applying is free. Selection depends on fit and capacity, and isn’t guaranteed. You won’t be charged or added to a newsletter by joining.</p></div><a className={styles.textLink} href="mailto:mail@zulzidan.com">A question before you apply? <ArrowUpRight size={16} aria-hidden="true" /></a></div>
+          <div className={styles.applicationIntro}><p className={styles.eyebrow}>04 / Make an introduction</p><h2 id="apply-title">Let’s put your<br /><em>business out there.</em></h2><p>Tell me a little about your business and the website you have in mind. I read the requests myself.</p><div className={styles.applicationNote}><strong>Start with a conversation.</strong><p>I review each request for scope and availability. If we’re a fit, we’ll agree on the details together. There’s no payment or newsletter signup when you reach out.</p></div><a className={styles.textLink} href="mailto:mail@zulzidan.com">A question before you start? <ArrowUpRight size={16} aria-hidden="true" /></a></div>
           <WaitlistForm enabled={Boolean(process.env.LEADS_DATABASE_URL && process.env.ADMIN_SESSION_SECRET)} />
         </section>
 

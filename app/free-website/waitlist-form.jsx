@@ -37,12 +37,12 @@ export default function WaitlistForm({ enabled }) {
 
   if (!enabled) {
     const emailBody = "Your name:\nBusiness name:\nCountry:\nWebsite or social profile (optional):\n\nWhat do you offer, and what would you like your website to do?\n\nWho introduced you, or where did you find this? (optional):\n\nI understand this is an application, selection is not guaranteed, and domain, hosting, and paid tools are separate. I agree to be contacted about this application.";
-    return <div className={styles.success}><p className={styles.eyebrow}>Make an introduction</p><h3>Apply by email.</h3><p>Applications are currently handled by email. Tell me your name, business, country, and what you’d like your website to do. Include your current website or social profile if you have one.</p><a className={styles.button} href={`mailto:mail@zulzidan.com?subject=${encodeURIComponent("Free website application")}&body=${encodeURIComponent(emailBody)}`}>Email your application <ArrowUpRight size={20} aria-hidden="true" /></a><p className={styles.formNote}>Your email app will open. Review your message and send it to apply. <Link href="/privacy/">Privacy details</Link>.</p></div>;
+    return <div className={styles.success}><p className={styles.eyebrow}>Make an introduction</p><h3>Start with an email.</h3><p>Requests are currently handled by email. Tell me your name, business, country, and what you’d like your website to do. Include your current website or social profile if you have one.</p><a className={styles.button} href={`mailto:mail@zulzidan.com?subject=${encodeURIComponent("Free website application")}&body=${encodeURIComponent(emailBody)}`}>Request a free starter website <ArrowUpRight size={20} aria-hidden="true" /></a><p className={styles.formNote}>Your email app will open. Review your message and send it to apply. <Link href="/privacy/">Privacy details</Link>.</p></div>;
   }
 
-  if (received) return <div className={styles.success} tabIndex={-1} ref={successRef} role="status"><CheckCircle2 size={36} strokeWidth={1.5} aria-hidden="true" /><p className={styles.eyebrow}>Application received</p><h3>You’re on the list.</h3><p>Thanks for introducing your business. I’ll review your application and contact you by email if there’s a fit and capacity for your project.</p><p>Joining doesn’t guarantee selection or a launch date. There’s nothing to pay and no further step required right now.</p><a className={styles.textLink} href="mailto:mail@zulzidan.com">Need to add something? Email me <ArrowUpRight size={16} aria-hidden="true" /></a></div>;
+  if (received) return <div className={styles.success} tabIndex={-1} ref={successRef} role="status"><CheckCircle2 size={36} strokeWidth={1.5} aria-hidden="true" /><p className={styles.eyebrow}>Application received</p><h3>Thanks for reaching out.</h3><p>Thanks for introducing your business. I’ll review your application and contact you by email if there’s a fit and capacity for your project.</p><p>Joining doesn’t guarantee selection or a launch date. There’s nothing to pay and no further step required right now.</p><a className={styles.textLink} href="mailto:mail@zulzidan.com">Need to add something? Email me <ArrowUpRight size={16} aria-hidden="true" /></a></div>;
 
-  return <form className={styles.form} onSubmit={submit} aria-busy={busy} aria-label="Free website application">
+  return <form className={styles.form} onSubmit={submit} aria-busy={busy} aria-label="Free starter website request">
     <fieldset disabled={busy}>
       <legend className={styles.formTitle}>Your business. Your next step.</legend>
       <div className={styles.fieldRow}><label>Your name<input name="name" autoComplete="name" maxLength={120} required /></label><label>Email address<input name="email" autoComplete="email" type="email" maxLength={254} required /></label></div>
@@ -54,7 +54,7 @@ export default function WaitlistForm({ enabled }) {
       <div className={styles.honeypot} aria-hidden="true"><label>Leave this field empty<input name="companyWebsite" autoComplete="off" tabIndex={-1} /></label></div>
       <label className={styles.consent}><input name="consent" type="checkbox" required /><span>I understand this is an application, and agree to be contacted about it. Domain and any hosting or paid tools are separate. <Link href="/privacy/">Privacy details</Link>.</span></label>
       {error && <p className={styles.error} role="alert">{error}</p>}
-      <button className={styles.button} type="submit" disabled={busy}>{busy ? "Saving your application…" : "Join the free website waitlist"}{!busy && <ArrowUpRight size={20} aria-hidden="true" />}</button>
+      <button className={styles.button} type="submit" disabled={busy}>{busy ? "Saving your application…" : "Request a free starter website"}{!busy && <ArrowUpRight size={20} aria-hidden="true" />}</button>
       <p className={styles.formNote}>No payment details. No required subscription. No newsletter signup.</p>
     </fieldset>
   </form>;

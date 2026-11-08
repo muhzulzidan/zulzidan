@@ -39,7 +39,7 @@ The administrator can sign in at `/admin/login/` and view project enquiries at `
 
 ## Free website waitlist
 
-The homepage and `/free-website/` accept applications for the free one-page website program. Set the server-only `LEADS_DATABASE_URL` to the shared Zulzidan Leads Postgres database and run `npm run db:migrate:waitlist`. New applicants appear as pro bono collaborations in the tracker; existing contacts are linked without overwriting their records. Review applications, record referral outcomes, and export CSV at `/admin/waitlist/` with the existing admin login.
+The homepage showcases selected client work and an interactive demo. `/free-website/` accepts requests for the free one-page website program. Set the server-only `LEADS_DATABASE_URL` to the shared Zulzidan Leads Postgres database and run `npm run db:migrate:waitlist`. New applicants appear as pro bono collaborations in the tracker; existing contacts are linked without overwriting their records. Review applications, record referral outcomes, and export CSV at `/admin/waitlist/` with the existing admin login.
 
 Without the waitlist environment settings at build time, visitors can apply through a prefilled email link. Those email applications need manual entry in the tracker. Configure the settings and redeploy to enable automatic capture. See [funnel setup, measurement, and verification](docs/waitlist-funnel.md). No confirmation email or outreach is sent automatically.
 

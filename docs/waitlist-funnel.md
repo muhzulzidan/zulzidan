@@ -1,6 +1,6 @@
 # Free website application funnel
 
-The homepage and `/free-website/` introduce a free one-page website program for international service businesses. Existing portfolio, blog, paid services, and enquiry routes remain available. The public offer has no development fee or required subscription; domain, hosting, and optional paid tools are separate, agreed costs. Selection and delivery dates are not guaranteed.
+The homepage is a visual portfolio for international and Indonesian prospects, with TASFRL in Texas, selected client websites, and a clearly labeled interactive concept. The free one-page website program lives at `/free-website/`, linked by the homepage's “Request a free starter website” action. Existing portfolio, blog, paid services, and enquiry routes remain available. The program has no development fee or required subscription; domain, hosting, and optional paid tools are separate, agreed costs. Selection and delivery dates are not guaranteed.
 
 ## Application storage and review
 
@@ -20,10 +20,10 @@ Application statuses: New → Reviewing → Waitlisted or Selected → Building 
 
 ## Acquisition and measurement
 
-Use the homepage as the common destination, or `/free-website/` as a dedicated campaign URL. Example:
+Use the homepage to share examples of the work. Send free-program campaign traffic directly to `/free-website/` so the form receives its UTM parameters. Example:
 
 ```text
-https://zulzidan.com/?utm_source=instagram&utm_medium=paid_social&utm_campaign=free_website
+https://zulzidan.com/free-website/?utm_source=instagram&utm_medium=paid_social&utm_campaign=free_website
 https://zulzidan.com/free-website/?utm_source=webinar&utm_medium=event&utm_campaign=free_website
 ```
 
@@ -40,6 +40,8 @@ Applications and exports require the existing admin session. CSV cells are quote
 Zulzidan supplied Ayom Satrio and Iksan Bangsawan as examples of free work leading to projects through their clients. The landing page attributes that experience to Zulzidan without inventing referral counts, revenue, testimonials, or endorsements. Their public URLs were checked on 31 October 2026. The Ayom image is the existing portfolio asset from `tmp/contentful-work-thumbnails/ayomsatrio-editorial-cover-v2.png`, copied into `public/work/`; it depicts selected prior work rather than claiming to be a current screenshot. The existing SVG wordmark is retained in `public/wordmark.svg`.
 
 Generate the matching social card with `node scripts/generate-waitlist-card.mjs`.
+
+The portfolio homepage uses local WebP versions of the existing TASFRL and MOOI portfolio covers, alongside Ayom's existing preview and the existing 3D demo thumbnail. Its social preview is generated with `node scripts/generate-portfolio-card.mjs`. Client work and the concept demo are labeled separately. The English services section restores the `/#services` destination used by the portfolio navigation. English editorial translations for the four older case studies are shared by the listing, detail pages, and metadata through `src/lib/work-copy.mjs`.
 
 ## Verification and publication
 

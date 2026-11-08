@@ -1,4 +1,5 @@
 import "server-only";
+import { localizeWork } from "./work-copy.mjs";
 
 const API_HOST = "https://cdn.contentful.com";
 const environment = process.env.CONTENTFUL_ENVIRONMENT || "master";
@@ -141,7 +142,7 @@ function excerptFromDocument(document, maxLength = 150) {
 
 function normalizeWork(item, maps, dateStyle = "short") {
   const fields = item.fields || {};
-  return {
+  return localizeWork({
     title: fields.title || "Untitled",
     slug: fields.slug || item.sys.id,
     description: { description: fields.description || "" },
@@ -149,7 +150,7 @@ function normalizeWork(item, maps, dateStyle = "short") {
     date: formatDate(fields.date || item.sys.createdAt, dateStyle),
     client: fields.client || "",
     url: fields.url || "",
-  };
+  });
 }
 
 export async function getBlogs() {
